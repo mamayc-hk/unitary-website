@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於 — UNITARY</title>
+    <meta name="description" content="關於 UNITARY——一個香港木工嘅 3D 打印桌遊 side project。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="UNITARY" class="logo-image" width="140" height="40" loading="lazy"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="projects.html">項目</a></li>
+                <li><a href="devlog.html">開發日誌</a></li>
+                <li><a href="about.html" class="active">關於</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label fade-in">關於</div>
+            <h1 class="page-title fade-in-up">一個香港木工嘅 side project</h1>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="about-main">
+                <div class="about-text fade-in-up">
+                    <p>我叫 Herry，日頭喺 <a href="https://doshawood.com/" target="_blank">DOSHA woodcraft</a> 做木工（社企，回收木升級再造），夜晚喺旺角桌遊店打工，其餘時間設計 3D 打印 game。</p>
+                    <p>UNITARY 係我嘅 side project。我鍾意桌遊、鍾意 3D 打印、鍾意香港。呢個 project 就係將呢三樣嘢 combine 埋一齊。</p>
+                    <p>我嘅目標好簡單：<strong>Design once. Print forever.</strong> 設計一次，開放 STL 俾大家免費/低成本下載，自己印、自己玩。</p>
+                    <p>我唔係大公司，就一個人一部 3D printer。但正因為咁，我可以試多啲奇怪嘅 ideas，唔驚失敗。</p>
+                </div>
+                <div class="about-contact fade-in-up delay-1">
+                    <h3>聯絡</h3>
+                    <p>Email: <a href="mailto:unitary.hk@gmail.com">unitary.hk@gmail.com</a></p>
+                    <p>IG: <a href="https://instagram.com/unitary.hk" target="_blank">@unitary.hk</a></p>
+                    <p>STL: 即將上架 Cults3D / Printables</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p>UNITARY<br><span class="footer-tagline">香港原創 3D 打印桌遊</span></p>
+                </div>
+                <div class="footer-links">
+                    <a href="projects.html">項目</a>
+                    <a href="devlog.html">開發日誌</a>
+                    <a href="about.html">關於</a>
+                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 UNITARY. STL 以 CC BY-NC-SA 4.0 授權</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
+        document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
+            new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.1 }).observe(el);
+        });
+        window.addEventListener('scroll', () => document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50));
+    </script>
+</body>
+</html>

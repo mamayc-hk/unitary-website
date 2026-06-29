@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>項目 — UNITARY</title>
+    <meta name="description" content="UNITARY 嘅遊戲項目。SKYLINE：香港天台、卡磚保護框、Splendor 收納盒。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="UNITARY" class="logo-image" width="140" height="40" loading="lazy">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="projects.html" class="active">項目</a></li>
+                <li><a href="devlog.html">開發日誌</a></li>
+                <li><a href="about.html">關於</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label fade-in">項目</div>
+            <h1 class="page-title fade-in-up">我設計緊嘅遊戲</h1>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+
+            <!-- SKYLINE -->
+            <div class="project-card fade-in-up" id="skyline">
+                <div class="project-header">
+                    <span class="project-badge">🔧 開發中</span>
+                </div>
+                <h2>SKYLINE：香港天台</h2>
+                <p class="project-subtitle">疊高策略 game · 2 人 · 20 分鐘</p>
+                <p>用 3D 打印方塊，疊出你嘅香港天際線。你可以選擇穩陣地疊，或者僭建更多——但僭建失敗，全部得分清零。</p>
+                <div class="project-details">
+                    <h3>機制</h3>
+                    <ul>
+                        <li>板塊放置 + 3D 疊高 + Press Your Luck</li>
+                        <li>香港主題：獅子山精神獎、叮叮移動、霓虹燈 bonus</li>
+                        <li>15 件 3D 打印配件，全部標準單位（1U = 2cm）</li>
+                    </ul>
+                    <h3>狀態</h3>
+                    <ul>
+                        <li>✅ V1 規則完成</li>
+                        <li>🔄 V2 加入僭建機制（設計中）</li>
+                        <li>⏳ 未打印 prototype</li>
+                    </ul>
+                    <h3>STL</h3>
+                    <p>即將開放免費下載</p>
+                </div>
+                <a href="devlog.html#skyline" class="btn btn-primary">睇開發進度 →</a>
+            </div>
+
+            <!-- Card Tile Frame -->
+            <div class="project-card fade-in-up">
+                <div class="project-header">
+                    <span class="project-badge">✅ 已完成</span>
+                </div>
+                <h2>卡磚保護框</h2>
+                <p class="project-subtitle">收納配件 · 已到 v9</p>
+                <p>卡卡頌專用嘅 3D 打印保護框。72 個一套，PETG 打印，緊配合設計。</p>
+                <div class="project-details">
+                    <h3>狀態</h3>
+                    <ul>
+                        <li>✅ v9 完美成功</li>
+                        <li>⏳ 準備上架 Cults3D</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Splendor -->
+            <div class="project-card fade-in-up">
+                <div class="project-header">
+                    <span class="project-badge">⏸️ 暫緩</span>
+                </div>
+                <h2>Splendor 收納盒</h2>
+                <p class="project-subtitle">收納配件 · V3 設計中</p>
+                <p>A5 尺寸統一收納盒，模組化設計。已完成 V2 prototype，V3 加入可後加擴展模組。</p>
+                <div class="project-details">
+                    <h3>狀態</h3>
+                    <ul>
+                        <li>✅ V2 prototype 完成</li>
+                        <li>🔄 V3 設計中（模組化）</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p>UNITARY<br><span class="footer-tagline">香港原創 3D 打印桌遊</span></p>
+                </div>
+                <div class="footer-links">
+                    <a href="projects.html">項目</a>
+                    <a href="devlog.html">開發日誌</a>
+                    <a href="about.html">關於</a>
+                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 UNITARY. STL 以 CC BY-NC-SA 4.0 授權</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
+        document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.1 }).observe(el);
+        });
+        window.addEventListener('scroll', () => {
+            document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+</html>

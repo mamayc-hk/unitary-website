@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開發日誌 — UNITARY</title>
+    <meta name="description" content="UNITARY 開發日誌。由零開始記錄設計 3D 打印桌遊嘅過程。">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar scrolled">
+        <div class="container">
+            <a href="index.html" class="logo"><img src="logo.png" alt="UNITARY" class="logo-image" width="140" height="40" loading="lazy"></a>
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="projects.html">項目</a></li>
+                <li><a href="devlog.html" class="active">開發日誌</a></li>
+                <li><a href="about.html">關於</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <div class="section-label fade-in">開發日誌</div>
+            <h1 class="page-title fade-in-up">由零開始設計遊戲</h1>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="devlog-timeline">
+
+                <div class="devlog-entry fade-in-up" id="first-post">
+                    <div class="devlog-date">2026-06-26</div>
+                    <div class="devlog-tag tag-product">UNITARY</div>
+                    <h2>UNITARY 正式開張 —— Design once. Print forever.</h2>
+                    <p>終於的起心肝，將呢個 side project 公開。</p>
+                    <p>我叫 Herry，日頭做木工，夜晚喺桌遊店打工。十年前開始玩桌遊，五年前開始玩 3D 打印，一年前開始諗：點解唔將兩樣嘢 combine 埋一齊？</p>
+                    <p>UNITARY 就係咁樣誕生嘅。</p>
+                    <p>呢個網站會記錄我設計 3D 打印桌遊嘅過程——由 idea 到 prototype 到 playtest 到正式 release。所有 STL 會開放免費下載，你可以自己印、自己玩。</p>
+                    <p>第一個 game 係 <strong>SKYLINE：香港天台</strong>——一個用 3D 打印方塊玩嘅疊高策略 game。香港主題：僭建、獅子山、叮叮、霓虹燈。</p>
+                    <p>而家仲係好早期，得一個人一部 printer。但我覺得最緊要係開始咗。</p>
+                    <p>敬請期待 🏗️</p>
+                </div>
+
+                <div class="devlog-entry fade-in-up" id="skyline">
+                    <div class="devlog-date">2026-06-25</div>
+                    <div class="devlog-tag tag-skyline">SKYLINE</div>
+                    <h2>V2 規則確定：加入僭建機制</h2>
+                    <p>參考咗桌遊機制文章，決定只加一條規則：「僭建」。放完一件後可以選擇再疊多一件，但失敗咗兩件都唔計分。Press Your Luck 元素令 game 更刺激。</p>
+                    <p>同時重新檢視咗遊戲機制——由「網格放置 + 疊高」加入「風險管理」，但 keeping it simple。</p>
+                    <a href="projects.html#skyline">→ SKYLINE 項目頁</a>
+                </div>
+
+                <div class="devlog-entry fade-in-up">
+                    <div class="devlog-date">2026-06-24</div>
+                    <div class="devlog-tag tag-study">研究</div>
+                    <h2>桌遊機制研究完成</h2>
+                    <p>睇咗兩篇機制文章，分析咗 50+ 種桌遊機制。確認 SKYLINE 核心方向正確。同時決定將 UNITARY 定位由「收納產品」轉為「遊戲設計品牌」。</p>
+                </div>
+
+                <div class="devlog-entry fade-in-up">
+                    <div class="devlog-date">2026-06-23</div>
+                    <div class="devlog-tag tag-skyline">SKYLINE</div>
+                    <h2>SKYLINE 概念誕生</h2>
+                    <p>用 1U = 2cm 標準單位設計咗 4 種形狀（底座、梯形、柱塔、平台）。以可見面計分，疊得越高越多分。</p>
+                    <p>加入香港天台主題——僭建文化、獅子山精神、霓虹燈、叮叮。</p>
+                </div>
+
+                <div class="devlog-entry fade-in-up">
+                    <div class="devlog-date">2026-06-18</div>
+                    <div class="devlog-tag tag-product">產品</div>
+                    <h2>卡磚保護框 v9 完成</h2>
+                    <p>卡卡頌保護框去到 v9，緊配合成功。準備上架 Cults3D 賣 STL。</p>
+                </div>
+
+                <div class="devlog-entry fade-in-up">
+                    <div class="devlog-date">2026-06-16</div>
+                    <div class="devlog-tag tag-study">學習</div>
+                    <h2>完成自由職業 5 課課程</h2>
+                    <p>CalArts Building Your Freelancing Career 全部完成。學到逆向推算、三條跑道、客戶旅程框架。</p>
+                    <p>課程啟示：UNITARY 要轉被動收入模式，賣 STL 而唔係賣打印時間。</p>
+                </div>
+
+                <div class="devlog-entry fade-in-up">
+                    <div class="devlog-date">2026-06-02</div>
+                    <div class="devlog-tag tag-product">產品</div>
+                    <h2>用戶訪談：Reddit 調查結果</h2>
+                    <p>喺 r/BoardgameOrganizers 做咗市場調查，5 個詳細回覆。確認咗斜底設計、標準化尺寸、價格敏感度等關鍵 insight。</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <p>UNITARY<br><span class="footer-tagline">香港原創 3D 打印桌遊</span></p>
+                </div>
+                <div class="footer-links">
+                    <a href="projects.html">項目</a>
+                    <a href="devlog.html">開發日誌</a>
+                    <a href="about.html">關於</a>
+                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram</a>
+                </div>
+                <div class="footer-bottom">
+                    <p>© 2026 UNITARY. STL 以 CC BY-NC-SA 4.0 授權</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
+        document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
+            new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.1 }).observe(el);
+        });
+        window.addEventListener('scroll', () => document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50));
+    </script>
+</body>
+</html>
