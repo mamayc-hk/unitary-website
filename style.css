@@ -1841,7 +1841,7 @@ body {
     display: block;
     width: 24px;
     height: 2px;
-    background: var(--color-text);
+    background: #ffffff;
     transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
