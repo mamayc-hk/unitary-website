@@ -1734,13 +1734,8 @@ body {
     left: 0;
     right: 0;
     z-index: var(--z-sticky);
-    background: transparent;
-    transition: background var(--transition-base), backdrop-filter var(--transition-base);
-}
-
-.navbar.scrolled {
     background: #1a1a1a;
-    backdrop-filter: blur(20px);
+    transition: background var(--transition-base), backdrop-filter var(--transition-base);
 }
 
 .navbar .container {
