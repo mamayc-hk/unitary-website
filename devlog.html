@@ -4,44 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>開發日誌 — UNITARY</title>
-    <meta name="description" content="UNITARY 開發日誌。由零開始記錄設計 3D 打印桌遊嘅過程。">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="UNITARY 開發日誌。記錄一個人由零開始設計 3D 打印桌遊嘅過程。">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: #222;
+            background: #fff;
+            line-height: 1.6;
+        }
+        .page {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 80px 24px 60px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        .page > p {
+            font-size: 1.15rem;
+            color: #555;
+            margin-bottom: 50px;
+        }
+        article {
+            margin-bottom: 36px;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+        article:last-of-type {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .date {
+            font-size: 0.8rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 4px;
+        }
+        article h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+        article h2 a {
+            color: #222;
+            text-decoration: none;
+        }
+        article h2 a:hover {
+            color: #FF6B35;
+        }
+        article p {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .tag {
+            font-size: 0.78rem;
+            color: #FF6B35;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
 
-<div class="wrap">
+<div class="page">
     <h1>開發日誌</h1>
-    <p class="sub">記錄一個人、一部 3D printer，設計香港主題桌遊嘅旅程。</p>
+    <p>記錄一個人、一部 3D printer，<br>設計香港主題桌遊嘅旅程。</p>
 
     <article>
-        <time>2026-07-13</time>
+        <div class="date">2026 年 7 月 13 日</div>
         <h2><a href="#take-time">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</a></h2>
-        <p>最近玩咗一隻好有意思嘅合作 game — Take Time。佢嘅玩法好簡單，但關鍵係討論完之後出牌嘅時候唔可以講嘢。要靠默契去估計隊友手上有咩牌。</p>
-        <p class="tag">桌遊介紹</p>
+        <p>最近玩咗一隻好有意思嘅合作 game。規則簡單，但討論完之後出牌唔可以講嘢，要靠默契。氣氛好好，輸咗都好笑。</p>
+        <span class="tag">桌遊介紹</span>
     </article>
 
     <article>
-        <time>2026-06-26</time>
+        <div class="date">2026 年 6 月 26 日</div>
         <h2><a href="#first-post">UNITARY 正式開張 —— Design once. Print forever.</a></h2>
-        <p>終於的起心肝，將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。</p>
-        <p class="tag">UNITARY</p>
+        <p>終於的起心肝將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。所有 STL 開放免費下載。</p>
+        <span class="tag">UNITARY</span>
     </article>
 
     <article>
-        <time>2026-06-25</time>
+        <div class="date">2026 年 6 月 25 日</div>
         <h2><a href="#skyline">V2 規則確定：加入僭建機制</a></h2>
-        <p>參考桌遊機制文章，決定加入「僭建」Press Your Luck 元素，令 game 更刺激。</p>
-        <p class="tag">SKYLINE</p>
-    </article>
-
-    <article>
-        <time>2026-06-23</time>
-        <h2>SKYLINE 概念誕生</h2>
-        <p>用 1U = 2cm 標準單位設計 4 種方塊形狀。香港天台主題。</p>
-        <p class="tag">SKYLINE</p>
+        <p>參考桌遊機制文章，決定加入「僭建」Press Your Luck 元素。放完一件可以搏放多一件，失敗兩件都唔計分。</p>
+        <span class="tag">SKYLINE</span>
     </article>
 
 </div>
