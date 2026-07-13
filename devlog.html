@@ -5,101 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>開發日誌 — UNITARY</title>
     <meta name="description" content="UNITARY 開發日誌。記錄一個人由零開始設計 3D 打印桌遊嘅過程。">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: -apple-system, 'Inter', 'PingFang TC', sans-serif;
             color: #222;
             background: #fff;
             line-height: 1.6;
         }
-        .page {
-            max-width: 720px;
+        a { color: inherit; text-decoration: none; }
+        a:hover { color: #FF6B35; }
+
+        /* Nav */
+        .nav {
+            border-bottom: 1px solid #eee;
+            padding: 16px 24px;
+        }
+        .nav-inner {
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 80px 24px 60px;
         }
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            line-height: 1.2;
+        .nav img { height: 28px; display: block; }
+
+        /* Layout */
+        .layout {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 48px 24px 60px;
+            display: flex;
+            gap: 48px;
         }
-        .page > p {
-            font-size: 1.15rem;
-            color: #555;
-            margin-bottom: 50px;
+        .main { flex: 1; min-width: 0; }
+        .side { width: 260px; flex-shrink: 0; }
+
+        /* Sidebar */
+        .side-box {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
         }
-        article {
-            margin-bottom: 36px;
-            padding-bottom: 32px;
-            border-bottom: 1px solid #e8e8e8;
-        }
-        article:last-of-type {
-            border: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .date {
+        .side-box h3 {
             font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            margin-bottom: 12px;
+        }
+        .side-box input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            outline: none;
+        }
+        .side-box input:focus {
+            border-color: #FF6B35;
+        }
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .tag-list a {
+            display: block;
+            padding: 4px 10px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        .tag-list a:hover {
+            background: #FF6B35;
+            color: #fff;
+        }
+        .side-rec a {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .side-rec a:last-child { border: none; }
+
+        /* Header */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .desc {
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Article list */
+        article {
+            margin-bottom: 32px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid #eee;
+        }
+        article:last-of-type { border: none; }
+        .date {
+            font-size: 0.78rem;
             color: #aaa;
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 4px;
         }
         article h2 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             line-height: 1.4;
-        }
-        article h2 a {
-            color: #222;
-            text-decoration: none;
-        }
-        article h2 a:hover {
-            color: #FF6B35;
         }
         article p {
             color: #555;
-            font-size: 0.95rem;
-            margin-bottom: 6px;
+            font-size: 0.92rem;
         }
-        .tag {
-            font-size: 0.78rem;
-            color: #FF6B35;
-            font-weight: 600;
+        .tag { color: #FF6B35; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
+
+        @media (max-width: 800px) {
+            .layout { flex-direction: column; }
+            .side { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-<div class="page">
-    <h1>開發日誌</h1>
-    <p>記錄一個人、一部 3D printer，<br>設計香港主題桌遊嘅旅程。</p>
+<div class="nav">
+    <div class="nav-inner">
+        <a href="https://mamayc-hk.github.io/unitary-website/">
+            <img src="logo.png" alt="UNITARY">
+        </a>
+    </div>
+</div>
 
-    <article>
-        <div class="date">2026 年 7 月 13 日</div>
-        <h2><a href="#take-time">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</a></h2>
-        <p>最近玩咗一隻好有意思嘅合作 game。規則簡單，但討論完之後出牌唔可以講嘢，要靠默契。氣氛好好，輸咗都好笑。</p>
-        <span class="tag">桌遊介紹</span>
-    </article>
+<div class="layout">
 
-    <article>
-        <div class="date">2026 年 6 月 26 日</div>
-        <h2><a href="#first-post">UNITARY 正式開張 —— Design once. Print forever.</a></h2>
-        <p>終於的起心肝將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。所有 STL 開放免費下載。</p>
-        <span class="tag">UNITARY</span>
-    </article>
+    <div class="main">
+        <h1>開發日誌</h1>
+        <p class="desc">記錄一個人、一部 3D printer，設計香港主題桌遊嘅旅程。</p>
 
-    <article>
-        <div class="date">2026 年 6 月 25 日</div>
-        <h2><a href="#skyline">V2 規則確定：加入僭建機制</a></h2>
-        <p>參考桌遊機制文章，決定加入「僭建」Press Your Luck 元素。放完一件可以搏放多一件，失敗兩件都唔計分。</p>
-        <span class="tag">SKYLINE</span>
-    </article>
+        <article>
+            <div class="date">2026 年 7 月 13 日</div>
+            <h2><a href="#take-time">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</a></h2>
+            <p>最近玩咗一隻好有意思嘅合作 game。規則簡單，但討論完之後出牌唔可以講嘢，要靠默契。</p>
+            <div class="tag">桌遊介紹</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 26 日</div>
+            <h2><a href="#first-post">UNITARY 正式開張 —— Design once. Print forever.</a></h2>
+            <p>終於的起心肝將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。</p>
+            <div class="tag">UNITARY</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 25 日</div>
+            <h2><a href="#skyline">V2 規則確定：加入僭建機制</a></h2>
+            <p>參考桌遊機制文章，決定加入「僭建」Press Your Luck 元素。放完一件可以搏放多一件。</p>
+            <div class="tag">SKYLINE</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 23 日</div>
+            <h2>SKYLINE 概念誕生</h2>
+            <p>用 1U = 2cm 標準單位設計 4 種方塊形狀。加入香港天台主題。</p>
+            <div class="tag">SKYLINE</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 18 日</div>
+            <h2>卡磚保護框 v9 完成</h2>
+            <p>卡卡頌保護框去到 v9，緊配合成功。準備上架 Cults3D 賣 STL。</p>
+            <div class="tag">產品</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 16 日</div>
+            <h2>完成自由職業 5 課課程</h2>
+            <p>CalArts Building Your Freelancing Career 全部完成。啟示：賣 STL 唔係賣打印時間。</p>
+            <div class="tag">學習</div>
+        </article>
+
+        <article>
+            <div class="date">2026 年 6 月 2 日</div>
+            <h2>用戶訪談：Reddit 調查結果</h2>
+            <p>5 個詳細回覆，確認斜底設計、標準化尺寸、價格敏感度等關鍵 insight。</p>
+            <div class="tag">產品</div>
+        </article>
+    </div>
+
+    <div class="side">
+
+        <div class="side-box">
+            <h3>搜尋</h3>
+            <input type="text" placeholder="Search..." onkeyup="if(event.key==='Enter')alert('搜尋功能即將推出')">
+        </div>
+
+        <div class="side-box">
+            <h3>分類</h3>
+            <div class="tag-list">
+                <a href="#">SKYLINE</a>
+                <a href="#">桌遊介紹</a>
+                <a href="#">產品</a>
+                <a href="#">學習</a>
+                <a href="#">UNITARY</a>
+            </div>
+        </div>
+
+        <div class="side-box">
+            <h3>推薦文章</h3>
+            <div class="side-rec">
+                <a href="#take-time">Take Time 合作遊戲介紹</a>
+                <a href="#first-post">UNITARY 正式開張</a>
+                <a href="#skyline">SKYLINE V2 僭建機制</a>
+            </div>
+        </div>
+
+    </div>
 
 </div>
 
