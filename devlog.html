@@ -5,199 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>開發日誌 — UNITARY</title>
     <meta name="description" content="UNITARY 開發日誌。由零開始記錄設計 3D 打印桌遊嘅過程。">
-    <meta property="og:title" content="開發日誌 — UNITARY">
-    <meta property="og:description" content="UNITARY 開發日誌：SKYLINE 香港天台疊高 game 由零開始嘅設計記錄。">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mamayc-hk.github.io/unitary-website/devlog.html">
-    <link rel="canonical" href="https://mamayc-hk.github.io/unitary-website/devlog.html">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar scrolled">
-        <div class="container">
-            <a href="index.html" class="logo"><img src="logo.png" alt="UNITARY" class="logo-image" width="140" height="40" loading="lazy"></a>
-            <ul class="nav-links">
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="projects.html">項目</a></li>
-                <li><a href="devlog.html" class="active">開發日誌</a></li>
-                <li><a href="about.html">關於</a></li>
-            </ul>
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
 
-    <section class="page-header">
-        <div class="container">
-            <div class="section-label fade-in">開發日誌</div>
-            <h1 class="page-title fade-in-up">由零開始設計遊戲</h1>
-            <p style="color:var(--color-text-muted);margin-top:var(--spacing-md);">記錄一個人、一部 3D printer，設計香港主題桌遊嘅旅程。</p>
-        </div>
-    </section>
+<div class="wrap">
+    <h1>開發日誌</h1>
+    <p class="sub">記錄一個人、一部 3D printer，設計香港主題桌遊嘅旅程。</p>
 
-    <section class="content-section">
-        <div class="container">
-            <div class="devlog-timeline" style="max-width:720px;margin:0 auto;">
+    <article>
+        <time>2026-07-13</time>
+        <h2><a href="#take-time">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</a></h2>
+        <p>最近玩咗一隻好有意思嘅合作 game — Take Time。佢嘅玩法好簡單，但關鍵係討論完之後出牌嘅時候唔可以講嘢。要靠默契去估計隊友手上有咩牌。</p>
+        <p class="tag">桌遊介紹</p>
+    </article>
 
-                <article class="devlog-entry fade-in-up blog-post" id="take-time" style="padding:0 0 var(--spacing-3xl);margin-bottom:var(--spacing-3xl);">
-                    <div class="blog-post-header">
-                        <span class="devlog-tag" style="margin-bottom:var(--spacing-md);display:inline-block;">桌遊介紹</span>
-                        <h2 class="blog-post-title" style="font-size:var(--font-size-3xl);">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</h2>
-                        <div class="blog-post-meta">
-                            <time datetime="2026-07-13">2026-07-13</time>
-                        </div>
-                    </div>
-                    <div class="blog-post-body">
-                        <p>最近玩咗一隻好有意思嘅合作 game — Take Time（掌握時刻）。</p>
-                        <p>佢嘅玩法好簡單：2-4人合作，每人手上有幾張數字牌（日月牌各1-12），一齊輪流出牌去完成時鐘圖版上嘅條件。但關鍵係——討論完之後，<strong>出牌嘅時候唔可以講嘢</strong>。</p>
-                        <p>即係話，你要靠默契去估計隊友手上有咩牌、會放喺邊個位置。</p>
+    <article>
+        <time>2026-06-26</time>
+        <h2><a href="#first-post">UNITARY 正式開張 —— Design once. Print forever.</a></h2>
+        <p>終於的起心肝，將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。</p>
+        <p class="tag">UNITARY</p>
+    </article>
 
-                        <h2>點解好玩？</h2>
-                        <p>呢個 game 最得意嘅地方係：明明冇人講嘢，但成張枱好「嘈」。</p>
-                        <p>你會見到隊友擘大咗口望住你出牌，或者你放錯位嘅時候大家一齊呆咗，然後翻牌嘅時候發現差一點就過關——個種又緊張又好笑嘅氣氛，係其他合作 game 好少見到嘅。</p>
+    <article>
+        <time>2026-06-25</time>
+        <h2><a href="#skyline">V2 規則確定：加入僭建機制</a></h2>
+        <p>參考桌遊機制文章，決定加入「僭建」Press Your Luck 元素，令 game 更刺激。</p>
+        <p class="tag">SKYLINE</p>
+    </article>
 
-                        <h2>基本規則（三分鐘學會）</h2>
-                        <ul>
-                            <li>每人拎起手牌睇，之後<strong>唔准再講嘢</strong></li>
-                            <li>順時針輪流放一張牌去時鐘嘅 6 個 segment</li>
-                            <li>全部放完後一齊翻牌</li>
-                            <li>條件：①每段至少1張 ②順時針遞增（由指針段開始）③最後一段總和 ≤24</li>
-                            <li>再加上每關嘅特殊規則</li>
-                        </ul>
-                        <p>總共 40 關（10章 × 4關），由淺入深，輸咗可以 skip 咗佢之後再試。</p>
+    <article>
+        <time>2026-06-23</time>
+        <h2>SKYLINE 概念誕生</h2>
+        <p>用 1U = 2cm 標準單位設計 4 種方塊形狀。香港天台主題。</p>
+        <p class="tag">SKYLINE</p>
+    </article>
 
-                        <h2>適合咩人？</h2>
-                        <p>如果你想搵一隻：</p>
-                        <ul>
-                            <li>🎯 <strong>規則簡單</strong>，5分鐘教完</li>
-                            <li>🤝 <strong>合作唔係各自為政</strong></li>
-                            <li>😂 <strong>氣氛好好</strong>，輸咗都好笑</li>
-                            <li>🧠 <strong>要靠默契唔係靠運氣</strong></li>
-                        </ul>
-                        <p>咁 Take Time 值得一試。</p>
+</div>
 
-                        <h2>小資訊</h2>
-                        <p>出版：Libellud（Dixit、Mysterium 同一間出版社）<br>
-                        時間：15-25分鐘<br>
-                        人數：2-4人<br>
-                        年齡：10+</p>
-                    </div>
-                </article>
-
-                <article class="devlog-entry fade-in-up blog-post" id="first-post" style="padding:0 0 var(--spacing-3xl);margin-bottom:var(--spacing-3xl);">
-                    <div class="blog-post-header">
-                        <span class="devlog-tag" style="margin-bottom:var(--spacing-md);display:inline-block;">UNITARY</span>
-                        <h2 class="blog-post-title" style="font-size:var(--font-size-3xl);">UNITARY 正式開張 —— Design once. Print forever.</h2>
-                        <div class="blog-post-meta">
-                            <time datetime="2026-06-26">2026-06-26</time>
-                        </div>
-                    </div>
-                    <div class="blog-post-body">
-                        <p>終於的起心肝，將呢個 side project 公開。</p>
-                        <p>我叫 Herry，日頭做木工，夜晚喺桌遊店打工。十年前開始玩桌遊，五年前開始玩 3D 打印，一年前開始諗：點解唔將兩樣嘢 combine 埋一齊？</p>
-                        <p>UNITARY 就係咁樣誕生嘅。</p>
-                        <p>呢個網站會記錄我設計 3D 打印桌遊嘅過程——由 idea 到 prototype 到 playtest 到正式 release。所有 STL 會開放免費下載，你可以自己印、自己玩。</p>
-                        <p>第一個 game 係 <strong>SKYLINE：香港天台</strong>——一個用 3D 打印方塊玩嘅疊高策略 game。香港主題：僭建、獅子山、叮叮、霓虹燈。</p>
-                        <p>而家仲係好早期，得一個人一部 printer。但我覺得最緊要係開始咗。</p>
-                        <p>敬請期待 🏗️</p>
-                    </div>
-                </article>
-
-                <article class="devlog-entry fade-in-up blog-post" id="skyline" style="padding:0 0 var(--spacing-3xl);margin-bottom:var(--spacing-3xl);">
-                    <div class="blog-post-header">
-                        <span class="devlog-tag" style="margin-bottom:var(--spacing-md);display:inline-block;">SKYLINE</span>
-                        <h2 class="blog-post-title" style="font-size:var(--font-size-3xl);">V2 規則確定：加入僭建機制</h2>
-                        <div class="blog-post-meta">
-                            <time datetime="2026-06-25">2026-06-25</time>
-                        </div>
-                    </div>
-                    <div class="blog-post-body">
-                        <p>參考咗桌遊機制文章，決定只加一條規則：「僭建」。放完一件後可以選擇再疊多一件，但失敗咗兩件都唔計分。Press Your Luck 元素令 game 更刺激。</p>
-                        <p>同時重新檢視咗遊戲機制——由「網格放置 + 疊高」加入「風險管理」，但 keeping it simple。</p>
-                        <p><a href="projects.html#skyline">→ SKYLINE 項目頁</a></p>
-                    </div>
-                </article>
-
-                <article class="devlog-entry fade-in-up blog-post" style="padding:0 0 var(--spacing-3xl);margin-bottom:var(--spacing-3xl);">
-                    <div class="blog-post-header">
-                        <span class="devlog-tag" style="margin-bottom:var(--spacing-md);display:inline-block;">研究</span>
-                        <h2 class="blog-post-title" style="font-size:var(--font-size-2xl);">桌遊機制研究完成</h2>
-                        <div class="blog-post-meta">
-                            <time datetime="2026-06-24">2026-06-24</time>
-                        </div>
-                    </div>
-                    <div class="blog-post-body">
-                        <p>睇咗兩篇機制文章，分析咗 50+ 種桌遊機制。確認 SKYLINE 核心方向正確。同時決定將 UNITARY 定位由「收納產品」轉為「遊戲設計品牌」。</p>
-                    </div>
-                </article>
-
-                <article class="devlog-entry fade-in-up" style="padding:var(--spacing-xl);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--spacing-lg);">
-                    <div class="devlog-date" style="font-size:var(--font-size-sm);color:var(--color-text-muted);margin-bottom:var(--spacing-sm);">2026-06-23</div>
-                    <span class="devlog-tag" style="margin-bottom:var(--spacing-sm);display:inline-block;">SKYLINE</span>
-                    <h3 style="font-size:var(--font-size-xl);font-weight:600;margin-bottom:var(--spacing-md);">SKYLINE 概念誕生</h3>
-                    <p style="color:var(--color-text-secondary);">用 1U = 2cm 標準單位設計咗 4 種形狀（底座、梯形、柱塔、平台）。以可見面計分，疊得越高越多分。加入香港天台主題——僭建文化、獅子山精神、霓虹燈、叮叮。</p>
-                </article>
-
-                <article class="devlog-entry fade-in-up" style="padding:var(--spacing-xl);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--spacing-lg);">
-                    <div class="devlog-date" style="font-size:var(--font-size-sm);color:var(--color-text-muted);margin-bottom:var(--spacing-sm);">2026-06-18</div>
-                    <span class="devlog-tag" style="margin-bottom:var(--spacing-sm);display:inline-block;">產品</span>
-                    <h3 style="font-size:var(--font-size-xl);font-weight:600;margin-bottom:var(--spacing-md);">卡磚保護框 v9 完成</h3>
-                    <p style="color:var(--color-text-secondary);">卡卡頌保護框去到 v9，緊配合成功。準備上架 Cults3D 賣 STL。</p>
-                </article>
-
-                <article class="devlog-entry fade-in-up" style="padding:var(--spacing-xl);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--spacing-lg);">
-                    <div class="devlog-date" style="font-size:var(--font-size-sm);color:var(--color-text-muted);margin-bottom:var(--spacing-sm);">2026-06-16</div>
-                    <span class="devlog-tag" style="margin-bottom:var(--spacing-sm);display:inline-block;">學習</span>
-                    <h3 style="font-size:var(--font-size-xl);font-weight:600;margin-bottom:var(--spacing-md);">完成自由職業 5 課課程</h3>
-                    <p style="color:var(--color-text-secondary);">CalArts Building Your Freelancing Career 全部完成。學到逆向推算、三條跑道、客戶旅程框架。課程啟示：UNITARY 要轉被動收入模式，賣 STL 而唔係賣打印時間。</p>
-                </article>
-
-                <article class="devlog-entry fade-in-up" style="padding:var(--spacing-xl);background:var(--color-surface);border-radius:var(--radius-lg);border:1px solid var(--color-border);margin-bottom:var(--spacing-lg);">
-                    <div class="devlog-date" style="font-size:var(--font-size-sm);color:var(--color-text-muted);margin-bottom:var(--spacing-sm);">2026-06-02</div>
-                    <span class="devlog-tag" style="margin-bottom:var(--spacing-sm);display:inline-block;">產品</span>
-                    <h3 style="font-size:var(--font-size-xl);font-weight:600;margin-bottom:var(--spacing-md);">用戶訪談：Reddit 調查結果</h3>
-                    <p style="color:var(--color-text-secondary);">喺 r/BoardgameOrganizers 做咗市場調查，5 個詳細回覆。確認咗斜底設計、標準化尺寸、價格敏感度等關鍵 insight。</p>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <p>UNITARY<br><span class="footer-tagline">香港原創 3D 打印桌遊</span></p>
-                </div>
-                <div class="footer-links">
-                    <a href="projects.html">項目</a>
-                    <a href="devlog.html">開發日誌</a>
-                    <a href="about.html">關於</a>
-                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram</a>
-                </div>
-                <div class="footer-bottom">
-                    <p>© 2026 UNITARY. STL 以 CC BY-NC-SA 4.0 授權</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            navToggle.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
-        document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
-            new IntersectionObserver(e => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.1 }).observe(el);
-        });
-        window.addEventListener('scroll', () => document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50));
-    </script>
 </body>
 </html>
