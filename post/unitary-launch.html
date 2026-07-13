@@ -20,13 +20,17 @@
             background: #1a1a1a;
             padding: 28px 24px 20px;
         }
-        .nav-inner { max-width: 700px; margin: 0 auto; }
+        .nav-inner { max-width: 1080px; margin: 0 auto; }
         .nav img { height: 34px; display: block; filter: brightness(0) invert(1); }
-        .page {
-            max-width: 700px;
+        .layout {
+            max-width: 1080px;
             margin: 0 auto;
             padding: 48px 24px 60px;
+            display: flex;
+            gap: 48px;
         }
+        .main { flex: 1; min-width: 0; max-width: 700px; }
+        .side { width: 260px; flex-shrink: 0; }
         .back { font-size: 0.85rem; margin-bottom: 24px; display: block; }
         .date {
             font-size: 0.8rem;
@@ -36,7 +40,34 @@
             margin-bottom: 6px;
         }
         h1 { font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
-        .page p { margin-bottom: 16px; color: #444; }
+        .main p { margin-bottom: 16px; color: #444; }
+        .side-box {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .side-box h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            margin-bottom: 12px;
+        }
+        .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
+        .side-rec a {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .side-rec a:last-child { border: none; }
+        @media (max-width: 800px) {
+            .layout { flex-direction: column; }
+            .side { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -45,17 +76,36 @@
         <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
     </div>
 </div>
-<div class="page">
-    <a href="../index.html" class="back">← 回網誌</a>
-    <div class="date">2026 年 6 月 26 日</div>
-    <h1>UNITARY 正式開張 — 因愛好而生的桌遊網誌</h1>
-    <p>終於的起心肝，將呢個網誌公開。</p>
-    <p>我係一個鍾意桌遊、鍾意 3D 打印、鍾意將諗法變成實體 game 嘅香港玩家。十年前開始玩桌遊，五年前開始玩 3D 打印，一年前開始諗：點解唔將兩樣嘢 combine 埋一齊？</p>
-    <p>UNITARY 就係咁樣誕生嘅。</p>
-    <p>呢個網誌會記錄我設計 3D 打印桌遊嘅過程、玩過嘅 game 分享、同埋 STL 免費資源。所有 STL 開放俾大家自己印自己玩。</p>
-    <p>第一個自己設計嘅 game 係 <strong>SKYLINE：香港天台</strong>——一個用 3D 打印方塊玩嘅疊高策略 game。香港主題：僭建、獅子山、叮叮、霓虹燈。</p>
-    <p>而家仲好早期，一個人一部 printer，最緊要係開始咗。</p>
-    <p style="margin-top:30px;color:#aaa;">敬請期待 🏗️</p>
+<div class="layout">
+    <div class="main">
+        <a href="../index.html" class="back">← 回網誌</a>
+        <div class="date">2026 年 6 月 26 日</div>
+        <h1>UNITARY 正式開張 — 因愛好而生的桌遊網誌</h1>
+        <p>終於的起心肝，將呢個網誌公開。</p>
+        <p>我係一個鍾意桌遊、鍾意 3D 打印、鍾意將諗法變成實體 game 嘅香港玩家。十年前開始玩桌遊，五年前開始玩 3D 打印，一年前開始諗：點解唔將兩樣嘢 combine 埋一齊？</p>
+        <p>UNITARY 就係咁樣誕生嘅。</p>
+        <p>呢個網誌會記錄我設計 3D 打印桌遊嘅過程、玩過嘅 game 分享、同埋 STL 免費資源。所有 STL 開放俾大家自己印自己玩。</p>
+        <p>第一個自己設計嘅 game 係 <strong>SKYLINE：香港天台</strong>——一個用 3D 打印方塊玩嘅疊高策略 game。香港主題：僭建、獅子山、叮叮、霓虹燈。</p>
+        <p>而家仲好早期，一個人一部 printer，最緊要係開始咗。</p>
+        <p style="margin-top:30px;color:#aaa;">敬請期待 🏗️</p>
+    </div>
+    <div class="side">
+        <div class="side-box">
+            <h3>關於</h3>
+            <div class="about-text">
+                <p><strong>Herry</strong> — 鍾意桌遊、鍾意 3D 打印、鍾意將諗法變成實體 game。</p>
+                <p style="margin-top:8px;">UNITARY 係一個人一部 printer 開始嘅 project。將香港元素融入桌遊設計，STL 開放俾大家自己印自己玩。</p>
+                <p style="margin-top:8px;"><a href="https://instagram.com/unitary.hk" target="_blank" style="color:#FF6B35;">Instagram →</a></p>
+            </div>
+        </div>
+        <div class="side-box">
+            <h3>推薦文章</h3>
+            <div class="side-rec">
+                <a href="take-time.html">Take Time（掌握時刻）— 合作遊戲介紹</a>
+                <a href="unitary-launch.html">UNITARY 正式開張</a>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

@@ -20,13 +20,18 @@
             background: #1a1a1a;
             padding: 28px 24px 20px;
         }
-        .nav-inner { max-width: 700px; margin: 0 auto; }
+        .nav-inner { max-width: 1080px; margin: 0 auto; }
         .nav img { height: 34px; display: block; filter: brightness(0) invert(1); }
-        .page {
-            max-width: 700px;
+        .layout {
+            max-width: 1080px;
             margin: 0 auto;
             padding: 48px 24px 60px;
+            display: flex;
+            gap: 48px;
         }
+        .main { flex: 1; min-width: 0; max-width: 700px; }
+        .side { width: 260px; flex-shrink: 0; }
+
         .back {
             font-size: 0.85rem;
             margin-bottom: 24px;
@@ -45,7 +50,7 @@
             line-height: 1.3;
             margin-bottom: 20px;
         }
-        .page p {
+        .main p {
             margin-bottom: 16px;
             color: #444;
         }
@@ -78,6 +83,33 @@
             margin-top: 8px;
         }
         .print-link:hover { background: #e55a2b; text-decoration: none; }
+        .side-box {
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .side-box h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #999;
+            margin-bottom: 12px;
+        }
+        .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
+        .side-rec a {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .side-rec a:last-child { border: none; }
+        @media (max-width: 800px) {
+            .layout { flex-direction: column; }
+            .side { width: 100%; }
+        }
     </style>
 </head>
 <body>
@@ -88,59 +120,71 @@
     </div>
 </div>
 
-<div class="page">
-    <a href="../index.html" class="back">← 回網誌</a>
+<div class="layout">
 
-    <div class="date">2026 年 7 月 13 日</div>
-    <h1>Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</h1>
+    <div class="main">
+        <a href="../index.html" class="back">← 回網誌</a>
 
-    <p>最近玩咗一隻好有意思嘅合作 game — Take Time（掌握時刻）。</p>
+        <div class="date">2026 年 7 月 13 日</div>
+        <h1>Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</h1>
 
-    <p>佢嘅玩法好簡單：2-4人合作，每人手上有幾張數字牌（日月牌各1-12），一齊輪流出牌去完成時鐘圖版上嘅條件。但關鍵係——討論完之後，<strong>出牌嘅時候唔可以講嘢</strong>。</p>
+        <p>最近玩咗一隻好有意思嘅合作 game — Take Time（掌握時刻）。</p>
+        <p>佢嘅玩法好簡單：2-4人合作，每人手上有幾張數字牌（日月牌各1-12），一齊輪流出牌去完成時鐘圖版上嘅條件。但關鍵係——討論完之後，<strong>出牌嘅時候唔可以講嘢</strong>。</p>
+        <p>即係話，你要靠默契去估計隊友手上有咩牌、會放喺邊個位置。</p>
 
-    <p>即係話，你要靠默契去估計隊友手上有咩牌、會放喺邊個位置。</p>
+        <h2>點解好玩？</h2>
+        <p>呢個 game 最得意嘅地方係：明明冇人講嘢，但成張枱好「嘈」。你會見到隊友擘大咗口望住你出牌，或者你放錯位嘅時候大家一齊呆咗，然後翻牌嘅時候發現差一點就過關——個種又緊張又好笑嘅氣氛，係其他合作 game 好少見到嘅。</p>
 
-    <h2>點解好玩？</h2>
+        <h2>基本規則</h2>
+        <ul>
+            <li>每人拎起手牌睇，之後<strong>唔准再講嘢</strong></li>
+            <li>順時針輪流放一張牌去時鐘嘅 6 個 segment</li>
+            <li>全部放完後一齊翻牌</li>
+            <li>條件：①每段至少1張 ②順時針遞增（由指針段開始）③最後一段總和 ≤24</li>
+            <li>再加上每關嘅特殊規則</li>
+        </ul>
+        <p>總共 40 關（10章 × 4關），由淺入深。輸咗可以 skip 咗佢之後再試。</p>
 
-    <p>呢個 game 最得意嘅地方係：明明冇人講嘢，但成張枱好「嘈」。</p>
+        <h2>適合咩人？</h2>
+        <ul>
+            <li>🎯 規則簡單，5分鐘教完</li>
+            <li>🤝 合作唔係各自為政</li>
+            <li>😂 氣氛好好，輸咗都好笑</li>
+            <li>🧠 要靠默契唔係靠運氣</li>
+        </ul>
 
-    <p>你會見到隊友擘大咗口望住你出牌，或者你放錯位嘅時候大家一齊呆咗，然後翻牌嘅時候發現差一點就過關——個種又緊張又好笑嘅氣氛，係其他合作 game 好少見到嘅。</p>
+        <div class="info-box">
+            <p><strong>小資訊</strong></p>
+            <p>出版：Libellud（Dixit、Mysterium 同一間出版社）</p>
+            <p>時間：15-25分鐘</p>
+            <p>人數：2-4人</p>
+            <p>年齡：10+</p>
+        </div>
 
-    <h2>基本規則</h2>
-
-    <ul>
-        <li>每人拎起手牌睇，之後<strong>唔准再講嘢</strong></li>
-        <li>順時針輪流放一張牌去時鐘嘅 6 個 segment</li>
-        <li>全部放完後一齊翻牌</li>
-        <li>條件：①每段至少1張 ②順時針遞增（由指針段開始）③最後一段總和 ≤24</li>
-        <li>再加上每關嘅特殊規則</li>
-    </ul>
-
-    <p>總共 40 關（10章 × 4關），由淺入深。輸咗可以 skip 咗佢之後再試。</p>
-
-    <h2>適合咩人？</h2>
-
-    <ul>
-        <li>🎯 規則簡單，5分鐘教完</li>
-        <li>🤝 合作唔係各自為政</li>
-        <li>😂 氣氛好好，輸咗都好笑</li>
-        <li>🧠 要靠默契唔係靠運氣</li>
-    </ul>
-
-    <div class="info-box">
-        <p><strong>小資訊</strong></p>
-        <p>出版：Libellud（Dixit、Mysterium 同一間出版社）</p>
-        <p>時間：15-25分鐘</p>
-        <p>人數：2-4人</p>
-        <p>年齡：10+</p>
+        <h2>3D 打印配件</h2>
+        <p>唔見咗時鐘嘅指針？可以自己印一個代替：</p>
+        <a href="https://www.printables.com/model/1721967-take-time-board-game-replacement-needle" target="_blank" class="print-link">🖨️ Printables：Take Time 時鐘指針 STL</a>
+        <p style="margin-top:6px;font-size:0.85rem;color:#888;">模型設計：JV Lobo（<a href="https://www.printables.com/@jvlobo" target="_blank">@jvlobo</a>）— CC BY-NC-SA 4.0</p>
     </div>
 
-    <h2>3D 打印配件</h2>
-    <p>唔見咗時鐘嘅指針？可以自己印一個代替：</p>
-    <a href="https://www.printables.com/model/1721967-take-time-board-game-replacement-needle" target="_blank" class="print-link">🖨️ Printables：Take Time 時鐘指針 STL</a>
-    <p style="margin-top:6px;font-size:0.85rem;color:#888;">模型設計：JV Lobo（<a href="https://www.printables.com/@jvlobo" target="_blank">@jvlobo</a>）— CC BY-NC-SA 4.0</p>
+    <div class="side">
+        <div class="side-box">
+            <h3>關於</h3>
+            <div class="about-text">
+                <p><strong>Herry</strong> — 鍾意桌遊、鍾意 3D 打印、鍾意將諗法變成實體 game。</p>
+                <p style="margin-top:8px;">UNITARY 係一個人一部 printer 開始嘅 project。將香港元素融入桌遊設計，STL 開放俾大家自己印自己玩。</p>
+                <p style="margin-top:8px;"><a href="https://instagram.com/unitary.hk" target="_blank" style="color:#FF6B35;">Instagram →</a></p>
+            </div>
+        </div>
+        <div class="side-box">
+            <h3>推薦文章</h3>
+            <div class="side-rec">
+                <a href="take-time.html">Take Time（掌握時刻）— 合作遊戲介紹</a>
+                <a href="unitary-launch.html">UNITARY 正式開張</a>
+            </div>
+        </div>
+    </div>
 
-    <p style="margin-top:40px;color:#aaa;font-size:0.85rem;">—</p>
 </div>
 
 </body>
