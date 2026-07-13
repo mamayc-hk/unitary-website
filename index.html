@@ -72,9 +72,7 @@
             margin-bottom: 6px;
             line-height: 1.4;
         }
-        article h2 { cursor: pointer; }
-        article h2:hover { color: #FF6B35; }
-        .full { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid #f0f0f0; color: #555; font-size: 0.92rem; line-height: 1.7; }
+        article h2 a:hover { color: #FF6B35; }
         article p { color: #555; font-size: 0.92rem; }
         .tag { color: #FF6B35; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
 
@@ -158,14 +156,8 @@
 
         <article>
             <div class="date">2026 年 7 月 13 日</div>
-            <h2 onclick="toggle(this)">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</h2>
+            <h2><a href="post/take-time.html">Take Time（掌握時刻）— 沉默中考驗默契嘅合作遊戲</a></h2>
             <p>最近玩咗一隻好有意思嘅合作 game。規則簡單，但討論完之後出牌唔可以講嘢，要靠默契。</p>
-            <div class="full">
-                <p>佢嘅玩法好簡單：2-4人合作，每人手上有幾張數字牌（日月牌各1-12），一齊輪流出牌去完成時鐘圖版上嘅條件。但關鍵係討論完之後，<strong>出牌嘅時候唔可以講嘢</strong>。</p>
-                <p style="margin-top:10px;">即係話，你要靠默契去估計隊友手上有咩牌、會放喺邊個位置。你會見到隊友擘大咗口望住你出牌，或者你放錯位嘅時候大家一齊呆咗——個種又緊張又好笑嘅氣氛，係其他合作 game 好少見到嘅。</p>
-                <p style="margin-top:10px;"><strong>規則</strong>：順時針輪流放牌去時鐘6個 segment。條件：每段至少1張、順時針遞增、最後一段總和≤24。加上每關特殊規則，總共40關。</p>
-                <p style="margin-top:10px;">出版：Libellud（Dixit 同一出版社）／2-4人／15-25分鐘／10+</p>
-            </div>
             <div class="tag">桌遊介紹</div>
         </article>
     </div>
@@ -209,13 +201,5 @@
 
 </div>
 
-<script>
-function toggle(el) {
-    var full = el.parentElement.querySelector('.full');
-    if (full) {
-        full.style.display = full.style.display === 'block' ? 'none' : 'block';
-    }
-}
-</script>
 </body>
 </html>
