@@ -19,29 +19,38 @@
 
         .nav {
             background: #1a1a1a;
-            padding: 14px 20px;
+            padding: 12px 20px;
             text-align: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
         }
-        .nav img { height: 32px; filter: brightness(0) invert(1); }
+        .nav img { height: 26px; filter: brightness(0) invert(1); }
 
         .left-menu {
             position: fixed;
-            top: 60px;
+            top: 50px;
             bottom: 0;
             left: 0;
-            width: 200px;
-            padding: 28px 16px;
+            width: 300px;
+            padding: 28px 20px;
             border-right: 1px solid #eee;
             overflow-y: auto;
         }
-        .main {
-            margin-left: 220px;
-            padding: 40px 32px 60px;
-            max-width: 800px;
+        .right-content {
+            position: fixed;
+            top: 50px;
+            bottom: 0;
+            left: 300px;
+            right: 0;
+            overflow: auto;
+            padding: 32px 40px 60px;
         }
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
             .left-menu { display: none; }
-            .main { margin-left: 0; padding: 24px 16px; }
+            .right-content { left: 0; padding: 24px 16px; }
         }
 
         .intro {
@@ -151,7 +160,7 @@
 <div class="nav">
 </div>
 
-<div class="main">
+<div class="right-content">
 
         <div class="intro">
             <div class="sub">桌遊網誌</div>
