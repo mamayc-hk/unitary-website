@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNITARY — 香港原創 3D 打印桌遊</title>
-    <meta name="description" content="UNITARY 網誌。記錄一個人由零開始設計 3D 打印桌遊嘅過程。">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5188483655597414" crossorigin="anonymous"></script>
+    <title>UNITARY — 桌遊網誌</title>
+    <meta name="description" content="一個會 3D 打印嘅香港桌遊玩家嘅分享。">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -30,133 +29,54 @@
             display: flex;
             gap: 48px;
         }
-        .main-content { flex: 1; min-width: 0; }
-        .side-menu { width: 260px; flex-shrink: 0; }
-        @media (max-width: 768px) {
-            .side-menu { display: none; }
-            .layout { padding: 24px 16px; }
-        }
+        .main { flex: 1; min-width: 0; }
+        .side { width: 260px; flex-shrink: 0; }
 
-        .intro {
-            margin-bottom: 40px;
-        }
-        .intro h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .intro .sub {
-            color: #FF6B35;
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-        .intro p {
-            color: #555;
-            font-size: 0.95rem;
-        }
+        .intro { margin-bottom: 40px; }
+        .intro .sub { color: #FF6B35; font-weight: 600; font-size: 0.9rem; margin-bottom: 6px; }
+        .intro h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; }
+        .intro p { color: #555; font-size: 0.95rem; }
 
-        /* Articles */
-        article {
-            margin-bottom: 32px;
-            padding-bottom: 28px;
-            border-bottom: 1px solid #eee;
-        }
+        article { margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid #eee; }
         article:last-of-type { border: none; }
-        .date {
-            font-size: 0.78rem;
-            color: #aaa;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 4px;
-        }
-        article h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-        article h2 a:hover { color: #FF6B35; }
+        .date { font-size: 0.78rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+        article h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
         article p { color: #555; font-size: 0.92rem; }
         .tag { color: #FF6B35; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
 
-        /* Sidebar */
-        .side-box {
-            background: #fafafa;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .side-box h3 {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #999;
-            margin-bottom: 12px;
-        }
-        .side-box input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            outline: none;
-        }
-        .side-box input:focus { border-color: #FF6B35; }
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .tag-list a {
-            display: block;
-            padding: 4px 10px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            color: #555;
-        }
-        .tag-list a:hover { background: #FF6B35; color: #fff; }
-        .side-rec a {
-            display: block;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 6px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .side-rec a:last-child { border: none; }
-        .about-text {
-            font-size: 0.85rem;
-            color: #555;
-            line-height: 1.7;
-        }
-        .about-text strong { color: #222; }
+        .side-box { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .side-box h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 12px; }
+        .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
+        .side-box input { width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; font-size:.9rem; outline:none; }
+        .side-box input:focus { border-color:#FF6B35; }
+        .tag-list { display:flex; flex-wrap:wrap; gap:6px; }
+        .tag-list a { display:block; padding:4px 10px; background:#f0f0f0; border-radius:4px; font-size:.8rem; color:#555; }
+        .tag-list a:hover { background:#FF6B35; color:#fff; }
+        .side-rec a { display:block; font-size:.9rem; font-weight:600; padding:6px 0; border-bottom:1px solid #f0f0f0; }
+        .side-rec a:last-child { border:none; }
 
-        @media (max-width: 800px) {
-            .layout { flex-direction: column; }
-            .side { width: 100%; }
-        }
+        @media (max-width: 768px) { .side { display:none; } }
     </style>
 </head>
 <body>
 
 <div class="nav">
+    <a href="index.html"><img src="logo.png" alt="UNITARY"></a>
 </div>
 
-<div class="main-content">
+<div class="layout">
+    <div class="main">
 
         <div class="intro">
             <div class="sub">桌遊網誌</div>
             <h1>因愛好而生的桌遊網誌</h1>
-            <p>一個會 3D 打印嘅香港桌遊玩家嘅分享。<br>
-            記錄桌遊規則、STL 分享、同埋自家小遊戲分享。</p>
+            <p>一個會 3D 打印嘅香港桌遊玩家嘅分享。<br>記錄桌遊規則、STL 分享、同埋自家小遊戲分享。</p>
         </div>
 
         <article>
             <div class="date">2026 年 7 月 14 日</div>
             <h2><a href="post/carcassonne-frame.html">卡卡頌卡磚保護框 完成 —— 完美 fit 嘅設計歷程</a></h2>
-            <p>經過多次改良，壁厚同卡榫位嘅完美分配，最終做到「啪」一聲就 fit 到位嘅手感。PETG 打印。</p>
+            <p>經過多次改良，壁厚同卡榫位嘅完美分配，最終做到「啪」一聲就 fit 到位嘅手感。</p>
             <div class="tag">產品 · STL · 3D 打印 · 卡卡頌</div>
         </article>
 
@@ -173,11 +93,10 @@
             <p>終於的起心肝將呢個 side project 公開。一個人一部 printer，記錄設計 3D 打印桌遊嘅過程。</p>
             <div class="tag">UNITARY</div>
         </article>
+
     </div>
 
-</div>
-    <div class="side-menu">
-
+    <div class="side">
         <div class="side-box">
             <h3>關於</h3>
             <div class="about-text">
@@ -186,34 +105,29 @@
                 <p style="margin-top:8px;"><a href="https://instagram.com/unitary.hk" target="_blank" style="color:#FF6B35;">Instagram →</a></p>
             </div>
         </div>
-
         <div class="side-box">
             <h3>搜尋</h3>
             <input type="text" placeholder="搜尋文章..." onkeyup="if(event.key==='Enter')alert('搜尋功能即將推出')">
         </div>
-
         <div class="side-box">
             <h3>分類</h3>
             <div class="tag-list">
-                <a href="#">SKYLINE</a>
-                <a href="#">桌遊介紹</a>
                 <a href="#">產品</a>
+                <a href="#">桌遊介紹</a>
                 <a href="#">學習</a>
+                <a href="#">UNITARY</a>
             </div>
         </div>
-
         <div class="side-box">
             <h3>推薦文章</h3>
             <div class="side-rec">
                 <a href="post/carcassonne-frame.html">卡卡頌保護框 v9 完成</a>
-                <a href="post/take-time.html">Take Time（掌握時刻）— 合作遊戲介紹</a>
+                <a href="post/take-time.html">Take Time 合作遊戲介紹</a>
                 <a href="post/unitary-launch.html">UNITARY 正式開張</a>
             </div>
             <p style="font-size:0.78rem;color:#aaa;margin-top:8px;">文章越多，推薦會自動更新</p>
         </div>
-
     </div>
-
 </div>
 
 </body>
