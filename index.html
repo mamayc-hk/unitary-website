@@ -19,20 +19,30 @@
 
         .nav {
             background: #1a1a1a;
-            padding: 28px 24px 20px;
+            padding: 14px 20px;
+            text-align: center;
         }
-        .nav-inner { max-width: 1080px; margin: 0 auto; }
-        .nav img { height: 42px; display: block; filter: brightness(0) invert(1); }
+        .nav img { height: 32px; filter: brightness(0) invert(1); }
 
-        .layout {
-            max-width: 1080px;
-            margin: 0 auto;
-            padding: 48px 24px 60px;
-            display: flex;
-            gap: 48px;
+        .left-menu {
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            padding: 28px 16px;
+            border-right: 1px solid #eee;
+            overflow-y: auto;
         }
-        .main { flex: 1; min-width: 0; }
-        .side { width: 260px; flex-shrink: 0; }
+        .main {
+            margin-left: 220px;
+            padding: 40px 32px 60px;
+            max-width: 800px;
+        }
+        @media (max-width: 700px) {
+            .left-menu { display: none; }
+            .main { margin-left: 0; padding: 24px 16px; }
+        }
 
         .intro {
             margin-bottom: 40px;
@@ -139,14 +149,9 @@
 <body>
 
 <div class="nav">
-    <div class="nav-inner">
-        <a href="index.html"><img src="logo.png" alt="UNITARY"></a>
-    </div>
 </div>
 
-<div class="layout">
-
-    <div class="main">
+<div class="main">
 
         <div class="intro">
             <div class="sub">桌遊網誌</div>
@@ -177,7 +182,8 @@
         </article>
     </div>
 
-    <div class="side">
+</div>
+    <div class="left-menu">
 
         <div class="side-box">
             <h3>關於</h3>
