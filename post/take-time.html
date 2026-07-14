@@ -106,6 +106,11 @@
             border-bottom: 1px solid #f0f0f0;
         }
         .side-rec a:last-child { border: none; }
+        .side-box input { width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; font-size:.9rem; outline:none; }
+        .side-box input:focus { border-color:#FF6B35; }
+        .tag-list { display:flex; flex-wrap:wrap; gap:6px; }
+        .tag-list a { display:block; padding:4px 10px; background:#f0f0f0; border-radius:4px; font-size:.8rem; color:#555; }
+        .tag-list a:hover { background:#FF6B35; color:#fff; }
         @media (max-width: 800px) {
             .layout { flex-direction: column; }
             .side { width: 100%; }
@@ -177,9 +182,23 @@
             </div>
         </div>
         <div class="side-box">
+            <h3>搜尋</h3>
+            <input type="text" placeholder="搜尋文章..." onkeyup="if(event.key==='Enter')alert('搜尋功能即將推出')">
+        </div>
+        <div class="side-box">
+            <h3>分類</h3>
+            <div class="tag-list">
+                <a href="#">產品</a>
+                <a href="#">桌遊介紹</a>
+                <a href="#">學習</a>
+                <a href="#">UNITARY</a>
+            </div>
+        </div>
+        <div class="side-box">
             <h3>推薦文章</h3>
             <div class="side-rec">
                 <a href="take-time.html">Take Time（掌握時刻）— 合作遊戲介紹</a>
+                <a href="carcassonne-frame.html">卡卡頌保護框</a>
                 <a href="unitary-launch.html">UNITARY 正式開張</a>
             </div>
         </div>
