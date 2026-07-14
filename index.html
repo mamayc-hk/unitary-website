@@ -19,38 +19,22 @@
 
         .nav {
             background: #1a1a1a;
-            padding: 12px 20px;
-            text-align: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 10;
+            padding: 24px 32px;
         }
-        .nav img { height: 26px; filter: brightness(0) invert(1); }
+        .nav img { height: 34px; filter: brightness(0) invert(1); }
 
-        .side-menu {
-            position: fixed;
-            top: 50px;
-            bottom: 0;
-            right: 0;
-            width: 300px;
-            padding: 28px 20px;
-            border-left: 1px solid #eee;
-            overflow-y: auto;
+        .layout {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 48px 32px 60px;
+            display: flex;
+            gap: 48px;
         }
-        .main-content {
-            position: fixed;
-            top: 50px;
-            bottom: 0;
-            left: 0;
-            right: 300px;
-            overflow: auto;
-            padding: 32px 40px 60px;
-        }
+        .main-content { flex: 1; min-width: 0; }
+        .side-menu { width: 260px; flex-shrink: 0; }
         @media (max-width: 768px) {
             .side-menu { display: none; }
-            .main-content { right: 0; padding: 24px 16px; }
+            .layout { padding: 24px 16px; }
         }
 
         .intro {
