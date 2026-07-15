@@ -20,7 +20,11 @@
             background: #1a1a1a;
             padding: 24px 32px;
         }
-        .nav img { height: 34px; filter: brightness(0) invert(1); }
+        .nav-inner {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+        .nav img { height: 34px; display: block; filter: brightness(0) invert(1); }
 
         .layout {
             max-width: 1080px;
@@ -60,9 +64,9 @@
 </head>
 <body>
 
-<div class="nav">
+<div class="nav"><div class="nav-inner">
     <a href="index.html"><img src="logo.png" alt="UNITARY"></a>
-</div>
+</div></div>
 
 <div class="layout">
     <div class="main">
