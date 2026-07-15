@@ -83,6 +83,9 @@
             margin-top: 8px;
         }
         .print-link:hover { background: #e55a2b; text-decoration: none; }
+        .photo-grid { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0; }
+        .photo-grid img { width:calc(50% - 6px); border-radius:8px; max-width:100%; height:auto; }
+        @media (max-width:600px) { .photo-grid img { width:100%; } }
         .side-box {
             background: #fafafa;
             border: 1px solid #eee;
@@ -139,6 +142,13 @@
 
         <h2>點解好玩？</h2>
         <p>呢個 game 最得意嘅地方係：明明冇人講嘢，但成張枱好「嘈」。你會見到隊友擘大咗口望住你出牌，或者你放錯位嘅時候大家一齊呆咗，然後翻牌嘅時候發現差一點就過關——個種又緊張又好笑嘅氣氛，係其他合作 game 好少見到嘅。</p>
+
+        <div class="photo-grid">
+            <img src="../images/taketime-1.jpg" alt="Take Time 盒面">
+            <img src="../images/taketime-2.jpg" alt="Take Time 開盒">
+            <img src="../images/taketime-3.jpg" alt="Take Time 時鐘圖版">
+            <img src="../images/taketime-4.jpg" alt="Take Time 配件">
+        </div>
 
         <h2>基本規則</h2>
         <ul>
