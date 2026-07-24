@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /post/unitary-launch.rtfd/
 
-Sitemap: https://mamayc-hk.github.io/unitary-website/sitemap.xml
+Sitemap: https://unitaryhk.com/sitemap.xml
