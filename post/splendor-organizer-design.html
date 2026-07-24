@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splendor 收納盒設計日記 — 一體成型 3D 打印方案 — UNITARY</title>
+    <meta name="description" content="Splendor 寶石商人收納盒 V3 設計過程全記錄。由問題發現、設計迭代、到打印測試。香港原創 3D 打印桌遊收納。">
+    <meta name="keywords" content="Splendor收納,寶石商人,桌遊收納,3D打印,board game insert,UNITARY">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5188483655597414" crossorigin="anonymous"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, 'Inter', 'PingFang TC', sans-serif; color: #222; background: #fff; line-height: 1.7; }
+        a { color: #FF6B35; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .nav { background: #1a1a1a; padding: 24px 32px; }
+        .nav-inner { max-width: 1080px; margin: 0 auto; }
+        .nav img { height: 34px; display: block; filter: brightness(0) invert(1); }
+        .layout { max-width: 1080px; margin: 0 auto; padding: 48px 24px 60px; display: flex; gap: 48px; }
+        .main-content { flex: 1; min-width: 0; max-width: 700px; }
+        .side-menu { width: 260px; flex-shrink: 0; }
+        .back { font-size: 0.85rem; margin-bottom: 24px; display: block; }
+        .date { font-size: 0.8rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; }
+        h1 { font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 20px; }
+        .main-content p { margin-bottom: 16px; color: #444; }
+        h2 { font-size: 1.3rem; font-weight: 600; margin: 32px 0 12px; }
+        ul { margin: 0 0 16px 20px; color: #444; }
+        ul li { margin-bottom: 6px; }
+        .info-box { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 16px 20px; margin: 24px 0; }
+        .info-box p { margin-bottom: 4px; font-size: 0.9rem; }
+        .side-box { background: #fafafa; border: 1px solid #eee; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .side-box h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; margin-bottom: 12px; }
+        .side-box input { width:100%; padding:10px 12px; border:1px solid #ddd; border-radius:6px; font-size:.9rem; outline:none; }
+        .side-box input:focus { border-color:#FF6B35; }
+        .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
+        .tag-list { display:flex; flex-wrap:wrap; gap:6px; }
+        .tag-list a { display:block; padding:4px 10px; background:#f0f0f0; border-radius:4px; font-size:.8rem; color:#555; }
+        .tag-list a:hover { background:#FF6B35; color:#fff; }
+        .side-rec a { display:block; font-size:.9rem; font-weight:600; padding:6px 0; border-bottom:1px solid #f0f0f0; }
+        .side-rec a:last-child { border:none; }
+        .highlight-box { background: #FFF8F3; border-left: 4px solid #FF6B35; padding: 16px 20px; margin: 24px 0; border-radius: 0 8px 8px 0; }
+        @media (max-width: 768px) { .side-menu { display:none; } .main-content { max-width: 100%; } }
+    </style>
+</head>
+<body>
+
+<div class="nav"><div class="nav-inner">
+    <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
+</div></div>
+
+<div class="layout">
+    <div class="main-content">
+        <a href="../index.html" class="back">← 回網誌</a>
+        <div class="date">2026 年 7 月 25 日</div>
+        <h1>Splendor 收納盒設計日記 — 一體成型 3D 打印方案</h1>
+
+        <p>Splendor（寶石商人）係一款經典 engine-building game。但每次打開盒，啲 poker chip 就會亂飛。市面上有收納方案，但全部都要組裝、要黐、或者貴到同隻 game 一樣價錢。</p>
+
+        <p>所以，我決定自己設計一個。<strong>打開即用，唔洗組裝，PETG 一體打印。</strong></p>
+
+        <h2>問題分析 — Splendor 收納有咩難？</h2>
+
+        <p>Splendor 嘅配件組合好獨特：</p>
+        <ul>
+            <li>💎 <strong>40 個 poker chip</strong>（6 種寶石，每種 7 個；黃金 5 個）— 最佔位</li>
+            <li>🃏 <strong>90 張卡牌</strong>（3 個等級各 30 張）— 要分三格</li>
+            <li>👑 <strong>10 張貴族 tile</strong> — 最薄，要獨立位</li>
+        </ul>
+
+        <p>最大挑戰：<strong>chip 好重</strong>（每個 ~5g，總共 200g），如果分格做得唔好，成個盒一拎起就反轉。</p>
+
+        <h2>設計迭代</h2>
+
+        <h3>V1 — 獨立分格（失敗）</h3>
+        <p>最初諗住每個寶石顏色獨立一格。問題係：40 個 chip 分 6 個獨立格，每個格嘅牆壁厚度加埋浪費咗好多空間，塞唔入原裝盒。</p>
+
+        <h3>V2 — 堆疊式設計（半失敗）</h3>
+        <p>改為堆疊式：chip 放底層，卡牌放上層。問題係：chip 堆得太高，卡牌層要升高，最後突咗出 game box。</p>
+
+        <div class="highlight-box">
+            <p><strong>💡 設計領悟：</strong>收納設計唔係「全部塞入去就得」，而係要考慮<strong>重心、取用方便度、同原盒 fit 位</strong>。</p>
+        </div>
+
+        <h3>V3 — 目前版本（測試中）</h3>
+        <p>V3 嘅核心改變：</p>
+        <ul>
+            <li><strong>混合式分格</strong> — chip 唔再獨立分色，改為 3 個大格（寶石 chip × 2 格 + 黃金 chip × 1 格）。減少牆壁數量，慳返 ~15% 空間</li>
+            <li><strong>卡牌側放</strong> — 放棄傳統平放，改為垂直插入式。90 張卡分 3 排，每排有擋板防止跌出</li>
+            <li><strong>貴族 tile 專用槽</strong> — 最頂層薄槽，剛好 fit 10 張 tile</li>
+            <li><strong>一體成型</strong> — 成個 insert 一件過打印，零組裝</li>
+        </ul>
+
+        <h2>打印測試結果</h2>
+
+        <div class="info-box">
+            <p><strong>打印機</strong>：Bambu Lab P1S</p>
+            <p><strong>材質</strong>：eSUN PETG（黑色）</p>
+            <p><strong>打印時間</strong>：~6 小時 20 分鐘</p>
+            <p><strong>材料用量</strong>：~180g（約 HKD 14）</p>
+            <p><strong>層高</strong>：0.2mm</p>
+            <p><strong>填充</strong>：15%</p>
+            <p><strong>支撐</strong>：少量（僅限卡牌槽 overhang）</p>
+        </div>
+
+        <p>測試結果：chip fit 位完美，卡牌插入順暢。唯一要 tune 嘅係貴族 tile 槽嘅公差 — 太 fit 會難攞出嚟，太鬆會跌。</p>
+
+        <h2>下一步</h2>
+        <p>V3 仲需要 2-3 次微調。完成後會上架 Cults3D，預計定價 €1.50（~HKD 13）。</p>
+
+        <p>如果你有 Splendor 又想試 V3 beta，可以 email 我哋或者 DM Instagram。</p>
+
+        <p><a href="https://instagram.com/unitary.hk" target="_blank" style="display:inline-block;background:#FF6B35;color:#fff;padding:10px 20px;border-radius:6px;font-weight:600;">📸 Instagram @unitary.hk — 追蹤最新設計進度</a></p>
+
+    </div>
+    <div class="side-menu">
+        <div class="side-box"><h3>關於</h3>
+            <div class="about-text">
+                <p><strong>Herry</strong> — 鍾意桌遊、鍾意 3D 打印、鍾意將諗法變成實體 game。</p>
+                <p style="margin-top:8px;">UNITARY 係一個人一部 printer 開始嘅 project。將香港元素融入桌遊設計，STL 開放俾大家自己印自己玩。</p>
+                <p style="margin-top:8px;"><a href="https://instagram.com/unitary.hk" target="_blank" style="color:#FF6B35;">Instagram →</a></p>
+            </div>
+        </div>
+        <div class="side-box">
+            <h3>搜尋</h3>
+            <input type="text" placeholder="搜尋文章..." onkeyup="if(event.key==='Enter')alert('搜尋功能即將推出')">
+        </div>
+        <div class="side-box">
+            <h3>分類</h3>
+            <div class="tag-list">
+                <a href="#">產品</a>
+                <a href="#">桌遊介紹</a>
+                <a href="#">學習</a>
+                <a href="#">UNITARY</a>
+            </div>
+        </div>
+        <div class="side-box"><h3>推薦文章</h3>
+            <div class="side-rec">
+                <a href="board-game-organizer-comparison.html">桌遊收納方案比較</a>
+                <a href="carcassonne-frame.html">卡卡頌保護框 v9</a>
+                <a href="start-3d-printing.html">新手 3D 打印入門</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
