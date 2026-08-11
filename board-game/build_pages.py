@@ -81,14 +81,21 @@ def md_to_html(md_text):
             out.append(f'<h{level}>{md_inline(heading_text)}</h{level}>')
             i += 1; continue
 
-        # Blockquote
+        # Blockquote (with Example box detection: > 例: ... 觸發)
         if stripped.startswith('>'):
             flush_para(); flush_list()
-            if not in_quote:
-                out.append('<blockquote>')
-                in_quote = True
             content = stripped.lstrip('>').strip()
-            out.append('<p>' + md_inline(content) + '</p>')
+            if re.match(r'^\s*例[:：]', content):
+                # > 例: ... → wrap 喺 .example-box (跳出 blockquote 累積)
+                if in_quote:
+                    out.append('</blockquote>')
+                    in_quote = False
+                out.append(f'<div class="example-box"><p><strong>💡 Example</strong> {md_inline(content)}</p></div>')
+            else:
+                if not in_quote:
+                    out.append('<blockquote>')
+                    in_quote = True
+                out.append('<p>' + md_inline(content) + '</p>')
             i += 1; continue
         else:
             flush_quote()
@@ -400,7 +407,13 @@ def render_game_page(game, content_md):
     qs_items = QUICK_START.get(gid, [])
     qs_html = ''
     if qs_items:
-        qs_items_html = '\n'.join(f'<li>{item}</li>' for item in qs_items)
+        # Quick Start items 用 `**bold**` markdown, 喺呢度 convert 做 <strong>
+        bold_re = re.compile(r'\*\*(.+?)\*\*')
+        bold_sub = r'<strong>\1</strong>'
+        qs_items_html = '\n'.join(
+            '<li>' + bold_re.sub(bold_sub, item) + '</li>'
+            for item in qs_items
+        )
         qs_html = f'''
         <div class="quick-start">
             <h2>⚡ Quick Start — 2 分鐘 onboard</h2>

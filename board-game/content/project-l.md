@@ -30,6 +30,8 @@ Project L 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一
 ### Step 5: 3 級 puzzle (3 分)
 3 級 puzzle 嘅 pattern 通常 7-9 格, 形狀複雜, 例如 U 形或大十字。完成 3 級 puzzle 需要多個彩色 piece, 所以早期要平衡 upgrade 同 take piece 嘅時機。
 
+> 例: 3 級 U 形 puzzle (7 格), 需要 1 個 1x3 彩 + 2 個 1x2 白 + 1 個 1x1 黑。Strategy A 打法: 先 take 4 個 1x1 黑填棋盤, 然後 upgrade 2 個黑→白, 再 upgrade 1 個白→彩。完成時間約 6-8 個動作。Strategy B 進階: 一開波就 upgrade 1 個黑→白→彩, 騰出位放 1x3, 4 個動作完成。
+
 ### Step 6: 回合結算 + 補 piece
 每個玩家做完 1 個動作後, 從 piece 池補返 piece 到 3 個 (黑 / 白 / 彩每個池維持 3 個)。如果 piece 池冇 piece 可以補 (即係所有 piece 都被玩家攞咗), 跳去 Step 8 結算。
 
