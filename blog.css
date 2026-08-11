@@ -721,6 +721,11 @@ tr:hover td { background: #fafafa; }
 .comparison-matrix .tag.diff-mid-tag        { background: #FEF3C7; color: #92400E; }
 .comparison-matrix .tag.diff-mid-hard-tag   { background: #FED7AA; color: #9A3412; }
 .comparison-matrix .tag.diff-hard-tag       { background: #FEE2E2; color: #991B1B; }
+
+/* Legend chip 喺 matrix 外面, 用同一套 color, 唔加 .comparison-matrix prefix */
+.tag.tag-coop  { background: #D1FAE5; color: #065F46; }
+.tag.tag-vs    { background: #FEE2E2; color: #991B1B; }
+.tag.tag-party { background: #F3E8FF; color: #6B21A8; }
 .matrix-legend {
     display: flex;
     flex-wrap: wrap;
