@@ -180,3 +180,182 @@ tr:hover td { background: #fafafa; }
     .layout { padding: 24px 16px 40px; }
     h1 { font-size: 1.5rem; }
 }
+
+/* ===== Board-Game Sub-section Styles ===== */
+
+/* Photo grid (對返 7 個 unitary-website post 嘅 .photo-grid) */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+}
+.photo-grid figure {
+    margin: 0;
+}
+.photo-grid img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #f5f5f5;
+}
+.photo-grid figcaption {
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 4px;
+    text-align: center;
+}
+
+/* Game meta (5 columns) */
+.game-meta {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 24px 0;
+}
+.game-meta-item { text-align: center; }
+.game-meta-item .label {
+    font-size: 0.7rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 2px;
+}
+.game-meta-item .value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #222;
+}
+@media (max-width: 600px) {
+    .game-meta { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Game card grid (index page 8 cards) */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+.game-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.15s, box-shadow 0.15s;
+    color: inherit;
+    text-decoration: none;
+}
+.game-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    text-decoration: none;
+}
+.game-card-box {
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #FFF8F3 0%, #DCFCE7 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+}
+.game-card-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.game-card-body { padding: 14px; }
+.game-card-body h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.game-card-tagline {
+    font-size: 0.82rem;
+    color: #888;
+    margin-bottom: 8px;
+}
+.game-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 0.72rem;
+    color: #666;
+}
+.game-card-meta span {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+/* Cross-sell section */
+.cross-sell {
+    background: #FFF8F3;
+    border-left: 4px solid #FF6B35;
+    padding: 16px 20px;
+    margin: 24px 0;
+    border-radius: 0 8px 8px 0;
+}
+.cross-sell p { margin-bottom: 8px; font-size: 0.92rem; }
+.cross-sell ul { padding-left: 20px; }
+.cross-sell li { margin-bottom: 6px; font-size: 0.9rem; }
+
+/* Long-form markdown container */
+.long-form { margin: 24px 0; }
+.long-form h1 { display: none; }  /* H1 已經喺 page title, markdown 入面嘅 H1 隱藏 */
+.long-form h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 32px 0 12px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #FF6B35;
+}
+.long-form h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #FF6B35;
+    margin: 24px 0 10px;
+}
+.long-form blockquote {
+    background: #f9f9f9;
+    border-left: 3px solid #FF6B35;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-style: italic;
+    color: #555;
+    border-radius: 0 4px 4px 0;
+}
+.long-form p {
+    margin-bottom: 14px;
+    line-height: 1.75;
+}
+.long-form ul, .long-form ol {
+    margin: 12px 0 16px 24px;
+}
+.long-form li {
+    margin-bottom: 6px;
+    line-height: 1.7;
+}
+.long-form strong { color: #222; font-weight: 600; }
+.long-form code {
+    background: #f0f0f0;
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'SF Mono', 'Consolas', monospace;
+}
+.long-form hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 32px 0;
+}
+.long-form a { color: #FF6B35; text-decoration: underline; }
+.long-form a:hover { background: #FFF8F3; }

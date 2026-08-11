@@ -6,6 +6,13 @@
 
 ---
 
+> **📌 桌遊教學內容已搬遷**:
+> 桌遊玩法 / 戰術 / tiebreaker / 教客 review 等內容, 2026-08-11 起搬遷去 sub-brand **Unitary 開枱指南** (`unitary-guide/` repo), 唔再更新喺呢度。
+> 點解? UNITARY 原有內容對應 3D printer / maker 市場, 教學內容對應桌遊新手 / 教客 query 場景, audience 唔同, 兩個 brand 分開 SEO 同 positioning 都較清。
+> 詳見 [桌遊教學 blog 結構決策筆記](#) (待補) 同 `Cherry/unitary-guide/` repo。
+
+---
+
 ## 📁 檔案結構
 
 ```
