@@ -647,6 +647,73 @@ def render_index_page():
 
     cards_html = '\n'.join(cards)
 
+    # === Matrix table: 8 game × 6 dimensions 對齊 ===
+    MATRIX_META = {
+        'bohnanza':   {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
+        'camel-up':   {'type': '派對', 'type_class': 'tag-party', 'cn': '繁中',     'cn_class': 'tag-cn-yes'},
+        'take-time':  {'type': '合作', 'type_class': 'tag-coop',  'cn': '繁中',     'cn_class': 'tag-cn-yes'},
+        'catan':      {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
+        'project-l':  {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
+        'dnup':       {'type': '派對', 'type_class': 'tag-party', 'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
+        'manila':     {'type': '對抗', 'type_class': 'tag-vs',    'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
+        'seti':       {'type': '對抗', 'type_class': 'tag-vs',    'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
+    }
+
+    matrix_rows_list = []
+    for g in sorted_games:
+        gid = g['id']
+        meta = MATRIX_META.get(gid, {'type': '對抗', 'type_class': 'tag-vs', 'cn': '?', 'cn_class': 'tag-cn-no'})
+        box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
+        box_html = f'<img src="images/{box_filename}" alt="" loading="lazy">' if box_filename else '🎲'
+
+        # Difficulty 顏色 class
+        diff_label = g.get('difficulty_label', '中等')
+        diff_class = {
+            '簡單': 'diff-easy',
+            '簡單至中等': 'diff-easy-mid',
+            '中等': 'diff-mid',
+            '中等至進階': 'diff-mid-hard',
+            '進階': 'diff-hard',
+        }.get(diff_label, 'diff-mid')
+
+        # seti 仲未 generate, disable link
+        is_pending = gid == 'seti'
+        if is_pending:
+            game_cell = f'''            <td class="game-cell">
+                <div class="game-cell-inner">
+                    {box_html}
+                    <div>
+                        <strong class="game-name-pending">{escape_html(g['name'])}</strong>
+                        <div class="game-tagline">{escape_html(g.get('tagline', ''))}</div>
+                        <div class="game-pending-note">⏳ 詳細教學準備中</div>
+                    </div>
+                </div>
+            </td>'''
+        else:
+            game_cell = f'''            <td class="game-cell">
+                <a href="{gid}.html" class="game-cell-inner">
+                    {box_html}
+                    <div>
+                        <strong class="game-link">{escape_html(g['name'])}</strong>
+                        <div class="game-tagline">{escape_html(g.get('tagline', ''))}</div>
+                    </div>
+                </a>
+            </td>'''
+
+        matrix_rows_list.append(f'''        <tr class="{diff_class}">
+{game_cell}
+            <td class="num-cell">👥 {g['min_players']}-{g['max_players']}</td>
+            <td class="num-cell">📚 {g['teach_time']} min</td>
+            <td class="num-cell">⏱️ {escape_html(g['play_time'])}</td>
+            <td class="num-cell"><span class="tag {diff_class}-tag">{escape_html(diff_label)}</span></td>
+            <td class="tag-cell">
+                <span class="tag {meta['type_class']}">{meta['type']}</span>
+                <span class="tag {meta['cn_class']}">{meta['cn']}</span>
+            </td>
+        </tr>''')
+
+    matrix_rows = '\n'.join(matrix_rows_list)
+
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -687,53 +754,31 @@ def render_index_page():
         <hr id="quick-ref">
 
         <h2>揾 game 速查 (對應旺角 query 場景)</h2>
-        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 睇呢個 list 就得:</p>
+        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 8 個 game 對齊 6 個維度一覽無遺:</p>
 
-        <h3>🆕 新手第一次玩</h3>
-        <ul>
-            <li><a href="camel-up.html">駱駝大賽 2.0</a> — 規則最淺, 8 人派對, 5 min 教完</li>
-            <li><a href="dnup.html">DNUP</a> — 旋轉機制易明, 15 min 完一局</li>
-            <li><a href="take-time.html">Take Time</a> — 合作向, 冇挫敗感</li>
-        </ul>
-
-        <h3>⏱️ 30 min 內想完一局</h3>
-        <ul>
-            <li><a href="camel-up.html">駱駝大賽 2.0</a> — 10 min 教, 30 min 完</li>
-            <li><a href="dnup.html">DNUP</a> — 10 min 教, 15-20 min 完</li>
-        </ul>
-
-        <h3>👥 2 個人嚟</h3>
-        <ul>
-            <li><a href="project-l.html">Project L</a> — 1-4 人, 2 人好 work</li>
-            <li><a href="bohnanza.html">眾豆得金</a> — 中文版, 2-7 人彈性</li>
-            <li><a href="take-time.html">Take Time</a> — 合作默契</li>
-        </ul>
-
-        <h3>👨‍👩‍👧 家庭 / 帶小朋友</h3>
-        <ul>
-            <li><a href="take-time.html">Take Time</a> — 合作, 唔會有人被淘汰</li>
-            <li><a href="camel-up.html">駱駝大賽 2.0</a> — 派對, 小朋友都識玩</li>
-            <li><a href="project-l.html">Project L</a> — 拼圖, 1-4 人彈性</li>
-        </ul>
-
-        <h3>🧠 進階 / 燒腦</h3>
-        <ul>
-            <li><a href="catan.html">卡坦島</a> — 經典德式策略</li>
-            <li><a href="manila.html">馬尼拉</a> — 經濟 + 走私</li>
-            <li><a href="bohnanza.html">眾豆得金</a> — 談判深</li>
-        </ul>
-
-        <h3>🇭🇰 中文版 (唔想睇 ENG 規則)</h3>
-        <ul>
-            <li><a href="bohnanza.html">眾豆得金</a> — 新天鵝堡中文版, 旺角大路貨</li>
-            <li><a href="catan.html">卡坦島</a> — 劍領中文版, 經典</li>
-            <li><a href="take-time.html">Take Time</a> — Libellud 中文版</li>
-        </ul>
-
-        <h3>🚀 2024 年最新 (SETI)</h3>
-        <ul>
-            <li><a href="seti.html">SETI</a> — 搜尋外星文明中重歐, Kennerspiel 候選, 1-4 人</li>
-        </ul>
+        <div class="matrix-wrap">
+        <table class="comparison-matrix">
+            <thead>
+                <tr>
+                    <th class="col-game">Game</th>
+                    <th class="col-num">👥 人數</th>
+                    <th class="col-num">📚 教學</th>
+                    <th class="col-num">⏱️ 遊戲</th>
+                    <th class="col-num">🌶️ 難度</th>
+                    <th class="col-tag">🎭 類型 + 🇨🇳 中文</th>
+                </tr>
+            </thead>
+            <tbody>
+{matrix_rows}
+            </tbody>
+        </table>
+        </div>
+        <p class="matrix-legend">
+            <span class="legend-item"><span class="tag tag-coop">合作</span> 全部玩家贏 / 輸, 冇挫敗</span>
+            <span class="legend-item"><span class="tag tag-vs">對抗</span> 1 個贏其他輸, 有競爭</span>
+            <span class="legend-item"><span class="tag tag-party">派對</span> 多人輕量, 重氣氛</span>
+            <span class="legend-item">🇭🇰 = 繁體中文版有售 (旺角)</span>
+        </p>
 
     </div>
 

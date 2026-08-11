@@ -594,6 +594,132 @@ tr:hover td { background: #fafafa; }
     margin: 12px 0 24px;
 }
 
+/* === Comparison Matrix (揾 game 速查) === */
+.matrix-wrap {
+    overflow-x: auto;
+    margin: 16px 0 8px;
+    border-radius: 8px;
+    border: 1px solid #E5E7EB;
+    background: #fff;
+}
+.comparison-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+.comparison-matrix thead th {
+    background: #1F2937;
+    color: #fff;
+    padding: 12px 10px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.9rem;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+.comparison-matrix thead th.col-num { text-align: center; }
+.comparison-matrix thead th.col-tag { text-align: center; }
+.comparison-matrix tbody tr {
+    border-bottom: 1px solid #F3F4F6;
+    transition: background 0.15s;
+}
+.comparison-matrix tbody tr:hover {
+    background: #FFFBEB;
+}
+.comparison-matrix tbody tr:last-child { border-bottom: none; }
+.comparison-matrix .game-cell {
+    padding: 10px 12px;
+    min-width: 220px;
+}
+.comparison-matrix .game-cell-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+.comparison-matrix .game-cell-inner img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+.comparison-matrix .game-cell-inner > div {
+    flex: 1;
+    min-width: 0;
+}
+.comparison-matrix .game-link,
+.comparison-matrix .game-name-pending {
+    color: #C2410C;
+    font-size: 0.95rem;
+    display: block;
+}
+.comparison-matrix .game-name-pending {
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+.comparison-matrix .game-tagline {
+    color: #6B7280;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-top: 2px;
+}
+.comparison-matrix .game-pending-note {
+    color: #D97706;
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+.comparison-matrix .num-cell {
+    text-align: center;
+    padding: 10px 8px;
+    color: #374151;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+.comparison-matrix .tag-cell {
+    text-align: center;
+    padding: 10px 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+.comparison-matrix .tag {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+.comparison-matrix .tag-coop { background: #D1FAE5; color: #065F46; }
+.comparison-matrix .tag-vs   { background: #FEE2E2; color: #991B1B; }
+.comparison-matrix .tag-party{ background: #F3E8FF; color: #6B21A8; }
+.comparison-matrix .tag-cn-yes { background: #FEF3C7; color: #92400E; }
+.comparison-matrix .tag-cn-no  { background: #F3F4F6; color: #6B7280; }
+.comparison-matrix .tag.diff-easy-tag       { background: #D1FAE5; color: #065F46; }
+.comparison-matrix .tag.diff-easy-mid-tag   { background: #D1FAE5; color: #047857; }
+.comparison-matrix .tag.diff-mid-tag        { background: #FEF3C7; color: #92400E; }
+.comparison-matrix .tag.diff-mid-hard-tag   { background: #FED7AA; color: #9A3412; }
+.comparison-matrix .tag.diff-hard-tag       { background: #FEE2E2; color: #991B1B; }
+.matrix-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 12px 0 24px;
+    font-size: 0.85rem;
+    color: #4B5563;
+}
+.matrix-legend .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
 @media (max-width: 800px) {
     .story-section { flex-direction: column; gap: 8px; }
     .story-emoji { font-size: 2rem; }
