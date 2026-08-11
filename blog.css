@@ -41,7 +41,7 @@ article h2 { font-size: 1.2rem; font-weight: 600; margin-bottom: 6px; line-heigh
 article h2 a { color: inherit; }
 article h2 a:hover { color: #FF6B35; text-decoration: none; }
 article p { color: #555; font-size: 0.92rem; }
-.tag { color: #FF6B35; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
+.article .tag { color: #FF6B35; font-size: 0.78rem; font-weight: 600; margin-top: 4px; }
 
 /* ===== Article Page ===== */
 .main-content { flex: 1; min-width: 0; max-width: 700px; }
@@ -702,7 +702,8 @@ tr:hover td { background: #fafafa; }
     justify-content: center;
     align-items: center;
 }
-.comparison-matrix .tag {
+/* Tag base style (global) — 用喺 matrix + legend chip */
+.tag {
     display: inline-block;
     padding: 3px 9px;
     border-radius: 12px;
@@ -710,6 +711,9 @@ tr:hover td { background: #fafafa; }
     font-weight: 600;
     line-height: 1.4;
     white-space: nowrap;
+}
+.comparison-matrix .tag {
+    /* 同 global .tag 一樣, 但放埋喺度等 specificity override */
 }
 .comparison-matrix .tag-coop { background: #D1FAE5; color: #065F46; }
 .comparison-matrix .tag-vs   { background: #FEE2E2; color: #991B1B; }
