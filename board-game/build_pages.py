@@ -555,7 +555,6 @@ def render_game_page(game, content_md):
                 <p>教客時可以一併推薦:</p>
                 <ul>
                     <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅 card 完美 fit。</li>
-                    <li><strong>UNITARY STL</strong>: <a href="https://cults3d.com/zh/y%C3%B2ngh%C3%B9/mamayc/s%C4%81nw%C3%A8i-m%C3%B3-x%C3%ADng" target="_blank" rel="noopener">Cults3D 商店</a> 有 3D 打印配件, 對應返多個 board game。</li>
                     <li><strong>旺角新手桌遊</strong>: 旺角實體店, 教客 review 即場試玩。</li>
                 </ul>
             </div>
@@ -578,7 +577,6 @@ def render_game_page(game, content_md):
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
                     &nbsp;·&nbsp;
-                    <a href="https://cults3d.com/zh/y%C3%B2ngh%C3%B9/mamayc/s%C4%81nw%C3%A8i-m%C3%B3-x%C3%ADng" target="_blank">Cults3D →</a>
                 </p>
             </div>
         </div>
@@ -608,7 +606,7 @@ def render_game_page(game, content_md):
 
 <div class="blog-footer">
     <p>© 2026 UNITARY 開枱指南 &nbsp;·&nbsp;
-    <a href="../index.html">UNITARY 主站</a> &nbsp;·&nbsp;
+    <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY-NC-SA 4.0</p>
@@ -668,7 +666,6 @@ def render_index_page():
 
 <div class="nav"><div class="nav-inner">
     <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
-    <a href="../index.html" style="margin-left:auto;color:#999;font-size:0.95rem">← UNITARY 主站</a>
 </div></div>
 
 <div class="layout">
@@ -749,20 +746,10 @@ def render_index_page():
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
                     &nbsp;·&nbsp;
-                    <a href="https://cults3d.com/zh/y%C3%B2ngh%C3%B9/mamayc/s%C4%81nw%C3%A8i-m%C3%B3-x%C3%ADng" target="_blank">UNITARY STL →</a>
                 </p>
             </div>
         </div>
-        <div class="side-box">
-            <h3>相關 UNITARY 生態</h3>
-            <div class="side-rec">
-                <a href="../index.html">UNITARY 主站 (3D 打印)</a>
-                <a href="../post/splendor-organizer-design.html">Splendor 收納盒</a>
-                <a href="../post/carcassonne-frame.html">卡卡頌保護框</a>
-                <a href="../post/board-game-organizer-comparison.html">桌遊收納比較</a>
-            </div>
-        </div>
-        <div class="side-box">
+<div class="side-box">
             <h3>教客 checklist</h3>
             <div class="about-text">
                 <p>教任何 game 之前, 5 分鐘 review:</p>
@@ -780,7 +767,7 @@ def render_index_page():
 
 <div class="blog-footer">
     <p>© 2026 UNITARY 開枱指南 &nbsp;·&nbsp;
-    <a href="../index.html">UNITARY 主站</a> &nbsp;·&nbsp;
+    <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY-NC-SA 4.0</p>
