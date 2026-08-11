@@ -664,7 +664,14 @@ def render_index_page():
         gid = g['id']
         meta = MATRIX_META.get(gid, {'type': '對抗', 'type_class': 'tag-vs', 'cn': '?', 'cn_class': 'tag-cn-no'})
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
-        box_html = f'<img src="images/{box_filename}" alt="" loading="lazy">' if box_filename else '🎲'
+        # Check file 真係存在, 唔存在用 emoji fallback
+        box_path = f'images/{box_filename}' if box_filename else ''
+        if box_path and Path(box_path).exists():
+            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="game-cell-thumb">'
+        else:
+            # Text fallback: game initial letter, 視覺一致
+            initial = g['name'][:2] if g.get('name') else '🎲'
+            box_html = f'<div class="game-cell-fallback" aria-label="{escape_html(g["name"])} 盒面">{escape_html(initial)}</div>'
 
         # Difficulty 顏色 class
         diff_label = g.get('difficulty_label', '中等')

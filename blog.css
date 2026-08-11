@@ -617,6 +617,7 @@ tr:hover td { background: #fafafa; }
     position: sticky;
     top: 0;
     z-index: 2;
+    white-space: nowrap;
 }
 .comparison-matrix thead th.col-num { text-align: center; }
 .comparison-matrix thead th.col-tag { text-align: center; }
@@ -639,11 +640,25 @@ tr:hover td { background: #fafafa; }
     text-decoration: none;
     color: inherit;
 }
-.comparison-matrix .game-cell-inner img {
-    width: 48px;
-    height: 48px;
+.comparison-matrix .game-cell-inner img,
+.comparison-matrix .game-cell-inner .game-cell-thumb {
+    width: 40px;
+    height: 40px;
     object-fit: cover;
     border-radius: 6px;
+    flex-shrink: 0;
+}
+.comparison-matrix .game-cell-inner .game-cell-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #FED7AA 0%, #FB923C 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
 }
 .comparison-matrix .game-cell-inner > div {
