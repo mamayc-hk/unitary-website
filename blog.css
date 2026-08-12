@@ -702,7 +702,178 @@ tr:hover td { background: #fafafa; }
     justify-content: center;
     align-items: center;
 }
-/* Tag base style (global) — 用喺 matrix + legend chip */
+/* === Accordion (揾 game 速查) === */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 16px 0 24px;
+}
+.accordion-section {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+.accordion-section[open] {
+    border-color: #C2410C;
+    box-shadow: 0 1px 3px rgba(194, 65, 12, 0.08);
+}
+.accordion-section summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+    background: linear-gradient(to right, #FFFBEB 0%, #fff 60%);
+    transition: background 0.15s;
+}
+.accordion-section summary:hover {
+    background: linear-gradient(to right, #FEF3C7 0%, #FFFBEB 60%);
+}
+.accordion-section summary::-webkit-details-marker { display: none; }
+.accordion-section summary::after {
+    content: '▸';
+    margin-left: auto;
+    color: #9CA3AF;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+.accordion-section[open] summary::after {
+    transform: rotate(90deg);
+    color: #C2410C;
+}
+.accordion-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+}
+.accordion-title {
+    font-weight: 700;
+    color: #1F2937;
+    font-size: 1.05rem;
+}
+.accordion-hint {
+    color: #6B7280;
+    font-size: 0.88rem;
+    flex: 1;
+    min-width: 0;
+}
+.accordion-count {
+    color: #9CA3AF;
+    font-size: 0.78rem;
+    background: #F3F4F6;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+.accordion-body {
+    padding: 12px 18px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #FAFAFA;
+    border-top: 1px solid #F3F4F6;
+}
+.mini-game-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    background: #fff;
+    border: 1px solid #F3F4F6;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.mini-game-card:hover {
+    border-color: #C2410C;
+    transform: translateX(2px);
+    box-shadow: 0 2px 6px rgba(194, 65, 12, 0.08);
+}
+.mini-game-card-pending {
+    background: #F9FAFB;
+    border-style: dashed;
+    color: #9CA3AF;
+    cursor: not-allowed;
+}
+.mini-game-card-pending:hover {
+    transform: none;
+    border-color: #D1D5DB;
+    box-shadow: none;
+}
+.mini-card-thumb {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mini-card-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mini-card-thumb-fallback {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FED7AA 0%, #FB923C 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mini-card-body {
+    flex: 1;
+    min-width: 0;
+}
+.mini-card-name {
+    color: #C2410C;
+    font-size: 0.98rem;
+    display: block;
+}
+.mini-game-card-pending .mini-card-name {
+    color: #9CA3AF;
+}
+.mini-card-tagline {
+    color: #6B7280;
+    font-size: 0.82rem;
+    line-height: 1.3;
+    margin: 2px 0 4px;
+}
+.mini-card-meta {
+    color: #4B5563;
+    font-size: 0.78rem;
+    margin-bottom: 4px;
+}
+.mini-card-note {
+    color: #78350F;
+    font-size: 0.85rem;
+    font-style: italic;
+}
+.mini-card-pending-note {
+    color: #D97706;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-top: 2px;
+}
+@media (max-width: 600px) {
+    .accordion-section summary { flex-wrap: wrap; gap: 6px 10px; padding: 12px 14px; }
+    .accordion-hint { flex-basis: 100%; order: 3; }
+    .accordion-body { padding: 10px 14px 14px; }
+}
 .tag {
     display: inline-block;
     padding: 3px 9px;

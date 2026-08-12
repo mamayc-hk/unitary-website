@@ -647,79 +647,119 @@ def render_index_page():
 
     cards_html = '\n'.join(cards)
 
-    # === Matrix table: 8 game × 6 dimensions 對齊 ===
-    MATRIX_META = {
-        'bohnanza':   {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
-        'camel-up':   {'type': '派對', 'type_class': 'tag-party', 'cn': '繁中',     'cn_class': 'tag-cn-yes'},
-        'take-time':  {'type': '合作', 'type_class': 'tag-coop',  'cn': '繁中',     'cn_class': 'tag-cn-yes'},
-        'catan':      {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
-        'project-l':  {'type': '對抗', 'type_class': 'tag-vs',    'cn': '繁中',     'cn_class': 'tag-cn-yes'},
-        'dnup':       {'type': '派對', 'type_class': 'tag-party', 'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
-        'manila':     {'type': '對抗', 'type_class': 'tag-vs',    'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
-        'seti':       {'type': '對抗', 'type_class': 'tag-vs',    'cn': 'ENG only', 'cn_class': 'tag-cn-no'},
-    }
+    # === Accordion sections (揾 game 速查) ===
+    # 對應旺角客 query 場景, 6 個 category, 每個 <details> collapsible
+    # 6 個 query 改做 native HTML <details> + <summary>, 100% no-JS, scalable 加 game
+    ACCORDION_SECTIONS = [
+        {
+            'icon': '🆕', 'title': '新手第一次玩', 'hint': '規則淺、教學快、demo 1 局就識',
+            'games': [
+                ('camel-up', '規則最淺, 8 人派對, 5 min 教完'),
+                ('dnup', '旋轉機制易明, 15 min 完一局'),
+                ('take-time', '合作向, 冇挫敗感, 家庭首選'),
+            ],
+            'open_default': True,
+        },
+        {
+            'icon': '⏱️', 'title': '30 min 內想完一局', 'hint': '快玩短局, 客等緊位',
+            'games': [
+                ('camel-up', '10 min 教, 30 min 完, 旺角夜場最愛'),
+                ('dnup', '10 min 教, 15-20 min 完, 兩局 combo'),
+            ],
+        },
+        {
+            'icon': '👥', 'title': '2 個人嚟', 'hint': '2 人場 work 嘅 game',
+            'games': [
+                ('project-l', '1-4 人, 2 人好 work, 拼圖'),
+                ('bohnanza', '中文版, 2-7 人彈性, 談判'),
+                ('take-time', '合作默契, 2-4 人'),
+            ],
+        },
+        {
+            'icon': '👨‍👩‍👧', 'title': '家庭 / 帶小朋友', 'hint': '合作 or 派對, 唔會有人被淘汰',
+            'games': [
+                ('take-time', '合作解謎, 唔會有人被淘汰'),
+                ('camel-up', '派對, 小朋友都識玩'),
+                ('project-l', '拼圖, 1-4 人彈性'),
+            ],
+        },
+        {
+            'icon': '🧠', 'title': '進階 / 燒腦', 'hint': '戰略深度高, 老手向',
+            'games': [
+                ('catan', '經典德式策略, 旺角大路貨'),
+                ('manila', '經濟 + 走私, 戰略深'),
+                ('bohnanza', '談判深, 多人場最化算'),
+                ('seti', '2024 搜尋外星文明中重歐, Kennerspiel 候選'),
+            ],
+        },
+        {
+            'icon': '🇭🇰', 'title': '中文版 (唔想睇 ENG 規則)', 'hint': '繁中 / 簡中版有售 (旺角)',
+            'games': [
+                ('bohnanza', '新天鵝堡中文版, 旺角大路貨'),
+                ('catan', '劍領中文版, 經典'),
+                ('take-time', 'Libellud 中文版'),
+            ],
+        },
+    ]
 
-    matrix_rows_list = []
-    for g in sorted_games:
-        gid = g['id']
-        meta = MATRIX_META.get(gid, {'type': '對抗', 'type_class': 'tag-vs', 'cn': '?', 'cn_class': 'tag-cn-no'})
+    # Build game mini-card 嘅 lookup table
+    games_by_id = {g['id']: g for g in games}
+
+    def render_mini_card(gid, note):
+        """Render 1 個 game mini card (thumbnail + name + tagline + 1 句解釋)"""
+        g = games_by_id.get(gid)
+        if not g:
+            return ''
+        is_pending = gid == 'seti'
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
-        # Check file 真係存在, 唔存在用 emoji fallback
         box_path = f'images/{box_filename}' if box_filename else ''
         if box_path and Path(box_path).exists():
-            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="game-cell-thumb">'
+            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="mini-card-thumb-img">'
         else:
-            # Text fallback: game initial letter, 視覺一致
             initial = g['name'][:2] if g.get('name') else '🎲'
-            box_html = f'<div class="game-cell-fallback" aria-label="{escape_html(g["name"])} 盒面">{escape_html(initial)}</div>'
+            box_html = f'<div class="mini-card-thumb-fallback" aria-label="{escape_html(g["name"])} 盒面">{escape_html(initial)}</div>'
 
-        # Difficulty 顏色 class
         diff_label = g.get('difficulty_label', '中等')
-        diff_class = {
-            '簡單': 'diff-easy',
-            '簡單至中等': 'diff-easy-mid',
-            '中等': 'diff-mid',
-            '中等至進階': 'diff-mid-hard',
-            '進階': 'diff-hard',
-        }.get(diff_label, 'diff-mid')
 
-        # seti 仲未 generate, disable link
-        is_pending = gid == 'seti'
         if is_pending:
-            game_cell = f'''            <td class="game-cell">
-                <div class="game-cell-inner">
-                    {box_html}
-                    <div>
-                        <strong class="game-name-pending">{escape_html(g['name'])}</strong>
-                        <div class="game-tagline">{escape_html(g.get('tagline', ''))}</div>
-                        <div class="game-pending-note">⏳ 詳細教學準備中</div>
+            return f'''                <div class="mini-game-card mini-game-card-pending">
+                    <div class="mini-card-thumb">{box_html}</div>
+                    <div class="mini-card-body">
+                        <strong class="mini-card-name">{escape_html(g['name'])}</strong>
+                        <div class="mini-card-tagline">{escape_html(g.get('tagline', ''))}</div>
+                        <div class="mini-card-meta">👥 {g['min_players']}-{g['max_players']} · ⏱️ {escape_html(g['play_time'])} · 🌶️ {escape_html(diff_label)}</div>
+                        <div class="mini-card-pending-note">⏳ 詳細教學準備中</div>
                     </div>
-                </div>
-            </td>'''
+                </div>'''
         else:
-            game_cell = f'''            <td class="game-cell">
-                <a href="{gid}.html" class="game-cell-inner">
-                    {box_html}
-                    <div>
-                        <strong class="game-link">{escape_html(g['name'])}</strong>
-                        <div class="game-tagline">{escape_html(g.get('tagline', ''))}</div>
+            return f'''                <a class="mini-game-card" href="{gid}.html">
+                    <div class="mini-card-thumb">{box_html}</div>
+                    <div class="mini-card-body">
+                        <strong class="mini-card-name">{escape_html(g['name'])}</strong>
+                        <div class="mini-card-tagline">{escape_html(g.get('tagline', ''))}</div>
+                        <div class="mini-card-meta">👥 {g['min_players']}-{g['max_players']} · ⏱️ {escape_html(g['play_time'])} · 🌶️ {escape_html(diff_label)}</div>
+                        <div class="mini-card-note">{escape_html(note)}</div>
                     </div>
-                </a>
-            </td>'''
+                </a>'''
 
-        matrix_rows_list.append(f'''        <tr class="{diff_class}">
-{game_cell}
-            <td class="num-cell">👥 {g['min_players']}-{g['max_players']}</td>
-            <td class="num-cell">📚 {g['teach_time']} min</td>
-            <td class="num-cell">⏱️ {escape_html(g['play_time'])}</td>
-            <td class="num-cell"><span class="tag {diff_class}-tag">{escape_html(diff_label)}</span></td>
-            <td class="tag-cell">
-                <span class="tag {meta['type_class']}">{meta['type']}</span>
-                <span class="tag {meta['cn_class']}">{meta['cn']}</span>
-            </td>
-        </tr>''')
-
-    matrix_rows = '\n'.join(matrix_rows_list)
+    # Build accordion HTML
+    accordion_parts = ['<div class="accordion">']
+    for sec in ACCORDION_SECTIONS:
+        open_attr = ' open' if sec.get('open_default') else ''
+        mini_cards_html = '\n'.join(render_mini_card(gid, note) for gid, note in sec['games'])
+        accordion_parts.append(f'''    <details class="accordion-section"{open_attr}>
+        <summary class="accordion-summary">
+            <span class="accordion-icon">{sec['icon']}</span>
+            <span class="accordion-title">{escape_html(sec['title'])}</span>
+            <span class="accordion-hint">{escape_html(sec['hint'])}</span>
+            <span class="accordion-count">{len(sec['games'])} 個 game</span>
+        </summary>
+        <div class="accordion-body">
+{mini_cards_html}
+        </div>
+    </details>''')
+    accordion_parts.append('</div>')
+    accordion_html = '\n'.join(accordion_parts)
 
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -761,31 +801,9 @@ def render_index_page():
         <hr id="quick-ref">
 
         <h2>揾 game 速查 (對應旺角 query 場景)</h2>
-        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 8 個 game 對齊 6 個維度一覽無遺:</p>
+        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 6 個場景分類 click 展開, 教客前快速 scan:</p>
 
-        <div class="matrix-wrap">
-        <table class="comparison-matrix">
-            <thead>
-                <tr>
-                    <th class="col-game">Game</th>
-                    <th class="col-num">👥 人數</th>
-                    <th class="col-num">📚 教學</th>
-                    <th class="col-num">⏱️ 遊戲</th>
-                    <th class="col-num">🌶️ 難度</th>
-                    <th class="col-tag">🎭 類型 + 🇨🇳 中文</th>
-                </tr>
-            </thead>
-            <tbody>
-{matrix_rows}
-            </tbody>
-        </table>
-        </div>
-        <p class="matrix-legend">
-            <span class="legend-item"><span class="tag tag-coop">合作</span> 全部玩家贏 / 輸, 冇挫敗</span>
-            <span class="legend-item"><span class="tag tag-vs">對抗</span> 1 個贏其他輸, 有競爭</span>
-            <span class="legend-item"><span class="tag tag-party">派對</span> 多人輕量, 重氣氛</span>
-            <span class="legend-item">🇭🇰 = 繁體中文版有售 (旺角)</span>
-        </p>
+{accordion_html}
 
     </div>
 
