@@ -714,10 +714,11 @@ def render_index_page():
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
         box_path = f'images/{box_filename}' if box_filename else ''
         if box_path and Path(box_path).exists():
-            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="mini-card-thumb-img">'
+            # Inline style 確保 48x48 一定 apply (bypass 任何 CSS cache 問題)
+            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block">'
         else:
             initial = g['name'][:2] if g.get('name') else '🎲'
-            box_html = f'<div class="mini-card-thumb-fallback" aria-label="{escape_html(g["name"])} 盒面">{escape_html(initial)}</div>'
+            box_html = f'<div class="mini-card-thumb-fallback" aria-label="{escape_html(g["name"])} 盒面" style="width:48px;height:48px">{escape_html(initial)}</div>'
 
         diff_label = g.get('difficulty_label', '中等')
 
