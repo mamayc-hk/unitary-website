@@ -632,7 +632,58 @@ def render_index_page():
         box_html = f'<img src="images/{box_filename}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
         pending = '' if g.get('is_complete', True) else ' <span style="color:var(--color-warn)">⚠️ 待補</span>'
 
-        cards.append(f'''        <a class="game-card" href="{g['id']}.html">
+        # Derive filter data attributes for CSS filter system
+        # Players: 2-4 / 5+ / 6+
+        players = []
+        if g.get('min_players', 0) <= 4 and g.get('max_players', 0) >= 2:
+            players.append('2-4')
+        if g.get('max_players', 0) >= 5:
+            players.append('5+')
+        if g.get('max_players', 0) >= 6:
+            players.append('6+')
+        data_players = ' '.join(players)
+
+        # Time: 30 / 31-60 / 60+ (parse first number from play_time)
+        time_str = g.get('play_time', '60 min')
+        time_match = re.search(r'(\d+)', time_str)
+        time_max = int(time_match.group(1)) if time_match else 60
+        if time_max <= 30:
+            data_time = '30'
+        elif time_max <= 60:
+            data_time = '31-60'
+        else:
+            data_time = '60+'
+
+        # Difficulty: easy / mid / hard
+        diff = g.get('difficulty_label', '中等')
+        if '簡單' in diff and '進階' in diff:
+            data_diff = 'easy'  # 簡單至中等
+        elif '簡單' in diff:
+            data_diff = 'easy'
+        elif '進階' in diff:
+            data_diff = 'hard'  # 中等至進階 or 進階
+        else:
+            data_diff = 'mid'
+
+        # Type: coop / party / vs (derive from category)
+        category = g.get('category', [])
+        if '合作' in category:
+            data_type = 'coop'
+        elif '派對' in category:
+            data_type = 'party'
+        else:
+            data_type = 'vs'
+
+        # Chinese: 繁中 / 簡中 / eng
+        langs = g.get('language_versions', [])
+        cn = []
+        if '繁中' in langs: cn.append('繁中')
+        if '簡中' in langs: cn.append('簡中')
+        if not cn and any(x in langs for x in ('ENG', 'EN', 'DE', 'FR')):
+            cn.append('eng')
+        data_cn = ' '.join(cn) if cn else 'eng'
+
+        cards.append(f'''        <a class="game-card" href="{g['id']}.html" data-players="{data_players}" data-time="{data_time}" data-diff="{data_diff}" data-type="{data_type}" data-cn="{data_cn}">
             <div class="game-card-box">{box_html}</div>
             <div class="game-card-body">
                 <h3>{escape_html(g['name'])}</h3>
@@ -647,120 +698,131 @@ def render_index_page():
 
     cards_html = '\n'.join(cards)
 
-    # === Accordion sections (揾 game 速查) ===
-    # 對應旺角客 query 場景, 6 個 category, 每個 <details> collapsible
-    # 6 個 query 改做 native HTML <details> + <summary>, 100% no-JS, scalable 加 game
-    ACCORDION_SECTIONS = [
+    # === Sidebar: 5 個 quick query (簡單入口) ===
+    QUICK_QUERY = [
         {
-            'icon': '🆕', 'title': '新手第一次玩', 'hint': '規則淺、教學快、demo 1 局就識',
-            'games': [
-                ('camel-up', '規則最淺, 8 人派對, 5 min 教完'),
-                ('dnup', '旋轉機制易明, 15 min 完一局'),
-                ('take-time', '合作向, 冇挫敗感, 家庭首選'),
-            ],
-            'open_default': True,
+            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩',
+            'games': ['camel-up', 'bohnanza', 'catan', 'manila', 'seti'],
         },
         {
-            'icon': '⏱️', 'title': '30 min 內想完一局', 'hint': '快玩短局, 客等緊位',
-            'games': [
-                ('camel-up', '10 min 教, 30 min 完, 旺角夜場最愛'),
-                ('dnup', '10 min 教, 15-20 min 完, 兩局 combo'),
-            ],
+            'id': 'q30', 'icon': '⏱️', 'title': '30 min 內完一局',
+            'games': ['camel-up', 'dnup'],
         },
         {
-            'icon': '👥', 'title': '2 個人嚟', 'hint': '2 人場 work 嘅 game',
-            'games': [
-                ('project-l', '1-4 人, 2 人好 work, 拼圖'),
-                ('bohnanza', '中文版, 2-7 人彈性, 談判'),
-                ('take-time', '合作默契, 2-4 人'),
-            ],
+            'id': 'qnew', 'icon': '🆕', 'title': '新手第一次玩',
+            'games': ['camel-up', 'dnup', 'take-time'],
         },
         {
-            'icon': '👨‍👩‍👧', 'title': '家庭 / 帶小朋友', 'hint': '合作 or 派對, 唔會有人被淘汰',
-            'games': [
-                ('take-time', '合作解謎, 唔會有人被淘汰'),
-                ('camel-up', '派對, 小朋友都識玩'),
-                ('project-l', '拼圖, 1-4 人彈性'),
-            ],
+            'id': 'qcoop', 'icon': '🤝', 'title': '合作 game',
+            'games': ['take-time'],
         },
         {
-            'icon': '🧠', 'title': '進階 / 燒腦', 'hint': '戰略深度高, 老手向',
-            'games': [
-                ('catan', '經典德式策略, 旺角大路貨'),
-                ('manila', '經濟 + 走私, 戰略深'),
-                ('bohnanza', '談判深, 多人場最化算'),
-                ('seti', '2024 搜尋外星文明中重歐, Kennerspiel 候選'),
-            ],
-        },
-        {
-            'icon': '🇭🇰', 'title': '中文版 (唔想睇 ENG 規則)', 'hint': '繁中 / 簡中版有售 (旺角)',
-            'games': [
-                ('bohnanza', '新天鵝堡中文版, 旺角大路貨'),
-                ('catan', '劍領中文版, 經典'),
-                ('take-time', 'Libellud 中文版'),
-            ],
+            'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版有售',
+            'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
         },
     ]
 
-    # Build game mini-card 嘅 lookup table
+    # === Sidebar: 4 個 audience value (對應唔同角色) ===
+    AUDIENCE_VALUE = [
+        {
+            'icon': '🆕', 'title': '想學新 game 嘅人',
+            'desc': '跟玩法 step 學 + 戰術 + tiebreaker 一次過',
+        },
+        {
+            'icon': '🛒', 'title': '想買 game 但唔知揀',
+            'desc': '8 個 game 對齊 6 個條件, 用 filter 任你揾',
+        },
+        {
+            'icon': '🎲', 'title': '搞聚會 / 朋友飯局',
+            'desc': '30 min 內 + 多人場 + 派對 game 一次過搵',
+        },
+        {
+            'icon': '👨‍🏫', 'title': '教學者 / 桌遊店務',
+            'desc': '每個 game 有完整 rules + FAQ + tiebreaker, 教前 review',
+        },
+    ]
+
+    # Build game lookup
     games_by_id = {g['id']: g for g in games}
 
-    def render_mini_card(gid, note):
-        """Render 1 個 game mini card (thumbnail + name + tagline + 1 句解釋)"""
-        g = games_by_id.get(gid)
-        if not g:
-            return ''
-        is_pending = gid == 'seti'
-        box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
-        box_path = f'images/{box_filename}' if box_filename else ''
-        if box_path and Path(box_path).exists():
-            # Inline style 確保 48x48 一定 apply (bypass 任何 CSS cache 問題)
-            box_html = f'<img src="{box_path}" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block">'
-        else:
-            initial = g['name'][:2] if g.get('name') else '🎲'
-            box_html = f'<div class="mini-card-thumb-fallback" aria-label="{escape_html(g["name"])} 盒面" style="width:48px;height:48px">{escape_html(initial)}</div>'
-
-        diff_label = g.get('difficulty_label', '中等')
-
-        if is_pending:
-            return f'''                <div class="mini-game-card mini-game-card-pending">
-                    <div class="mini-card-thumb">{box_html}</div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">{escape_html(g['name'])}</strong>
-                        <div class="mini-card-tagline">{escape_html(g.get('tagline', ''))}</div>
-                        <div class="mini-card-meta">👥 {g['min_players']}-{g['max_players']} · ⏱️ {escape_html(g['play_time'])} · 🌶️ {escape_html(diff_label)}</div>
-                        <div class="mini-card-pending-note">⏳ 詳細教學準備中</div>
-                    </div>
-                </div>'''
-        else:
-            return f'''                <a class="mini-game-card" href="{gid}.html">
-                    <div class="mini-card-thumb">{box_html}</div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">{escape_html(g['name'])}</strong>
-                        <div class="mini-card-tagline">{escape_html(g.get('tagline', ''))}</div>
-                        <div class="mini-card-meta">👥 {g['min_players']}-{g['max_players']} · ⏱️ {escape_html(g['play_time'])} · 🌶️ {escape_html(diff_label)}</div>
-                        <div class="mini-card-note">{escape_html(note)}</div>
-                    </div>
-                </a>'''
-
-    # Build accordion HTML
-    accordion_parts = ['<div class="accordion">']
-    for sec in ACCORDION_SECTIONS:
-        open_attr = ' open' if sec.get('open_default') else ''
-        mini_cards_html = '\n'.join(render_mini_card(gid, note) for gid, note in sec['games'])
-        accordion_parts.append(f'''    <details class="accordion-section"{open_attr}>
-        <summary class="accordion-summary">
-            <span class="accordion-icon">{sec['icon']}</span>
-            <span class="accordion-title">{escape_html(sec['title'])}</span>
-            <span class="accordion-hint">{escape_html(sec['hint'])}</span>
-            <span class="accordion-count">{len(sec['games'])} 個 game</span>
+    # Build sidebar quick-query HTML (each query 是一個 <details> section 入面 list 出 game)
+    query_sections = []
+    for q in QUICK_QUERY:
+        items = '\n'.join(
+            f'                    <li><a href="{gid}.html">{escape_html(games_by_id[gid]["name"]) if gid in games_by_id else gid}</a></li>'
+            for gid in q['games']
+        )
+        query_sections.append(f'''    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">{q['icon']}</span>
+            <span class="query-title">{escape_html(q['title'])}</span>
         </summary>
-        <div class="accordion-body">
-{mini_cards_html}
-        </div>
+        <ul class="query-games">
+{items}
+        </ul>
     </details>''')
-    accordion_parts.append('</div>')
-    accordion_html = '\n'.join(accordion_parts)
+    query_html = '\n'.join(query_sections)
+
+    # Build sidebar audience HTML
+    audience_items = []
+    for a in AUDIENCE_VALUE:
+        audience_items.append(f'''        <div class="audience-item">
+            <span class="audience-icon">{a['icon']}</span>
+            <div class="audience-text">
+                <strong>{escape_html(a['title'])}</strong>
+                <p>{escape_html(a['desc'])}</p>
+            </div>
+        </div>''')
+    audience_html = '\n'.join(audience_items)
+
+    # === Filter system HTML (核心功效, sticky top) ===
+    # 14 個 chip in 5 個 group; 同 group OR, 唔同 group AND
+    # 0% JS, 用 CSS :has() + :checked
+    filter_html = '''        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-group-label">👥 人數</span>
+                <input type="checkbox" id="f-players-2-4" class="filter-input">
+                <label for="f-players-2-4" class="filter-chip">2-4 人</label>
+                <input type="checkbox" id="f-players-5" class="filter-input">
+                <label for="f-players-5" class="filter-chip">5+ 人</label>
+                <input type="checkbox" id="f-players-6" class="filter-input">
+                <label for="f-players-6" class="filter-chip">6+ 人</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">⏱️ 時間</span>
+                <input type="checkbox" id="f-time-30" class="filter-input">
+                <label for="f-time-30" class="filter-chip">≤30 min</label>
+                <input type="checkbox" id="f-time-31-60" class="filter-input">
+                <label for="f-time-31-60" class="filter-chip">31-60 min</label>
+                <input type="checkbox" id="f-time-60" class="filter-input">
+                <label for="f-time-60" class="filter-chip">60+ min</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🌶️ 難度</span>
+                <input type="checkbox" id="f-diff-easy" class="filter-input">
+                <label for="f-diff-easy" class="filter-chip">簡單</label>
+                <input type="checkbox" id="f-diff-mid" class="filter-input">
+                <label for="f-diff-mid" class="filter-chip">中等</label>
+                <input type="checkbox" id="f-diff-hard" class="filter-input">
+                <label for="f-diff-hard" class="filter-chip">進階</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🎭 類型</span>
+                <input type="checkbox" id="f-type-coop" class="filter-input">
+                <label for="f-type-coop" class="filter-chip">合作</label>
+                <input type="checkbox" id="f-type-party" class="filter-input">
+                <label for="f-type-party" class="filter-chip">派對</label>
+                <input type="checkbox" id="f-type-vs" class="filter-input">
+                <label for="f-type-vs" class="filter-chip">對抗</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🇭🇰 中文</span>
+                <input type="checkbox" id="f-cn-trad" class="filter-input">
+                <label for="f-cn-trad" class="filter-chip">繁中</label>
+                <input type="checkbox" id="f-cn-simp" class="filter-input">
+                <label for="f-cn-simp" class="filter-chip">簡中</label>
+            </div>
+        </div>'''
 
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
@@ -785,52 +847,49 @@ def render_index_page():
 
 <div class="layout">
     <div class="main">
-        <div class="intro">
+        <!-- Hero 段 (短 mission) -->
+        <div class="hero">
             <div class="sub">Design once. Play forever.</div>
-            <h1>UNITARY 開枱指南</h1>
-            <p>香港原創桌遊教學網誌。對應旺角客 query 場景, 由新手到進階一站式教學。每個 game 都有完整玩法、戰術、tiebreaker、客戶推介 — 教客前最後一次 review 就夠。</p>
-            <p style="margin-top:12px;"><a href="#quick-ref" class="btn-cta">📋 揾 game 速查 (對應旺角 query) →</a></p>
+            <h1>香港原創桌遊教學網誌</h1>
+            <p>8 個熱門 board game 完整 rules + 戰術 + tiebreaker，學完即玩。用下面 filter 揾啱你嘅 game。</p>
         </div>
 
-        <h2>已收錄桌遊 (8 個 game)</h2>
-        <p>由最熱門嘅 <a href="bohnanza.html">眾豆得金</a> 開始。對返 <a href="https://www.notion.so/2097b25a969480c7b5ecca4ee7fd6da2" target="_blank" rel="noopener">Notion 玩過嘅桌遊 database</a>。</p>
+        <!-- Filter system (核心功效, sticky top) -->
+{filter_html}
 
-        <div class="game-grid">
+        <!-- 已收錄桌遊 + game grid -->
+        <h2 id="game-list">已收錄桌遊 (8 個 game)</h2>
+        <p class="game-list-intro">由最熱門嘅 <a href="bohnanza.html">眾豆得金</a> 開始。Click filter chip 即時揾 game，click card 入 detail page。</p>
+
+        <div class="game-grid" id="game-grid">
 {cards_html}
         </div>
-
-        <hr id="quick-ref">
-
-        <h2>揾 game 速查 (對應旺角 query 場景)</h2>
-        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 6 個場景分類 click 展開, 教客前快速 scan:</p>
-
-{accordion_html}
 
     </div>
 
     <div class="side">
+        <!-- 揾 game 速查 (5 query button) -->
         <div class="side-box">
-            <h3>關於</h3>
-            <div class="about-text">
-                <p><strong>Herry Ma</strong></p>
-                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應教客前 review 場景。</p>
-                <p>
-                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
-                    &nbsp;·&nbsp;
-                </p>
-            </div>
+            <h3>🎯 揾 game 速查</h3>
+            <p class="side-box-hint">按 5 個常見場景快速揾 game:</p>
+{query_html}
         </div>
-<div class="side-box">
-            <h3>教客 checklist</h3>
+
+        <!-- 對應唔同角色 (4 audience value) -->
+        <div class="side-box">
+            <h3>👥 對應唔同角色</h3>
+            <p class="side-box-hint">呢個網站對邊個有用:</p>
+{audience_html}
+        </div>
+
+        <!-- 關於 UNITARY -->
+        <div class="side-box">
+            <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
-                <p>教任何 game 之前, 5 分鐘 review:</p>
-                <ul style="padding-left:16px;font-size:0.95rem">
-                    <li>✅ 玩法 + 設置</li>
-                    <li>✅ 戰術提示 (5+ 條)</li>
-                    <li>✅ tiebreaker</li>
-                    <li>✅ 客戶推介</li>
-                    <li>✅ 客 query 對應</li>
-                </ul>
+                <p>UNITARY 係香港原創桌遊教學網誌，Herry Ma 個人 project。內容 base on 官方 rulebook + BGG 數據 + 自己 demo 經驗。</p>
+                <p>
+                    <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">Instagram →</a>
+                </p>
             </div>
         </div>
     </div>

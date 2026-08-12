@@ -21,18 +21,66 @@
 
 <div class="layout">
     <div class="main">
-        <div class="intro">
+        <!-- Hero 段 (短 mission) -->
+        <div class="hero">
             <div class="sub">Design once. Play forever.</div>
-            <h1>UNITARY 開枱指南</h1>
-            <p>香港原創桌遊教學網誌。對應旺角客 query 場景, 由新手到進階一站式教學。每個 game 都有完整玩法、戰術、tiebreaker、客戶推介 — 教客前最後一次 review 就夠。</p>
-            <p style="margin-top:12px;"><a href="#quick-ref" class="btn-cta">📋 揾 game 速查 (對應旺角 query) →</a></p>
+            <h1>香港原創桌遊教學網誌</h1>
+            <p>8 個熱門 board game 完整 rules + 戰術 + tiebreaker，學完即玩。用下面 filter 揾啱你嘅 game。</p>
         </div>
 
-        <h2>已收錄桌遊 (8 個 game)</h2>
-        <p>由最熱門嘅 <a href="bohnanza.html">眾豆得金</a> 開始。對返 <a href="https://www.notion.so/2097b25a969480c7b5ecca4ee7fd6da2" target="_blank" rel="noopener">Notion 玩過嘅桌遊 database</a>。</p>
+        <!-- Filter system (核心功效, sticky top) -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <span class="filter-group-label">👥 人數</span>
+                <input type="checkbox" id="f-players-2-4" class="filter-input">
+                <label for="f-players-2-4" class="filter-chip">2-4 人</label>
+                <input type="checkbox" id="f-players-5" class="filter-input">
+                <label for="f-players-5" class="filter-chip">5+ 人</label>
+                <input type="checkbox" id="f-players-6" class="filter-input">
+                <label for="f-players-6" class="filter-chip">6+ 人</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">⏱️ 時間</span>
+                <input type="checkbox" id="f-time-30" class="filter-input">
+                <label for="f-time-30" class="filter-chip">≤30 min</label>
+                <input type="checkbox" id="f-time-31-60" class="filter-input">
+                <label for="f-time-31-60" class="filter-chip">31-60 min</label>
+                <input type="checkbox" id="f-time-60" class="filter-input">
+                <label for="f-time-60" class="filter-chip">60+ min</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🌶️ 難度</span>
+                <input type="checkbox" id="f-diff-easy" class="filter-input">
+                <label for="f-diff-easy" class="filter-chip">簡單</label>
+                <input type="checkbox" id="f-diff-mid" class="filter-input">
+                <label for="f-diff-mid" class="filter-chip">中等</label>
+                <input type="checkbox" id="f-diff-hard" class="filter-input">
+                <label for="f-diff-hard" class="filter-chip">進階</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🎭 類型</span>
+                <input type="checkbox" id="f-type-coop" class="filter-input">
+                <label for="f-type-coop" class="filter-chip">合作</label>
+                <input type="checkbox" id="f-type-party" class="filter-input">
+                <label for="f-type-party" class="filter-chip">派對</label>
+                <input type="checkbox" id="f-type-vs" class="filter-input">
+                <label for="f-type-vs" class="filter-chip">對抗</label>
+            </div>
+            <div class="filter-group">
+                <span class="filter-group-label">🇭🇰 中文</span>
+                <input type="checkbox" id="f-cn-trad" class="filter-input">
+                <label for="f-cn-trad" class="filter-chip">繁中</label>
+                <input type="checkbox" id="f-cn-simp" class="filter-input">
+                <label for="f-cn-simp" class="filter-chip">簡中</label>
+            </div>
+        </div>
 
-        <div class="game-grid">
-        <a class="game-card" href="bohnanza.html">
+        <!-- 已收錄桌遊 + game grid -->
+        <h2 id="game-list">已收錄桌遊 (8 個 game)</h2>
+        <p class="game-list-intro">由最熱門嘅 <a href="bohnanza.html">眾豆得金</a> 開始。Click filter chip 即時揾 game，click card 入 detail page。</p>
+
+        <div class="game-grid" id="game-grid">
+        <a class="game-card" href="bohnanza.html" data-players="2-4 5+ 6+" data-time="31-60" data-diff="mid" data-type="vs" data-cn="繁中 簡中">
             <div class="game-card-box"><img src="images/bohnanza-box.jpg" alt="眾豆得金 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>眾豆得金</h3>
@@ -44,7 +92,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="camel-up.html">
+        <a class="game-card" href="camel-up.html" data-players="2-4 5+ 6+" data-time="30" data-diff="easy" data-type="party" data-cn="繁中 簡中">
             <div class="game-card-box"><img src="images/camel-up-box.jpg" alt="駱駝大賽 2.0 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>駱駝大賽 2.0</h3>
@@ -56,7 +104,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="catan.html">
+        <a class="game-card" href="catan.html" data-players="2-4" data-time="31-60" data-diff="hard" data-type="vs" data-cn="繁中 簡中">
             <div class="game-card-box"><img src="images/catan-box.jpg" alt="卡坦島 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>卡坦島</h3>
@@ -68,7 +116,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="dnup.html">
+        <a class="game-card" href="dnup.html" data-players="2-4 5+" data-time="30" data-diff="easy" data-type="party" data-cn="eng">
             <div class="game-card-box"><img src="images/dnup-box.jpg" alt="DNUP 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>DNUP</h3>
@@ -80,7 +128,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="manila.html">
+        <a class="game-card" href="manila.html" data-players="2-4 5+" data-time="31-60" data-diff="hard" data-type="vs" data-cn="eng">
             <div class="game-card-box"><img src="images/manila-box.jpg" alt="馬尼拉 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>馬尼拉</h3>
@@ -92,7 +140,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="project-l.html">
+        <a class="game-card" href="project-l.html" data-players="2-4" data-time="30" data-diff="mid" data-type="vs" data-cn="繁中 簡中">
             <div class="game-card-box"><img src="images/project-l-box.jpg" alt="Project L 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>Project L</h3>
@@ -104,7 +152,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="seti.html">
+        <a class="game-card" href="seti.html" data-players="2-4" data-time="60+" data-diff="hard" data-type="vs" data-cn="eng">
             <div class="game-card-box"><img src="images/seti-box.jpg" alt="SETI: Search for Extraterrestrial Intelligence 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>SETI: Search for Extraterrestrial Intelligence</h3>
@@ -116,7 +164,7 @@
                 </div>
             </div>
         </a>
-        <a class="game-card" href="take-time.html">
+        <a class="game-card" href="take-time.html" data-players="2-4" data-time="30" data-diff="easy" data-type="coop" data-cn="繁中 簡中">
             <div class="game-card-box"><img src="images/take-time-box.jpg" alt="Take Time (掌握時刻) 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3>Take Time (掌握時刻)</h3>
@@ -130,261 +178,112 @@
         </a>
         </div>
 
-        <hr id="quick-ref">
-
-        <h2>揾 game 速查 (對應旺角 query 場景)</h2>
-        <p>客嚟到問「30 min 玩咩」「2 個人嚟」, 唔使再翻 Notion, 6 個場景分類 click 展開, 教客前快速 scan:</p>
-
-<div class="accordion">
-    <details class="accordion-section" open>
-        <summary class="accordion-summary">
-            <span class="accordion-icon">🆕</span>
-            <span class="accordion-title">新手第一次玩</span>
-            <span class="accordion-hint">規則淺、教學快、demo 1 局就識</span>
-            <span class="accordion-count">3 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="camel-up.html">
-                    <div class="mini-card-thumb"><img src="images/camel-up-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">駱駝大賽 2.0</strong>
-                        <div class="mini-card-tagline">疊羅漢嘅派對賽跑</div>
-                        <div class="mini-card-meta">👥 2-8 · ⏱️ 30 min · 🌶️ 簡單</div>
-                        <div class="mini-card-note">規則最淺, 8 人派對, 5 min 教完</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="dnup.html">
-                    <div class="mini-card-thumb"><div class="mini-card-thumb-fallback" aria-label="DNUP 盒面" style="width:48px;height:48px">DN</div></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">DNUP</strong>
-                        <div class="mini-card-tagline">旋轉手牌嘅卡牌遊戲</div>
-                        <div class="mini-card-meta">👥 2-5 · ⏱️ 15-20 min · 🌶️ 簡單</div>
-                        <div class="mini-card-note">旋轉機制易明, 15 min 完一局</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="take-time.html">
-                    <div class="mini-card-thumb"><img src="images/take-time-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Take Time (掌握時刻)</strong>
-                        <div class="mini-card-tagline">沉默出牌嘅合作默契</div>
-                        <div class="mini-card-meta">👥 2-4 · ⏱️ 30-60 min · 🌶️ 簡單至中等</div>
-                        <div class="mini-card-note">合作向, 冇挫敗感, 家庭首選</div>
-                    </div>
-                </a>
-        </div>
-    </details>
-    <details class="accordion-section">
-        <summary class="accordion-summary">
-            <span class="accordion-icon">⏱️</span>
-            <span class="accordion-title">30 min 內想完一局</span>
-            <span class="accordion-hint">快玩短局, 客等緊位</span>
-            <span class="accordion-count">2 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="camel-up.html">
-                    <div class="mini-card-thumb"><img src="images/camel-up-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">駱駝大賽 2.0</strong>
-                        <div class="mini-card-tagline">疊羅漢嘅派對賽跑</div>
-                        <div class="mini-card-meta">👥 2-8 · ⏱️ 30 min · 🌶️ 簡單</div>
-                        <div class="mini-card-note">10 min 教, 30 min 完, 旺角夜場最愛</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="dnup.html">
-                    <div class="mini-card-thumb"><div class="mini-card-thumb-fallback" aria-label="DNUP 盒面" style="width:48px;height:48px">DN</div></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">DNUP</strong>
-                        <div class="mini-card-tagline">旋轉手牌嘅卡牌遊戲</div>
-                        <div class="mini-card-meta">👥 2-5 · ⏱️ 15-20 min · 🌶️ 簡單</div>
-                        <div class="mini-card-note">10 min 教, 15-20 min 完, 兩局 combo</div>
-                    </div>
-                </a>
-        </div>
-    </details>
-    <details class="accordion-section">
-        <summary class="accordion-summary">
-            <span class="accordion-icon">👥</span>
-            <span class="accordion-title">2 個人嚟</span>
-            <span class="accordion-hint">2 人場 work 嘅 game</span>
-            <span class="accordion-count">3 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="project-l.html">
-                    <div class="mini-card-thumb"><div class="mini-card-thumb-fallback" aria-label="Project L 盒面" style="width:48px;height:48px">Pr</div></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Project L</strong>
-                        <div class="mini-card-tagline">俄羅斯方塊桌上版</div>
-                        <div class="mini-card-meta">👥 1-4 · ⏱️ 30-45 min · 🌶️ 中等</div>
-                        <div class="mini-card-note">1-4 人, 2 人好 work, 拼圖</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="bohnanza.html">
-                    <div class="mini-card-thumb"><img src="images/bohnanza-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">眾豆得金</strong>
-                        <div class="mini-card-tagline">牌序鎖死嘅談判遊戲</div>
-                        <div class="mini-card-meta">👥 2-7 · ⏱️ 45-60 min · 🌶️ 中等</div>
-                        <div class="mini-card-note">中文版, 2-7 人彈性, 談判</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="take-time.html">
-                    <div class="mini-card-thumb"><img src="images/take-time-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Take Time (掌握時刻)</strong>
-                        <div class="mini-card-tagline">沉默出牌嘅合作默契</div>
-                        <div class="mini-card-meta">👥 2-4 · ⏱️ 30-60 min · 🌶️ 簡單至中等</div>
-                        <div class="mini-card-note">合作默契, 2-4 人</div>
-                    </div>
-                </a>
-        </div>
-    </details>
-    <details class="accordion-section">
-        <summary class="accordion-summary">
-            <span class="accordion-icon">👨‍👩‍👧</span>
-            <span class="accordion-title">家庭 / 帶小朋友</span>
-            <span class="accordion-hint">合作 or 派對, 唔會有人被淘汰</span>
-            <span class="accordion-count">3 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="take-time.html">
-                    <div class="mini-card-thumb"><img src="images/take-time-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Take Time (掌握時刻)</strong>
-                        <div class="mini-card-tagline">沉默出牌嘅合作默契</div>
-                        <div class="mini-card-meta">👥 2-4 · ⏱️ 30-60 min · 🌶️ 簡單至中等</div>
-                        <div class="mini-card-note">合作解謎, 唔會有人被淘汰</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="camel-up.html">
-                    <div class="mini-card-thumb"><img src="images/camel-up-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">駱駝大賽 2.0</strong>
-                        <div class="mini-card-tagline">疊羅漢嘅派對賽跑</div>
-                        <div class="mini-card-meta">👥 2-8 · ⏱️ 30 min · 🌶️ 簡單</div>
-                        <div class="mini-card-note">派對, 小朋友都識玩</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="project-l.html">
-                    <div class="mini-card-thumb"><div class="mini-card-thumb-fallback" aria-label="Project L 盒面" style="width:48px;height:48px">Pr</div></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Project L</strong>
-                        <div class="mini-card-tagline">俄羅斯方塊桌上版</div>
-                        <div class="mini-card-meta">👥 1-4 · ⏱️ 30-45 min · 🌶️ 中等</div>
-                        <div class="mini-card-note">拼圖, 1-4 人彈性</div>
-                    </div>
-                </a>
-        </div>
-    </details>
-    <details class="accordion-section">
-        <summary class="accordion-summary">
-            <span class="accordion-icon">🧠</span>
-            <span class="accordion-title">進階 / 燒腦</span>
-            <span class="accordion-hint">戰略深度高, 老手向</span>
-            <span class="accordion-count">4 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="catan.html">
-                    <div class="mini-card-thumb"><img src="images/catan-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">卡坦島</strong>
-                        <div class="mini-card-tagline">經典德式策略始祖</div>
-                        <div class="mini-card-meta">👥 3-4 · ⏱️ 60-90 min · 🌶️ 中等至進階</div>
-                        <div class="mini-card-note">經典德式策略, 旺角大路貨</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="manila.html">
-                    <div class="mini-card-thumb"><div class="mini-card-thumb-fallback" aria-label="馬尼拉 盒面" style="width:48px;height:48px">馬尼</div></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">馬尼拉</strong>
-                        <div class="mini-card-tagline">港口走私經濟戰</div>
-                        <div class="mini-card-meta">👥 3-5 · ⏱️ 60 min · 🌶️ 中等至進階</div>
-                        <div class="mini-card-note">經濟 + 走私, 戰略深</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="bohnanza.html">
-                    <div class="mini-card-thumb"><img src="images/bohnanza-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">眾豆得金</strong>
-                        <div class="mini-card-tagline">牌序鎖死嘅談判遊戲</div>
-                        <div class="mini-card-meta">👥 2-7 · ⏱️ 45-60 min · 🌶️ 中等</div>
-                        <div class="mini-card-note">談判深, 多人場最化算</div>
-                    </div>
-                </a>
-                <div class="mini-game-card mini-game-card-pending">
-                    <div class="mini-card-thumb"><img src="images/seti-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">SETI: Search for Extraterrestrial Intelligence</strong>
-                        <div class="mini-card-tagline">搜尋外星文明嘅中重歐</div>
-                        <div class="mini-card-meta">👥 1-4 · ⏱️ 90-120 min · 🌶️ 中等至進階</div>
-                        <div class="mini-card-pending-note">⏳ 詳細教學準備中</div>
-                    </div>
-                </div>
-        </div>
-    </details>
-    <details class="accordion-section">
-        <summary class="accordion-summary">
-            <span class="accordion-icon">🇭🇰</span>
-            <span class="accordion-title">中文版 (唔想睇 ENG 規則)</span>
-            <span class="accordion-hint">繁中 / 簡中版有售 (旺角)</span>
-            <span class="accordion-count">3 個 game</span>
-        </summary>
-        <div class="accordion-body">
-                <a class="mini-game-card" href="bohnanza.html">
-                    <div class="mini-card-thumb"><img src="images/bohnanza-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">眾豆得金</strong>
-                        <div class="mini-card-tagline">牌序鎖死嘅談判遊戲</div>
-                        <div class="mini-card-meta">👥 2-7 · ⏱️ 45-60 min · 🌶️ 中等</div>
-                        <div class="mini-card-note">新天鵝堡中文版, 旺角大路貨</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="catan.html">
-                    <div class="mini-card-thumb"><img src="images/catan-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">卡坦島</strong>
-                        <div class="mini-card-tagline">經典德式策略始祖</div>
-                        <div class="mini-card-meta">👥 3-4 · ⏱️ 60-90 min · 🌶️ 中等至進階</div>
-                        <div class="mini-card-note">劍領中文版, 經典</div>
-                    </div>
-                </a>
-                <a class="mini-game-card" href="take-time.html">
-                    <div class="mini-card-thumb"><img src="images/take-time-box.jpg" alt="" loading="lazy" class="mini-card-thumb-img" style="width:48px;height:48px;object-fit:cover;display:block"></div>
-                    <div class="mini-card-body">
-                        <strong class="mini-card-name">Take Time (掌握時刻)</strong>
-                        <div class="mini-card-tagline">沉默出牌嘅合作默契</div>
-                        <div class="mini-card-meta">👥 2-4 · ⏱️ 30-60 min · 🌶️ 簡單至中等</div>
-                        <div class="mini-card-note">Libellud 中文版</div>
-                    </div>
-                </a>
-        </div>
-    </details>
-</div>
-
     </div>
 
     <div class="side">
+        <!-- 揾 game 速查 (5 query button) -->
         <div class="side-box">
-            <h3>關於</h3>
-            <div class="about-text">
-                <p><strong>Herry Ma</strong></p>
-                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應教客前 review 場景。</p>
-                <p>
-                    <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
-                    &nbsp;·&nbsp;
-                </p>
+            <h3>🎯 揾 game 速查</h3>
+            <p class="side-box-hint">按 5 個常見場景快速揾 game:</p>
+    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">👥</span>
+            <span class="query-title">5 個人玩咩</span>
+        </summary>
+        <ul class="query-games">
+                    <li><a href="camel-up.html">駱駝大賽 2.0</a></li>
+                    <li><a href="bohnanza.html">眾豆得金</a></li>
+                    <li><a href="catan.html">卡坦島</a></li>
+                    <li><a href="manila.html">馬尼拉</a></li>
+                    <li><a href="seti.html">SETI: Search for Extraterrestrial Intelligence</a></li>
+        </ul>
+    </details>
+    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">⏱️</span>
+            <span class="query-title">30 min 內完一局</span>
+        </summary>
+        <ul class="query-games">
+                    <li><a href="camel-up.html">駱駝大賽 2.0</a></li>
+                    <li><a href="dnup.html">DNUP</a></li>
+        </ul>
+    </details>
+    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">🆕</span>
+            <span class="query-title">新手第一次玩</span>
+        </summary>
+        <ul class="query-games">
+                    <li><a href="camel-up.html">駱駝大賽 2.0</a></li>
+                    <li><a href="dnup.html">DNUP</a></li>
+                    <li><a href="take-time.html">Take Time (掌握時刻)</a></li>
+        </ul>
+    </details>
+    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">🤝</span>
+            <span class="query-title">合作 game</span>
+        </summary>
+        <ul class="query-games">
+                    <li><a href="take-time.html">Take Time (掌握時刻)</a></li>
+        </ul>
+    </details>
+    <details class="query-section" open>
+        <summary class="query-summary">
+            <span class="query-icon">🇭🇰</span>
+            <span class="query-title">中文版有售</span>
+        </summary>
+        <ul class="query-games">
+                    <li><a href="bohnanza.html">眾豆得金</a></li>
+                    <li><a href="catan.html">卡坦島</a></li>
+                    <li><a href="take-time.html">Take Time (掌握時刻)</a></li>
+                    <li><a href="project-l.html">Project L</a></li>
+        </ul>
+    </details>
+        </div>
+
+        <!-- 對應唔同角色 (4 audience value) -->
+        <div class="side-box">
+            <h3>👥 對應唔同角色</h3>
+            <p class="side-box-hint">呢個網站對邊個有用:</p>
+        <div class="audience-item">
+            <span class="audience-icon">🆕</span>
+            <div class="audience-text">
+                <strong>想學新 game 嘅人</strong>
+                <p>跟玩法 step 學 + 戰術 + tiebreaker 一次過</p>
             </div>
         </div>
-<div class="side-box">
-            <h3>教客 checklist</h3>
+        <div class="audience-item">
+            <span class="audience-icon">🛒</span>
+            <div class="audience-text">
+                <strong>想買 game 但唔知揀</strong>
+                <p>8 個 game 對齊 6 個條件, 用 filter 任你揾</p>
+            </div>
+        </div>
+        <div class="audience-item">
+            <span class="audience-icon">🎲</span>
+            <div class="audience-text">
+                <strong>搞聚會 / 朋友飯局</strong>
+                <p>30 min 內 + 多人場 + 派對 game 一次過搵</p>
+            </div>
+        </div>
+        <div class="audience-item">
+            <span class="audience-icon">👨‍🏫</span>
+            <div class="audience-text">
+                <strong>教學者 / 桌遊店務</strong>
+                <p>每個 game 有完整 rules + FAQ + tiebreaker, 教前 review</p>
+            </div>
+        </div>
+        </div>
+
+        <!-- 關於 UNITARY -->
+        <div class="side-box">
+            <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
-                <p>教任何 game 之前, 5 分鐘 review:</p>
-                <ul style="padding-left:16px;font-size:0.95rem">
-                    <li>✅ 玩法 + 設置</li>
-                    <li>✅ 戰術提示 (5+ 條)</li>
-                    <li>✅ tiebreaker</li>
-                    <li>✅ 客戶推介</li>
-                    <li>✅ 客 query 對應</li>
-                </ul>
+                <p>UNITARY 係香港原創桌遊教學網誌，Herry Ma 個人 project。內容 base on 官方 rulebook + BGG 數據 + 自己 demo 經驗。</p>
+                <p>
+                    <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">Instagram →</a>
+                </p>
             </div>
         </div>
     </div>

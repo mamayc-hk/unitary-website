@@ -915,9 +915,202 @@ tr:hover td { background: #fafafa; }
     gap: 4px;
 }
 
+/* === Filter system (index page 核心功效) === */
+.hero {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #F3F4F6;
+}
+.hero h1 {
+    font-size: 2rem;
+    color: #1F2937;
+    margin: 8px 0 12px;
+    line-height: 1.3;
+}
+.hero .sub {
+    color: #C2410C;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+.hero p {
+    color: #4B5563;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 8px 0 0;
+}
+
+.filter-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: #FFFBEB;
+    border: 1px solid #FED7AA;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 0 0 28px;
+    box-shadow: 0 2px 6px rgba(194, 65, 12, 0.05);
+}
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    margin-bottom: 10px;
+}
+.filter-group:last-child { margin-bottom: 0; }
+.filter-group-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #92400E;
+    min-width: 60px;
+    margin-right: 4px;
+}
+.filter-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+.filter-chip {
+    display: inline-block;
+    padding: 5px 11px;
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 16px;
+    font-size: 0.82rem;
+    color: #4B5563;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s;
+}
+.filter-chip:hover {
+    border-color: #C2410C;
+    color: #C2410C;
+}
+.filter-input:checked + .filter-chip {
+    background: #C2410C;
+    border-color: #C2410C;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* === Filter logic: 同 group OR, 唔同 group AND === */
+/* 預設全部 visible (有 data-attr 嘅 game card) */
+.game-card[data-players] { display: flex; }
+
+/* Players: 揀任何 player chip = 顯示 matching; 多 chip 揀 = OR */
+.game-grid:has(#f-players-2-4:checked) .game-card:not([data-players~="2-4"]) { display: none; }
+.game-grid:has(#f-players-5:checked) .game-card:not([data-players~="5+"]) { display: none; }
+.game-grid:has(#f-players-6:checked) .game-card:not([data-players~="6+"]) { display: none; }
+
+/* Time */
+.game-grid:has(#f-time-30:checked) .game-card:not([data-time~="30"]) { display: none; }
+.game-grid:has(#f-time-31-60:checked) .game-card:not([data-time~="31-60"]) { display: none; }
+.game-grid:has(#f-time-60:checked) .game-card:not([data-time~="60+"]) { display: none; }
+
+/* Difficulty */
+.game-grid:has(#f-diff-easy:checked) .game-card:not([data-diff~="easy"]) { display: none; }
+.game-grid:has(#f-diff-mid:checked) .game-card:not([data-diff~="mid"]) { display: none; }
+.game-grid:has(#f-diff-hard:checked) .game-card:not([data-diff~="hard"]) { display: none; }
+
+/* Type */
+.game-grid:has(#f-type-coop:checked) .game-card:not([data-type~="coop"]) { display: none; }
+.game-grid:has(#f-type-party:checked) .game-card:not([data-type~="party"]) { display: none; }
+.game-grid:has(#f-type-vs:checked) .game-card:not([data-type~="vs"]) { display: none; }
+
+/* Chinese */
+.game-grid:has(#f-cn-trad:checked) .game-card:not([data-cn~="繁中"]) { display: none; }
+.game-grid:has(#f-cn-simp:checked) .game-card:not([data-cn~="簡中"]) { display: none; }
+
+/* === Sidebar: 5 query + 4 audience === */
+.side-box .side-box-hint {
+    color: #6B7280;
+    font-size: 0.85rem;
+    margin: 4px 0 12px;
+}
+.query-section {
+    border-top: 1px solid #F3F4F6;
+    padding: 8px 0;
+}
+.query-section:first-of-type { border-top: none; padding-top: 4px; }
+.query-section summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    color: #1F2937;
+    font-weight: 600;
+    font-size: 0.92rem;
+}
+.query-section summary::-webkit-details-marker { display: none; }
+.query-icon { font-size: 1rem; }
+.query-title { flex: 1; }
+.query-section[open] .query-title::after {
+    content: '▾';
+    color: #9CA3AF;
+    font-size: 0.75rem;
+    margin-left: auto;
+}
+.query-section:not([open]) .query-title::after {
+    content: '▸';
+    color: #9CA3AF;
+    font-size: 0.75rem;
+    margin-left: auto;
+}
+.query-games {
+    list-style: none;
+    padding: 6px 0 4px 22px;
+    margin: 0;
+}
+.query-games li {
+    padding: 3px 0;
+    font-size: 0.88rem;
+}
+.query-games li a {
+    color: #C2410C;
+    text-decoration: none;
+}
+.query-games li a:hover { text-decoration: underline; }
+
+.audience-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-top: 1px solid #F3F4F6;
+}
+.audience-item:first-of-type { border-top: none; padding-top: 4px; }
+.audience-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+}
+.audience-text strong {
+    display: block;
+    color: #1F2937;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+.audience-text p {
+    color: #6B7280;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
 @media (max-width: 800px) {
     .story-section { flex-direction: column; gap: 8px; }
     .story-emoji { font-size: 2rem; }
     .cheat-sheet { position: static; }
     .game-hero h1 { font-size: 1.6rem; }
+    .filter-bar { padding: 10px 12px; }
+    .filter-group-label { min-width: 50px; font-size: 0.78rem; }
+    .filter-chip { padding: 4px 9px; font-size: 0.78rem; }
+    .hero h1 { font-size: 1.5rem; }
 }
