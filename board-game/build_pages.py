@@ -242,7 +242,7 @@ SELLING_POINTS = {
 
 
 # === 4. Cheat Sheet 段 (Fix D, sidebar sticky) ===
-# 5 條 critical tactical tips, 對應教客 review 場景
+# 5 條 critical tactical tips, 對應新手 review 場景
 CHEAT_SHEET = {
     'bohnanza': [
         '🌾 <strong>牌序鎖死</strong>: 第一張一定要先種',
@@ -304,14 +304,14 @@ FAQ = {
         ('手牌順序可唔可以重排?', '唔可以。呢個係眾豆得金嘅核心, 重排會 break 成個 game。'),
         ('第 3 塊田幾時買?', '新手建議保留 5 金幣做 trade currency, 唔好為咗 3 塊田蝕底。高手會喺 round 3 之後先買。'),
         ('幾多人最好玩?', '5-7 人最佳, 2 人太靜, 3-4 人 OK 但少咗 trade 機會。'),
-        ('幾耐可以教完新手?', '15 分鐘教晒, 但新手要玩 2-3 局先掌握牌序鎖死嘅痛苦。第一次玩要 demo 1 局俾客睇。'),
+        ('幾耐可以教完新手?', '15 分鐘教晒, 但新手要玩 2-3 局先掌握牌序鎖死嘅痛苦。第一次玩要 demo 1 局俾新手睇。'),
     ],
     'camel-up': [
         ('新手最易犯乜錯?', '揀「冠軍」嘅駱駝落注, 忽略「疊羅漢」效應。高手會揀「托」嘅駱駝, 即揹住最多同黨嗰隻。'),
         ('Mirage 同 Oasis 邊個好?', 'Mirage 戰略值 2 倍 Oasis, 因為 Mirage 拖慢領先者而 Oasis 推落後者 (推唔郁)。'),
         ('8 人場坐邊個位最好?', '坐第 1 位擲骰, 之後 7 個人可以根據新形勢落注, 最靈活。坐最後 1 位最蝕底但可以揀最冷門注。'),
         ('觀眾圖板幾時放?', '永遠先擺 Mirage 喺領先嗰隻嘅下一格, 拖慢佢。Oasis 擺喺落後嗰隻嘅下一格, 幫佢追。'),
-        ('1.0 同 2.0 邊個較好?', '2.0 tiebreaker 較複雜但有 Mirage/Oasis 變化, 旺角 8 成以上都係 2.0, 教客前要確認。'),
+        ('1.0 同 2.0 邊個較好?', '2.0 tiebreaker 較複雜但有 Mirage/Oasis 變化, 旺角 8 成以上都係 2.0, 如果你想確認。'),
     ],
     'take-time': [
         ('可以出牌時講嘢嗎?', '唔可以, 呢個係 Take Time 嘅核心。出牌階段要沉默, 靠默契同抽象語言溝通。'),
@@ -343,7 +343,7 @@ FAQ = {
     ],
     'manila': [
         ('Bid 3 元係咪必贏?', '唔係, 反而蝕底機會大。高手 bid 1-2 元, 因為船長利潤要靠操控 bonus + 職位分錢補返。'),
-        ('走私 vs 合法 邊個好?', '睇淨利潤, 合法要扣稅但金額高, 走私 0 稅但金額低。教客時要 demo 計算。'),
+        ('走私 vs 合法 邊個好?', '睇淨利潤, 合法要扣稅但金額高, 走私 0 稅但金額低。新手要 demo 計算。'),
         ('3 人場有咩唔同?', '3 人場每個玩家 4 個工人, 可同時佔 2 個職位 (高風險高回報), 4-5 人場只可佔 1 個職位。'),
         ('股票幾時賣?', '股票只有「上」冇「下」, 揀快升嗰隻 (你嘅船都去嘅港灣) 買, 高位賣。'),
         ('新手最大錯誤?', '忽略保險職位。保險係被動收入, 5 人場每次失事賠 5 元, 5 個回合已經回本。'),
@@ -417,7 +417,7 @@ def render_game_page(game, content_md):
         qs_html = f'''
         <div class="quick-start">
             <h2>⚡ Quick Start — 2 分鐘 onboard</h2>
-            <p>新手要 2 分鐘內 make first move, 記住呢 6 條:</p>
+            <p>新手 2 分鐘內 make first move, 記住呢 6 條:</p>
             <ol>{qs_items_html}</ol>
         </div>
         '''
@@ -432,7 +432,7 @@ def render_game_page(game, content_md):
         )
         faq_html = f'''
         <div class="faq">
-            <h2>❓ FAQ — 教客常見問題</h2>
+            <h2>❓ FAQ — 玩家常見問題</h2>
             {faq_items_html}
         </div>
         '''
@@ -445,7 +445,7 @@ def render_game_page(game, content_md):
         cs_html = f'''
         <div class="cheat-sheet">
             <h3>📋 Cheat Sheet</h3>
-            <p>教客前 30 秒掃一眼:</p>
+            <p>新手 30 秒掃一眼:</p>
             <ul>{cs_items_html}</ul>
         </div>
         '''
@@ -466,7 +466,7 @@ def render_game_page(game, content_md):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(tagline)} | UNITARY 開枱指南</title>
     <meta name="description" content="{escape_html(summary)}">
-    <meta name="keywords" content="桌遊,教學,桌遊教學,{escape_html(name)},{escape_html(name_en)},board game,{escape_html(",".join(cats))},香港桌遊,新手桌遊,教客,旺角">
+    <meta name="keywords" content="桌遊,教學,桌遊教學,{escape_html(name)},{escape_html(name_en)},board game,{escape_html(",".join(cats))},香港桌遊,新手桌遊,新手,旺角">
     <link rel="canonical" href="https://unitaryhk.com/board-game/{gid}.html">
     <meta property="og:title" content="{escape_html(name)} ({escape_html(name_en)}) — {escape_html(tagline)}">
     <meta property="og:description" content="{escape_html(summary)}">
@@ -552,10 +552,10 @@ def render_game_page(game, content_md):
 
             <h2>🛒 配合資源 (Cross-sell)</h2>
             <div class="cross-sell">
-                <p>教客時可以一併推薦:</p>
+                <p>新手可以一併推薦:</p>
                 <ul>
                     <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅 card 完美 fit。</li>
-                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 教客 review 即場試玩。</li>
+                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手 review 即場試玩。</li>
                 </ul>
             </div>
 
@@ -573,7 +573,7 @@ def render_game_page(game, content_md):
             <h3>關於</h3>
             <div class="about-text">
                 <p><strong>Herry Ma</strong></p>
-                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應教客前 review 場景。</p>
+                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應新手 review 場景。</p>
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
                     &nbsp;·&nbsp;
@@ -589,15 +589,15 @@ def render_game_page(game, content_md):
         <!-- Sticky Cheat Sheet (Fix D) -->
         {cs_html}
         <div class="side-box">
-            <h3>教客 checklist</h3>
+            <h3>新手指南</h3>
             <div class="about-text">
-                <p>教客前 5 分鐘 review:</p>
+                <p>新手 5 分鐘 review:</p>
                 <ul style="padding-left:16px;font-size:0.95rem">
                     <li>✅ 玩法 + 設置</li>
                     <li>{'✅' if tactics_n > 0 else '⚠️'} 戰術提示 ({tactics_n} 條)</li>
                     <li>{'✅' if has_tb else '⚠️ 待補'} tiebreaker</li>
-                    <li>✅ 客戶推介</li>
-                    <li>✅ 客 query 對應</li>
+                    <li>✅ 推介畀咩人</li>
+                    <li>✅ 新手 query 對應</li>
                 </ul>
             </div>
         </div>
@@ -830,11 +830,11 @@ def render_index_page():
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>桌遊教學 — UNITARY 開枱指南 (board game sub-section)</title>
-    <meta name="description" content="香港原創桌遊教學網誌 (sub-section of UNITARY)。對應旺角客 query 場景, 由新手到進階一站式教學。8 個 game, 完整玩法 + 戰術 + tiebreaker + 客戶推介 + 客 query 對應。">
-    <meta name="keywords" content="桌遊,教學,桌遊教學,board game,香港桌遊,新手桌遊,眾豆得金,駱駝大賽,Take Time,卡坦島,SETI,教客,旺角,桌遊店,UNITARY">
+    <meta name="description" content="香港原創桌遊教學網誌 (sub-section of UNITARY)。對應旺角朋友 query 場景, 由新手到進階一站式教學。8 個 game, 完整玩法 + 戰術 + tiebreaker + 推介畀咩人 + 新手 query 對應。">
+    <meta name="keywords" content="桌遊,教學,桌遊教學,board game,香港桌遊,新手桌遊,眾豆得金,駱駝大賽,Take Time,卡坦島,SETI,新手,旺角,桌遊店,UNITARY">
     <link rel="canonical" href="https://unitaryhk.com/board-game/">
     <meta property="og:title" content="桌遊教學 — UNITARY 開枱指南">
-    <meta property="og:description" content="對應旺角客 query 場景嘅桌遊教學網誌。教客前最後一次 review 就夠。">
+    <meta property="og:description" content="對應旺角朋友 query 場景嘅桌遊教學網誌。如果你想最後一次 review 就夠。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">

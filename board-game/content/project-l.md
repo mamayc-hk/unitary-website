@@ -42,21 +42,21 @@ Project L 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一
 當所有玩家都做唔到動作 (棋盤滿或者 piece 池冇 piece), 遊戲結束。每個玩家數自己完成嘅 puzzle 嘅分數: 1 級 1 分 + 2 級 2 分 + 3 級 3 分。最高分贏。如果平手, 進入 tiebreaker (見下)。
 
 ### Step 9: 第二版 (Project L 2nd Edition) 嘅新機制
-第二版 (2023 年) 加咗「end game scoring」: 如果你完成最後一個 puzzle 嗰陣, 你棋盤上仲有 2 個 piece, 額外 1 分; 3 個 piece 額外 2 分 (最多 2 分 bonus)。第二版仲加咗「master piece」(3x3 大 piece), 可以完成超大型 puzzle。教客前要確認玩家用邊一版。
+第二版 (2023 年) 加咗「end game scoring」: 如果你完成最後一個 puzzle 嗰陣, 你棋盤上仲有 2 個 piece, 額外 1 分; 3 個 piece 額外 2 分 (最多 2 分 bonus)。第二版仲加咗「master piece」(3x3 大 piece), 可以完成超大型 puzzle。新手要確認玩家用邊一版。
 
 ## 戰術提示 (5+ 條)
 
-1. **「先 take, 遲啲 upgrade」vs「先 upgrade, 遲啲 take」**: 兩種主流 strategy。Strategy A (新手友善): 早期 take 細 piece 填棋盤, 遲啲先 upgrade 做彩色 piece 完成大 puzzle。Strategy B (進階): 早期就 upgrade 1x1→1x2→1x3, 換走細 piece, 騰出棋盤位俾彩色 piece 放入。Strategy B 戰略深度高, 但新手容易「upgrade 太多, 細 piece 唔夠用」。教客時建議新手用 Strategy A, 進階客用 Strategy B。
+1. **「先 take, 遲啲 upgrade」vs「先 upgrade, 遲啲 take」**: 兩種主流 strategy。Strategy A (新手友善): 早期 take 細 piece 填棋盤, 遲啲先 upgrade 做彩色 piece 完成大 puzzle。Strategy B (進階): 早期就 upgrade 1x1→1x2→1x3, 換走細 piece, 騰出棋盤位俾彩色 piece 放入。Strategy B 戰略深度高, 但新手容易「upgrade 太多, 細 piece 唔夠用」。新手建議新手用 Strategy A, 進階客用 Strategy B。
 
 2. **「1 級 puzzle 嘅 bonus piece 係關鍵」**: 1 級 puzzle 只值 1 分, 但 bonus piece (完成後即時攞 1 個 piece) 嘅價值高過 1 分。高手會「特登」完成 1 級 puzzle 攞 bonus piece, 用 bonus piece 嚟做下一個 puzzle 嘅 setup。BGG 統計: 1 級 puzzle 完成得快嘅玩家, 後續 2-3 級 puzzle 嘅完成率高 30%。
 
 3. **「棋盤位管理」**: 玩家板 3x3 共 9 格, 1 級 puzzle 用 3-4 格, 2 級用 5-6 格, 3 級用 7-9 格。高手會「計算」每個 puzzle 用幾多格, 然後控制 take piece 嘅節奏。例: 如果你 9 格已經用咗 5 格, 你只可以 take 4 個 piece, 呢個就係 2 級 puzzle 嘅上限, 唔可以再升級做大 puzzle。
 
-4. **「集中 1 個顏色 vs 分散」**: 彩色 piece 有 4 種顏色 (紅藍黃綠), 玩家可以選擇「集中 1 種顏色」或「分散 4 種顏色」。集中 1 種顏色嘅好處係完成大 pattern (例如全部紅色) 容易, 但壞處係 piece 池嘅彩色 piece 有限, 集中 1 種會搶到其他人冇得用。分散 4 種嘅好處係「不被針對」, 但壞處係難完成大 pattern。教客時建議 2-3 人場用「集中」, 4 人場用「分散」。
+4. **「集中 1 個顏色 vs 分散」**: 彩色 piece 有 4 種顏色 (紅藍黃綠), 玩家可以選擇「集中 1 種顏色」或「分散 4 種顏色」。集中 1 種顏色嘅好處係完成大 pattern (例如全部紅色) 容易, 但壞處係 piece 池嘅彩色 piece 有限, 集中 1 種會搶到其他人冇得用。分散 4 種嘅好處係「不被針對」, 但壞處係難完成大 pattern。新手建議 2-3 人場用「集中」, 4 人場用「分散」。
 
-5. **「End game scoring 嘅 2nd / 3rd piece bonus」**: 第二版嘅 end game scoring 改變咗玩法: 你唔係「越快完成 puzzle 越好」, 而係「完成 puzzle 時棋盤上仲有 piece 越好」。高手會喺最後 1-2 個 turn, 「故意」做 1 級 puzzle 留低 bonus piece, 等遊戲結束時棋盤有 2-3 個 piece, 攞 1-2 分 bonus。教客前要確認玩家用邊一版 (第一版冇 end game scoring)。
+5. **「End game scoring 嘅 2nd / 3rd piece bonus」**: 第二版嘅 end game scoring 改變咗玩法: 你唔係「越快完成 puzzle 越好」, 而係「完成 puzzle 時棋盤上仲有 piece 越好」。高手會喺最後 1-2 個 turn, 「故意」做 1 級 puzzle 留低 bonus piece, 等遊戲結束時棋盤有 2-3 個 piece, 攞 1-2 分 bonus。新手要確認玩家用邊一版 (第一版冇 end game scoring)。
 
-6. **「單人場嘅特殊玩法」**: Project L 1 人場可以玩, 但缺少咗「同其他人搶 piece 池」嘅緊張感。單人場嘅重點變成「時間管理」: 20 個 turn 內完成最多 puzzle。教客時要 demo: 單人場用「完成 puzzle 數」做目標, 而唔係「打贏對手」。
+6. **「單人場嘅特殊玩法」**: Project L 1 人場可以玩, 但缺少咗「同其他人搶 piece 池」嘅緊張感。單人場嘅重點變成「時間管理」: 20 個 turn 內完成最多 puzzle。新手可以 demo: 單人場用「完成 puzzle 數」做目標, 而唔係「打贏對手」。
 
 ## Tiebreaker
 
@@ -69,11 +69,11 @@ Project L 官方 tiebreaker 規則 (Broadway Toys 中文版 / CGE 英文版):
 5. **再平手 (第四版 tiebreaker, 第二版獨有)**: 比較「end game bonus piece」嘅玩家勝 (即棋盤上仲有 piece 嘅數量)。
 6. **再平手 (極罕有)**: 兩位玩家共享勝利 (share win)。
 
-來源: 官方規則書 (Broadway Toys 2020, CGE 2023 second edition) page 4 寫「End of the Game」段落, BGG comment 確認。教客前可上 BGG: https://boardgamegeek.com/boardgame/260180/project-l
+來源: 官方規則書 (Broadway Toys 2020, CGE 2023 second edition) page 4 寫「End of the Game」段落, BGG comment 確認。你可以上 BGG: https://boardgamegeek.com/boardgame/260180/project-l
 
-**重要注意**: Project L 第二版 (2023) 同第一版 (2020) tiebreaker 唔同。第一版冇 end game bonus piece, 所以 tiebreaker 由 level 3 開始比。第二版加咗 end game bonus piece, tiebreaker 多咗一個 step。教客前要確認玩家用邊一版。
+**重要注意**: Project L 第二版 (2023) 同第一版 (2020) tiebreaker 唔同。第一版冇 end game bonus piece, 所以 tiebreaker 由 level 3 開始比。第二版加咗 end game bonus piece, tiebreaker 多咗一個 step。新手要確認玩家用邊一版。
 
-## 客戶推介
+## 推介畀咩人
 
 Project L 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾何愛好者首選」。
 
@@ -103,7 +103,7 @@ Project L 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾
 - **3 人規則**: 標準規則, 最佳人數之一。
 - **4 人規則**: 標準規則, 最多 4 人, 搶 piece 池最緊張。
 - **5+ 人 (官方唔支援)**: 4 人 max, 5+ 人場唔可以玩。
-- **第一版 vs 第二版 (2023)**: 第一版 (2020) 冇 end game bonus piece, 第二版 (2023) 有。旺角多間店有新舊兩版, 教客前要確認。
+- **第一版 vs 第二版 (2023)**: 第一版 (2020) 冇 end game bonus piece, 第二版 (2023) 有。旺角多間店有新舊兩版, 新手要確認。
 - **House Rule — 加快模式**: 部分玩家將中央圖板嘅 piece 池由 3 個改 2 個, 加快節奏 (piece 用得快, 遊戲結束得快)。
 - **House Rule — 升級格開放**: 部分玩家將升級格由 1 個改 2 個, 加快升級速度, 但降低策略深度。
 - **官方擴充 (待查)**: Project L 而家未有獨立擴充, 但 CGE 第二版 (2023) 已經包含咗第一版 + 升級 piece。進階客可以上 BGG 查 fan-made expansion。

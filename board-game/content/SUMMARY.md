@@ -142,7 +142,7 @@
 ## 完整流程 (Step by Step)      → app.js step-flow (Step 1, Step 2...)
 ## 戰術提示 (5+ 條)             → app.js tactic-box
 ## Tiebreaker                  → app.js info-box
-## 客戶推介                     → app.js ul
+## 推介畀咩人                     → app.js ul
 ## 客 query 對應                 → app.js query-match
 ## 特殊規則 / 變體               → manual
 ## 參考                         → manual (BGG link)
