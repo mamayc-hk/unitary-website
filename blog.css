@@ -1005,13 +1005,13 @@ tr:hover td { background: #fafafa; }
    因為 :has() chain 過深 (body -> .main -> .filter-bar -> input) 喺 in-app browser 唔 trigger re-evaluation */
 /* Players: 揀任何 player chip = 顯示 matching; 多 chip 揀 = OR */
 .filter-bar:has(#f-players-2-4:checked) ~ .game-grid .game-card:not([data-players~="2-4"]) { display: none; }
-.filter-bar:has(#f-players-5:checked) ~ .game-grid .game-card:not([data-players~="5+"]) { display: none; }
-.filter-bar:has(#f-players-6:checked) ~ .game-grid .game-card:not([data-players~="6+"]) { display: none; }
+.filter-bar:has(#f-players-5+:checked) ~ .game-grid .game-card:not([data-players~="5+"]) { display: none; }
+.filter-bar:has(#f-players-6+:checked) ~ .game-grid .game-card:not([data-players~="6+"]) { display: none; }
 
 /* Time */
 .filter-bar:has(#f-time-30:checked) ~ .game-grid .game-card:not([data-time~="30"]) { display: none; }
 .filter-bar:has(#f-time-31-60:checked) ~ .game-grid .game-card:not([data-time~="31-60"]) { display: none; }
-.filter-bar:has(#f-time-60:checked) ~ .game-grid .game-card:not([data-time~="60+"]) { display: none; }
+.filter-bar:has(#f-time-60+:checked) ~ .game-grid .game-card:not([data-time~="60+"]) { display: none; }
 
 /* Difficulty */
 .filter-bar:has(#f-diff-easy:checked) ~ .game-grid .game-card:not([data-diff~="easy"]) { display: none; }

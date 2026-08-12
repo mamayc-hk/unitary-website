@@ -783,10 +783,10 @@ def render_index_page():
                 <span class="filter-group-label">👥 人數</span>
                 <input type="checkbox" id="f-players-2-4" class="filter-input">
                 <label for="f-players-2-4" class="filter-chip">2-4 人</label>
-                <input type="checkbox" id="f-players-5" class="filter-input">
-                <label for="f-players-5" class="filter-chip">5+ 人</label>
-                <input type="checkbox" id="f-players-6" class="filter-input">
-                <label for="f-players-6" class="filter-chip">6+ 人</label>
+                <input type="checkbox" id="f-players-5+" class="filter-input">
+                <label for="f-players-5+" class="filter-chip">5+ 人</label>
+                <input type="checkbox" id="f-players-6+" class="filter-input">
+                <label for="f-players-6+" class="filter-chip">6+ 人</label>
             </div>
             <div class="filter-group">
                 <span class="filter-group-label">⏱️ 時間</span>
@@ -794,8 +794,8 @@ def render_index_page():
                 <label for="f-time-30" class="filter-chip">≤30 min</label>
                 <input type="checkbox" id="f-time-31-60" class="filter-input">
                 <label for="f-time-31-60" class="filter-chip">31-60 min</label>
-                <input type="checkbox" id="f-time-60" class="filter-input">
-                <label for="f-time-60" class="filter-chip">60+ min</label>
+                <input type="checkbox" id="f-time-60+" class="filter-input">
+                <label for="f-time-60+" class="filter-chip">60+ min</label>
             </div>
             <div class="filter-group">
                 <span class="filter-group-label">🌶️ 難度</span>
