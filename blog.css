@@ -1002,29 +1002,30 @@ tr:hover td { background: #fafafa; }
 .game-card[data-players] { display: flex; }
 
 /* Filter inputs 喺 .main 入面 (filter-bar 同 game-grid 嘅 common ancestor) */
+/* 用 body:has() 因為 in-app browser 對 .main:has() 嘅 CSS specificity 有 timing issue */
 /* Players: 揀任何 player chip = 顯示 matching; 多 chip 揀 = OR */
-.main:has(#f-players-2-4:checked) .game-card:not([data-players~="2-4"]) { display: none; }
-.main:has(#f-players-5:checked) .game-card:not([data-players~="5+"]) { display: none; }
-.main:has(#f-players-6:checked) .game-card:not([data-players~="6+"]) { display: none; }
+body:has(#f-players-2-4:checked) .game-card:not([data-players~="2-4"]) { display: none; }
+body:has(#f-players-5:checked) .game-card:not([data-players~="5+"]) { display: none; }
+body:has(#f-players-6:checked) .game-card:not([data-players~="6+"]) { display: none; }
 
 /* Time */
-.main:has(#f-time-30:checked) .game-card:not([data-time~="30"]) { display: none; }
-.main:has(#f-time-31-60:checked) .game-card:not([data-time~="31-60"]) { display: none; }
-.main:has(#f-time-60:checked) .game-card:not([data-time~="60+"]) { display: none; }
+body:has(#f-time-30:checked) .game-card:not([data-time~="30"]) { display: none; }
+body:has(#f-time-31-60:checked) .game-card:not([data-time~="31-60"]) { display: none; }
+body:has(#f-time-60:checked) .game-card:not([data-time~="60+"]) { display: none; }
 
 /* Difficulty */
-.main:has(#f-diff-easy:checked) .game-card:not([data-diff~="easy"]) { display: none; }
-.main:has(#f-diff-mid:checked) .game-card:not([data-diff~="mid"]) { display: none; }
-.main:has(#f-diff-hard:checked) .game-card:not([data-diff~="hard"]) { display: none; }
+body:has(#f-diff-easy:checked) .game-card:not([data-diff~="easy"]) { display: none; }
+body:has(#f-diff-mid:checked) .game-card:not([data-diff~="mid"]) { display: none; }
+body:has(#f-diff-hard:checked) .game-card:not([data-diff~="hard"]) { display: none; }
 
 /* Type */
-.main:has(#f-type-coop:checked) .game-card:not([data-type~="coop"]) { display: none; }
-.main:has(#f-type-party:checked) .game-card:not([data-type~="party"]) { display: none; }
-.main:has(#f-type-vs:checked) .game-card:not([data-type~="vs"]) { display: none; }
+body:has(#f-type-coop:checked) .game-card:not([data-type~="coop"]) { display: none; }
+body:has(#f-type-party:checked) .game-card:not([data-type~="party"]) { display: none; }
+body:has(#f-type-vs:checked) .game-card:not([data-type~="vs"]) { display: none; }
 
 /* Chinese */
-.main:has(#f-cn-trad:checked) .game-card:not([data-cn~="繁中"]) { display: none; }
-.main:has(#f-cn-simp:checked) .game-card:not([data-cn~="簡中"]) { display: none; }
+body:has(#f-cn-trad:checked) .game-card:not([data-cn~="繁中"]) { display: none; }
+body:has(#f-cn-simp:checked) .game-card:not([data-cn~="簡中"]) { display: none; }
 
 /* === Sidebar: 5 query + 4 audience === */
 .side-box .side-box-hint {
