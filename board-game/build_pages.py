@@ -903,8 +903,60 @@ def render_index_page():
     CC BY-NC-SA 4.0</p>
 </div>
 
+{FILTER_JS}
 </body>
 </html>
+'''
+
+
+# === 7.5 Filter JS fallback (in-app browser 對 :has() chain timing 唔 reliable) ===
+FILTER_JS = '''
+<script>
+// Filter JS fallback (因為 in-app browser 對 :has() chain timing 唔 reliable, 0% fetch / 純 DOM)
+(function() {
+  var gameGrid = document.getElementById('game-grid');
+  if (!gameGrid) return;
+  var inputs = document.querySelectorAll('.filter-input');
+  var cards = Array.prototype.slice.call(gameGrid.querySelectorAll('.game-card'));
+  var cardData = cards.map(function(c) {
+    return {
+      el: c,
+      players: (c.getAttribute('data-players') || '').split(' '),
+      time: (c.getAttribute('data-time') || '').split(' '),
+      diff: (c.getAttribute('data-diff') || '').split(' '),
+      type: (c.getAttribute('data-type') || '').split(' '),
+      cn: (c.getAttribute('data-cn') || '').split(' '),
+    };
+  });
+  function getChecked(groupPrefix) {
+    var vals = [];
+    inputs.forEach(function(inp) {
+      if (inp.id.indexOf(groupPrefix) === 0 && inp.checked) {
+        vals.push(inp.id.substring(groupPrefix.length));
+      }
+    });
+    return vals;
+  }
+  function updateFilter() {
+    var pVals = getChecked('f-players-');
+    var tVals = getChecked('f-time-');
+    var dVals = getChecked('f-diff-');
+    var tyVals = getChecked('f-type-');
+    var cVals = getChecked('f-cn-');
+    cardData.forEach(function(c) {
+      var show = true;
+      if (pVals.length && !pVals.some(function(v) { return c.players.indexOf(v) >= 0; })) show = false;
+      else if (tVals.length && !tVals.some(function(v) { return c.time.indexOf(v) >= 0; })) show = false;
+      else if (dVals.length && !dVals.some(function(v) { return c.diff.indexOf(v) >= 0; })) show = false;
+      else if (tyVals.length && !tyVals.some(function(v) { return c.type.indexOf(v) >= 0; })) show = false;
+      else if (cVals.length && !cVals.some(function(v) { return c.cn.indexOf(v) >= 0; })) show = false;
+      c.el.style.display = show ? '' : 'none';
+    });
+  }
+  inputs.forEach(function(inp) { inp.addEventListener('change', updateFilter); });
+  updateFilter();
+})();
+</script>
 '''
 
 
