@@ -835,8 +835,8 @@ def render_index_page():
     <div class="side">
         <!-- Blog 格式: 5 個常見場景嘅 game list -->
         <div class="side-box">
-            <h3>📝 揾 game 速查</h3>
-            <p class="side-box-hint">按 5 個常見場景揾 game:</p>
+            <h3>📝 揾桌遊速查</h3>
+            <p class="side-box-hint">按 5 個常見場景揾桌遊:</p>
 {query_html}
         </div>
 
