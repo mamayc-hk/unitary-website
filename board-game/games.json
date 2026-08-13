@@ -2,8 +2,8 @@
   "site": {
     "name": "Unitary 開枱指南",
     "name_en": "Unitary Board Game Guide",
-    "tagline": "桌遊新手入門 · 教客 review · 揾 game 比客玩",
-    "description": "香港原創桌遊教學網誌。對應客 query 場景, 由新手到進階一站式教學。每個 game 都有完整玩法、戰術、tiebreaker、客戶推介, 教客前最後一次 review 就夠。",
+    "tagline": "為香港同台灣桌遊新手同愛好者而設",
+    "description": "桌遊教學網誌。為香港同台灣嘅桌遊新手同愛好者而設, 由新手到進階一站式教學。每個 game 都有完整玩法、戰術、tiebreaker、FAQ, 學完即玩。",
     "established": "2026-08-11",
     "author": "Herry Ma",
     "license": "CC BY-NC-SA 4.0",
@@ -82,7 +82,7 @@
     {
       "id": "camel-up",
       "name": "駱駝大賽 2.0",
-      "name_en": "Camel Up (2014 Edition)",
+      "name_en": "Camel Up 2.0",
       "publisher": "Eggertspiele / Pegasus Spiele",
       "year": 2014,
       "category": [
@@ -133,7 +133,7 @@
     },
     {
       "id": "take-time",
-      "name": "Take Time (掌握時刻)",
+      "name": "掌握時刻",
       "name_en": "Take Time",
       "publisher": "Libellud (Dixit 同一間)",
       "year": 2023,
@@ -238,7 +238,7 @@
     },
     {
       "id": "project-l",
-      "name": "Project L",
+      "name": "L 計畫",
       "name_en": "Project L",
       "publisher": "Broadway Toys (中文版)",
       "year": 2020,
@@ -286,7 +286,7 @@
     },
     {
       "id": "dnup",
-      "name": "DNUP",
+      "name": "dnup",
       "name_en": "DNUP",
       "publisher": "Sit Down!",
       "year": 2019,
@@ -379,7 +379,7 @@
     },
     {
       "id": "seti",
-      "name": "SETI: Search for Extraterrestrial Intelligence",
+      "name": "SETI: 搜尋地外文明",
       "name_en": "SETI",
       "publisher": "Czech Games Edition (CGE)",
       "year": 2024,

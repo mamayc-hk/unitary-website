@@ -380,7 +380,9 @@ def render_game_page(game, content_md):
     gid = game['id']
 
     # Markdown → HTML
-    long_form_html = md_to_html(content_md)
+    # Strip leading H1 (template H1 is authoritative, 避免 page 出現兩個 H1)
+    content_md_no_h1 = re.sub(r'^#\s+.*\n', '', content_md, count=1)
+    long_form_html = md_to_html(content_md_no_h1)
 
     # Customer fit
     fit_items = ''.join(f'<li><strong>{escape_html(k)}</strong>: {escape_html(v)}</li>\n' for k, v in fit.items())
@@ -698,10 +700,10 @@ def render_index_page():
 
     cards_html = '\n'.join(cards)
 
-    # === Sidebar: 5 個 quick query (簡單入口) ===
+    # === Sidebar: 5 個 quick query (blog-style, 5 個常見場景) ===
     QUICK_QUERY = [
         {
-            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩',
+            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩 game',
             'games': ['camel-up', 'bohnanza', 'catan', 'manila', 'seti'],
         },
         {
@@ -717,28 +719,8 @@ def render_index_page():
             'games': ['take-time'],
         },
         {
-            'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版有售',
+            'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版',
             'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
-        },
-    ]
-
-    # === Sidebar: 4 個 audience value (對應唔同角色) ===
-    AUDIENCE_VALUE = [
-        {
-            'icon': '🆕', 'title': '想學新 game 嘅人',
-            'desc': '跟玩法 step 學 + 戰術 + tiebreaker 一次過',
-        },
-        {
-            'icon': '🛒', 'title': '想買 game 但唔知揀',
-            'desc': '8 個 game 對齊 6 個條件, 用 filter 任你揾',
-        },
-        {
-            'icon': '🎲', 'title': '搞聚會 / 朋友飯局',
-            'desc': '30 min 內 + 多人場 + 派對 game 一次過搵',
-        },
-        {
-            'icon': '👨‍🏫', 'title': '教學者 / 桌遊店務',
-            'desc': '每個 game 有完整 rules + FAQ + tiebreaker, 教前 review',
         },
     ]
 
@@ -763,17 +745,8 @@ def render_index_page():
     </details>''')
     query_html = '\n'.join(query_sections)
 
-    # Build sidebar audience HTML
-    audience_items = []
-    for a in AUDIENCE_VALUE:
-        audience_items.append(f'''        <div class="audience-item">
-            <span class="audience-icon">{a['icon']}</span>
-            <div class="audience-text">
-                <strong>{escape_html(a['title'])}</strong>
-                <p>{escape_html(a['desc'])}</p>
-            </div>
-        </div>''')
-    audience_html = '\n'.join(audience_items)
+    # Build sidebar audience HTML (REMOVED in v3.0.6: user dropped 對應唔同角色 section)
+    audience_html = ''
 
     # === Filter system HTML (核心功效, sticky top) ===
     # 14 個 chip in 5 個 group; 同 group OR, 唔同 group AND
@@ -815,13 +788,6 @@ def render_index_page():
                 <input type="checkbox" id="f-type-vs" class="filter-input">
                 <label for="f-type-vs" class="filter-chip">對抗</label>
             </div>
-            <div class="filter-group">
-                <span class="filter-group-label">🇭🇰 中文</span>
-                <input type="checkbox" id="f-cn-trad" class="filter-input">
-                <label for="f-cn-trad" class="filter-chip">繁中</label>
-                <input type="checkbox" id="f-cn-simp" class="filter-input">
-                <label for="f-cn-simp" class="filter-chip">簡中</label>
-            </div>
         </div>'''
 
     return f'''<!DOCTYPE html>
@@ -829,12 +795,12 @@ def render_index_page():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>桌遊教學 — UNITARY 開枱指南 (board game sub-section)</title>
-    <meta name="description" content="香港原創桌遊教學網誌 (sub-section of UNITARY)。對應旺角朋友 query 場景, 由新手到進階一站式教學。8 個 game, 完整玩法 + 戰術 + tiebreaker + 推介畀咩人 + 新手 query 對應。">
-    <meta name="keywords" content="桌遊,教學,桌遊教學,board game,香港桌遊,新手桌遊,眾豆得金,駱駝大賽,Take Time,卡坦島,SETI,新手,旺角,桌遊店,UNITARY">
+    <title>桌遊教學網誌 — 8 個熱門 board game 完整 rules + 戰術 + tiebreaker</title>
+    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。8 個熱門 board game 完整 rules、戰術、tiebreaker、FAQ, 用 filter 即時搵啱你人數 / 時間 / 類型 / 難度嘅 game。">
+    <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,眾豆得金,駱駝大賽,Take Time,卡坦島,SETI,UNITARY">
     <link rel="canonical" href="https://unitaryhk.com/board-game/">
-    <meta property="og:title" content="桌遊教學 — UNITARY 開枱指南">
-    <meta property="og:description" content="對應旺角朋友 query 場景嘅桌遊教學網誌。如果你想最後一次 review 就夠。">
+    <meta property="og:title" content="桌遊教學網誌 — UNITARY">
+    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。8 個熱門 board game 完整教學, 用 filter 即時搵 game。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
@@ -847,19 +813,18 @@ def render_index_page():
 
 <div class="layout">
     <div class="main">
-        <!-- Hero 段 (短 mission) -->
+        <!-- Hero 段 (對象 + 點幫到佢) -->
         <div class="hero">
-            <div class="sub">Design once. Play forever.</div>
-            <h1>香港原創桌遊教學網誌</h1>
-            <p>8 個熱門 board game 完整 rules + 戰術 + tiebreaker，學完即玩。用下面 filter 揾啱你嘅 game。</p>
+            <h1>桌遊教學網誌</h1>
+            <p>想學 board game 但唔知點 setup? 想搵啱你人數同時間嘅 game? 想知 tiebreaker 點算? 呢度每個 game 都有完整 rules、戰術、FAQ, 用 filter 即時搵啱你嘅 game, 學完即玩。</p>
         </div>
 
         <!-- Filter system (核心功效, sticky top) -->
 {filter_html}
 
-        <!-- 已收錄桌遊 + game grid -->
-        <h2 id="game-list">已收錄桌遊 (8 個 game)</h2>
-        <p class="game-list-intro">由最熱門嘅 <a href="bohnanza.html">眾豆得金</a> 開始。Click filter chip 即時揾 game，click card 入 detail page。</p>
+        <!-- Game list (純標題, 唔加 annotation) -->
+        <h2 id="game-list">桌遊教學</h2>
+        <p class="game-list-intro">每個 game 點圖 click 入完整教學。</p>
 
         <div class="game-grid" id="game-grid">
 {cards_html}
@@ -868,25 +833,18 @@ def render_index_page():
     </div>
 
     <div class="side">
-        <!-- 揾 game 速查 (5 query button) -->
+        <!-- Blog 格式: 5 個常見場景嘅 game list -->
         <div class="side-box">
-            <h3>🎯 揾 game 速查</h3>
-            <p class="side-box-hint">按 5 個常見場景快速揾 game:</p>
+            <h3>📝 揾 game 速查</h3>
+            <p class="side-box-hint">按 5 個常見場景揾 game:</p>
 {query_html}
-        </div>
-
-        <!-- 對應唔同角色 (4 audience value) -->
-        <div class="side-box">
-            <h3>👥 對應唔同角色</h3>
-            <p class="side-box-hint">呢個網站對邊個有用:</p>
-{audience_html}
         </div>
 
         <!-- 關於 UNITARY -->
         <div class="side-box">
             <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
-                <p>UNITARY 係香港原創桌遊教學網誌，Herry Ma 個人 project。內容 base on 官方 rulebook + BGG 數據 + 自己 demo 經驗。</p>
+                <p>UNITARY 係為香港同台灣桌遊新手同愛好者而設嘅教學網誌, Herry Ma 個人 project。內容 base on 官方 rulebook + BGG 數據 + 自己 demo 經驗。</p>
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">Instagram →</a>
                 </p>
@@ -896,7 +854,7 @@ def render_index_page():
 </div>
 
 <div class="blog-footer">
-    <p>© 2026 UNITARY 開枱指南 &nbsp;·&nbsp;
+    <p>© 2026 UNITARY &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
@@ -925,7 +883,6 @@ FILTER_JS = '''
       time: (c.getAttribute('data-time') || '').split(' '),
       diff: (c.getAttribute('data-diff') || '').split(' '),
       type: (c.getAttribute('data-type') || '').split(' '),
-      cn: (c.getAttribute('data-cn') || '').split(' '),
     };
   });
   function getChecked(groupPrefix) {
@@ -942,14 +899,12 @@ FILTER_JS = '''
     var tVals = getChecked('f-time-');
     var dVals = getChecked('f-diff-');
     var tyVals = getChecked('f-type-');
-    var cVals = getChecked('f-cn-');
     cardData.forEach(function(c) {
       var show = true;
       if (pVals.length && !pVals.some(function(v) { return c.players.indexOf(v) >= 0; })) show = false;
       else if (tVals.length && !tVals.some(function(v) { return c.time.indexOf(v) >= 0; })) show = false;
       else if (dVals.length && !dVals.some(function(v) { return c.diff.indexOf(v) >= 0; })) show = false;
       else if (tyVals.length && !tyVals.some(function(v) { return c.type.indexOf(v) >= 0; })) show = false;
-      else if (cVals.length && !cVals.some(function(v) { return c.cn.indexOf(v) >= 0; })) show = false;
       c.el.style.display = show ? '' : 'none';
     });
   }

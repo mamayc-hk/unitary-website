@@ -1,12 +1,12 @@
-# Project L
+# L 計畫 (Project L)
 
 > 俄羅斯方塊桌上版
 
 ## 玩法簡介
 
-Project L 係 2020 年 Jan Vodohrálek 設計嘅拼圖策略遊戲, 由 Broadway Toys (中文版) 同 原版 English 第一版 (CGE) 出版, 旺角多間店有售 (繁中版 2022 年後普及)。遊戲背景係抽象拼圖, 玩家透過收集同放置 L 形、T 形等 polyomino 碎片, 完成 puzzle card 賺分。
+L 計畫 (Project L) 係 2020 年 Jan Vodohrálek 設計嘅拼圖策略遊戲, 由 Broadway Toys (中文版) 同 原版 English 第一版 (CGE) 出版, 旺角多間店有售 (繁中版 2022 年後普及)。遊戲背景係抽象拼圖, 玩家透過收集同放置 L 形、T 形等 polyomino 碎片, 完成 puzzle card 賺分。
 
-Project L 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一個小嘅 polyomino 升級做更大嘅形狀 (例如將 2 個 L 形升級做 1 個 T 形), 呢個動作令你可以更靈活咁完成 puzzle。Project L 嘅 design 同俄羅斯方塊嘅精神好相似: 喺有限空間內擺到最多形狀, 完成 puzzle 卡嘅 pattern。
+L 計畫 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一個小嘅 polyomino 升級做更大嘅形狀 (例如將 2 個 L 形升級做 1 個 T 形), 呢個動作令你可以更靈活咁完成 puzzle。L 計畫 嘅 design 同俄羅斯方塊嘅精神好相似: 喺有限空間內擺到最多形狀, 完成 puzzle 卡嘅 pattern。
 
 呢個 game 適合 1-4 人, 單人都好玩, 教學時間 20 分鐘, 一局 30-45 分鐘, 難度中等。旺角家庭 / 單人 / 情侶向, 拼圖愛好者首選。
 
@@ -41,12 +41,12 @@ Project L 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一
 ### Step 8: 遊戲結束 + 計分
 當所有玩家都做唔到動作 (棋盤滿或者 piece 池冇 piece), 遊戲結束。每個玩家數自己完成嘅 puzzle 嘅分數: 1 級 1 分 + 2 級 2 分 + 3 級 3 分。最高分贏。如果平手, 進入 tiebreaker (見下)。
 
-### Step 9: 第二版 (Project L 2nd Edition) 嘅新機制
+### Step 9: 第二版 (L 計畫 2nd Edition) 嘅新機制
 第二版 (2023 年) 加咗「end game scoring」: 如果你完成最後一個 puzzle 嗰陣, 你棋盤上仲有 2 個 piece, 額外 1 分; 3 個 piece 額外 2 分 (最多 2 分 bonus)。第二版仲加咗「master piece」(3x3 大 piece), 可以完成超大型 puzzle。新手要確認玩家用邊一版。
 
 ## 戰術提示 (5+ 條)
 
-1. **「先 take, 遲啲 upgrade」vs「先 upgrade, 遲啲 take」**: 兩種主流 strategy。Strategy A (新手友善): 早期 take 細 piece 填棋盤, 遲啲先 upgrade 做彩色 piece 完成大 puzzle。Strategy B (進階): 早期就 upgrade 1x1→1x2→1x3, 換走細 piece, 騰出棋盤位俾彩色 piece 放入。Strategy B 戰略深度高, 但新手容易「upgrade 太多, 細 piece 唔夠用」。新手建議新手用 Strategy A, 進階客用 Strategy B。
+1. **「先 take, 遲啲 upgrade」vs「先 upgrade, 遲啲 take」**: 兩種主流 strategy。Strategy A (新手友善): 早期 take 細 piece 填棋盤, 遲啲先 upgrade 做彩色 piece 完成大 puzzle。Strategy B (進階): 早期就 upgrade 1x1→1x2→1x3, 換走細 piece, 騰出棋盤位俾彩色 piece 放入。Strategy B 戰略深度高, 但新手容易「upgrade 太多, 細 piece 唔夠用」。新手建議新手用 Strategy A, 進階玩家用 Strategy B。
 
 2. **「1 級 puzzle 嘅 bonus piece 係關鍵」**: 1 級 puzzle 只值 1 分, 但 bonus piece (完成後即時攞 1 個 piece) 嘅價值高過 1 分。高手會「特登」完成 1 級 puzzle 攞 bonus piece, 用 bonus piece 嚟做下一個 puzzle 嘅 setup。BGG 統計: 1 級 puzzle 完成得快嘅玩家, 後續 2-3 級 puzzle 嘅完成率高 30%。
 
@@ -56,11 +56,11 @@ Project L 嘅核心機制係「升級動作 (upgrade action)」: 你可以將一
 
 5. **「End game scoring 嘅 2nd / 3rd piece bonus」**: 第二版嘅 end game scoring 改變咗玩法: 你唔係「越快完成 puzzle 越好」, 而係「完成 puzzle 時棋盤上仲有 piece 越好」。高手會喺最後 1-2 個 turn, 「故意」做 1 級 puzzle 留低 bonus piece, 等遊戲結束時棋盤有 2-3 個 piece, 攞 1-2 分 bonus。新手要確認玩家用邊一版 (第一版冇 end game scoring)。
 
-6. **「單人場嘅特殊玩法」**: Project L 1 人場可以玩, 但缺少咗「同其他人搶 piece 池」嘅緊張感。單人場嘅重點變成「時間管理」: 20 個 turn 內完成最多 puzzle。新手可以 demo: 單人場用「完成 puzzle 數」做目標, 而唔係「打贏對手」。
+6. **「單人場嘅特殊玩法」**: L 計畫 1 人場可以玩, 但缺少咗「同其他人搶 piece 池」嘅緊張感。單人場嘅重點變成「時間管理」: 20 個 turn 內完成最多 puzzle。新手可以 demo: 單人場用「完成 puzzle 數」做目標, 而唔係「打贏對手」。
 
 ## Tiebreaker
 
-Project L 官方 tiebreaker 規則 (Broadway Toys 中文版 / CGE 英文版):
+L 計畫 官方 tiebreaker 規則 (Broadway Toys 中文版 / CGE 英文版):
 
 1. **主規則**: 最高分 (puzzle 完成分) 玩家贏。
 2. **平手 (第一次 tiebreaker)**: 比較「完成最多 level 3 puzzle」嘅玩家勝。因為 level 3 難度最高, 完成 level 3 嘅玩家策略深度更高。
@@ -71,14 +71,14 @@ Project L 官方 tiebreaker 規則 (Broadway Toys 中文版 / CGE 英文版):
 
 來源: 官方規則書 (Broadway Toys 2020, CGE 2023 second edition) page 4 寫「End of the Game」段落, BGG comment 確認。你可以上 BGG: https://boardgamegeek.com/boardgame/260180/project-l
 
-**重要注意**: Project L 第二版 (2023) 同第一版 (2020) tiebreaker 唔同。第一版冇 end game bonus piece, 所以 tiebreaker 由 level 3 開始比。第二版加咗 end game bonus piece, tiebreaker 多咗一個 step。新手要確認玩家用邊一版。
+**重要注意**: L 計畫 第二版 (2023) 同第一版 (2020) tiebreaker 唔同。第一版冇 end game bonus piece, 所以 tiebreaker 由 level 3 開始比。第二版加咗 end game bonus piece, tiebreaker 多咗一個 step。新手要確認玩家用邊一版。
 
 ## 推介畀咩人
 
-Project L 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾何愛好者首選」。
+L 計畫 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾何愛好者首選」。
 
 - **新手 (✅)**: 規則中等 (教 20 分鐘), 第一次玩要 demo 半局。但單人場可以, 新手可以自己試。
-- **進階 (✅✅)**: 戰略深度中等, 升級動作 + 棋盤管理 + bonus piece 計算, 進階客可以玩到癲。
+- **進階 (✅✅)**: 戰略深度中等, 升級動作 + 棋盤管理 + bonus piece 計算, 進階玩家可以玩到癲。
 - **專家 (✅)**: 戰略深度中等, 唔算最頂級, 但仍有 challenge。
 - **家庭 (✅✅)**: 4 人場最家庭, 老少咸宜 (因為拼圖直觀)。
 - **朋友群 (✅)**: 1-4 人場 ok, 唔算派對向。
@@ -86,15 +86,15 @@ Project L 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾
 - **2 人 (✅)**: 2 人場 ok, 拼圖友善。
 - **6+ 人 (❌)**: 4 人 max, 6+ 人場唔可以玩。
 
-旺角新客入門, 問「我自己一個想試下, 有咩 game?」, Project L 1 人場係首選之一 (連同 SETI)。
+旺角新手入門, 問「我自己一個想試下, 有咩 game?」, L 計畫 1 人場係首選之一 (連同 SETI: 搜尋地外文明 (SETI))。
 
-## 客 query 對應
+## 玩家 query 對應
 
-- **「我自己一個想試下, 有咩 game?」**: Project L 1-4 人, 單人都可以開。教 20 分鐘, 一局 30-45 分鐘, 單人拼圖友善。
-- **「情侶想玩, 唔想太激烈」**: Project L 2 人場最佳, 拼圖節奏慢, 旺角情侶向。輸咗都唔挫敗, 因為拼圖唔係攻擊性遊戲。
-- **「家庭飯後想開, 老少咸宜」**: Project L 4 人場最佳, 拼圖直觀, 老少咸宜。
-- **「新手第一次玩, 揀咩好?」**: Project L 難度中等, 教 20 分鐘, 第一次玩要 demo 半局。建議 2-3 人場開始, 4 人場太多競爭。
-- **「我想玩中文版, 唔想睇英文規則」**: Project L 繁中版 (Broadway Toys) 旺角有售, 中文版友善。
+- **「我自己一個想試下, 有咩 game?」**: L 計畫 1-4 人, 單人都可以開。教 20 分鐘, 一局 30-45 分鐘, 單人拼圖友善。
+- **「情侶想玩, 唔想太激烈」**: L 計畫 2 人場最佳, 拼圖節奏慢, 旺角情侶向。輸咗都唔挫敗, 因為拼圖唔係攻擊性遊戲。
+- **「家庭飯後想開, 老少咸宜」**: L 計畫 4 人場最佳, 拼圖直觀, 老少咸宜。
+- **「新手第一次玩, 揀咩好?」**: L 計畫 難度中等, 教 20 分鐘, 第一次玩要 demo 半局。建議 2-3 人場開始, 4 人場太多競爭。
+- **「我想玩中文版, 唔想睇英文規則」**: L 計畫 繁中版 (Broadway Toys) 旺角有售, 中文版友善。
 
 ## 特殊規則 / 變體
 
@@ -106,11 +106,11 @@ Project L 喺旺角嘅定位係「拼圖策略, 家庭單人情侶向, 抽象幾
 - **第一版 vs 第二版 (2023)**: 第一版 (2020) 冇 end game bonus piece, 第二版 (2023) 有。旺角多間店有新舊兩版, 新手要確認。
 - **House Rule — 加快模式**: 部分玩家將中央圖板嘅 piece 池由 3 個改 2 個, 加快節奏 (piece 用得快, 遊戲結束得快)。
 - **House Rule — 升級格開放**: 部分玩家將升級格由 1 個改 2 個, 加快升級速度, 但降低策略深度。
-- **官方擴充 (待查)**: Project L 而家未有獨立擴充, 但 CGE 第二版 (2023) 已經包含咗第一版 + 升級 piece。進階客可以上 BGG 查 fan-made expansion。
+- **官方擴充 (待查)**: L 計畫 而家未有獨立擴充, 但 CGE 第二版 (2023) 已經包含咗第一版 + 升級 piece。進階玩家可以上 BGG 查 fan-made expansion。
 
 ## 參考
 
-- [BGG: Project L](https://boardgamegeek.com/boardgame/260180/project-l)
+- [BGG: L 計畫](https://boardgamegeek.com/boardgame/260180/project-l)
 - Notion 8/8 review 校稿: 2026-08-08
 - 官方規則書: CGE 2020 (第一版), Broadway Toys 2022 (繁中版), CGE 2023 (第二版)
 - 旺角供應: 繁中版多間店有售, 英文版亦有

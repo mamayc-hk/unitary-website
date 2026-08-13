@@ -1023,9 +1023,7 @@ tr:hover td { background: #fafafa; }
 .filter-bar:has(#f-type-party:checked) ~ .game-grid .game-card:not([data-type~="party"]) { display: none; }
 .filter-bar:has(#f-type-vs:checked) ~ .game-grid .game-card:not([data-type~="vs"]) { display: none; }
 
-/* Chinese */
-.filter-bar:has(#f-cn-trad:checked) ~ .game-grid .game-card:not([data-cn~="繁中"]) { display: none; }
-.filter-bar:has(#f-cn-simp:checked) ~ .game-grid .game-card:not([data-cn~="簡中"]) { display: none; }
+/* (Chinese filter REMOVED in v3.0.6: 全用繁體, 唔需要 filter) */
 
 /* === Sidebar: 5 query + 4 audience === */
 .side-box .side-box-hint {
