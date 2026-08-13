@@ -688,7 +688,8 @@ def render_index_page():
         cards.append(f'''        <a class="game-card" href="{g['id']}.html" data-players="{data_players}" data-time="{data_time}" data-diff="{data_diff}" data-type="{data_type}" data-cn="{data_cn}">
             <div class="game-card-box">{box_html}</div>
             <div class="game-card-body">
-                <h3>{escape_html(g['name'])}</h3>
+                <h3 class="game-card-name-zh">{escape_html(g['name'])}</h3>
+                <p class="game-card-name-en">{escape_html(g['name_en'])}</p>
                 <p class="game-card-tagline">{escape_html(g.get('tagline', ''))}</p>
                 <div class="game-card-meta">
                     <span>👥 {g['min_players']}-{g['max_players']}人</span>
@@ -700,26 +701,31 @@ def render_index_page():
 
     cards_html = '\n'.join(cards)
 
-    # === Sidebar: 5 個 quick query (blog-style, 5 個常見場景) ===
+    # === Sidebar: 5 個 quick query (blog-style, 每個都係 blog 文章 link) ===
     QUICK_QUERY = [
         {
             'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩桌遊',
+            'slug': '5-person-games',
             'games': ['camel-up', 'bohnanza', 'catan', 'manila', 'seti'],
         },
         {
             'id': 'q30', 'icon': '⏱️', 'title': '30 min 內完一局',
+            'slug': '30-min-games',
             'games': ['camel-up', 'dnup'],
         },
         {
             'id': 'qnew', 'icon': '🆕', 'title': '新手第一次玩',
+            'slug': 'newbie-games',
             'games': ['camel-up', 'dnup', 'take-time'],
         },
         {
             'id': 'qcoop', 'icon': '🤝', 'title': '合作桌遊',
+            'slug': 'coop-games',
             'games': ['take-time'],
         },
         {
             'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版',
+            'slug': 'chinese-edition',
             'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
         },
     ]
@@ -727,47 +733,39 @@ def render_index_page():
     # Build game lookup
     games_by_id = {g['id']: g for g in games}
 
-    # Build sidebar quick-query HTML (each query 是一個 <details> section 入面 list 出 game)
-    query_sections = []
+    # Build sidebar quick-query HTML: 每個 query 都係 blog article link
+    query_items = []
     for q in QUICK_QUERY:
-        items = '\n'.join(
-            f'                    <li><a href="{gid}.html">{escape_html(games_by_id[gid]["name"]) if gid in games_by_id else gid}</a></li>'
-            for gid in q['games']
-        )
-        query_sections.append(f'''    <details class="query-section" open>
-        <summary class="query-summary">
+        game_count = len(q['games'])
+        query_items.append(f'''        <a class="query-item" href="{q['slug']}.html">
             <span class="query-icon">{q['icon']}</span>
             <span class="query-title">{escape_html(q['title'])}</span>
-        </summary>
-        <ul class="query-games">
-{items}
-        </ul>
-    </details>''')
-    query_html = '\n'.join(query_sections)
+            <span class="query-count">{game_count} 個桌遊</span>
+        </a>''')
+    query_html = '\n'.join(query_items)
 
     # Build sidebar audience HTML (REMOVED in v3.0.6: user dropped 對應唔同角色 section)
     audience_html = ''
 
     # === Filter system HTML (核心功效, sticky top) ===
-    # 14 個 chip in 5 個 group; 同 group OR, 唔同 group AND
-    # 0% JS, 用 CSS :has() + :checked
+    # 2x2 grid; 人數/時間 為 radio (single-select), 難度/類型 為 checkbox (multi-select)
     filter_html = '''        <div class="filter-bar">
             <div class="filter-group">
                 <span class="filter-group-label">👥 人數</span>
-                <input type="checkbox" id="f-players-2-4" class="filter-input">
+                <input type="radio" name="f-players" id="f-players-2-4" class="filter-input">
                 <label for="f-players-2-4" class="filter-chip">2-4 人</label>
-                <input type="checkbox" id="f-players-5+" class="filter-input">
+                <input type="radio" name="f-players" id="f-players-5+" class="filter-input">
                 <label for="f-players-5+" class="filter-chip">5+ 人</label>
-                <input type="checkbox" id="f-players-6+" class="filter-input">
+                <input type="radio" name="f-players" id="f-players-6+" class="filter-input">
                 <label for="f-players-6+" class="filter-chip">6+ 人</label>
             </div>
             <div class="filter-group">
                 <span class="filter-group-label">⏱️ 時間</span>
-                <input type="checkbox" id="f-time-30" class="filter-input">
+                <input type="radio" name="f-time" id="f-time-30" class="filter-input">
                 <label for="f-time-30" class="filter-chip">≤30 min</label>
-                <input type="checkbox" id="f-time-31-60" class="filter-input">
+                <input type="radio" name="f-time" id="f-time-31-60" class="filter-input">
                 <label for="f-time-31-60" class="filter-chip">31-60 min</label>
-                <input type="checkbox" id="f-time-60+" class="filter-input">
+                <input type="radio" name="f-time" id="f-time-60+" class="filter-input">
                 <label for="f-time-60+" class="filter-chip">60+ min</label>
             </div>
             <div class="filter-group">
@@ -815,6 +813,7 @@ def render_index_page():
     <div class="main">
         <!-- Hero 段 (對象 + 點幫到佢) -->
         <div class="hero">
+            <div class="hero-eyebrow">為香港同台灣桌遊新手同愛好者而設</div>
             <h1>桌遊教學網誌</h1>
             <p>想學桌遊但唔知點設置? 想搵啱你人數同時間嘅桌遊? 想知和局點處理? 呢度每個桌遊都有完整規則、戰術、常見問題, 用篩選即時搵啱你嘅桌遊, 學完即玩。</p>
         </div>
@@ -823,7 +822,7 @@ def render_index_page():
 {filter_html}
 
         <!-- Game list (純標題, 唔加 annotation) -->
-        <h2 id="game-list">桌遊教學</h2>
+        <h2 id="game-list">合選你的桌遊</h2>
         <p class="game-list-intro">每個桌遊點圖 click 入完整教學。</p>
 
         <div class="game-grid" id="game-grid">
@@ -833,14 +832,7 @@ def render_index_page():
     </div>
 
     <div class="side">
-        <!-- Blog 格式: 5 個常見場景嘅 game list -->
-        <div class="side-box">
-            <h3>📝 揾桌遊速查</h3>
-            <p class="side-box-hint">按 5 個常見場景揾桌遊:</p>
-{query_html}
-        </div>
-
-        <!-- 關於 UNITARY -->
+        <!-- 關於 UNITARY (置頂) -->
         <div class="side-box">
             <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
@@ -849,6 +841,12 @@ def render_index_page():
                     <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">Instagram →</a>
                 </p>
             </div>
+        </div>
+
+        <!-- 揾桌遊速查 (5 個常見場景, 每個都係 blog 文章 link) -->
+        <div class="side-box">
+            <h3>📝 揾桌遊速查</h3>
+{query_html}
         </div>
     </div>
 </div>
@@ -916,6 +914,86 @@ FILTER_JS = '''
 
 
 # === 8. Main build ===
+# === 8.5 Blog article page (5 query 嘅 link 目標) ===
+def render_blog_article(query):
+    games = load_games()
+    games_by_id = {g['id']: g for g in games}
+
+    # Build game cards for the article body
+    article_cards = []
+    for gid in query['games']:
+        if gid not in games_by_id:
+            continue
+        g = games_by_id[gid]
+        box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
+        box_html = f'<img src="images/{box_filename}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
+        article_cards.append(f'''        <a class="article-game-card" href="{g['id']}.html">
+            <div class="article-game-card-box">{box_html}</div>
+            <div class="article-game-card-body">
+                <h3 class="article-game-card-name-zh">{escape_html(g['name'])}</h3>
+                <p class="article-game-card-name-en">{escape_html(g['name_en'])}</p>
+                <p class="article-game-card-tagline">{escape_html(g.get('tagline', ''))}</p>
+                <p class="article-game-card-summary">{escape_html(g.get('summary', ''))}</p>
+                <div class="article-game-card-meta">
+                    <span>👥 {g['min_players']}-{g['max_players']}人</span>
+                    <span>⏱️ {escape_html(g['play_time'])}</span>
+                    <span>📚 {escape_html(g['difficulty_label'])}</span>
+                </div>
+            </div>
+        </a>''')
+    article_cards_html = '\n'.join(article_cards)
+
+    return f'''<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{escape_html(query['title'])} — UNITARY 開枱指南</title>
+    <meta name="description" content="{escape_html(query['intro'])}">
+    <link rel="canonical" href="https://unitaryhk.com/board-game/{query['slug']}.html">
+    <meta property="og:title" content="{escape_html(query['title'])} — UNITARY 開枱指南">
+    <meta property="og:description" content="{escape_html(query['intro'])}">
+    <meta property="og:type" content="article">
+    <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+
+<div class="nav"><div class="nav-inner">
+    <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
+    <a href="index.html" style="margin-left:auto;color:#999;font-size:0.95rem">← 桌遊列表</a>
+</div></div>
+
+<div class="article-layout">
+    <article class="article-main">
+        <a href="index.html" class="back">← 返回桌遊列表</a>
+        <div class="article-hero">
+            <div class="hero-eyebrow">{escape_html(query['icon'])} {escape_html(query['best_for'])}</div>
+            <h1>{escape_html(query['title'])}</h1>
+            <p class="article-summary">{escape_html(query['intro'])}</p>
+        </div>
+
+        <div class="article-games">
+{article_cards_html}
+        </div>
+
+        <hr>
+        <p style="margin-top:40px"><a href="index.html" class="back">← 返回桌遊列表</a></p>
+    </article>
+</div>
+
+<div class="blog-footer">
+    <p>© 2026 UNITARY &nbsp;·&nbsp;
+    <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
+    <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
+    <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
+    CC BY-NC-SA 4.0</p>
+</div>
+
+</body>
+</html>
+'''
+
+
 def main():
     games = load_games()
     print(f"Loaded {len(games)} games from games.json")
@@ -938,6 +1016,51 @@ def main():
     with open(ROOT / 'index.html', 'w') as f:
         f.write(index_html)
     print(f"  ✓ index.html ({len(index_html)} chars)")
+
+    # === 5 個 blog 文章 (sidebar 5 query 嘅 link 目標) ===
+    QUICK_QUERY = [
+        {
+            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩桌遊',
+            'slug': '5-person-games',
+            'games': ['camel-up', 'bohnanza', 'catan', 'manila', 'seti'],
+            'intro': '5 個人想開枱, 揀咩桌遊好? 5 人場係桌遊最常見嘅人數, 大部分桌遊都支援。要揀到啱嘅, 留意 3 個條件: (1) 5 人場係官方支援嘅人數 (唔係要變體); (2) 遊戲時間 60 分鐘內; (3) 5 人都有事可做 (唔好有玩家坐冷板櫈)。以下 5 個係 5 人場嘅首選, 全部官方支援, 全部有中文版 (除咗 SETI)。',
+            'best_for': '新手第一次約 5 個人, 想搵個大家都鍾意嘅',
+        },
+        {
+            'id': 'q30', 'icon': '⏱️', 'title': '30 min 內完一局',
+            'slug': '30-min-games',
+            'games': ['camel-up', 'dnup'],
+            'intro': '30 分鐘想完一局, 即係要派對向、規則淺、回合短。呢類桌遊通常每局 15-30 min, 教 5-10 分鐘, 2-3 局可以連開。適合飯局前後、朋友敘舊、warm-up。',
+            'best_for': '飯局 / 朋友聚會 / 想玩多局',
+        },
+        {
+            'id': 'qnew', 'icon': '🆕', 'title': '新手第一次玩',
+            'slug': 'newbie-games',
+            'games': ['camel-up', 'dnup', 'take-time'],
+            'intro': '第一次玩桌遊嘅新手, 最重要係「教 5 分鐘就識, 玩 30 分鐘就投入」。呢 3 個都係規則淺、容錯高、新手唔會被「卡住」嘅選擇。合作向嘅 take-time 更適合怕輸嘅玩家, 競爭向嘅 camel-up 同 dnup 就鍾意贏嘅感覺。',
+            'best_for': '新手入門 / 教朋友 / 第一次約會',
+        },
+        {
+            'id': 'qcoop', 'icon': '🤝', 'title': '合作桌遊',
+            'slug': 'coop-games',
+            'games': ['take-time'],
+            'intro': '合作桌遊 (cooperative game) 係玩家一齊打 AI / 機制, 唔係互相打。輸贏都係一齊, 唔會有人被淘汰, 適合唔想競爭嘅玩家、約會、家人。但合作桌遊少, 而家收錄嘅只有 1 個 (掌握時刻)。',
+            'best_for': '情侶 / 家庭 / 唔想互打嘅玩家',
+        },
+        {
+            'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版',
+            'slug': 'chinese-edition',
+            'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
+            'intro': '新手最常問「有冇中文版?」呢個就係答案。收錄嘅 8 個桌遊入面, 4 個有繁體中文版 (台灣繁中 / 香港繁中), 1 個有簡體中文, 3 個暫時只有英文版。中文版嘅好處係新手唔使睇英文規則, 旺角店亦大路貨。',
+            'best_for': '新手 / 唔想睇英文規則 / 送禮',
+        },
+    ]
+    for q in QUICK_QUERY:
+        html = render_blog_article(q)
+        out_path = ROOT / f'{q["slug"]}.html'
+        with open(out_path, 'w') as f:
+            f.write(html)
+        print(f"  ✓ {q['slug']}.html ({len(html)} chars)")
 
     print(f"\n=== Done! 全部 server-rendered, 5 fix 全部 apply ===")
 
