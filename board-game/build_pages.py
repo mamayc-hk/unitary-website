@@ -41,7 +41,7 @@ def md_to_html(md_text):
             text = ' '.join(para_buf)
             # Detect example box: 句子以 "例:", "BGG 統計", "例如" 開頭
             if re.match(r'^\s*(例[:：]|BGG 統計|例如)', text):
-                out.append(f'<div class="example-box"><p><strong>💡 Example</strong> {md_inline(text)}</p></div>')
+                out.append(f'<div class="example-box"><p><strong>💡 例子</strong> {md_inline(text)}</p></div>')
             else:
                 out.append('<p>' + md_inline(text) + '</p>')
             para_buf = []
@@ -90,7 +90,7 @@ def md_to_html(md_text):
                 if in_quote:
                     out.append('</blockquote>')
                     in_quote = False
-                out.append(f'<div class="example-box"><p><strong>💡 Example</strong> {md_inline(content)}</p></div>')
+                out.append(f'<div class="example-box"><p><strong>💡 例子</strong> {md_inline(content)}</p></div>')
             else:
                 if not in_quote:
                     out.append('<blockquote>')
@@ -111,7 +111,7 @@ def md_to_html(md_text):
             item = m.group(1)
             # Example box check
             if re.match(r'^\s*(例[:：]|BGG 統計|例如)', item):
-                out.append(f'<li><div class="example-box"><p><strong>💡 Example</strong> {md_inline(item)}</p></div></li>')
+                out.append(f'<li><div class="example-box"><p><strong>💡 例子</strong> {md_inline(item)}</p></div></li>')
             else:
                 out.append('<li>' + md_inline(item) + '</li>')
             i += 1; continue
@@ -126,7 +126,7 @@ def md_to_html(md_text):
                 in_list = 'ol'
             item = m.group(1)
             if re.match(r'^\s*(例[:：]|BGG 統計|例如)', item):
-                out.append(f'<li><div class="example-box"><p><strong>💡 Example</strong> {md_inline(item)}</p></div></li>')
+                out.append(f'<li><div class="example-box"><p><strong>💡 例子</strong> {md_inline(item)}</p></div></li>')
             else:
                 out.append('<li>' + md_inline(item) + '</li>')
             i += 1; continue
@@ -155,14 +155,14 @@ QUICK_START = {
         '**一局 5 個骰完結** (5 隻駱駝每隻擲 1 次)',
         '**過終點即結算**: 終點冠軍 + 包尾同時計',
         '**「疊羅漢」係核心**: 後面嘅駱駝揹住前面, 一起行',
-        '💡 <strong>Mirage 拖慢領先者</strong>比 Oasis 推落後者更 strategic',
+        '💡 <strong>Mirage 拖慢領先者</strong>比 Oasis 推落後者更有策略性',
     ],
     'take-time': [
-        '**每人有 Lunar (白) + Solar (黑) 各 1-12 牌**',
-        '**時鐘圖版有 6 個 segments**, 每人輪流放 1 張',
+        '**每人有月 (白) + 日 (黑) 各 1-12 牌**',
+        '**時鐘圖版有 6 個區段**, 每人輪流放 1 張',
         '**3 階段**: 討論 (可講) → 出牌 (沉默) → 結算',
-        '**每 segment 嘅數值 = 該 segment 所有牌嘅總和**',
-        '**開牌額度** (Reminder Token) 可以公開出牌',
+        '**每個區段嘅數值 = 該區段所有牌嘅總和**',
+        '**開牌額度** (提示標記) 可以公開出牌',
         '💡 <strong>過 24 即失敗</strong> — 由細數字開始, 唔好講具體數字',
     ],
     'catan': [
@@ -216,22 +216,22 @@ SELLING_POINTS = {
     'take-time': {
         'story': '你哋一齊解謎, 但討論完之後出牌嘅時候唔可以講嘢。要靠默契去估計隊友手上有咩牌, 會放喺邊個位置。贏嘅時候大家一齊嗌, 輸嘅時候大家都好想話「我明明擺咗呢個數字㗎嘛!」。',
         'point_emoji': '🤫',
-        'point_text': '合作默契 game, 情侶 / 家庭 / 朋友首選',
+        'point_text': '合作默契桌遊, 情侶 / 家庭 / 朋友首選',
     },
     'catan': {
-        'story': '你哋去咗一個新島, 要喺度建立道路、村莊、城市, 搶資源, 同對手 trade。卡坦島係 1995 年嘅經典德式策略, 30 年後依然係新手入門策略 game 嘅 first choice — 因為規則清晰, 戰略深, 中文書好搵。',
+        'story': '你哋去咗一個新島, 要喺度建立道路、村莊、城市, 搶資源, 同對手 trade。卡坦島係 1995 年嘅經典德式策略, 30 年後依然係新手入門策略桌遊嘅首選 — 因為規則清晰, 戰略深, 中文書好搵。',
         'point_emoji': '🏝️',
         'point_text': '經典德式策略始祖, 中文版普及',
     },
     'project-l': {
-        'story': '俄羅斯方塊嘅桌上版, 你收集 polyomino 碎片, 喺 puzzle card 上拼出指定形狀。每完成一個 puzzle, 你攞分 + bonus, 仲可以升級 master piece 攞更多容量。1-4 人彈性, 單人都好玩。',
+        'story': '俄羅斯方塊嘅桌上版, 你收集 polyomino 碎片, 喺拼圖卡上拼出指定形狀。每完成一張拼圖卡, 你攞分 + 獎勵, 仲可以升級大師塊攞更多容量。1-4 人彈性, 單人都好玩。',
         'point_emoji': '🧩',
-        'point_text': '俄羅斯方塊桌上版, 1-4 人彈性, 單人都 work',
+        'point_text': '俄羅斯方塊桌上版, 1-4 人彈性, 單人都啱玩',
     },
     'dnup': {
         'story': '你同 2-4 個對手鬥快清空手牌, 但你嘅牌上下端數字唔同, 你可以「Revolve」翻轉整把手牌 — 選擇權喺你, 但要計準時機。DNUP 嘅設計簡潔: 15 分鐘教晒, 30 分鐘完一局, 旺角朋友群嘅派對王。',
         'point_emoji': '🔄',
-        'point_text': '15 分鐘教晒, 30 分鐘完一局, 派對快速 game',
+        'point_text': '15 分鐘教晒, 30 分鐘完一局, 派對快速桌遊',
     },
     'manila': {
         'story': '19 世紀馬尼拉港, 你係投資者, 要競投船長、買股票、合法入貨定走私, 務求喺港口經濟戰入面賺最多。馬尼拉嘅戰略深度高, 6 個職位 × 3 種股票 × 港灣選擇, 專家可以玩到天光。',
@@ -282,7 +282,7 @@ CHEAT_SHEET = {
     'dnup': [
         '🔄 <strong>Revolve 時機</strong>: 上端低 / 下端高時翻轉',
         '🃏 <strong>連續數字長鏈</strong>可以一次清空',
-        '⚡ <strong>2 人場</strong>用隻人牌, 玩兩個連續回合',
+        '⚡ <strong>2 人場</strong>用人牌, 玩兩個連續回合',
         '🎯 <strong>5 人場</strong>用全部牌, 競爭最激烈',
         '🚫 <strong>唔好儲牌</strong>, 唔出就等於塞自己',
     ],
@@ -304,25 +304,25 @@ FAQ = {
         ('手牌順序可唔可以重排?', '唔可以。呢個係眾豆得金嘅核心, 重排會 break 成個 game。'),
         ('第 3 塊田幾時買?', '新手建議保留 5 金幣做 trade currency, 唔好為咗 3 塊田蝕底。高手會喺 round 3 之後先買。'),
         ('幾多人最好玩?', '5-7 人最佳, 2 人太靜, 3-4 人 OK 但少咗 trade 機會。'),
-        ('幾耐可以教完新手?', '15 分鐘教晒, 但新手要玩 2-3 局先掌握牌序鎖死嘅痛苦。第一次玩要 demo 1 局俾新手睇。'),
+        ('幾耐可以教完新手?', '15 分鐘教晒, 但新手要玩 2-3 局先掌握牌序鎖死嘅痛苦。第一次玩要示範 1 局俾新手睇。'),
     ],
     'camel-up': [
         ('新手最易犯乜錯?', '揀「冠軍」嘅駱駝落注, 忽略「疊羅漢」效應。高手會揀「托」嘅駱駝, 即揹住最多同黨嗰隻。'),
         ('Mirage 同 Oasis 邊個好?', 'Mirage 戰略值 2 倍 Oasis, 因為 Mirage 拖慢領先者而 Oasis 推落後者 (推唔郁)。'),
         ('8 人場坐邊個位最好?', '坐第 1 位擲骰, 之後 7 個人可以根據新形勢落注, 最靈活。坐最後 1 位最蝕底但可以揀最冷門注。'),
         ('觀眾圖板幾時放?', '永遠先擺 Mirage 喺領先嗰隻嘅下一格, 拖慢佢。Oasis 擺喺落後嗰隻嘅下一格, 幫佢追。'),
-        ('1.0 同 2.0 邊個較好?', '2.0 tiebreaker 較複雜但有 Mirage/Oasis 變化, 旺角 8 成以上都係 2.0, 如果你想確認。'),
+        ('1.0 同 2.0 邊個較好?', '2.0 和局處理較複雜但有 Mirage/Oasis 變化, 旺角 8 成以上都係 2.0, 如果你想確認。'),
     ],
     'take-time': [
         ('可以出牌時講嘢嗎?', '唔可以, 呢個係 Take Time 嘅核心。出牌階段要沉默, 靠默契同抽象語言溝通。'),
-        ('開牌額度點用?', '每關有指定數量, 建議喺最 critical 嘅 1-2 個 segment 用, 唔好慳住。'),
+        ('開牌額度點用?', '每關有指定數量, 建議喺最關鍵 1-2 個區段用, 唔好慳住。'),
         ('點解我哋成日超過 24?', '因為大數字冇分配好。建議由細數字開始, 將大數字放最後一段, 留 buffer 俾中間段。'),
         ('2 人可以玩嗎?', '可以但體驗弱, 合作默契感覺唔到。建議 3-4 人。'),
-        ('合作輸咗會挫敗嗎?', '唔會, 因為可以 skip 關卡, 唔似其他合作 game 一定要贏。'),
+        ('合作輸咗會挫敗嗎?', '唔會, 因為可以 skip 關卡, 唔似其他合作桌遊一定要贏。'),
     ],
     'catan': [
-        ('3 人場可以玩嗎?', '可以但要 mark 1 個位做「鬼位」, 因為卡坦島 3-4 人, 3 人需要調整。'),
-        ('擲 7 點即死?', '唔係死, 係觸發盜賊, 要 half hand, 然後擺盜賊到一個新地形 (搶 1 個玩家 1 張牌)。'),
+        ('3 人場可以玩嗎?', '可以但要標記 1 個位做「鬼位」, 因為卡坦島 3-4 人, 3 人需要調整。'),
+        ('擲 7 點即死?', '唔係死, 係觸發盜賊, 要減半手牌, 然後擺盜賊到一個新地形 (搶 1 個玩家 1 張牌)。'),
         ('幾時應該 trade?', '永遠 trade! 4:1 同銀行換蝕底, 一定要同其他玩家 trade, 港口 3:1 換就更好。'),
         ('發展卡好定城市好?', '城市好, 因為 2 分 + 雙倍資源。第 2 個城市比第 3 個村莊重要。'),
         ('新手最大錯誤?', '忽略盜賊擺位戰略, 亂擺盜賊。應該擺對手最需要嘅地形 (6 / 8 號碼)。'),
@@ -337,13 +337,13 @@ FAQ = {
     'dnup': [
         ('Revolve 點樣用?', 'Revolve 翻轉整把手牌嘅上下數值, 當手牌有大量「上端低 / 下端高」時翻轉最化算。'),
         ('點解要清空手牌?', '最快清空 2 分, 第 2 個 1 分, 累積 4 分贏。'),
-        ('2 人場有咩唔同?', '2 人場移走 3+4+5 符號, 使用隻人牌, 玩兩個連續回合, 戰術變化大。'),
+        ('2 人場有咩唔同?', '2 人場移走 3+4+5 符號, 使用人牌, 玩兩個連續回合, 戰術變化大。'),
         ('新手最易犯乜錯?', '儲牌唔出, 結果塞到自己。要積極出牌, 即使係差嘅組合。'),
         ('幾耐一局?', '15-20 分鐘, 5 人場最長, 2 人場最短。'),
     ],
     'manila': [
         ('Bid 3 元係咪必贏?', '唔係, 反而蝕底機會大。高手 bid 1-2 元, 因為船長利潤要靠操控 bonus + 職位分錢補返。'),
-        ('走私 vs 合法 邊個好?', '睇淨利潤, 合法要扣稅但金額高, 走私 0 稅但金額低。新手要 demo 計算。'),
+        ('走私 vs 合法 邊個好?', '睇淨利潤, 合法要扣稅但金額高, 走私 0 稅但金額低。新手要示範計算。'),
         ('3 人場有咩唔同?', '3 人場每個玩家 4 個工人, 可同時佔 2 個職位 (高風險高回報), 4-5 人場只可佔 1 個職位。'),
         ('股票幾時賣?', '股票只有「上」冇「下」, 揀快升嗰隻 (你嘅船都去嘅港灣) 買, 高位賣。'),
         ('新手最大錯誤?', '忽略保險職位。保險係被動收入, 5 人場每次失事賠 5 元, 5 個回合已經回本。'),
@@ -399,7 +399,7 @@ def render_game_page(game, content_md):
         step_items = ''
         for idx, img in enumerate(step_imgs):
             img_filename = img.split('/')[-1]
-            step_items += f'<figure><img src="images/{img_filename}" alt="Step {idx+1}" loading="lazy"><figcaption>Step {idx+1}</figcaption></figure>\n'
+            step_items += f'<figure><img src="images/{img_filename}" alt="步驟 {idx+1}" loading="lazy"><figcaption>步驟 {idx+1}</figcaption></figure>\n'
         step_html = f'<div class="photo-grid">{step_items}</div>'
 
     # Selling point (Fix E)
@@ -418,8 +418,8 @@ def render_game_page(game, content_md):
         )
         qs_html = f'''
         <div class="quick-start">
-            <h2>⚡ Quick Start — 2 分鐘 onboard</h2>
-            <p>新手 2 分鐘內 make first move, 記住呢 6 條:</p>
+            <h2>⚡ 快速上手 — 2 分鐘上手</h2>
+            <p>新手 2 分鐘內上手, 記住呢 6 條:</p>
             <ol>{qs_items_html}</ol>
         </div>
         '''
@@ -434,7 +434,7 @@ def render_game_page(game, content_md):
         )
         faq_html = f'''
         <div class="faq">
-            <h2>❓ FAQ — 玩家常見問題</h2>
+            <h2>❓ 常見問題</h2>
             {faq_items_html}
         </div>
         '''
@@ -446,7 +446,7 @@ def render_game_page(game, content_md):
         cs_items_html = '\n'.join(f'<li>{item}</li>' for item in cs_items)
         cs_html = f'''
         <div class="cheat-sheet">
-            <h3>📋 Cheat Sheet</h3>
+            <h3>📋 速查表</h3>
             <p>新手 30 秒掃一眼:</p>
             <ul>{cs_items_html}</ul>
         </div>
@@ -539,7 +539,7 @@ def render_game_page(game, content_md):
             <h2>一句話總覽</h2>
             <p class="summary-block">{summary}</p>
 
-            <h2>玩法 step 圖</h2>
+            <h2>玩法步驟圖</h2>
             {step_html}
 
             <!-- Long-form markdown content (含 inline example box) -->
@@ -556,8 +556,8 @@ def render_game_page(game, content_md):
             <div class="cross-sell">
                 <p>新手可以一併推薦:</p>
                 <ul>
-                    <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅 card 完美 fit。</li>
-                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手 review 即場試玩。</li>
+                    <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅卡牌完美 fit。</li>
+                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手可以即場試玩。</li>
                 </ul>
             </div>
 
@@ -575,7 +575,7 @@ def render_game_page(game, content_md):
             <h3>關於</h3>
             <div class="about-text">
                 <p><strong>Herry Ma</strong></p>
-                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應新手 review 場景。</p>
+                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應新手入門場景。</p>
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
                     &nbsp;·&nbsp;
@@ -583,7 +583,7 @@ def render_game_page(game, content_md):
             </div>
         </div>
         <div class="side-box">
-            <h3>快速跳轉 (8 個 game)</h3>
+            <h3>快速跳轉 (8 個桌遊)</h3>
             <div class="side-rec">
                 {sidebar_qj}
             </div>
@@ -593,11 +593,11 @@ def render_game_page(game, content_md):
         <div class="side-box">
             <h3>新手指南</h3>
             <div class="about-text">
-                <p>新手 5 分鐘 review:</p>
+                <p>新手 5 分鐘掌握:</p>
                 <ul style="padding-left:16px;font-size:0.95rem">
                     <li>✅ 玩法 + 設置</li>
                     <li>{'✅' if tactics_n > 0 else '⚠️'} 戰術提示 ({tactics_n} 條)</li>
-                    <li>{'✅' if has_tb else '⚠️ 待補'} tiebreaker</li>
+                    <li>{'✅' if has_tb else '⚠️ 待補'} 和局處理</li>
                     <li>✅ 推介畀咩人</li>
                     <li>✅ 新手 query 對應</li>
                 </ul>
@@ -703,7 +703,7 @@ def render_index_page():
     # === Sidebar: 5 個 quick query (blog-style, 5 個常見場景) ===
     QUICK_QUERY = [
         {
-            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩 game',
+            'id': 'q5', 'icon': '👥', 'title': '5 個人玩咩桌遊',
             'games': ['camel-up', 'bohnanza', 'catan', 'manila', 'seti'],
         },
         {
@@ -715,7 +715,7 @@ def render_index_page():
             'games': ['camel-up', 'dnup', 'take-time'],
         },
         {
-            'id': 'qcoop', 'icon': '🤝', 'title': '合作 game',
+            'id': 'qcoop', 'icon': '🤝', 'title': '合作桌遊',
             'games': ['take-time'],
         },
         {
@@ -795,12 +795,12 @@ def render_index_page():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>桌遊教學網誌 — 8 個熱門 board game 完整 rules + 戰術 + tiebreaker</title>
-    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。8 個熱門 board game 完整 rules、戰術、tiebreaker、FAQ, 用 filter 即時搵啱你人數 / 時間 / 類型 / 難度嘅 game。">
-    <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,眾豆得金,駱駝大賽,Take Time,卡坦島,SETI,UNITARY">
+    <title>桌遊教學網誌 — 8 個熱門桌遊完整教學, 規則、戰術、和局處理一站通</title>
+    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。8 個熱門桌遊完整教學, 規則、戰術、和局處理、常見問題一站通, 用篩選即時搵啱你人數 / 時間 / 類型 / 難度嘅桌遊。">
+    <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,眾豆得金,駱駝大賽,掌握時刻,卡坦島,SETI,L計畫,dnup,馬尼拉,UNITARY">
     <link rel="canonical" href="https://unitaryhk.com/board-game/">
     <meta property="og:title" content="桌遊教學網誌 — UNITARY">
-    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。8 個熱門 board game 完整教學, 用 filter 即時搵 game。">
+    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。8 個熱門桌遊完整教學, 用篩選即時搵啱你嘅桌遊。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
@@ -816,7 +816,7 @@ def render_index_page():
         <!-- Hero 段 (對象 + 點幫到佢) -->
         <div class="hero">
             <h1>桌遊教學網誌</h1>
-            <p>想學 board game 但唔知點 setup? 想搵啱你人數同時間嘅 game? 想知 tiebreaker 點算? 呢度每個 game 都有完整 rules、戰術、FAQ, 用 filter 即時搵啱你嘅 game, 學完即玩。</p>
+            <p>想學桌遊但唔知點設置? 想搵啱你人數同時間嘅桌遊? 想知和局點處理? 呢度每個桌遊都有完整規則、戰術、常見問題, 用篩選即時搵啱你嘅桌遊, 學完即玩。</p>
         </div>
 
         <!-- Filter system (核心功效, sticky top) -->
@@ -824,7 +824,7 @@ def render_index_page():
 
         <!-- Game list (純標題, 唔加 annotation) -->
         <h2 id="game-list">桌遊教學</h2>
-        <p class="game-list-intro">每個 game 點圖 click 入完整教學。</p>
+        <p class="game-list-intro">每個桌遊點圖 click 入完整教學。</p>
 
         <div class="game-grid" id="game-grid">
 {cards_html}
@@ -844,7 +844,7 @@ def render_index_page():
         <div class="side-box">
             <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
-                <p>UNITARY 係為香港同台灣桌遊新手同愛好者而設嘅教學網誌, Herry Ma 個人 project。內容 base on 官方 rulebook + BGG 數據 + 自己 demo 經驗。</p>
+                <p>UNITARY 係為香港同台灣桌遊新手同愛好者而設嘅教學網誌, Herry Ma 個人計劃。內容 base on 官方規則書 + BGG 數據 + 自己試玩經驗。</p>
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">Instagram →</a>
                 </p>
