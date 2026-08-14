@@ -11,3 +11,6 @@ __pycache__/
 # Editor
 .vscode/
 .idea/
+
+# Image search scratch
+board-game/box-search*/

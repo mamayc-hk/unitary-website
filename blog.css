@@ -266,11 +266,14 @@ tr:hover td { background: #fafafa; }
     font-size: 2.5rem;
     border-bottom: 1px solid #eee;
     overflow: hidden;
+    padding: 12px;
 }
 .game-card-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 50%;
+    max-height: 50%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 .game-card-body { padding: 14px; }
 .game-card-name-zh {

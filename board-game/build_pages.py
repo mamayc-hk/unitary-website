@@ -770,11 +770,11 @@ def render_index_page():
             </div>
             <div class="filter-group">
                 <span class="filter-group-label">🌶️ 難度</span>
-                <input type="checkbox" id="f-diff-easy" class="filter-input">
+                <input type="radio" name="f-diff" id="f-diff-easy" class="filter-input">
                 <label for="f-diff-easy" class="filter-chip">簡單</label>
-                <input type="checkbox" id="f-diff-mid" class="filter-input">
+                <input type="radio" name="f-diff" id="f-diff-mid" class="filter-input">
                 <label for="f-diff-mid" class="filter-chip">中等</label>
-                <input type="checkbox" id="f-diff-hard" class="filter-input">
+                <input type="radio" name="f-diff" id="f-diff-hard" class="filter-input">
                 <label for="f-diff-hard" class="filter-chip">進階</label>
             </div>
             <div class="filter-group">
