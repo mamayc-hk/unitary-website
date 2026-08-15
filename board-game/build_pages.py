@@ -583,7 +583,7 @@ def render_game_page(game, content_md):
             </div>
         </div>
         <div class="side-box">
-            <h3>快速跳轉 (8 個桌遊)</h3>
+            <h3>快速跳轉 (9 個桌遊)</h3>
             <div class="side-rec">
                 {sidebar_qj}
             </div>
@@ -793,12 +793,12 @@ def render_index_page():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>桌遊教學網誌 — 8 個熱門桌遊完整教學, 規則、戰術、和局處理一站通</title>
-    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。8 個熱門桌遊完整教學, 規則、戰術、和局處理、常見問題一站通, 用篩選即時搵啱你人數 / 時間 / 類型 / 難度嘅桌遊。">
+    <title>桌遊教學網誌 — 9 個熱門桌遊完整教學, 規則、戰術、和局處理一站通</title>
+    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。9 個熱門桌遊完整教學, 規則、戰術、和局處理、常見問題一站通, 用篩選即時搵啱你人數 / 時間 / 類型 / 難度嘅桌遊。">
     <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,眾豆得金,駱駝大賽,掌握時刻,卡坦島,SETI,L計畫,dnup,馬尼拉,UNITARY">
     <link rel="canonical" href="https://unitaryhk.com/board-game/">
     <meta property="og:title" content="桌遊教學網誌 — UNITARY">
-    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。8 個熱門桌遊完整教學, 用篩選即時搵啱你嘅桌遊。">
+    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。9 個熱門桌遊完整教學, 用篩選即時搵啱你嘅桌遊。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
@@ -1051,7 +1051,7 @@ def main():
             'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版',
             'slug': 'chinese-edition',
             'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
-            'intro': '新手最常問「有冇中文版?」呢個就係答案。收錄嘅 8 個桌遊入面, 4 個有繁體中文版 (台灣繁中 / 香港繁中), 1 個有簡體中文, 3 個暫時只有英文版。中文版嘅好處係新手唔使睇英文規則, 旺角店亦大路貨。',
+            'intro': '新手最常問「有冇中文版?」呢個就係答案。收錄嘅 9 個桌遊入面, 4 個有繁體中文版 (台灣繁中 / 香港繁中), 1 個有簡體中文, 4 個暫時只有英文版。中文版嘅好處係新手唔使睇英文規則, 旺角店亦大路貨。',
             'best_for': '新手 / 唔想睇英文規則 / 送禮',
         },
     ]
