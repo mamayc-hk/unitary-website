@@ -184,6 +184,51 @@
       "longform_path": "content/take-time.md"
     },
     {
+      "id": "spots",
+      "name": "斑點狗",
+      "name_en": "Spots",
+      "publisher": "CMYK",
+      "year": 2022,
+      "category": [
+        "派對",
+        "push-your-luck",
+        "家庭"
+      ],
+      "min_players": 1,
+      "max_players": 4,
+      "play_time": "30 min",
+      "teach_time": 5,
+      "difficulty": 1.5,
+      "difficulty_label": "簡單",
+      "language_versions": [
+        "ENG",
+        "簡中"
+      ],
+      "bgg_url": "https://boardgamegeek.com/boardgame/353545/spots",
+      "box_image": "assets/images/spots-box.jpg",
+      "step_images": [
+        "assets/images/spots-box.jpg"
+      ],
+      "summary": "Push-your-luck 骰子遊戲, 6 隻狗卡要完成訓練。骰中點數放狗卡, 放唔落嘅埋入 yard, 過 7 點即爆。15 分鐘上手, 1 局 30 分鐘, 4 個 trick tile 配 treat 機制。",
+      "tagline": "唔好埋太多點, 狗仔會反枱",
+      "is_complete": true,
+      "tactical_notes_count": 10,
+      "has_tiebreaker": false,
+      "has_customer_fit": true,
+      "customer_fit": {
+        "新手": "✅✅",
+        "進階": "✅",
+        "專家": "⚠️",
+        "家庭": "✅✅",
+        "朋友群": "✅✅",
+        "情侶": "✅",
+        "2人": "✅",
+        "6+人": "❌"
+      },
+      "longform_completed": true,
+      "longform_path": "content/spots.md"
+    },
+    {
       "id": "catan",
       "name": "卡坦島",
       "name_en": "Catan",
