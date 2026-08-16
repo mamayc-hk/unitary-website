@@ -418,8 +418,7 @@ def render_game_page(game, content_md):
         )
         qs_html = f'''
         <div class="quick-start">
-            <h2>⚡ 快速上手 — 2 分鐘上手</h2>
-            <p>新手 2 分鐘內上手, 記住呢 6 條:</p>
+            <p><strong>⚡ 快速上手 — 2 分鐘上手:</strong> 新手 2 分鐘內上手, 記住呢 6 條:</p>
             <ol>{qs_items_html}</ol>
         </div>
         '''
@@ -532,15 +531,15 @@ def render_game_page(game, content_md):
                 </div>
             </div>
 
-            <!-- Quick Start (Fix A: 2 分鐘 onboard) -->
+            <!-- Quick Start (Fix A: 2 分鐘 onboard) — inline intro, 唔做 H2 -->
             {qs_html}
 
-            <!-- 一句話總覽 -->
-            <h2>一句話總覽</h2>
-            <p class="summary-block">{summary}</p>
+            <!-- 一句話總覽 — 收埋入 玩法簡介 (markdown 第一個 H2 開頭) -->
 
-            <h2>玩法步驟圖</h2>
-            {step_html}
+            <!-- 玩法步驟圖 — inline visual, 唔做 H2 -->
+            <div class="step-images-inline">
+                {step_html}
+            </div>
 
             <!-- Long-form markdown content (含 inline example box) -->
             <div class="long-form">
@@ -552,7 +551,7 @@ def render_game_page(game, content_md):
 
             <hr>
 
-            <h2>🛒 配合資源 (Cross-sell)</h2>
+            <h2>🛍️ 配件同擴充</h2>
             <div class="cross-sell">
                 <p>新手可以一併推薦:</p>
                 <ul>
@@ -563,8 +562,14 @@ def render_game_page(game, content_md):
 
             <hr>
 
-            <h2>延伸閱讀</h2>
-            {f'<p><a href="{bgg}" target="_blank" rel="noopener" class="btn-cta btn-secondary">📊 BoardGameGeek 詳細資料 →</a></p>' if bgg else ''}
+            <h2>💬 留言</h2>
+            <div class="comments">
+                <p>有問題、想分享戰術、或者搵遊戲partner？DM 我哋 Instagram:</p>
+                <p style="margin-top:12px">
+                    <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener" class="btn-cta btn-secondary">📷 Instagram DM →</a>
+                </p>
+                <p style="margin-top:16px;font-size:0.9rem;color:#666">之後會加 Giscus 留言系統 (GitHub Discussions-based, 實時 + email 通知)</p>
+            </div>
 
             <p style="margin-top:40px"><a href="index.html" class="back">← 返回桌遊列表</a></p>
         </div>
