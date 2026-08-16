@@ -11,9 +11,16 @@ Unitary 開枱指南 — Build script v2
 import json
 import re
 import os
+import subprocess
 from pathlib import Path
 
 ROOT = Path('/Users/herry/Documents/Cherry/unitary-website/board-game')
+
+# Image cache-busting hash (當前 git commit short hash, 每次 build 自動更新)
+try:
+    BUILD_HASH = subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD'], cwd=ROOT, stderr=subprocess.DEVNULL).decode().strip()
+except Exception:
+    BUILD_HASH = 'v1'
 
 # === 1. Markdown → HTML parser (with example box detection) ===
 def escape_html(s):
@@ -406,7 +413,7 @@ def render_game_page(game, content_md):
     box_html = ''
     if hero:
         hero_filename = hero.split('/')[-1]
-        box_html = f'<figure><img src="images/{hero_filename}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
+        box_html = f'<figure><img src="images/{hero_filename}?v={BUILD_HASH}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
 
     # Step infographic (1 張橫向 2:1 infographic, 合併自 step_imgs)
     step_html = ''
@@ -483,7 +490,7 @@ def render_game_page(game, content_md):
             if not rg:
                 continue
             box_filename = rg.get('box_image', '').split('/')[-1] if rg.get('box_image') else ''
-            box_thumb = f'<img src="images/{box_filename}" alt="">' if box_filename else ''
+            box_thumb = f'<img src="images/{box_filename}?v={BUILD_HASH}" alt="">' if box_filename else ''
             related_links.append(
                 f'<a href="{rg["id"]}.html" class="related-game-link">'
                 f'<span class="related-game-thumb">{box_thumb}</span>'
@@ -683,7 +690,7 @@ def render_index_page():
     cards = []
     for g in sorted_games:
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
-        box_html = f'<img src="images/{box_filename}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
+        box_html = f'<img src="images/{box_filename}?v={BUILD_HASH}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
         pending = '' if g.get('is_complete', True) else ' <span style="color:var(--color-warn)">⚠️ 待補</span>'
 
         # Derive filter data attributes for CSS filter system
@@ -978,7 +985,7 @@ def render_blog_article(query):
             continue
         g = games_by_id[gid]
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
-        box_html = f'<img src="images/{box_filename}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
+        box_html = f'<img src="images/{box_filename}?v={BUILD_HASH}" alt="{escape_html(g["name"])} 盒面" loading="lazy">' if box_filename else '🎲'
         article_cards.append(f'''        <a class="article-game-card" href="{g['id']}.html">
             <div class="article-game-card-box">{box_html}</div>
             <div class="article-game-card-body">
