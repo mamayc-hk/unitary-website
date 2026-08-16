@@ -472,14 +472,8 @@ def render_game_page(game, content_md):
         </div>
         '''
 
-    # Sidebar quick-jump
-    all_games = sorted(load_games(), key=lambda g: (0 if g.get('is_kickoff') else 1, g['id']))
-    sidebar_qj = ''
-    for g in all_games:
-        kickoff_marker = ' 🌟' if g.get('is_kickoff') else ''
-        sidebar_qj += f'<a href="{g["id"]}.html">{escape_html(g["name"])}{kickoff_marker}</a>\n'
-
     # Sidebar 相關 game (from games.json related_games)
+    all_games = sorted(load_games(), key=lambda g: (0 if g.get('is_kickoff') else 1, g['id']))
     all_games_dict = {g['id']: g for g in all_games}
     related_ids = game.get('related_games', [])
     related_sidebar_html = ''
@@ -527,7 +521,6 @@ def render_game_page(game, content_md):
 
 <div class="nav"><div class="nav-inner">
     <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
-    <a href="index.html" style="margin-left:auto;color:#999;font-size:0.95rem">桌遊教學 →</a>
 </div></div>
 
 <div class="layout">
@@ -631,22 +624,16 @@ def render_game_page(game, content_md):
 
     <div class="side">
         <div class="side-box">
-            <h3>關於</h3>
+            <h3>📌 關於 UNITARY</h3>
             <div class="about-text">
-                <p><strong>Herry Ma</strong></p>
-                <p>兼職 @ 旺角新手桌遊 + UNITARY 創辦人。本 blog 對應新手入門場景。</p>
+                <p>UNITARY 係為香港同台灣桌遊新手同愛好者而設嘅教學網誌, Herry Ma 個人計劃。內容 base on 官方規則書 + BGG 數據 + 自己試玩經驗。</p>
                 <p>
                     <a href="https://instagram.com/unitary.hk" target="_blank">Instagram →</a>
                     &nbsp;·&nbsp;
                 </p>
             </div>
         </div>
-        <div class="side-box">
-            <h3>快速跳轉 (9 個桌遊)</h3>
-            <div class="side-rec">
-                {sidebar_qj}
-            </div>
-        </div>
+        {related_sidebar_html}
         <!-- Sticky Cheat Sheet (Fix D) -->
         {qs_sidebar_html}
         <div class="side-box">
@@ -661,7 +648,6 @@ def render_game_page(game, content_md):
                 </ul>
             </div>
         </div>
-        {related_sidebar_html}
     </div>
 </div>
 
