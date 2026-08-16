@@ -77,7 +77,12 @@
       },
       "tiebreaker_note": "官方 (Amigo rulebook p.16): 1) 金幣多者勝 2) 未種牌+未收豆總張數多者勝 3) 上述金幣等值高者勝 4) 最後 turn 種豆者勝",
       "longform_completed": true,
-      "longform_path": "content/bohnanza.md"
+      "longform_path": "content/bohnanza.md",
+      "related_games": [
+        "manila",
+        "dnup",
+        "catan"
+      ]
     },
     {
       "id": "camel-up",
@@ -129,7 +134,12 @@
       },
       "tiebreaker_note": "官方 (Eggertspiele 2014): 1) 金幣多者勝 2) 終點冠軍中咗嘅玩家勝 3) 終點包尾中咗嘅玩家勝 4) 最後 turn 落注者勝。注意 1.0 vs 2.0 tiebreaker 唔同",
       "longform_completed": true,
-      "longform_path": "content/camel-up.md"
+      "longform_path": "content/camel-up.md",
+      "related_games": [
+        "spots",
+        "dnup",
+        "manila"
+      ]
     },
     {
       "id": "take-time",
@@ -181,7 +191,12 @@
         "6+人": "❌"
       },
       "longform_completed": true,
-      "longform_path": "content/take-time.md"
+      "longform_path": "content/take-time.md",
+      "related_games": [
+        "project-l",
+        "spots",
+        "dnup"
+      ]
     },
     {
       "id": "spots",
@@ -226,7 +241,12 @@
         "6+人": "❌"
       },
       "longform_completed": true,
-      "longform_path": "content/spots.md"
+      "longform_path": "content/spots.md",
+      "related_games": [
+        "camel-up",
+        "take-time",
+        "dnup"
+      ]
     },
     {
       "id": "catan",
@@ -279,7 +299,12 @@
       },
       "tiebreaker_note": "官方 (Kosmos rulebook p.4-5): 7 階 tiebreaker — 1) 最多勝利點數 2) 擁有最多騎士卡 3) 最長道路 4) 最多發展卡 5) 最多資源卡 6) 最多建設物 (村+城) 7) 共享勝",
       "longform_completed": true,
-      "longform_path": "content/catan.md"
+      "longform_path": "content/catan.md",
+      "related_games": [
+        "bohnanza",
+        "manila",
+        "project-l"
+      ]
     },
     {
       "id": "project-l",
@@ -327,7 +352,12 @@
       },
       "tiebreaker_note": "官方 (CGE rulebook p.4): 1) 最多分者勝 2) 較多 puzzle card 完成者勝 3) 較多 master piece 完成者勝 4) 較多 1 級 puzzle piece 持有者勝。注意 1st vs 2nd edition tiebreaker 唔同",
       "longform_completed": true,
-      "longform_path": "content/project-l.md"
+      "longform_path": "content/project-l.md",
+      "related_games": [
+        "take-time",
+        "catan",
+        "seti"
+      ]
     },
     {
       "id": "dnup",
@@ -373,7 +403,12 @@
       },
       "tiebreaker_note": "官方 (Sit Down! rulebook p.6): 1) 累積 4 分者勝 2) 較早達到 4 分者勝 3) 平手時 5 個 symbol 持有者勝 (4 人以下忽略)",
       "longform_completed": true,
-      "longform_path": "content/dnup.md"
+      "longform_path": "content/dnup.md",
+      "related_games": [
+        "bohnanza",
+        "camel-up",
+        "spots"
+      ]
     },
     {
       "id": "manila",
@@ -420,7 +455,12 @@
       },
       "tiebreaker_note": "官方 (Zoch Verlag 2005, Pegasus Spiele 2014 reprint p.4-5): 1) 總利潤 (現金+股票) 最高者勝 2) 持有單一最高價值股票者勝 3) 現金多者勝 4) 較少回合達到結束者勝 5) 共享勝",
       "longform_completed": true,
-      "longform_path": "content/manila.md"
+      "longform_path": "content/manila.md",
+      "related_games": [
+        "catan",
+        "camel-up",
+        "bohnanza"
+      ]
     },
     {
       "id": "seti",
@@ -468,7 +508,12 @@
         "情侶": "⚠️",
         "2人": "✅",
         "6+人": "❌"
-      }
+      },
+      "related_games": [
+        "catan",
+        "project-l",
+        "manila"
+      ]
     }
   ],
   "metadata": {

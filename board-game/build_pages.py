@@ -348,6 +348,20 @@ FAQ = {
         ('股票幾時賣?', '股票只有「上」冇「下」, 揀快升嗰隻 (你嘅船都去嘅港灣) 買, 高位賣。'),
         ('新手最大錯誤?', '忽略保險職位。保險係被動收入, 5 人場每次失事賠 5 元, 5 個回合已經回本。'),
     ],
+    'seti': [
+        ('新手最易犯乜錯?', '新手會忽略 Mothership 板嘅長線規劃, 一回合衝太多行動。高手會分 5 個回合逐步升級技術、收集樣本。'),
+        ('探測 vs 訊號 邊個先?', '訊號 (短線高分) 先, 探測 (中線穩定) 配合。訊號卡可以即時 1-3 分, 探測要 3-4 個回合先見效。'),
+        ('4 人場好玩嗎?', '4 人場最佳, 12 個行星競爭激烈但 5 個回合夠分。3 人場太空太多, 1-2 人場冷清。'),
+        ('幾耐一局?', '官方 90-120 min, 但新手第一次要 150 min。預 2-3 小時, 中場 break 一次。'),
+        ('可以單人玩嗎?', '可以, 官方 Automa (自動對手) 支援 1 人場, 90 min 玩完, 適合 1 個人練習。'),
+    ],
+    'spots': [
+        ('新手最易犯乜錯?', '新手會太進取擲多隻骰 (Fetch 3 隻), 結果爆 (bust)。高手會由 Walk / Beg 開始, 慢慢搵節奏。'),
+        ('幾時應該收狗 (Slow and Steady)?', '當你填滿 1 隻以上狗卡, 嗰個 turn 結束前可以選擇收狗。新手建議「填滿就收」, 避免塞死自己。'),
+        ('Treat 留到幾時用?', '救命時用: 擲完發現 3 隻都唔啱 → 用 treat 全重擲。留 1-2 個 treat 喺袋, 唔好亂花。'),
+        ('Trick Tile 點解只剩 1 個會自動翻轉?', '防止玩家「鎖死」某個 trick, 確保大家有選擇。同時放 1 個 treat 喺「最後嗰個 trick」上面, 鼓勵人揀冷門 trick。'),
+        ('可以 1 個人玩嗎?', '可以, 規則完全一樣。可以挑戰「30 分鐘內完成 3 隻狗」或「10 輪內完成 5 隻狗」等目標, 練 push-your-luck 嘅 risk management。'),
+    ],
 }
 
 
@@ -393,14 +407,11 @@ def render_game_page(game, content_md):
         box_filename = box.split('/')[-1]
         box_html = f'<figure><img src="images/{box_filename}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
 
-    # Step images
+    # Step infographic (1 張橫向 2:1 infographic, 合併自 step_imgs)
     step_html = ''
-    if step_imgs:
-        step_items = ''
-        for idx, img in enumerate(step_imgs):
-            img_filename = img.split('/')[-1]
-            step_items += f'<figure><img src="images/{img_filename}" alt="步驟 {idx+1}" loading="lazy"><figcaption>步驟 {idx+1}</figcaption></figure>\n'
-        step_html = f'<div class="photo-grid">{step_items}</div>'
+    infographic_path = ROOT / 'images' / f'infographic-{gid}.jpg'
+    if infographic_path.exists():
+        step_html = f'<div class="step-infographic"><img src="images/infographic-{gid}.jpg" alt="{escape_html(name)} 玩法步驟" loading="lazy"></div>'
 
     # Selling point (Fix E)
     sp = SELLING_POINTS.get(gid, {'story': summary, 'point_emoji': '🎲', 'point_text': tagline})
@@ -438,16 +449,18 @@ def render_game_page(game, content_md):
         </div>
         '''
 
-    # Cheat sheet (Fix D, sidebar sticky)
-    cs_items = CHEAT_SHEET.get(gid, [])
-    cs_html = ''
-    if cs_items:
-        cs_items_html = '\n'.join(f'<li>{item}</li>' for item in cs_items)
-        cs_html = f'''
+    # Quick Start (sidebar 取代速查表位置)
+    qs_items_sidebar = QUICK_START.get(gid, [])
+    qs_sidebar_html = ''
+    if qs_items_sidebar:
+        qs_items_html = '\n'.join(
+            '<li>' + bold_re.sub(bold_sub, item) + '</li>'
+            for item in qs_items_sidebar
+        )
+        qs_sidebar_html = f'''
         <div class="cheat-sheet">
-            <h3>📋 速查表</h3>
-            <p>新手 30 秒掃一眼:</p>
-            <ul>{cs_items_html}</ul>
+            <h3>⚡ 快速上手</h3>
+            <ol>{qs_items_html}</ol>
         </div>
         '''
 
@@ -457,6 +470,33 @@ def render_game_page(game, content_md):
     for g in all_games:
         kickoff_marker = ' 🌟' if g.get('is_kickoff') else ''
         sidebar_qj += f'<a href="{g["id"]}.html">{escape_html(g["name"])}{kickoff_marker}</a>\n'
+
+    # Sidebar 相關 game (from games.json related_games)
+    all_games_dict = {g['id']: g for g in all_games}
+    related_ids = game.get('related_games', [])
+    related_sidebar_html = ''
+    if related_ids:
+        related_links = []
+        for rid in related_ids:
+            rg = all_games_dict.get(rid)
+            if not rg:
+                continue
+            box_filename = rg.get('box_image', '').split('/')[-1] if rg.get('box_image') else ''
+            box_thumb = f'<img src="images/{box_filename}" alt="">' if box_filename else ''
+            related_links.append(
+                f'<a href="{rg["id"]}.html" class="related-game-link">'
+                f'<span class="related-game-thumb">{box_thumb}</span>'
+                f'<span class="related-game-name">{escape_html(rg["name"])}</span>'
+                f'</a>'
+            )
+        related_sidebar_html = f'''
+        <div class="side-box">
+            <h3>相關 game</h3>
+            <div class="related-games">
+                {''.join(related_links)}
+            </div>
+        </div>
+        '''
 
     complete_badge = '✅ 完整教學' if is_complete else '⚠️ 內容待補'
 
@@ -536,9 +576,14 @@ def render_game_page(game, content_md):
 
             <!-- 一句話總覽 — 收埋入 玩法簡介 (markdown 第一個 H2 開頭) -->
 
-            <!-- 玩法步驟圖 — inline visual, 唔做 H2 -->
+            <!-- 玩法步驟圖 — 1 張橫向 1:2 infographic, 唔做 H2 -->
             <div class="step-images-inline">
                 {step_html}
+            </div>
+
+            <!-- 一句話總覽 — 玩法簡介 開頭 -->
+            <div class="summary-callout">
+                <p><strong>一句話總覽:</strong> {escape_html(summary)}</p>
             </div>
 
             <!-- Long-form markdown content (含 inline example box) -->
@@ -557,6 +602,7 @@ def render_game_page(game, content_md):
                 <ul>
                     <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅卡牌完美 fit。</li>
                     <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手可以即場試玩。</li>
+                    {f'<li><strong>BoardGameGeek 完整資料</strong>: <a href="{escape_html(bgg)}" target="_blank" rel="noopener">{escape_html(name_en)} 喺 BGG</a> (社群評分、規則 Q&A、變體討論)</li>' if bgg else ''}
                 </ul>
             </div>
 
@@ -594,20 +640,20 @@ def render_game_page(game, content_md):
             </div>
         </div>
         <!-- Sticky Cheat Sheet (Fix D) -->
-        {cs_html}
+        {qs_sidebar_html}
         <div class="side-box">
             <h3>新手指南</h3>
             <div class="about-text">
                 <p>新手 5 分鐘掌握:</p>
                 <ul style="padding-left:16px;font-size:0.95rem">
                     <li>✅ 玩法 + 設置</li>
-                    <li>{'✅' if tactics_n > 0 else '⚠️'} 戰術提示 ({tactics_n} 條)</li>
                     <li>{'✅' if has_tb else '⚠️ 待補'} 和局處理</li>
                     <li>✅ 推介畀咩人</li>
-                    <li>✅ 新手 query 對應</li>
+                    <li>✅ 特殊規則 / 變體</li>
                 </ul>
             </div>
         </div>
+        {related_sidebar_html}
     </div>
 </div>
 
