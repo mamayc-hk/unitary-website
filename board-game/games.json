@@ -82,7 +82,8 @@
         "manila",
         "dnup",
         "catan"
-      ]
+      ],
+      "hero_image": "assets/images/bohnanza-hero.jpg"
     },
     {
       "id": "camel-up",
@@ -139,7 +140,8 @@
         "spots",
         "dnup",
         "manila"
-      ]
+      ],
+      "hero_image": "assets/images/camel-up-hero.jpg"
     },
     {
       "id": "take-time",
@@ -196,7 +198,8 @@
         "project-l",
         "spots",
         "dnup"
-      ]
+      ],
+      "hero_image": "assets/images/take-time-hero.jpg"
     },
     {
       "id": "spots",
@@ -246,7 +249,8 @@
         "camel-up",
         "take-time",
         "dnup"
-      ]
+      ],
+      "hero_image": "assets/images/spots-hero.jpg"
     },
     {
       "id": "catan",
@@ -304,7 +308,8 @@
         "bohnanza",
         "manila",
         "project-l"
-      ]
+      ],
+      "hero_image": "assets/images/catan-hero.jpg"
     },
     {
       "id": "project-l",
@@ -357,7 +362,8 @@
         "take-time",
         "catan",
         "seti"
-      ]
+      ],
+      "hero_image": "assets/images/project-l-hero.jpg"
     },
     {
       "id": "dnup",
@@ -408,7 +414,8 @@
         "bohnanza",
         "camel-up",
         "spots"
-      ]
+      ],
+      "hero_image": "assets/images/dnup-hero.jpg"
     },
     {
       "id": "manila",
@@ -460,7 +467,8 @@
         "catan",
         "camel-up",
         "bohnanza"
-      ]
+      ],
+      "hero_image": "assets/images/manila-hero.jpg"
     },
     {
       "id": "seti",
@@ -513,7 +521,8 @@
         "catan",
         "project-l",
         "manila"
-      ]
+      ],
+      "hero_image": "assets/images/seti-hero.jpg"
     }
   ],
   "metadata": {

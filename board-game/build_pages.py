@@ -386,6 +386,7 @@ def render_game_page(game, content_md):
     langs = game.get('language_versions', [])
     bgg = game.get('bgg_url', '')
     box = game.get('box_image', '')
+    hero = game.get('hero_image', '') or box  # hero_image 優先 (純文字 logo), fallback to box_image
     step_imgs = game.get('step_images', [])
     tactics_n = game.get('tactical_notes_count', 0)
     has_tb = game.get('has_tiebreaker', False)
@@ -401,11 +402,11 @@ def render_game_page(game, content_md):
     # Customer fit
     fit_items = ''.join(f'<li><strong>{escape_html(k)}</strong>: {escape_html(v)}</li>\n' for k, v in fit.items())
 
-    # Box image
+    # Box image (game page hero: 純文字 logo via hero_image field)
     box_html = ''
-    if box:
-        box_filename = box.split('/')[-1]
-        box_html = f'<figure><img src="images/{box_filename}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
+    if hero:
+        hero_filename = hero.split('/')[-1]
+        box_html = f'<figure><img src="images/{hero_filename}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
 
     # Step infographic (1 張橫向 2:1 infographic, 合併自 step_imgs)
     step_html = ''
