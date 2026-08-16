@@ -605,12 +605,14 @@ tr:hover td { background: #fafafa; }
     font-size: 0.85rem;
     margin-bottom: 16px;
 }
-.game-hero figure { margin: 16px 0 0; }
+.game-hero figure { margin: 16px 0 0; text-align: center; }
 .game-hero figure img {
-    width: 100%;
-    max-height: 320px;
-    object-fit: cover;
+    width: auto;
+    max-width: 360px;
+    max-height: 240px;
+    object-fit: contain;
     border-radius: 8px;
+    display: inline-block;
 }
 .game-hero figure figcaption {
     color: #A8A29E;
