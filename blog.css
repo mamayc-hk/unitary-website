@@ -104,15 +104,15 @@ tr:hover td { background: #fafafa; }
     background: #fafafa;
     border: 1px solid #eee;
     border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 12px 20px;
+    margin-bottom: 16px;
 }
 .side-box h3 {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #999;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
 .side-box input {
@@ -571,6 +571,25 @@ tr:hover td { background: #fafafa; }
     padding: 24px 28px;
     margin: 0 0 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+}
+.game-hero-img {
+    order: 1;
+}
+.game-hero-text {
+    order: 2;
+}
+.game-hero figure { margin: 0; text-align: center; }
+.game-hero figure img {
+    width: auto;
+    max-width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    border-radius: 8px;
+    display: inline-block;
 }
 .game-hero-meta {
     display: flex;

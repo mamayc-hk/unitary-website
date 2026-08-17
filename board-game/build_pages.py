@@ -413,7 +413,7 @@ def render_game_page(game, content_md):
     box_html = ''
     if hero:
         hero_filename = hero.split('/')[-1]
-        box_html = f'<figure><img src="images/{hero_filename}?v={BUILD_HASH}" alt="{escape_html(name)} 盒面" loading="lazy"><figcaption>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(publisher)}</figcaption></figure>'
+        box_html = f'<figure><img src="images/{hero_filename}?v={BUILD_HASH}" alt="{escape_html(name)} 盒面" loading="lazy"></figure>'
 
     # Step infographic (1 張橫向 2:1 infographic, 合併自 step_imgs)
     step_html = ''
@@ -530,14 +530,17 @@ def render_game_page(game, content_md):
 
             <!-- Hero 段 (Fix E: Story + Selling Point) -->
             <div class="game-hero">
-                <div class="game-hero-meta">
-                    <span class="complete-badge">{complete_badge}</span>
-                    <span class="game-hero-tagline">{escape_html(tagline)}</span>
+                <div class="game-hero-text">
+                    <div class="game-hero-meta">
+                        <span class="complete-badge">{complete_badge}</span>
+                        <span class="game-hero-tagline">{escape_html(tagline)}</span>
+                    </div>
+                    <h1>{escape_html(name)} ({escape_html(name_en)})</h1>
+                    <div class="game-hero-publisher">出版: {escape_html(publisher)} · 類別: {escape_html(", ".join(cats))}</div>
                 </div>
-                <h1>{escape_html(name)} ({escape_html(name_en)})</h1>
-                <div class="game-hero-publisher">出版: {escape_html(publisher)} · 類別: {escape_html(", ".join(cats))}</div>
-
-                {box_html}
+                <div class="game-hero-img">
+                    {box_html}
+                </div>
             </div>
 
             <div class="game-meta">
@@ -572,8 +575,9 @@ def render_game_page(game, content_md):
                 </div>
             </div>
 
-            <!-- Quick Start (Fix A: 2 分鐘 onboard) — inline intro, 唔做 H2 -->
-            {qs_html}
+            <!-- Quick Start (Fix A: 2 分鐘 onboard) — inline intro 已移除, 只留 sidebar sticky 板 -->
+            <!-- (Inline callout 刪走, 詳見 v3.4.0.i) -->
+
 
             <!-- 一句話總覽 — 收埋入 玩法簡介 (markdown 第一個 H2 開頭) -->
 
@@ -636,18 +640,7 @@ def render_game_page(game, content_md):
         {related_sidebar_html}
         <!-- Sticky Cheat Sheet (Fix D) -->
         {qs_sidebar_html}
-        <div class="side-box">
-            <h3>新手指南</h3>
-            <div class="about-text">
-                <p>新手 5 分鐘掌握:</p>
-                <ul style="padding-left:16px;font-size:0.95rem">
-                    <li>✅ 玩法 + 設置</li>
-                    <li>{'✅' if has_tb else '⚠️ 待補'} 和局處理</li>
-                    <li>✅ 推介畀咩人</li>
-                    <li>✅ 特殊規則 / 變體</li>
-                </ul>
-            </div>
-        </div>
+        <!-- v3.4.0.i: 新手指南 sidebar block 刪走 (per user comment 4) -->
     </div>
 </div>
 
