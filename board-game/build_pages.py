@@ -91,7 +91,8 @@ def md_to_html(md_text):
             heading_text = m.group(2)
             # v3.4.0.l: H3 啱啱 match 步驟 pattern 先開 step-block wrapper (避免推介畀咩人, 客 query 對應 etc 都被 wrap)
             is_step = level == 3 and re.match(r'^步驟\s+\d+', heading_text)
-            if in_step_block and not is_step:
+            # v3.4.0.m: 任何新 step 開之前, 一定 close 上一個 step-block (避免 step 6 → step 7 連續時, FAQ 跌入 step 6 嘅 grid)
+            if in_step_block:
                 out.append('</div>')
                 in_step_block = False
             if is_step:
