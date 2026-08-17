@@ -516,6 +516,12 @@ def render_game_page(game, content_md):
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
+    <style>
+    /* v3.4.0.j inline override: server blog.css stale (GitHub Pages cache bug 揀 file 唔全),
+       強制 side-box 縮減生效 (per user comment 2+3: 上邊空間太多) */
+    .side-box { padding: 6px 16px !important; margin-bottom: 12px !important; }
+    .side-box h3 { margin: 0 0 4px 0 !important; }
+    </style>
 </head>
 <body>
 
