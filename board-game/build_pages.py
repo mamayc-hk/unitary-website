@@ -31,6 +31,8 @@ def md_inline(text):
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'(?<!\*)\*([^*\n]+)\*(?!\*)', r'<em>\1</em>', text)
+    # v3.4.0.k: inline image syntax `![alt](src)` — 段落 break + 喺 paragraph 外
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'</p><p class="step-img-row"><img src="\2" alt="\1" class="step-inline-img" loading="lazy"></p><p>', text)
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', text)
     return text
 
@@ -213,7 +215,7 @@ SELLING_POINTS = {
     'bohnanza': {
         'story': '你係一個豆田農夫, 呢個春天你抽到嘅豆決定你成個季節嘅命運。眾豆得金嘅設計天才在於: 「手牌順序不能改變」— 呢個限制迫你同其他農夫不停 trade, 笑料同策略都喺傾計度誕生。',
         'point_emoji': '🤝',
-        'point_text': '7 人滿場, 旺角夜場吹水 trade 嘅派對首選',
+        'point_text': '牌序鎖死嘅天才設計, 迫你不斷 trade 傾掂數',
     },
     'camel-up': {
         'story': '埃及沙漠, 5 隻駱駝賽跑, 你落注邊隻贏。但有 2 隻瘋狂駱駝會騎上去 — 疊羅漢嘅瞬間, 頭馬可以一秒變包尾。駱駝大賽嘅魔力在於: 規則簡單到 5 分鐘教完, 但心理戰可以玩到天光。',
@@ -384,9 +386,11 @@ def render_game_page(game, content_md):
     tagline = game.get('tagline', '')
     summary = game.get('summary', '')
     publisher = game.get('publisher', '')
+    designer = game.get('designer', '')
     cats = game.get('category', [])
     min_p = game['min_players']
     max_p = game['max_players']
+    best_players = game.get('best_players', f"{min_p}-{max_p}")
     teach = game.get('teach_time', 0)
     play = game.get('play_time', '')
     diff = game.get('difficulty_label', '')
@@ -519,8 +523,8 @@ def render_game_page(game, content_md):
     <style>
     /* v3.4.0.j inline override: server blog.css stale (GitHub Pages cache bug 揀 file 唔全),
        強制 side-box 縮減生效 (per user comment 2+3: 上邊空間太多) */
-    .side-box { padding: 6px 16px !important; margin-bottom: 12px !important; }
-    .side-box h3 { margin: 0 0 4px 0 !important; }
+    .side-box {{ padding: 6px 16px !important; margin-bottom: 12px !important; }}
+    .side-box h3 {{ margin: 0 0 4px 0 !important; }}
     </style>
 </head>
 <body>
@@ -542,7 +546,7 @@ def render_game_page(game, content_md):
                         <span class="game-hero-tagline">{escape_html(tagline)}</span>
                     </div>
                     <h1>{escape_html(name)} ({escape_html(name_en)})</h1>
-                    <div class="game-hero-publisher">出版: {escape_html(publisher)} · 類別: {escape_html(", ".join(cats))}</div>
+                    <div class="game-hero-publisher">出版: {escape_html(publisher)}{('<br>設計者: ' + escape_html(designer)) if designer else ''}<br>類別: {escape_html(", ".join(cats))}</div>
                 </div>
                 <div class="game-hero-img">
                     {box_html}
@@ -567,8 +571,8 @@ def render_game_page(game, content_md):
                     <div class="value">{escape_html(diff)}</div>
                 </div>
                 <div class="game-meta-item">
-                    <div class="label">語言</div>
-                    <div class="value">{escape_html(", ".join(langs))}</div>
+                    <div class="label">最佳人數</div>
+                    <div class="value">{escape_html(best_players)} 人</div>
                 </div>
             </div>
 
@@ -585,17 +589,8 @@ def render_game_page(game, content_md):
             <!-- (Inline callout 刪走, 詳見 v3.4.0.i) -->
 
 
-            <!-- 一句話總覽 — 收埋入 玩法簡介 (markdown 第一個 H2 開頭) -->
-
-            <!-- 玩法步驟圖 — 1 張橫向 1:2 infographic, 唔做 H2 -->
-            <div class="step-images-inline">
-                {step_html}
-            </div>
-
-            <!-- 一句話總覽 — 玩法簡介 開頭 -->
-            <div class="summary-callout">
-                <p><strong>一句話總覽:</strong> {escape_html(summary)}</p>
-            </div>
+            <!-- v3.4.0.k: 集中 step-images-inline infographic 刪走, summary-callout 刪走
+                 (per user comment 5 + 6) -->
 
             <!-- Long-form markdown content (含 inline example box) -->
             <div class="long-form">

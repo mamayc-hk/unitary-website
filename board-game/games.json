@@ -23,6 +23,7 @@
       "name": "眾豆得金",
       "name_en": "Bohnanza",
       "publisher": "Amigo (中文版: 新天鵝堡 / 玩聚設計)",
+      "designer": "Uwe Rosenberg",
       "year": 1997,
       "category": [
         "談判",
@@ -31,6 +32,7 @@
       ],
       "min_players": 2,
       "max_players": 7,
+      "best_players": "4-6",
       "play_time": "45-60 min",
       "teach_time": 15,
       "difficulty": 3,
