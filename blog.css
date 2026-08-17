@@ -104,15 +104,15 @@ tr:hover td { background: #fafafa; }
     background: #fafafa;
     border: 1px solid #eee;
     border-radius: 8px;
-    padding: 12px 20px;
-    margin-bottom: 16px;
+    padding: 6px 16px;
+    margin-bottom: 12px;
 }
 .side-box h3 {
     font-size: 0.78rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: #999;
-    margin-bottom: 8px;
+    margin: 0 0 4px 0;
 }
 .about-text { font-size: 0.85rem; color: #555; line-height: 1.7; }
 .side-box input {
