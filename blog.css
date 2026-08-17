@@ -598,10 +598,47 @@ tr:hover td { background: #fafafa; }
 .game-hero figure img {
     width: auto;
     max-width: 100%;
-    max-height: 96px;
+    max-height: 60px;
     object-fit: contain;
     border-radius: 8px;
     display: inline-block;
+}
+
+/* v3.4.0.l: step-block 2-column (圖左, 字右) per user comment 5 */
+.step-block {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    align-items: start;
+    margin: 16px 0;
+}
+.step-block h3 {
+    grid-column: 1 / -1;
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+}
+.step-block .step-img-row {
+    grid-column: 1;
+    margin: 0;
+    text-align: left;
+}
+.step-block .step-img-row img {
+    width: auto;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 6px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    display: block;
+}
+.step-block p {
+    grid-column: 2;
+    margin: 0;
+}
+.step-block p:has(+ .step-img-row),
+.step-block p:has(+ ul),
+.step-block p:has(+ ol),
+.step-block p:has(+ blockquote) {
+    grid-column: 1 / -1;
 }
 .game-hero-meta {
     display: flex;

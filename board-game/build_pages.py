@@ -31,8 +31,9 @@ def md_inline(text):
     text = re.sub(r'`([^`]+)`', r'<code>\1</code>', text)
     text = re.sub(r'\*\*([^*]+)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'(?<!\*)\*([^*\n]+)\*(?!\*)', r'<em>\1</em>', text)
-    # v3.4.0.k: inline image syntax `![alt](src)` — 段落 break + 喺 paragraph 外
-    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'</p><p class="step-img-row"><img src="\2" alt="\1" class="step-inline-img" loading="lazy"></p><p>', text)
+    # v3.4.0.l: standalone image line 唔再靠 md_inline, 改用 md_to_html 嘅 standalone image 識別
+    # (留 placeholder 防止 inline case 出現意外 escape)
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<div class="step-img-row"><img src="\2" alt="\1" class="step-inline-img" loading="lazy"></div>', text)
     text = re.sub(r'\[([^\]]+)\]\(([^)]+)\)', r'<a href="\2" target="_blank" rel="noopener">\1</a>', text)
     return text
 
@@ -43,6 +44,7 @@ def md_to_html(md_text):
     in_quote = False
     para_buf = []
     in_faq = False  # FAQ 識別
+    in_step_block = False  # v3.4.0.l: H3 step 開 step-block wrapper (2-column layout)
 
     def flush_para():
         nonlocal para_buf
@@ -87,7 +89,24 @@ def md_to_html(md_text):
             flush_para(); flush_list(); flush_quote()
             level = len(m.group(1))
             heading_text = m.group(2)
+            # v3.4.0.l: H3 啱啱 match 步驟 pattern 先開 step-block wrapper (避免推介畀咩人, 客 query 對應 etc 都被 wrap)
+            is_step = level == 3 and re.match(r'^步驟\s+\d+', heading_text)
+            if in_step_block and not is_step:
+                out.append('</div>')
+                in_step_block = False
+            if is_step:
+                out.append('<div class="step-block">')
+                in_step_block = True
             out.append(f'<h{level}>{md_inline(heading_text)}</h{level}>')
+            i += 1; continue
+
+        # v3.4.0.l: standalone image line `![alt](src)` 獨立處理
+        m = re.match(r'^!\[([^\]]*)\]\(([^)]+)\)\s*$', stripped)
+        if m:
+            flush_para(); flush_list(); flush_quote()
+            alt = escape_html(m.group(1))
+            src = escape_html(m.group(2))
+            out.append(f'<div class="step-img-row"><img src="{src}" alt="{alt}" class="step-inline-img" loading="lazy"></div>')
             i += 1; continue
 
         # Blockquote (with Example box detection: > 例: ... 觸發)
@@ -144,6 +163,9 @@ def md_to_html(md_text):
         i += 1
 
     flush_para(); flush_list(); flush_quote()
+    if in_step_block:
+        out.append('</div>')
+        in_step_block = False
     return '\n'.join(out)
 
 
@@ -215,7 +237,7 @@ SELLING_POINTS = {
     'bohnanza': {
         'story': '你係一個豆田農夫, 呢個春天你抽到嘅豆決定你成個季節嘅命運。眾豆得金嘅設計天才在於: 「手牌順序不能改變」— 呢個限制迫你同其他農夫不停 trade, 笑料同策略都喺傾計度誕生。',
         'point_emoji': '🤝',
-        'point_text': '牌序鎖死嘅天才設計, 迫你不斷 trade 傾掂數',
+        'point_text': '5-7 人坐枱 trade 笑到反枱, 1 局 60 分鐘過咗好似 15 分鐘',
     },
     'camel-up': {
         'story': '埃及沙漠, 5 隻駱駝賽跑, 你落注邊隻贏。但有 2 隻瘋狂駱駝會騎上去 — 疊羅漢嘅瞬間, 頭馬可以一秒變包尾。駱駝大賽嘅魔力在於: 規則簡單到 5 分鐘教完, 但心理戰可以玩到天光。',
@@ -413,11 +435,11 @@ def render_game_page(game, content_md):
     # Customer fit
     fit_items = ''.join(f'<li><strong>{escape_html(k)}</strong>: {escape_html(v)}</li>\n' for k, v in fit.items())
 
-    # Box image (game page hero: 純文字 logo via hero_image field)
+    # v3.4.0.l: 改用 box_image (真實桌遊盒面), 唔用 hero_image (純文字 logo)
     box_html = ''
-    if hero:
-        hero_filename = hero.split('/')[-1]
-        box_html = f'<figure><img src="images/{hero_filename}?v={BUILD_HASH}" alt="{escape_html(name)} 盒面" loading="lazy"></figure>'
+    if box:
+        box_filename = box.split('/')[-1]
+        box_html = f'<figure><img src="images/{box_filename}?v={BUILD_HASH}" alt="{escape_html(name)} 盒面" loading="lazy"></figure>'
 
     # Step infographic (1 張橫向 2:1 infographic, 合併自 step_imgs)
     step_html = ''
@@ -513,7 +535,7 @@ def render_game_page(game, content_md):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{escape_html(name)} ({escape_html(name_en)}) — {escape_html(tagline)} | UNITARY 開枱指南</title>
     <meta name="description" content="{escape_html(summary)}">
-    <meta name="keywords" content="桌遊,教學,桌遊教學,{escape_html(name)},{escape_html(name_en)},board game,{escape_html(",".join(cats))},香港桌遊,新手桌遊,新手,旺角">
+    <meta name="keywords" content="桌遊,教學,桌遊教學,{escape_html(name)},{escape_html(name_en)},board game,{escape_html(",".join(cats))},香港桌遊,新手桌遊,新手">
     <link rel="canonical" href="https://unitaryhk.com/board-game/{gid}.html">
     <meta property="og:title" content="{escape_html(name)} ({escape_html(name_en)}) — {escape_html(tagline)}">
     <meta property="og:description" content="{escape_html(summary)}">
@@ -536,7 +558,7 @@ def render_game_page(game, content_md):
 <div class="layout">
     <div class="main">
         <div class="main-content">
-            <a href="index.html" class="back">← 返回桌遊列表</a>
+            <!-- v3.4.0.l: 刪走「← 返回桌遊列表」back link (per user comment 2) -->
 
             <!-- Hero 段 (Fix E: Story + Selling Point) -->
             <div class="game-hero">
@@ -607,7 +629,7 @@ def render_game_page(game, content_md):
                 <p>新手可以一併推薦:</p>
                 <ul>
                     <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅卡牌完美 fit。</li>
-                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手可以即場試玩。</li>
+                    <li><strong>新手桌遊 (香港)</strong>: 香港實體店, 新手可以即場試玩。</li>
                     {f'<li><strong>BoardGameGeek 完整資料</strong>: <a href="{escape_html(bgg)}" target="_blank" rel="noopener">{escape_html(name_en)} 喺 BGG</a> (社群評分、規則 Q&A、變體討論)</li>' if bgg else ''}
                 </ul>
             </div>
