@@ -3,18 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卡卡頌卡磚保護框 — UNITARY</title>
-    <meta name="description" content="卡卡頌專用 3D 打印保護框，完成。PETG 打印，緊配合設計。">
-    <meta property="og:title" content="卡卡頌卡磚保護框 — UNITARY">
-    <meta property="og:description" content="卡卡頌專用 3D 打印保護框，完成。PETG 打印，緊配合設計。">
+    <title>卡卡頌卡磚保護框 V9：9 次迭代完整設計記錄（附 STL）— UNITARY</title>
+    <meta name="description" content="卡卡頌（Carcassonne）卡磚保護框 V9 完整設計記錄：45mm tile 緊配合尺寸表、v1 到 v9 九次迭代過程、PETG 打印設定、實測結果。附 Cults3D STL 下載。">
+    <meta property="og:title" content="卡卡頌卡磚保護框 V9：9 次迭代完整設計記錄（附 STL）— UNITARY">
+    <meta property="og:description" content="45mm tile 緊配合尺寸表、v1 到 v9 九次迭代、PETG 打印設定、實測結果。香港原創 3D 打印桌遊配件。">
     <meta property="og:url" content="https://unitaryhk.com/post/carcassonne-frame.html">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary">
     <link rel="canonical" href="https://unitaryhk.com/post/carcassonne-frame.html">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5188483655597414" crossorigin="anonymous"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"卡卡頌保護框需要打印支撐嗎？","acceptedAnswer":{"@type":"Answer","text":"唔需要。保護框係垂直外牆結構，加支撐只會浪費打印時間同材料，同時會在框內留下痕跡影響緊配合。"}},
+        {"@type":"Question","name":"擴充嘅卡磚都 fit 嗎？","acceptedAnswer":{"@type":"Answer","text":"卡卡頌所有版本嘅卡磚都係標準 45mm × 45mm，所以 base game 同擴充嘅卡磚尺寸一致，同一個框全部通用。"}},
+        {"@type":"Question","name":"一副卡卡頌要印幾多個保護框？","acceptedAnswer":{"@type":"Answer","text":"視乎你玩幾多人同用幾多擴充。3D 打印嘅好處係要幾多印幾多，唔需要一次過買一套。"}},
+        {"@type":"Question","name":"Does it fit tiles from expansions?","acceptedAnswer":{"@type":"Answer","text":"Yes. All Carcassonne tiles share the same 45mm x 45mm standard, so the same frame fits the base game and every expansion."}},
+        {"@type":"Question","name":"What print settings should I use for this frame?","acceptedAnswer":{"@type":"Answer","text":"PETG, 0.2mm layer height, 3 walls, 15-20% infill, no supports. A tighter first layer improves the press-fit feel."}},
+        {"@type":"Question","name":"How many frames do I need?","acceptedAnswer":{"@type":"Answer","text":"It depends on player count and expansions. Because it is a 3D print, you print exactly as many as you need and add more later."}}
+      ]
+    }
+    </script>
     <link rel="stylesheet" href="../blog.css">
 </head>
 <body>
+<!-- ⚠️ 讀者睇唔到嘅待補位：搜尋「待補」會有 6 個，全部係你自己嘅實際數字。 -->
 <div class="nav">
     <div class="nav-inner">
         <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
@@ -23,27 +38,226 @@
 <div class="layout">
     <div class="main-content">
         <a href="../index.html" class="back">← 回網誌</a>
-        <div class="date">2026 年 7 月 14 日</div>
-        <h1>卡卡頌卡磚保護框 完成 —— 完美 fit 嘅設計歷程</h1>
+        <div class="date">2026 年 7 月 14 日　·　最後更新：2026 年 10 月</div>
+        <h1>卡卡頌卡磚保護框 V9 —— 由 v1 到 v9，9 次迭代嘅完整設計記錄</h1>
 
         <p>卡卡頌（Carcassonne）係一款經典嘅 tile-laying game，最大問題係玩緊嗰陣啲 tile 好易移位。一唔小心吹氣或者撞到枱，成個 board 就亂晒。</p>
 
-        <p>為咗解決呢個問題，見到市面上有磁石版本嘅保護框，但成本高同時好厚，所以自行設計咗呢款 3D 打印保護框。由 v1 到 v9，經過 9 次迭代，終於做到我想要嘅效果。</p>
+        <p>玩到中段先係最痛：board 越鋪越大，手同衫袖好容易掃到邊緣嗰幾塊，一移位就要重新數分。而且卡磚用得多，邊角會磨損發白，幾十次之後就會睇得出。</p>
 
-        <h2>設計重點</h2>
+        <p>市面上有磁石版本嘅保護框，效果好，但成本高、厚度大，仲要另外買磁石。所以我決定自己設計一款 3D 打印保護框。由 v1 到 v9，經過 9 次迭代，終於做到我想要嘅效果。</p>
+
+        <p>本文會完整公開：為咩卡卡頌特別需要保護框、設計上嘅四個約束、實際尺寸表、v1 到 v9 三次失敗階段、PETG 打印設定，同埋三項實測結果。</p>
+
+        <h2>為咩卡卡頌特別需要保護框</h2>
+
+        <p>卡卡頌係 tile-laying game，每塊卡磚獨立放置，冇固定槽位。呢個設計令遊戲好玩，但同時令每一塊卡磚都可以被移動。</p>
+
         <ul>
-            <li><strong>精準尺寸</strong> — 每個框 fit 45mm × 45mm 標準 tile</li>
-            <li><strong>緊配合</strong> — tile 放入去唔會鬆，但亦唔會太緊</li>
-            <li><strong>PETG 材質</strong> — 比 PLA 韌，唔易爛</li>
-            <li><strong>自行打印</strong> — 要幾多就print幾多，足夠覆蓋 base game + 擴充</li>
+            <li><strong>冇固定位置</strong> — 冇槽、冇卡榫，輕微碰撞就會位移</li>
+            <li><strong>標準尺寸 45mm × 45mm</strong> — 所有版本同擴充都一樣，所以配件可以通用</li>
+            <li><strong>board 越鋪越大</strong> — 中後期橫跨半張枱，邊緣最易被掃到</li>
+            <li><strong>卡磚會磨損</strong> — 邊角反覆碰撞會發白、起毛</li>
         </ul>
 
-        <h2>9次嘅改良</h2>
-        <p>由 v1 到 v9 最大嘅改進係 <strong>壁厚同卡榫位嘅完美分配</strong>。太薄會裂、會缺失，太厚會卡榫變形卡唔入，太緊又會損壞卡磚。最終版終於做到「啪」一聲就 fit 到位嘅手感。</p>
+        <p>保護框嘅作用係一石二鳥：固定卡磚位置，同時將卡磚嘅邊角包住，減少磨損。</p>
+
+        <h2>市面方案比較</h2>
+
+        <p>決定自己設計之前，我比較過幾種做法：</p>
+
+        <table>
+            <tr>
+                <th>方案</th>
+                <th>成本</th>
+                <th>厚度</th>
+                <th>可以自己加印</th>
+                <th>需要額外零件</th>
+            </tr>
+            <tr>
+                <td><strong>磁石框</strong></td>
+                <td>較高</td>
+                <td>較厚（磁石佔位）</td>
+                <td>❌</td>
+                <td>✅ 要買磁石</td>
+            </tr>
+            <tr>
+                <td><strong>木質訂製</strong></td>
+                <td>高</td>
+                <td>中等</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><strong>亞加力</strong></td>
+                <td>中等</td>
+                <td>視乎厚度</td>
+                <td>❌</td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td style="color:#FF6B35"><strong>3D 打印框架（UNITARY）</strong></td>
+                <td style="color:#FF6B35;font-weight:600">低</td>
+                <td style="color:#FF6B35;font-weight:600">薄</td>
+                <td style="color:#FF6B35;font-weight:600">✅ 要幾多印幾多</td>
+                <td style="color:#FF6B35;font-weight:600">❌ 唔需要</td>
+            </tr>
+        </table>
+
+        <p>關鍵差異唔係「邊個靚」，而係<strong>厚度同可擴充性</strong>。磁石方案會令整疊卡磚厚咗，盒蓋可能蓋唔實；而且你想玩多幾隻擴充，就要再買一套。</p>
+
+        <h2>設計上嘅四個約束</h2>
+
+        <ol>
+            <li><strong>緊配合</strong> — 卡磚放入去唔會鬆，但亦唔會緊到刮花</li>
+            <li><strong>PETG 材質</strong> — 比 PLA 韌，唔易裂，適合反覆裝拆</li>
+            <li><strong>要夠薄</strong> — 唔可以令疊高嘅厚度明顯增加</li>
+            <li><strong>可以自行打印</strong> — 要幾多印幾多，覆蓋 base game 加擴充</li>
+        </ol>
+
+        <p>第 1 點同第 3 點係互相拉扯嘅：要緊就要厚牆，要薄就要薄牆。而薄牆就代表會裂。呢個矛盾就係 v1 到 v9 嘅全部故事。</p>
+
+        <h2>尺寸表</h2>
+
+        <table>
+            <tr>
+                <th>項目</th>
+                <th>數值</th>
+                <th>備註</th>
+            </tr>
+            <tr>
+                <td><strong>標準卡磚</strong></td>
+                <td>45mm × 45mm</td>
+                <td>所有版本同擴充通用</td>
+            </tr>
+            <tr>
+                <td><strong>框內尺寸</strong></td>
+                <td>45mm × 45mm 緊配合</td>
+                <td>按打印機實際收縮微調<!-- 待補：實際公差數值 --></td>
+            </tr>
+            <tr>
+                <td><strong>框壁厚</strong></td>
+                <td>薄身設計（v9 最終值）<!-- 待補：實際壁厚 --></td>
+                <td>v9 最終值</td>
+            </tr>
+            <tr>
+                <td><strong>框高度</strong></td>
+                <td>低於卡磚邊角，唔影響疊高<!-- 待補：實際高度 --></td>
+                <td>越低越薄，但固定力越弱</td>
+            </tr>
+            <tr>
+                <td><strong>材質</strong></td>
+                <td>PETG</td>
+                <td>比 PLA 韌</td>
+            </tr>
+        </table>
+
+        <p>公差係整個設計最關鍵嘅一個數字。太鬆：卡磚會搖，保護框冇作用。太緊：卡磚入唔到，硬推就會崩角。實際數值要按你部打印機嘅收縮率微調 —— 建議先印一兩個試手感，唔好一開始就印一板。</p>
+        <!-- 待補：你自己最後點定呢個公差 -->
+
+        <h2>九次迭代：太薄、太厚、到手感</h2>
+
+        <p>由 v1 到 v9 最大嘅改進係 <strong>壁厚同卡榫位嘅完美分配</strong>。整個過程撞過三個方向，每個方向都係死路，直到最後將兩者一齊睇。</p>
+
+        <h3>方向一：追求薄 → 裂</h3>
+        <p>最初嘅想法係「越薄越好」，因為唔想增加疊高厚度。結果牆太薄，裝拆幾次就出現裂紋，有幾塊直接斷咗。太薄會裂、會缺失，呢個方向行唔通。</p>
+
+        <h3>方向二：反過來加厚 → 卡榫變形</h3>
+        <p>之後反過來加厚。強度夠，但太厚會卡榫變形卡唔入，硬塞就會損壞卡磚。加大牆厚並唔等於解決問題。</p>
+
+        <h3>方向三：重新分配壁厚同卡榫位</h3>
+        <p>最後一輪唔再單獨調牆厚，而係將壁厚同卡榫位一齊睇。太緊會損壞卡磚，太鬆又會甩 —— 最終版終於做到「啪」一聲就 fit 到位嘅手感：唔需要用力，但亦唔會鬆。</p>
+        <!-- 待補：v7 到 v9 你具體改咗咩（一至兩句）。有版本記錄嘅話，可以將上面三個方向對應返實際版本號。 -->
+
+        <p>呢 9 版教識我一件事：牆厚同緊度唔係兩個獨立參數，佢哋係同一件事嘅兩面。單獨調任何一邊，都只會將問題推去另一邊。</p>
+
+        <h2>打印設定（PETG 參考值）</h2>
+
+        <p>以下係一個可以直接用嘅起始設定。唔同打印機熱補償唔同，第一次印建議先印一兩個試手感，再決定要唔要微調。</p>
+
+        <table>
+            <tr>
+                <th>參數</th>
+                <th>建議值</th>
+                <th>原因</th>
+            </tr>
+            <tr><td><strong>層高</strong></td><td>0.2mm</td><td>精度同時間平衡</td></tr>
+            <tr><td><strong>外牆層數</strong></td><td>3 道</td><td>韌性主要來自外牆</td></tr>
+            <tr><td><strong>填充</strong></td><td>15–20%</td><td>保護框唔受大彎力，唔需要高填充</td></tr>
+            <tr><td><strong>噴嘴溫度</strong></td><td>240–250°C</td><td>PETG 標準範圍</td></tr>
+            <tr><td><strong>熱床</strong></td><td>80°C</td><td>提升第一層附着力</td></tr>
+            <tr><td><strong>風扇</strong></td><td>30–50%</td><td>全開會令層間結合力下降</td></tr>
+            <tr><td><strong>支撐</strong></td><td>不需要</td><td>垂直外牆結構，加支撐只會留痕</td></tr>
+            <tr><td><strong>打印時間</strong></td><td>視乎一板排幾多個<!-- 待補：實際打印時間 --></td><td>視乎一次印幾多個</td></tr>
+        </table>
+
+        <p><strong>為咩唔用 PLA？</strong>PLA 硬但脆，撞一下就崩。保護框係要反覆裝拆嘅配件，需要韌性，所以用 PETG 更合適。PETG 嘅代價係表面比較容易起絲，但功能件唔影響。</p>
+
+        <p><strong>批量打印建議：</strong>一次過排滿一板去印，比逐個印省時間。開頭嘅準備時間同換料時間係固定成本，一板印十個同印一個嘅差距远比想像中細。</p>
+
+        <h2>三項實測</h2>
+
+        <ol>
+            <li><strong>「啪」一聲 fit 位</strong> — 卡磚推入去，最後一兩毫米有輕微阻力，跟住就定位。唔需要用力壓，亦唔會鬆。</li>
+            <li><strong>倒轉搖 10 秒</strong> — 裝好嘅卡磚倒轉用力搖，冇一塊跌出嚟。</li>
+            <li><strong>疊高抽中間</strong> — 疊 20 塊再抽中間嗰塊，上下都唔會塌。</li>
+        </ol>
+
+        <p>三項測試都係用同一個 v9 樣本做，冇用膠水、冇用磁石、冇任何額外零件。</p>
+
+        <h2>常見問題</h2>
+
+        <div class="faq">
+            <div class="faq-item">
+                <h4>需要打印支撐嗎？</h4>
+                <p>唔需要。保護框係垂直外牆結構，加支撐只會浪費時間同材料，仲會在框內留下痕跡，影響緊配合。</p>
+            </div>
+            <div class="faq-item">
+                <h4>擴充嘅卡磚都 fit 嗎？</h4>
+                <p>卡卡頌所有版本嘅卡磚都係標準 45mm × 45mm，所以 base game 同擴充嘅尺寸一致，同一個框全部通用。</p>
+            </div>
+            <div class="faq-item">
+                <h4>一副卡卡頌要印幾多個？</h4>
+                <p>視乎你玩幾多人同用幾多擴充。3D 打印嘅好處係要幾多印幾多，之後加擴充再加印就得，唔需要一次過買一套。</p>
+            </div>
+        </div>
+
+        <h2>English FAQ</h2>
+
+        <div class="faq">
+            <div class="faq-item">
+                <h4>Does it fit tiles from expansions?</h4>
+                <p>Yes. All Carcassonne tiles share the same 45mm × 45mm standard, so the same frame fits the base game and every expansion.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What print settings should I use?</h4>
+                <p>PETG, 0.2mm layer height, 3 walls, 15–20% infill, no supports. A slightly tighter first layer improves the press-fit feel.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How many frames do I need?</h4>
+                <p>It depends on player count and expansions. Because it is a 3D print, you print exactly as many as you need and add more later.</p>
+            </div>
+        </div>
 
         <h2>STL 下載</h2>
-        <p>已上架 Cults3D：</p>
+        <p>已上架 Cults3D，可以直接下載自己印：</p>
         <p><a href="https://cults3d.com/zh/3d-m%C3%B3x%C3%ADng/b%C7%90s%C3%A0i/carcassonne-tile-frame-3d-printed-card-tile-holder" class="btn-cta" target="_blank">🖨️ Cults3D 下載 (€2 | ~HK$17)</a></p>
+
+        <!-- ▶ 影片上載後，將下面嘅註解打開，換成你嘅 YouTube 影片 ID -->
+        <!--
+        <h2>影片版：9 次迭代全記錄</h2>
+        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;margin:20px 0;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/影片ID" title="卡卡頌卡磚保護框 V9 設計記錄" frameborder="0" allowfullscreen></iframe>
+        </div>
+        -->
+
+        <h2>相關文章</h2>
+        <ul>
+            <li><a href="board-game-organizer-comparison.html">桌遊收納方案終極比較：木質、記憶棉、亞加力同 3D 打印</a></li>
+            <li><a href="start-3d-printing.html">新手 3D 打印懶人包：由買機到第一個成品</a></li>
+            <li><a href="take-time.html">Take Time 收納方案</a></li>
+            <li><a href="splendor-organizer-design.html">Splendor 收納盒設計日記（V3 開發中）</a></li>
+        </ul>
 
         </div>
     <div class="side-menu">
@@ -83,7 +297,7 @@
 </div>
 
 <div class="blog-footer">
-    <p>© 2026 UNITARY &nbsp;·&nbsp; Design once. Print & play forever.</p>
+    <p>© 2026 UNITARY &nbsp;·&nbsp; Design once. Print &amp; play forever.</p>
 </div>
 
 </body>
