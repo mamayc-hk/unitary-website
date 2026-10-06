@@ -854,6 +854,14 @@ def render_index_page():
         g['id']
     ))
 
+    # v3.6.1: 標題／keywords 跟已上架遊戲動態產生
+    _n = len(sorted_games)
+    _names = ','.join(
+        x for g in sorted_games for x in ([g['name']] + ([g['name_en']] if g.get('name_en') else []))
+    )
+    _legend = '合作遊戲' if all(g.get('category') and '合作' in g['category'] for g in sorted_games) else '規則、戰術、和局處理'
+    _tp = (str(_n) + ' 個熱門桌遊完整教學') if _n > 1 else (sorted_games[0]['name'] + ' 完整教學')
+
     cards = []
     for g in sorted_games:
         box_filename = g.get('box_image', '').split('/')[-1] if g.get('box_image') else ''
@@ -1025,12 +1033,12 @@ def render_index_page():
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>桌遊教學網誌 — 9 個熱門桌遊完整教學, 規則、戰術、和局處理一站通</title>
-    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。9 個熱門桌遊完整教學, 規則、戰術、和局處理、常見問題一站通, 用篩選即時搵啱你人數 / 時間 / 類型 / 難度嘅桌遊。">
-    <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,眾豆得金,駱駝大賽,掌握時刻,卡坦島,SETI,L計畫,dnup,馬尼拉,UNITARY">
+    <title>桌遊教學網誌 — {_tp}, {_legend}一站通</title>
+    <meta name="description" content="為香港同台灣嘅桌遊新手同愛好者而設嘅教學網誌。{_tp}, {_legend}、常見問題一站通, 用篩選即時搵啱你人數 / 時間 / 類型 / 難度嘅桌遊。">
+    <meta name="keywords" content="桌遊,教學,board game,香港桌遊,台灣桌遊,新手桌遊,繁體中文,{_names},UNITARY">
     <link rel="canonical" href="https://unitaryhk.com/board-game/">
     <meta property="og:title" content="桌遊教學網誌 — UNITARY">
-    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。9 個熱門桌遊完整教學, 用篩選即時搵啱你嘅桌遊。">
+    <meta property="og:description" content="為香港同台灣桌遊新手同愛好者而設。{_tp}, 用篩選即時搵啱你嘅桌遊。">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
