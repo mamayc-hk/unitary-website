@@ -55,7 +55,7 @@ L 計畫 官方 和局處理 規則 (Broadway Toys 中文版 / CGE 英文版):
 5. **再平手 (第四版 和局處理, 第二版獨有)**: 比較「end 桌遊 獎勵 塊」嘅玩家勝 (即棋盤上仲有 塊 嘅數量)。
 6. **再平手 (極罕有)**: 兩位玩家共享勝利 (共享勝)。
 
-來源: 官方規則書 (Broadway Toys 2020, CGE 2023 second edition) page 4 寫「End of the Game」段落, BGG comment 確認。你可以上 BGG: https://boardgamegeek.com/boardgame/260180/計劃-l
+來源: 官方規則書 (Broadway Toys 2020, CGE 2023 second edition) page 4 寫「End of the Game」段落, BGG comment 確認。你可以上 BGG: https://boardgamegeek.com/boardgame/260180/project-l
 
 **重要注意**: L 計畫 第二版 (2023) 同第一版 (2020) 和局處理 唔同。第一版冇 end 桌遊 獎勵 塊, 所以 和局處理 由 3 級 開始比。第二版加咗 end 桌遊 獎勵 塊, 和局處理 多咗一個 step。新手要確認玩家用邊一版。
 
