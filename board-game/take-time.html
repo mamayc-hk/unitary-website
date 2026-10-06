@@ -5,13 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>掌握時刻 (Take Time) — 沉默出牌嘅合作默契 | UNITARY 開枱指南</title>
     <meta name="description" content="合作解謎, 時鐘圖版, 共 40 關 10 章。限制討論後沉默出牌, 考驗默契。合作向, 輸咗都唔挫敗。">
-    <meta name="keywords" content="桌遊,教學,桌遊教學,掌握時刻,Take Time,board game,家庭,合作,解謎,香港桌遊,新手桌遊,新手,旺角">
+    <meta name="keywords" content="桌遊,教學,桌遊教學,掌握時刻,Take Time,board game,家庭,合作,解謎,香港桌遊,新手桌遊,新手">
     <link rel="canonical" href="https://unitaryhk.com/board-game/take-time.html">
     <meta property="og:title" content="掌握時刻 (Take Time) — 沉默出牌嘅合作默契">
     <meta property="og:description" content="合作解謎, 時鐘圖版, 共 40 關 10 章。限制討論後沉默出牌, 考驗默契。合作向, 輸咗都唔挫敗。">
     <meta property="og:type" content="article">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
+    <style>
+    /* v3.4.0.j inline override: server blog.css stale (GitHub Pages cache bug 揀 file 唔全),
+       強制 side-box 縮減生效 (per user comment 2+3: 上邊空間太多) */
+    .side-box { padding: 6px 16px !important; margin-bottom: 12px !important; }
+    .side-box h3 { margin: 0 0 4px 0 !important; }
+    /* v3.4.0.n: game-hero-tagline 字體還原 (per user comment 1 follow-up: 係圖細, 唔係字細) */
+    .game-hero-tagline { font-size: 0.9rem !important; font-weight: 600 !important; letter-spacing: 0.05em !important; }
+    /* v3.4.0.n: box image 加大 (per user comment 1: 係圖細) */
+    .game-hero figure img { max-height: 200px !important; max-width: 360px !important; }
+    /* v3.5.2: game-meta 一列放晒 6 格（加「語言」後原本 5 欄會跌落第二行）*/
+    .game-meta { grid-template-columns: repeat(5, minmax(0, 1fr)) auto !important; gap: 8px !important; }
+    .game-meta-item .value { font-size: 0.88rem !important; }
+    @media (min-width: 901px) { .game-meta-item:last-child .value { white-space: nowrap !important; } }
+    /* v3.5.3: step-block 左欄（120px 步驟圖位）永遠空白 → 改單欄 */
+    .step-block { display: block !important; }
+    .step-block h3 { padding-left: 10px !important; border-left: 3px solid #FF6B35 !important; }
+    .step-block .example-box { margin: 12px 0 0 !important; }
+    @media (max-width: 900px) { .game-meta { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
+    @media (max-width: 600px) { .game-meta { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } }
+    </style>
 </head>
 <body>
 
@@ -22,18 +42,21 @@
 <div class="layout">
     <div class="main">
         <div class="main-content">
-            <a href="index.html" class="back">← 返回桌遊列表</a>
+            <!-- v3.4.0.l: 刪走「← 返回桌遊列表」back link (per user comment 2) -->
 
             <!-- Hero 段 (Fix E: Story + Selling Point) -->
             <div class="game-hero">
-                <div class="game-hero-meta">
-                    <span class="complete-badge">✅ 完整教學</span>
-                    <span class="game-hero-tagline">沉默出牌嘅合作默契</span>
+                <div class="game-hero-text">
+                    <div class="game-hero-meta">
+                        <span class="complete-badge">✅ 完整教學</span>
+                        <span class="game-hero-tagline">沉默出牌嘅合作默契</span>
+                    </div>
+                    <h1>掌握時刻 (Take Time)</h1>
+                    <div class="game-hero-publisher">出版: Libellud (Dixit 同一間)<br>類別: 家庭, 合作, 解謎</div>
                 </div>
-                <h1>掌握時刻 (Take Time)</h1>
-                <div class="game-hero-publisher">出版: Libellud (Dixit 同一間) · 類別: 家庭, 合作, 解謎</div>
-
-                <figure><img src="images/take-time-hero.jpg?v=e36c86b" alt="掌握時刻 盒面" loading="lazy"><figcaption>掌握時刻 (Take Time) — Libellud (Dixit 同一間)</figcaption></figure>
+                <div class="game-hero-img">
+                    <figure><img src="images/take-time-box.jpg?v=e18d581" alt="掌握時刻 盒面" loading="lazy"></figure>
+                </div>
             </div>
 
             <div class="game-meta">
@@ -54,8 +77,12 @@
                     <div class="value">簡單至中等</div>
                 </div>
                 <div class="game-meta-item">
+                    <div class="label">最佳人數</div>
+                    <div class="value">2-4 人</div>
+                </div>
+                <div class="game-meta-item">
                     <div class="label">語言</div>
-                    <div class="value">繁中, 簡中, ENG, FR</div>
+                    <div class="value">繁中/簡中/ENG/FR</div>
                 </div>
             </div>
 
@@ -64,114 +91,109 @@
                 <div class="story-emoji">🤫</div>
                 <div class="story-content">
                     <p class="story-text">你哋一齊解謎, 但討論完之後出牌嘅時候唔可以講嘢。要靠默契去估計隊友手上有咩牌, 會放喺邊個位置。贏嘅時候大家一齊嗌, 輸嘅時候大家都好想話「我明明擺咗呢個數字㗎嘛!」。</p>
-                    <p class="selling-point"><strong>為咩好玩:</strong> 🤫 合作默契桌遊, 情侶 / 家庭 / 朋友首選</p>
                 </div>
             </div>
 
-            <!-- Quick Start (Fix A: 2 分鐘 onboard) — inline intro, 唔做 H2 -->
-            
-        <div class="quick-start">
-            <p><strong>⚡ 快速上手 — 2 分鐘上手:</strong> 新手 2 分鐘內上手, 記住呢 6 條:</p>
-            <ol><li><strong>每人有月 (白) + 日 (黑) 各 1-12 牌</strong></li>
-<li><strong>時鐘圖版有 6 個區段</strong>, 每人輪流放 1 張</li>
-<li><strong>3 階段</strong>: 討論 (可講) → 出牌 (沉默) → 結算</li>
-<li><strong>每個區段嘅數值 = 該區段所有牌嘅總和</strong></li>
-<li><strong>開牌額度</strong> (提示標記) 可以公開出牌</li>
-<li>💡 <strong>過 24 即失敗</strong> — 由細數字開始, 唔好講具體數字</li></ol>
-        </div>
-        
+            <!-- Quick Start (Fix A: 2 分鐘 onboard) — inline intro 已移除, 只留 sidebar sticky 板 -->
+            <!-- (Inline callout 刪走, 詳見 v3.4.0.i) -->
 
-            <!-- 一句話總覽 — 收埋入 玩法簡介 (markdown 第一個 H2 開頭) -->
 
-            <!-- 玩法步驟圖 — 1 張橫向 1:2 infographic, 唔做 H2 -->
-            <div class="step-images-inline">
-                <div class="step-infographic"><img src="images/infographic-take-time.jpg" alt="掌握時刻 玩法步驟" loading="lazy"></div>
-            </div>
-
-            <!-- 一句話總覽 — 玩法簡介 開頭 -->
-            <div class="summary-callout">
-                <p><strong>一句話總覽:</strong> 合作解謎, 時鐘圖版, 共 40 關 10 章。限制討論後沉默出牌, 考驗默契。合作向, 輸咗都唔挫敗。</p>
-            </div>
+            <!-- v3.4.0.k: 集中 step-images-inline infographic 刪走, summary-callout 刪走
+                 (per user comment 5 + 6) -->
 
             <!-- Long-form markdown content (含 inline example box) -->
             <div class="long-form">
-                <blockquote>
-<p>沉默出牌嘅合作默契</p>
-</blockquote>
-<h2>玩法簡介</h2>
-<p>掌握時刻 (Take Time) 係 2023 年 Libellud (Dixit 嘅同一間出版社) 出嘅合作解謎遊戲, 設計師係 Wolfgang Warsch (大名鼎鼎嘅 The Mind / The Crew 設計師), 旺角多間店有英文版, 中文版偶爾出現。遊戲背景係時鐘圖版, 共 40 關 10 章, 玩家扮演時光旅人合作通過時空考驗。</p>
-<p>掌握時刻 嘅核心機制係「限制討論後沉默出牌」: 玩家有一個討論階段可以傾計, 之後進入沉默出牌階段, 大家唔出聲, 同時間秘密出牌。呢個設計考驗玩家之間嘅默契, 唔係靠語言而係靠「共識」, 同一般合作遊戲 (如 Hanabi) 嘅 design philosophy 唔同。</p>
-<p>呢個 桌遊 適合 2-4 人, 最佳 2-3 人, 教學時間 15 分鐘, 一局 30-60 分鐘, 難度簡單至中等。旺角家庭 / 情侶向, 合作輸咗都唔挫敗, 非常友善。</p>
+                <blockquote><p><strong>為咩好玩:</strong> 🤫 合作默契桌遊, 情侶 / 家庭 / 朋友首選</p></blockquote><h2>玩法簡介</h2>
+<p>掌握時刻 (Take Time) 係 2025 年 10 月 Libellud（Dixit 同一間出版社）出嘅合作解謎遊戲，設計師係 <strong>Alexi Piovesan 同 Julien Prothière</strong>，插畫 Maud Chalmel。全盒 <strong>40 個測試分 10 章、每章 4 個</strong>，每個測試用一張「時鐘」(Clock) 表示，玩家由「Awakening」玩到「Rebirth」。香港多間店有英文版。</p>
+<p>掌握時刻 嘅核心機制係「限制討論後沉默出牌」：玩家有一個討論階段可以傾計，之後進入沉默出牌階段，大家唔出聲，秘密出牌。呢個設計考驗玩家之間嘅默契，唔係靠語言而係靠「共識」，同一般合作遊戲（如 Hanabi）嘅 design philosophy 唔同。</p>
+<p>呢個桌遊適合 <strong>2-4 人</strong>，官方時間 30 分鐘（可以連玩幾個測試，隨時停），10 歲以上。難度由 Chapter 1 開始逐步遞增。香港家庭／情侶向，合作輸咗都唔挫敗。</p>
 <h2>完整流程 (逐步)</h2>
+<div class="step-block">
 <h3>步驟 1: 設置</h3>
-<p>揀 1 關 (Start 关) 開始。將時鐘圖版放喺中央, 上面有「時間格」(1-12 點, 圍繞時鐘面)。每個玩家攞一塊自己顏色嘅時光旅人板, 加 4 個時光 標記 (標記 顏色對應玩家顏色)。每個玩家攞 5 張牌 (Start 关), 牌面係 0-12 嘅數字, 代表「時間」。</p>
-<h3>步驟 2: 討論階段</h3>
-<p>每個玩家睇自己嘅手牌 (唔可以俾其他人睇), 然後大家自由討論: 「我覺得呢一關要出邊啲數字先?」討論時間冇限時, 但建議 5 分鐘內達成共識。重要: 唔可以直接講「我手上有一張 7」, 要用抽象語言表達, 例如「我有張大嘅」或者「我有兩張 0-3 嘅細數字」。</p>
-<h3>步驟 3: 沉默出牌階段</h3>
-<p>討論完進入「沉默」階段, 大家唔出聲, 同時間秘密揀一張牌面朝下放喺自己時光旅人板上。呢個階段唔可以再傾計, 唔可以改變主意, 揀咗就鎖死。</p>
-<div class="example-box"><p><strong>💡 例子</strong> 例: 4 人玩 Start 关 (12 張牌, 6 個時間格), 用「大 / 中 / 細」形容。討論: 「我手上 2 細 1 中 1 大」, 隊友就會知道你最少有 1 張「細」(1-4), 自己出牌範圍就由呢度推。高手默契: 「我擺大」, 隊友會自動避開大格, 集中擺細。</p></div>
-<h3>步驟 4: 揭曉 + 結算</h3>
-<p>所有人揭開自己嘅牌, 將牌放喺時鐘圖版對應時間格上 (即係牌寫 7 就放喺 7 點位置)。每關有「過關條件」, 通常係: (a) 特定數字放喺特定位置, (b) 全部玩家嘅牌由細到大排好, (c) 兩個相鄰數字差 1, 等等。如果達成條件, 過關, 攞 1 個 獎勵 標記 (之後解鎖特殊能力)。如果唔達到, 可以 skip 或者重試 (見 和局處理)。</p>
-<h3>步驟 5: 攞關卡獎勵</h3>
-<p>過咗關, 每個玩家攞 1 個時光 標記 (時間格標記), 用喺下一關。Bonus 標記 可以喺下一關用 1 次「開牌」能力 (即揭開 1 個玩家嘅 1 張牌, 唔可以選擇性開, 要全開嗰隻手牌嘅 1 張)。</p>
-<h3>步驟 6: 進入下一關</h3>
-<p>揀下一關 (通常順序, 但可以揀難度相近嘅關先解鎖)。每個玩家補牌到 5 張 (Start 关) 或 6 張 (後續關)。重複 步驟 2-5。</p>
-<h3>步驟 7: 特殊規則卡</h3>
-<p>每關有 1 張「特殊規則卡」, 喺過關條件之上加新限制, 例如: 「時間格必須逆時針排」或者「唔可以用兩個相同數字」。特殊規則卡令每關都有新變化, 40 關唔會悶。</p>
-<h3>步驟 8: 章節解鎖</h3>
-<p>每 4 關為 1 章, 完成 1 章解鎖新嘅時光能力 (例如「將 1 張牌換成另一張」, 1 章用 1 次)。最終章 (Chapter 10) 係終極考驗, 通常要 30 分鐘討論同出牌。</p>
-<h2>和局處理</h2>
-<p>掌握時刻 嘅 和局處理 比較特別, 因為係合作遊戲:</p>
 <ol>
-<li><strong>主規則</strong>: 合作遊戲冇「贏 / 輸」嘅 和局處理, 過咗就過, 過唔到就 skip。但 skip 制度有特別設計。</li>
-<li><strong>Skip 制 (掌握時刻 獨有)</strong>: 如果一關過唔到, 玩家可以「skip」, 即係放棄呢關, 直接去下一關。Skip 會扣 1 個「悔過 標記」(Remorse Token), 即係遊戲尾段嘅得分會扣減。</li>
-<li><strong>悔過 標記 規則</strong>: 每 skip 1 關, 遊戲尾段結算時每個玩家扣 1 分。掌握時刻 嘅「失敗」唔係 桌遊 over, 係 skip 然後繼續。</li>
-<li><strong>最終章結算</strong>: 全部 40 關都玩完 (或者用晒悔過 標記) 後, 數每個玩家嘅悔過 標記 數目, 越少越好, 0 標記 係滿分。</li>
-<li><strong>最終章失敗</strong>: 最終章 (Chapter 10) 如果過唔到, 唔可以 skip, 必須 retry。如果 retry 5 次都過唔到, 整個遊戲以「失敗結局」結束, 但仍然有分 (以悔過 標記 計)。</li>
+<li>攞出 <strong>Chapter 1 sleeve</strong> 嘅 4 個 Clock，面朝下疊好（第 1 個喺頂）。翻開最上面嗰個，放喺枱中央。</li>
+<li>放對應人數嘅 <strong>Reminder 標記</strong>（2／3／4 人各一個，用一個，其餘收回盒）。將 <strong>3 個 Bonus 標記</strong>面朝下放喺旁邊。</li>
+<li>洗混 <strong>12 張 Lunar（月）+ 12 張 Solar（日）</strong> 做一副，派 <strong>12 張</strong>：<strong>4 人每人 3 張、3 人每人 4 張、2 人每人 6 張</strong>（2 人嘅 6 張要分成「4 張一組 + 2 張一組」）。剩餘嘅牌放一邊。</li>
+<li><strong>呢個時候所有人都唔可以睇自己嘅牌面。</strong></li>
+<li>第 3 章或之後嘅關卡，要將 <strong>時針 (Clock Hand)</strong> 放喺旁邊。</li>
 </ol>
-<p>來源: BGG comment 確認, 官方規則書 (Libellud 2023) page 8 寫「Skip and Remorse Token」段落。你可以上 BGG: https://boardgamegeek.com/boardgame/369129/拿-time</p>
+</div>
+<div class="step-block">
+<h3>步驟 2: 討論階段</h3>
+<p><strong>呢個階段唔可以睇牌面</strong>——你只睇到牌背顏色（月／日），所以討論嘅內容係「策略」而唔係「我手上有咩牌」。</p>
+<ul>
+<li>✅ 合法：「呢一段我哋目標總和 14」「如果有人手上有 12，就應該先出」</li>
+<li>❌ 唔合法（官方明確禁止）：「我擺斜啲就代表 11」「有 8 嘅人摸下耳仔」—— 呢啲係暗號</li>
+</ul>
+<p>2 人場要留意：討論階段只可以拎起「4 張」嗰組，另外 2 張要留喺枱面唔睇。</p>
+</div>
+<div class="step-block">
+<h3>步驟 3: 沉默出牌階段</h3>
+<p>所有人睇完自己嘅手牌之後，進入出牌階段：<strong>輪流將 1 張牌面朝下放喺時鐘 6 個 segment 之中任何一個旁邊</strong>（唔係放喺自己面前），順時針輪住出，直到所有牌出晒。呢個階段完全唔可以溝通，亦唔可以改變主意。</p>
+<blockquote>
+<p>💡 <strong>面朝上嘅牌</strong>：預設全部牌都係面朝下。但每個測試可以「面朝上」放嘅牌數 = <strong>Reminder 標記上嘅符號數 + 正面嘅 Bonus 標記數</strong>，全隊自由決定邊張面朝上。</p>
+</blockquote>
+</div>
+<div class="step-block">
+<h3>步驟 4: 揭曉 + 結算</h3>
+<p>由「起始 segment」（時鐘上印住時針標示嗰個）開始，順時針逐個揭開。<strong>每個 segment 嘅數值 = 放喺佢旁邊所有牌嘅總和。</strong></p>
+<p><strong>一般過關規則（每個時鐘都適用）：</strong></p>
+<ol>
+<li>6 個 segment 每個<strong>最少要有 1 張牌</strong></li>
+<li>由起始 segment 順時針計，每段總和要<strong>遞增（或者相同）</strong></li>
+<li>每段總和<strong>唔可以超過 24</strong>（Chapter 1 頭 3 個時鐘例外）</li>
+</ol>
+<p>再加埋<strong>該個時鐘自己印住嘅特定規則</strong>（每個 segment 可能有唔同要求，時鐘中央亦可能有全體規則）。全部達成就過關；失敗可以即刻重試，或者放入「悔恨套」之後再試。</p>
+</div>
+<div class="step-block">
+<h3>步驟 5: 失敗嘅補償 — Bonus 標記</h3>
+<p>每次失敗，將 <strong>1 個 Bonus 標記翻去正面</strong>。每個正面嘅 Bonus 標記，令全隊喺之後嘅嘗試可以<strong>多放 1 張「面朝上」嘅牌</strong>（即多一次公開資訊，難度降低；同 Reminder 標記嘅符號數疊加）。</p>
+<p><strong>過關之後，所有 Bonus 標記要翻返面朝下。</strong></p>
+</div>
+<div class="step-block">
+<h3>步驟 6: 進入下一個測試</h3>
+<p>由 stack 攞下一個 Clock 翻開，<strong>重新洗混全部 24 張牌</strong>再派 12 張。想做幾多個測試都得，隨時可以停。</p>
+</div>
+<div class="step-block">
+<h3>步驟 7: 時鐘本身嘅特殊規則</h3>
+<p>每個 Clock 都印住自己嘅規則，40 個測試難度遞增，會陸續加入新限制。每個 chapter sleeve 內有 <strong>1 張規則單張</strong>。</p>
+</div>
+<div class="step-block">
+<h3>步驟 8: 章節推進</h3>
+<p>完成 1 章 4 個 Clock 之後，將規則單張放返 sleeve，收入盒底，然後開下一章嘅 sleeve。第 3 章起加入<strong>時針 (Clock Hand)</strong>；第 10 章（Rebirth）有專屬嘅 <strong>Rebirth 時鐘、Second Hand 同 6 個標記</strong>。</p>
+</div>
+<h2>失敗處理（合作遊戲冇「和局」）</h2>
+<p>掌握時刻 係合作遊戲，<strong>冇分數、冇輸贏結算</strong>。過唔到一個測試只有兩個選擇：</p>
+<ol>
+<li><strong>即刻重試</strong> —— 重新派牌，再試同一個 Clock。</li>
+<li><strong>放入「悔恨套」(Sleeve of Regrets)</strong> —— 跳過呢個 Clock，之後隨時可以返嚟再試。</li>
+</ol>
+<p>留意：跳過要將<strong>所有正面嘅 Bonus 標記翻返面朝下</strong>（即係放棄已累積嘅補償），然後先放入悔恨套。</p>
+<p><strong>冇扣分、冇「悔過標記」、冇重試次數上限。</strong> 遊戲設計係「玩到過為止」，跳過嘅關卡收埋喺悔恨套，唔會消失。</p>
+<blockquote>
+<p>資料來源：官方規則書（Libellud）＋ 官方產品頁 <a href="https://www.libellud.com/game/take-time/" target="_blank" rel="noopener">libellud.com/game/take-time</a></p>
+</blockquote>
 <h2>推介畀咩人</h2>
-<p>掌握時刻 喺旺角嘅定位係「合作解謎, 家庭情侶向, 輸咗都唔挫敗」。</p>
+<p>掌握時刻 喺香港嘅定位係「合作解謎, 家庭情侶向, 輸咗都唔挫敗」。</p>
 <ul>
 <li><strong>新手 (✅)</strong>: 規則簡單, 但合作默契要時間建立, 第一次玩會慢。</li>
 <li><strong>進階 (✅✅) + 專家 (✅✅)</strong>: 默契深, 高手 2-3 個 abstract 表達就過到關, 新手要 10 個。</li>
 <li><strong>家庭 (✅✅)</strong>: 跨代家庭最愛, 因為輸咗都唔挫敗, 老少咸宜。</li>
-<li><strong>朋友群 (✅)</strong>: 4 人場最佳, 旺角 4 人合作 ok 但唔算最熱門。</li>
-<li><strong>情侶 (✅✅)</strong>: 2-3 人場最浪漫, 默契建立嘅過程本身就係約會, 旺角情侶首選合作 桌遊。</li>
-<li><strong>2 人 (✅)</strong>: 2 人場可以但挑戰高, 新手可以 示範。</li>
-<li><strong>6+ 人 (❌)</strong>: 4 人 max, 6+ 人場冇得玩。</li>
 </ul>
-<p>旺角情侶 / 家庭 / 新手, 問「唔想互打, 想合作」, 掌握時刻 係首選 (但要 4 人以下)。</p>
-<h3>客 query 對應</h3>
-<ul>
-<li><strong>「我哋唔想互打, 想合作」</strong>: 掌握時刻 合作向, 4 人以下首選。輸咗都唔挫敗, 旺角新手入門友善。</li>
-<li><strong>「情侶想玩, 有咩 桌遊?」</strong>: 掌握時刻 2 人場最浪漫, 默契建立嘅過程本身就係約會, 旺角情侶首選。</li>
-<li><strong>「家庭飯後想開, 老少咸宜」</strong>: 掌握時刻 4 人 max, 跨代家庭最愛。輸咗都唔挫敗, 老人家都開心。</li>
-<li><strong>「30 min 內想完一局」</strong>: 掌握時刻 一局 30-60 分鐘, 30 分鐘會超時。建議 60 分鐘預算, 玩晒 10-15 關。</li>
-<li><strong>「新手第一次玩, 揀咩好?」</strong>: 掌握時刻 規則簡單, 但默契要時間。建議第一次玩 Skip 制容許, 唔好 retry 太耐。</li>
-</ul>
-<h2>特殊規則 / 變體</h2>
-<ul>
-<li><strong>2 人規則</strong>: 標準規則, 挑戰高 (只有 2 個人, abstract 表達要模糊)。</li>
-<li><strong>3 人規則</strong>: 標準規則, 最佳人數之一。</li>
-<li><strong>4 人規則</strong>: 標準規則, 最多 4 人, 合作最容易。</li>
-<li><strong>5+ 人 (官方唔支援)</strong>: 官方 4 人 max, 5+ 人場唔可以玩。</li>
-<li><strong>House Rule — 開牌額度增加</strong>: 部分玩家會將 Bonus 標記 嘅「開牌」能力由 1 章 1 次改 2 章 1 次, 加快遊戲節奏, 但降低挑戰。</li>
-<li><strong>House Rule — 討論時間限制</strong>: 標準規則冇限時, 部分玩家會加 5 分鐘討論時限, 加快節奏。</li>
-<li><strong>官方擴充 (待查)</strong>: 掌握時刻 而家未有官方擴充, 但 BGG 有 fan-made 關卡包, 進階玩家可以上 BGG 查。</li>
-<li><strong>簡化版 (Start 关難度)</strong>: Start 关 (Chapter 1) 係教學用, 過咗 4 關先至開始有挑戰。新手可以重玩 Start 关 幾次熟練。</li>
-</ul>
+<div class="accordion"><details class="accordion-section"><summary><span class="accordion-icon">📐</span><span class="accordion-title">特殊規則 / 變體</span><span class="accordion-hint">選讀</span></summary><div class="accordion-body"><p><strong>本節兩類東西：</strong><strong>特殊規則</strong>＝官方針對不同人數、版本的規定；<strong>變體</strong>＝玩家自訂（House Rule）或非官方玩法。</p><h3>👥 唔同人數點玩</h3><ul><li><strong>2 人規則</strong>: 每人 6 張（4 張一組 + 2 張一組），討論階段只可以拎起 4 張嗰組。</li><li><strong>3 人規則</strong>: 每人 4 張，總共派 12 張。</li><li><strong>4 人規則</strong>: 每人 3 張，官方最多 4 人。</li><li><strong>5+ 人 (官方唔支援)</strong>: 官方 4 人 max，5+ 人場唔可以玩。</li></ul><h3>🔧 玩家自訂玩法（House Rule）</h3><ul><li><strong>House Rule — 討論時間限制</strong>: 官方冇限時，部分玩家會加 5 分鐘討論時限，加快節奏。</li><li><strong>House Rule — 限制 Bonus 標記</strong>: 部分玩家會限制同時翻開嘅 Bonus 標記數量（例如最多 1 個），提高挑戰。</li></ul><h3>📦 擴充</h3><ul><li><strong>官方擴充 — Mirage</strong>: 加 4 個新合作測試，需要基本版。</li></ul></div></details></div>
             </div>
 
             <!-- FAQ (Fix C) -->
             
         <div class="faq">
             <h2>❓ 常見問題</h2>
-            <div class="faq-item"><h4>可以出牌時講嘢嗎?</h4><p>唔可以, 呢個係 Take Time 嘅核心。出牌階段要沉默, 靠默契同抽象語言溝通。</p></div>
-<div class="faq-item"><h4>開牌額度點用?</h4><p>每關有指定數量, 建議喺最關鍵 1-2 個區段用, 唔好慳住。</p></div>
-<div class="faq-item"><h4>點解我哋成日超過 24?</h4><p>因為大數字冇分配好。建議由細數字開始, 將大數字放最後一段, 留 buffer 俾中間段。</p></div>
-<div class="faq-item"><h4>2 人可以玩嗎?</h4><p>可以但體驗弱, 合作默契感覺唔到。建議 3-4 人。</p></div>
-<div class="faq-item"><h4>合作輸咗會挫敗嗎?</h4><p>唔會, 因為可以 skip 關卡, 唔似其他合作桌遊一定要贏。</p></div>
+            <div class="accordion">
+            <details class="accordion-section"><summary><span class="accordion-title">可以出牌時講嘢嗎?</span></summary><div class="accordion-body"><p>唔可以, 呢個係 Take Time 嘅核心。出牌階段要沉默, 靠默契同抽象語言溝通。</p></div></details>
+<details class="accordion-section"><summary><span class="accordion-title">開牌額度點用?</span></summary><div class="accordion-body"><p>每關有指定數量, 建議喺最關鍵 1-2 個區段用, 唔好慳住。</p></div></details>
+<details class="accordion-section"><summary><span class="accordion-title">點解我哋成日超過 24?</span></summary><div class="accordion-body"><p>因為大數字冇分配好。建議由細數字開始, 將大數字放最後一段, 留 buffer 俾中間段。</p></div></details>
+<details class="accordion-section"><summary><span class="accordion-title">2 人可以玩嗎?</span></summary><div class="accordion-body"><p>可以但體驗弱, 合作默契感覺唔到。建議 3-4 人。</p></div></details>
+<details class="accordion-section"><summary><span class="accordion-title">合作輸咗會挫敗嗎?</span></summary><div class="accordion-body"><p>唔會, 因為可以 skip 關卡, 唔似其他合作桌遊一定要贏。</p></div></details>
+            </div>
         </div>
         
 
@@ -179,23 +201,18 @@
 
             <h2>🛍️ 配件同擴充</h2>
             <div class="cross-sell">
-                <p>新手可以一併推薦:</p>
-                <ul>
-                    <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 掌握時刻 嘅卡牌完美 fit。</li>
-                    <li><strong>旺角新手桌遊</strong>: 旺角實體店, 新手可以即場試玩。</li>
-                    <li><strong>BoardGameGeek 完整資料</strong>: <a href="https://boardgamegeek.com/boardgame/369129/take-time" target="_blank" rel="noopener">Take Time 喺 BGG</a> (社群評分、規則 Q&A、變體討論)</li>
-                </ul>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px"><a href="../post/carcassonne-frame.html" style="display:block;background:#fff;border:1px solid #eee;border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.06)"><div style="font-size:1.4rem;line-height:1">🧩</div><div style="font-weight:700;margin:8px 0 4px;font-size:.95rem">卡卡頌卡磚保護框 V9（€2）</div><div style="font-size:.82rem;color:#777;line-height:1.45">示範作品：緊配合 + PETG、唔用磁石。完整尺寸表同 9 次迭代記錄</div><div style="margin-top:10px;font-size:.82rem;font-weight:600;color:#FF6B35">睇設計記錄 →</div></a><a href="https://cults3d.com/zh/y%C3%B2ngh%C3%B9/mamayc/s%C4%81nw%C3%A8i-m%C3%B3-x%C3%ADng" target="_blank" rel="noopener" style="display:block;background:#fff;border:1px solid #eee;border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.06)"><div style="font-size:1.4rem;line-height:1">🖨️</div><div style="font-weight:700;margin:8px 0 4px;font-size:.95rem">UNITARY 配件總覽</div><div style="font-size:.82rem;color:#777;line-height:1.45">全部已上架 STL，自己印自己玩</div><div style="margin-top:10px;font-size:.82rem;font-weight:600;color:#FF6B35">Cults3D →</div></a><a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener" style="display:block;background:#fff;border:1px solid #eee;border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(0,0,0,.06)"><div style="font-size:1.4rem;line-height:1">💬</div><div style="font-weight:700;margin:8px 0 4px;font-size:.95rem">想要「掌握時刻」配件？</div><div style="font-size:.82rem;color:#777;line-height:1.45">IG DM 話我知，多人問嘅我就開發</div><div style="margin-top:10px;font-size:.82rem;font-weight:600;color:#FF6B35">Instagram →</div></a></div><p style="font-size:.85rem;color:#888;margin-top:14px">📚 完整資料：<a href="https://boardgamegeek.com/boardgame/369129/take-time" target="_blank" rel="noopener">Take Time 喺 BoardGameGeek</a></p>
             </div>
 
             <hr>
 
-            <h2>💬 留言</h2>
+            <h2>💬 有問題 / 想交流？</h2>
             <div class="comments">
-                <p>有問題、想分享戰術、或者搵遊戲partner？DM 我哋 Instagram:</p>
+                <p>想問規則、分享戰術、或者搵遊戲 partner？DM Instagram 最快覆到你。</p>
                 <p style="margin-top:12px">
                     <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener" class="btn-cta btn-secondary">📷 Instagram DM →</a>
                 </p>
-                <p style="margin-top:16px;font-size:0.9rem;color:#666">之後會加 Giscus 留言系統 (GitHub Discussions-based, 實時 + email 通知)</p>
+                <p style="margin-top:14px;font-size:0.9rem;color:#666">🛠️ 想我為「掌握時刻」整收納／配件？DM 話我知，多人問嘅我就開發。</p>
             </div>
 
             <p style="margin-top:40px"><a href="index.html" class="back">← 返回桌遊列表</a></p>
@@ -217,7 +234,7 @@
         <div class="side-box">
             <h3>相關 game</h3>
             <div class="related-games">
-                <a href="project-l.html" class="related-game-link"><span class="related-game-thumb"><img src="images/project-l-box.jpg?v=e36c86b" alt=""></span><span class="related-game-name">L 計畫</span></a><a href="spots.html" class="related-game-link"><span class="related-game-thumb"><img src="images/spots-box.jpg?v=e36c86b" alt=""></span><span class="related-game-name">斑點狗</span></a><a href="dnup.html" class="related-game-link"><span class="related-game-thumb"><img src="images/dnup-box.jpg?v=e36c86b" alt=""></span><span class="related-game-name">dnup</span></a>
+                
             </div>
         </div>
         
@@ -233,18 +250,7 @@
 <li>💡 <strong>過 24 即失敗</strong> — 由細數字開始, 唔好講具體數字</li></ol>
         </div>
         
-        <div class="side-box">
-            <h3>新手指南</h3>
-            <div class="about-text">
-                <p>新手 5 分鐘掌握:</p>
-                <ul style="padding-left:16px;font-size:0.95rem">
-                    <li>✅ 玩法 + 設置</li>
-                    <li>✅ 和局處理</li>
-                    <li>✅ 推介畀咩人</li>
-                    <li>✅ 特殊規則 / 變體</li>
-                </ul>
-            </div>
-        </div>
+        <!-- v3.4.0.i: 新手指南 sidebar block 刪走 (per user comment 4) -->
     </div>
 </div>
 
@@ -253,7 +259,7 @@
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
-    CC BY-NC-SA 4.0</p>
+    CC BY 4.0</p>
 </div>
 
 </body>

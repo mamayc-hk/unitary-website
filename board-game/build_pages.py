@@ -261,7 +261,7 @@ SELLING_POINTS = {
         'point_text': '俄羅斯方塊桌上版, 1-4 人彈性, 單人都啱玩',
     },
     'dnup': {
-        'story': '你同 2-4 個對手鬥快清空手牌, 但你嘅牌上下端數字唔同, 你可以「Revolve」翻轉整把手牌 — 選擇權喺你, 但要計準時機。DNUP 嘅設計簡潔: 15 分鐘教晒, 30 分鐘完一局, 旺角朋友群嘅派對王。',
+        'story': '你同 2-4 個對手鬥快清空手牌, 但你嘅牌上下端數字唔同, 你可以「Revolve」翻轉整把手牌 — 選擇權喺你, 但要計準時機。DNUP 嘅設計簡潔: 15 分鐘教晒, 30 分鐘完一局, 香港朋友群嘅派對王。',
         'point_emoji': '🔄',
         'point_text': '15 分鐘教晒, 30 分鐘完一局, 派對快速桌遊',
     },
@@ -332,18 +332,21 @@ CHEAT_SHEET = {
 # 5 條 common pitfalls per game
 FAQ = {
     'bohnanza': [
-        ('新手最易犯乜錯?', '新手會「唔肯 trade」, 結果塞死自己。眾豆得金嘅設計就係迫你 trade, 接受差 trade 比起完全 reject 好。'),
-        ('手牌順序可唔可以重排?', '唔可以。呢個係眾豆得金嘅核心, 重排會 break 成個 game。'),
-        ('第 3 塊田幾時買?', '新手建議保留 5 金幣做 trade currency, 唔好為咗 3 塊田蝕底。高手會喺 round 3 之後先買。'),
-        ('幾多人最好玩?', '5-7 人最佳, 2 人太靜, 3-4 人 OK 但少咗 trade 機會。'),
-        ('幾耐可以教完新手?', '15 分鐘教晒, 但新手要玩 2-3 局先掌握牌序鎖死嘅痛苦。第一次玩要示範 1 局俾新手睇。'),
+        ('手牌可唔可以重排?', '唔可以。呢個係 Bohnanza 最重要嘅規則 — 牌要按抽到嘅順序玩, 重排會 break 成個 game。'),
+        ('一塊田得 1 張豆可唔可以收割?', '如果你有另一塊田有 2 張或以上, 唔可以; 要先收割 2 張以上嘅田。除非所有田都係 1 張。'),
+        ('可唔可以 trade 收到嘅牌?', '唔可以, trade 收到嘅牌要即時種落田, 唔可以再 trade 出去。'),
+        ('Trade 嘅時候可唔可以送牌俾人?', '可以, 但對方可以拒收。你亦可以主動送牌做禮物, 但收到嘅牌都係要即時種落田。'),
+        ('牌庫抽乾咗點算?', '將棄牌堆洗返轉當新牌庫, 遊戲繼續。牌庫第 3 次用完 (3 人場係第 2 次) 遊戲就結束。'),
+        ('End game 點計分?', '強制收割所有田, 手上嘅牌全部作廢唔計分, 金幣多者勝。平手: 距 starting player 最 clockwise 嗰個贏。'),
+        ('第三塊田幾時買?', '新手建議保留 5 金幣做 trade currency, 唔好為咗田蝕底。高手 round 3 之後先買。中文版 3 金, 英文版 5 金, 25 週年版除 3 人場外冇第 3 塊田。'),
+        ('一定要種第 1 張手牌?', '係。Phase 1 你必須種你手牌「最頂」嗰張, 第 2 張可以選擇種, 最多 2 張。'),
     ],
     'camel-up': [
         ('新手最易犯乜錯?', '揀「冠軍」嘅駱駝落注, 忽略「疊羅漢」效應。高手會揀「托」嘅駱駝, 即揹住最多同黨嗰隻。'),
         ('Mirage 同 Oasis 邊個好?', 'Mirage 戰略值 2 倍 Oasis, 因為 Mirage 拖慢領先者而 Oasis 推落後者 (推唔郁)。'),
         ('8 人場坐邊個位最好?', '坐第 1 位擲骰, 之後 7 個人可以根據新形勢落注, 最靈活。坐最後 1 位最蝕底但可以揀最冷門注。'),
         ('觀眾圖板幾時放?', '永遠先擺 Mirage 喺領先嗰隻嘅下一格, 拖慢佢。Oasis 擺喺落後嗰隻嘅下一格, 幫佢追。'),
-        ('1.0 同 2.0 邊個較好?', '2.0 和局處理較複雜但有 Mirage/Oasis 變化, 旺角 8 成以上都係 2.0, 如果你想確認。'),
+        ('1.0 同 2.0 邊個較好?', '2.0 和局處理較複雜但有 Mirage/Oasis 變化, 香港 8 成以上都係 2.0, 如果你想確認。'),
     ],
     'take-time': [
         ('可以出牌時講嘢嗎?', '唔可以, 呢個係 Take Time 嘅核心。出牌階段要沉默, 靠默契同抽象語言溝通。'),
@@ -397,12 +400,102 @@ FAQ = {
 }
 
 
-def load_games():
+def fold_section(html, title, icon='\U0001f4d0', hint='\u9078\u8b80'):
+    """v3.5.1: 將指定 H2 section 包成 accordion（progressive disclosure）。
+    NN/g: accordion 適合頁面過長、而使用者唔需要同時對照多個 section 嘅內容。"""
+    m = re.search(r'<h2>' + re.escape(title) + r'</h2>', html)
+    if not m:
+        return html
+    start, after = m.start(), m.end()
+    nxt = re.search(r'<h2[ >]', html[after:])
+    end = after + nxt.start() if nxt else len(html)
+    inner = html[after:end].strip()
+    if not inner:
+        return html
+    hint_html = f'<span class="accordion-hint">{hint}</span>' if hint else ''
+    block = (
+        '<div class="accordion">'
+        '<details class="accordion-section">'
+        '<summary>'
+        f'<span class="accordion-icon">{icon}</span>'
+        f'<span class="accordion-title">{title}</span>'
+        f'{hint_html}'
+        '</summary>'
+        f'<div class="accordion-body">{inner}</div>'
+        '</details></div>'
+    )
+    return html[:start] + block + html[end:]
+
+
+VARIANT_GROUPS = [
+    ('players', '\U0001f465 \u5514\u540c\u4eba\u6578\u9ede\u73a9', re.compile(r'^\s*\d[^,]{0,6}\u4eba|\u4eba\u5834\s*$|Automa|\u5b98\u65b9\u5514\u652f\u63f4')),
+    ('house',   '\U0001f527 \u73a9\u5bb6\u81ea\u8a02\u73a9\u6cd5\uff08House Rule\uff09', re.compile(r'House\s*Rule', re.I)),
+    ('expac',   '\U0001f4e6 \u64f4\u5145', re.compile(r'\u64f4\u5145')),
+    ('version', '\U0001f3f7\ufe0f \u7248\u672c\u5dee\u7570', re.compile(r'\u820a\u7248|\u65b0\u7248|\u7b2c[\u4e00\u4e8c\u4e09]\u7248|\u7248\u672c|\u5e74\u7248')),
+    ('tips',    '\U0001f4a1 \u65b0\u624b\u5efa\u8b70', re.compile(r'\u65b0\u624b|\u7c21\u5316|\u793a\u7bc4|\u5efa\u8b70')),
+]
+
+
+def group_variant_section(html, title='\u7279\u6b8a\u898f\u5247 / \u8b8a\u9ad4'):
+    """v3.5.4: \u300c\u7279\u6b8a\u898f\u5247 / \u8b8a\u9ad4\u300d\u539f\u672c\u6df7\u4e86\u4eba\u6578\u898f\u5247\u3001House Rule\u3001
+    \u64f4\u5145\u3001\u7248\u672c\u3001\u65b0\u624b\u5efa\u8b70 \u2192 \u6309\u6027\u8cea\u5206\u7d44\u3002
+    \u53ea\u5728\u300c\u55ae\u4e00\u6241\u5e73\u6e05\u55ae\u300d\u6642\u624d\u81ea\u52d5\u5206\u7d44\uff1b\u4f5c\u8005\u5df2\u81ea\u884c\u7528\u5c0f\u6a19\u984c\u5206\u597d\u5c31\u53ea\u52a0\u5b9a\u7fa9\u53e5\u3002"""
+    m = re.search(r'<h2>' + re.escape(title) + r'</h2>', html)
+    if not m:
+        return html
+    start, after = m.start(), m.end()
+    nxt = re.search(r'<h2[ >]', html[after:])
+    end = after + nxt.start() if nxt else len(html)
+    body = html[after:end]
+
+    defn = ('<p><strong>\u672c\u7bc0\u5169\u985e\u6771\u897f\uff1a</strong>'
+            '<strong>\u7279\u6b8a\u898f\u5247</strong>\uff1d\u5b98\u65b9\u91dd\u5c0d\u4e0d\u540c\u4eba\u6578\u3001'
+            '\u7248\u672c\u7684\u898f\u5b9a\uff1b<strong>\u8b8a\u9ad4</strong>\uff1d\u73a9\u5bb6\u81ea\u8a02'
+            '\uff08House Rule\uff09\u6216\u975e\u5b98\u65b9\u73a9\u6cd5\u3002</p>')
+
+    uls = re.findall(r'<ul>.*?</ul>', body, re.S)
+    if len(uls) != 1:
+        return html[:after] + defn + html[after:]          # \u5df2\u81ea\u884c\u5206\u597d \u2192 \u53ea\u52a0\u5b9a\u7fa9\u53e5
+
+    items = re.findall(r'<li>(.*?)</li>', uls[0], re.S)
+    if len(items) < 3:
+        return html[:after] + defn + html[after:]
+
+    buckets = {}
+    for it in items:
+        st = re.search(r'<strong>(.*?)</strong>', it, re.S)
+        label = re.sub(r'<[^>]+>', '', st.group(1)).strip() if st else ''
+        for key, _h, pat in VARIANT_GROUPS:
+            if pat.search(label):
+                buckets.setdefault(key, []).append(it)
+                break
+        else:
+            buckets.setdefault('other', []).append(it)
+
+    parts = [defn]
+    for key, head, _pat in VARIANT_GROUPS:
+        if key in buckets:
+            parts.append('<h3>' + head + '</h3>')
+            parts.append('<ul>' + ''.join('<li>' + x + '</li>' for x in buckets[key]) + '</ul>')
+    if 'other' in buckets:
+        parts.append('<h3>\U0001f4a1 \u5176\u4ed6\u88dc\u5145</h3>')
+        parts.append('<ul>' + ''.join('<li>' + x + '</li>' for x in buckets['other']) + '</ul>')
+    return html[:start] + '<h2>' + title + '</h2>' + body.replace(uls[0], ''.join(parts), 1) + html[end:]
+
+
+def load_all_games():
     with open(ROOT / 'games.json') as f:
         return json.load(f)['games']
 
 
+def load_games():
+    """v3.6.0: 只回傳 published != False 嘅遊戲。
+    下架 = games.json 設 "published": false（內容 md 保留，隨時可再上架）。"""
+    return [g for g in load_all_games() if g.get('published', True)]
+
+
 # === 6. Page template (v2: 含 5 個 fix) ===
+
 def render_game_page(game, content_md):
     name = game['name']
     name_en = game['name_en']
@@ -414,6 +507,13 @@ def render_game_page(game, content_md):
     min_p = game['min_players']
     max_p = game['max_players']
     best_players = game.get('best_players', f"{min_p}-{max_p}")
+    lang_str = '/'.join(game.get('language_versions') or []) or '—'
+    # 設定 Telegram 群組/頻道連結後，留言區會自動多一個按鈕；留空 = 唔顯示
+    TELEGRAM_URL = ''
+    telegram_html = (
+        f' <a href="{TELEGRAM_URL}" target="_blank" rel="noopener" class="btn-cta btn-secondary"'
+        ' style="margin-left:10px">✈️ Telegram 群組 →</a>' if TELEGRAM_URL else ''
+    )
     teach = game.get('teach_time', 0)
     play = game.get('play_time', '')
     diff = game.get('difficulty_label', '')
@@ -431,7 +531,12 @@ def render_game_page(game, content_md):
     # Markdown → HTML
     # Strip leading H1 (template H1 is authoritative, 避免 page 出現兩個 H1)
     content_md_no_h1 = re.sub(r'^#\s+.*\n', '', content_md, count=1)
+    # v3.5.3: 開頭 blockquote 係 tagline 重複（hero 已經顯示）→ 剝走，位置讓俾「為咩好玩」
+    content_md_no_h1 = re.sub(r'^\s*>.*\n', '', content_md_no_h1, count=1)
     long_form_html = md_to_html(content_md_no_h1)
+    long_form_html = group_variant_section(long_form_html)
+    # v3.5.1: 「特殊規則 / 變體」＝ 選讀深度內容 → 摺疊（核心流程唔摺）
+    long_form_html = fold_section(long_form_html, '特殊規則 / 變體')
 
     # Customer fit
     fit_items = ''.join(f'<li><strong>{escape_html(k)}</strong>: {escape_html(v)}</li>\n' for k, v in fit.items())
@@ -450,6 +555,11 @@ def render_game_page(game, content_md):
 
     # Selling point (Fix E)
     sp = SELLING_POINTS.get(gid, {'story': summary, 'point_emoji': '🎲', 'point_text': tagline})
+    # v3.5.3: 「為咩好玩」移去下方 blockquote（原本 story box 位置）
+    long_form_html = (
+        f'<blockquote><p><strong>為咩好玩:</strong> {sp["point_emoji"]} {sp["point_text"]}</p></blockquote>'
+        + long_form_html
+    )
 
     # Quick Start (Fix A)
     qs_items = QUICK_START.get(gid, [])
@@ -474,13 +584,17 @@ def render_game_page(game, content_md):
     faq_html = ''
     if faq_items:
         faq_items_html = '\n'.join(
-            f'<div class="faq-item"><h4>{escape_html(q)}</h4><p>{escape_html(a)}</p></div>'
+            '<details class="accordion-section"><summary>'
+            f'<span class="accordion-title">{escape_html(q)}</span></summary>'
+            f'<div class="accordion-body"><p>{escape_html(a)}</p></div></details>'
             for q, a in faq_items
         )
         faq_html = f'''
         <div class="faq">
             <h2>❓ 常見問題</h2>
+            <div class="accordion">
             {faq_items_html}
+            </div>
         </div>
         '''
 
@@ -529,6 +643,44 @@ def render_game_page(game, content_md):
 
     complete_badge = '✅ 完整教學' if is_complete else '⚠️ 內容待補'
 
+    # === v3.5.0: UNITARY 配件模組（緊湊卡片式；2026-10-07 改版）===
+    # 刪走 DOSHA／新手桌遊，保留 BGG。想加產品只需改 _shop_cards
+    _shop_cards = [
+        ('\U0001f9e9', '\u5361\u5361\u980c\u5361\u78da\u4fdd\u8b77\u6846 V9\uff08\u20ac2\uff09',
+         '\u793a\u7bc4\u4f5c\u54c1\uff1a\u7dca\u914d\u5408 + PETG\u3001\u5514\u7528\u78c1\u77f3\u3002\u5b8c\u6574\u5c3a\u5bf8\u8868\u540c 9 \u6b21\u8fed\u4ee3\u8a18\u9304',
+         '../post/carcassonne-frame.html', '\u7747\u8a2d\u8a08\u8a18\u9304 \u2192', False),
+        ('\U0001f5a8\ufe0f', 'UNITARY \u914d\u4ef6\u7e3d\u89bd',
+         '\u5168\u90e8\u5df2\u4e0a\u67b6 STL\uff0c\u81ea\u5df1\u5370\u81ea\u5df1\u73a9',
+         'https://cults3d.com/zh/y%C3%B2ngh%C3%B9/mamayc/s%C4%81nw%C3%A8i-m%C3%B3-x%C3%ADng',
+         'Cults3D \u2192', True),
+        ('\U0001f4ac', f'\u60f3\u8981\u300c{escape_html(name)}\u300d\u914d\u4ef6\uff1f',
+         'IG DM \u8a71\u6211\u77e5\uff0c\u591a\u4eba\u554f\u5605\u6211\u5c31\u958b\u767c',
+         'https://instagram.com/unitary.hk', 'Instagram \u2192', True),
+    ]
+    _shop_html = ''
+    for _ic, _ti, _de, _ur, _ct, _ex in _shop_cards:
+        _tg = ' target="_blank" rel="noopener"' if _ex else ''
+        _shop_html += (
+            f'<a href="{_ur}"{_tg} style="display:block;background:#fff;border:1px solid #eee;'
+            'border-radius:12px;padding:14px 16px;text-decoration:none;color:inherit;'
+            'box-shadow:0 1px 3px rgba(0,0,0,.06)">'
+            f'<div style="font-size:1.4rem;line-height:1">{_ic}</div>'
+            f'<div style="font-weight:700;margin:8px 0 4px;font-size:.95rem">{_ti}</div>'
+            f'<div style="font-size:.82rem;color:#777;line-height:1.45">{_de}</div>'
+            f'<div style="margin-top:10px;font-size:.82rem;font-weight:600;color:#FF6B35">{_ct}</div>'
+            '</a>'
+        )
+    unitary_html = (
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">'
+        + _shop_html + '</div>'
+    )
+    if bgg:
+        unitary_html += (
+            f'<p style="font-size:.85rem;color:#888;margin-top:14px">\U0001f4da \u5b8c\u6574\u8cc7\u6599\uff1a'
+            f'<a href="{escape_html(bgg)}" target="_blank" rel="noopener">{escape_html(name_en)} '
+            '\u55ba BoardGameGeek</a></p>'
+        )
+
     return f'''<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -548,6 +700,20 @@ def render_game_page(game, content_md):
        強制 side-box 縮減生效 (per user comment 2+3: 上邊空間太多) */
     .side-box {{ padding: 6px 16px !important; margin-bottom: 12px !important; }}
     .side-box h3 {{ margin: 0 0 4px 0 !important; }}
+    /* v3.4.0.n: game-hero-tagline 字體還原 (per user comment 1 follow-up: 係圖細, 唔係字細) */
+    .game-hero-tagline {{ font-size: 0.9rem !important; font-weight: 600 !important; letter-spacing: 0.05em !important; }}
+    /* v3.4.0.n: box image 加大 (per user comment 1: 係圖細) */
+    .game-hero figure img {{ max-height: 200px !important; max-width: 360px !important; }}
+    /* v3.5.2: game-meta 一列放晒 6 格（加「語言」後原本 5 欄會跌落第二行）*/
+    .game-meta {{ grid-template-columns: repeat(5, minmax(0, 1fr)) auto !important; gap: 8px !important; }}
+    .game-meta-item .value {{ font-size: 0.88rem !important; }}
+    @media (min-width: 901px) {{ .game-meta-item:last-child .value {{ white-space: nowrap !important; }} }}
+    /* v3.5.3: step-block 左欄（120px 步驟圖位）永遠空白 → 改單欄 */
+    .step-block {{ display: block !important; }}
+    .step-block h3 {{ padding-left: 10px !important; border-left: 3px solid #FF6B35 !important; }}
+    .step-block .example-box {{ margin: 12px 0 0 !important; }}
+    @media (max-width: 900px) {{ .game-meta {{ grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }} }}
+    @media (max-width: 600px) {{ .game-meta {{ grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }} }}
     </style>
 </head>
 <body>
@@ -597,6 +763,10 @@ def render_game_page(game, content_md):
                     <div class="label">最佳人數</div>
                     <div class="value">{escape_html(best_players)} 人</div>
                 </div>
+                <div class="game-meta-item">
+                    <div class="label">語言</div>
+                    <div class="value">{escape_html(lang_str)}</div>
+                </div>
             </div>
 
             <!-- Story + Selling Point (Fix E) -->
@@ -604,7 +774,6 @@ def render_game_page(game, content_md):
                 <div class="story-emoji">{sp['point_emoji']}</div>
                 <div class="story-content">
                     <p class="story-text">{sp['story']}</p>
-                    <p class="selling-point"><strong>為咩好玩:</strong> {sp['point_emoji']} {sp['point_text']}</p>
                 </div>
             </div>
 
@@ -627,23 +796,18 @@ def render_game_page(game, content_md):
 
             <h2>🛍️ 配件同擴充</h2>
             <div class="cross-sell">
-                <p>新手可以一併推薦:</p>
-                <ul>
-                    <li><strong>DOSHA 木盒</strong>: <a href="https://instagram.com/dosha.woodcraft" target="_blank" rel="noopener">@dosha.woodcraft</a> 嘅木製收納盒, 配 {escape_html(name)} 嘅卡牌完美 fit。</li>
-                    <li><strong>新手桌遊 (香港)</strong>: 香港實體店, 新手可以即場試玩。</li>
-                    {f'<li><strong>BoardGameGeek 完整資料</strong>: <a href="{escape_html(bgg)}" target="_blank" rel="noopener">{escape_html(name_en)} 喺 BGG</a> (社群評分、規則 Q&A、變體討論)</li>' if bgg else ''}
-                </ul>
+                {unitary_html}
             </div>
 
             <hr>
 
-            <h2>💬 留言</h2>
+            <h2>💬 有問題 / 想交流？</h2>
             <div class="comments">
-                <p>有問題、想分享戰術、或者搵遊戲partner？DM 我哋 Instagram:</p>
+                <p>想問規則、分享戰術、或者搵遊戲 partner？DM Instagram 最快覆到你。</p>
                 <p style="margin-top:12px">
-                    <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener" class="btn-cta btn-secondary">📷 Instagram DM →</a>
+                    <a href="https://instagram.com/unitary.hk" target="_blank" rel="noopener" class="btn-cta btn-secondary">📷 Instagram DM →</a>{telegram_html}
                 </p>
-                <p style="margin-top:16px;font-size:0.9rem;color:#666">之後會加 Giscus 留言系統 (GitHub Discussions-based, 實時 + email 通知)</p>
+                <p style="margin-top:14px;font-size:0.9rem;color:#666">🛠️ 想我為「{escape_html(name)}」整收納／配件？DM 話我知，多人問嘅我就開發。</p>
             </div>
 
             <p style="margin-top:40px"><a href="index.html" class="back">← 返回桌遊列表</a></p>
@@ -673,7 +837,7 @@ def render_game_page(game, content_md):
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
-    CC BY-NC-SA 4.0</p>
+    CC BY 4.0</p>
 </div>
 
 </body>
@@ -796,15 +960,21 @@ def render_index_page():
     games_by_id = {g['id']: g for g in games}
 
     # Build sidebar quick-query HTML: 每個 query 都係 blog article link
+    _pub_ids = {g['id'] for g in games}
     query_items = []
     for q in QUICK_QUERY:
-        game_count = len(q['games'])
+        qgames = [x for x in q['games'] if x in _pub_ids]
+        if len(qgames) != len(q['games']):
+            continue                      # v3.6.0: 有遊戲下架 → 該速查頁唔顯示（避免文案對唔上）
         query_items.append(f'''        <a class="query-item" href="{q['slug']}.html">
             <span class="query-icon">{q['icon']}</span>
             <span class="query-title">{escape_html(q['title'])}</span>
-            <span class="query-count">{game_count} 個桌遊</span>
+            <span class="query-count">{len(qgames)} 個桌遊</span>
         </a>''')
     query_html = '\n'.join(query_items)
+    query_sidebar_html = ('        <!-- 搵桌遊速查 -->\n        <div class="side-box">\n'
+                          '            <h3>📝 搵桌遊速查</h3>\n' + query_html +
+                          '\n        </div>') if len(query_items) >= 2 else ''
 
     # Build sidebar audience HTML (REMOVED in v3.0.6: user dropped 對應唔同角色 section)
     audience_html = ''
@@ -905,11 +1075,7 @@ def render_index_page():
             </div>
         </div>
 
-        <!-- 揾桌遊速查 (5 個常見場景, 每個都係 blog 文章 link) -->
-        <div class="side-box">
-            <h3>📝 揾桌遊速查</h3>
-{query_html}
-        </div>
+        {query_sidebar_html}
     </div>
 </div>
 
@@ -918,7 +1084,7 @@ def render_index_page():
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
-    CC BY-NC-SA 4.0</p>
+    CC BY 4.0</p>
 </div>
 
 {FILTER_JS}
@@ -1048,7 +1214,7 @@ def render_blog_article(query):
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
-    CC BY-NC-SA 4.0</p>
+    CC BY 4.0</p>
 </div>
 
 </body>
@@ -1058,7 +1224,16 @@ def render_blog_article(query):
 
 def main():
     games = load_games()
-    print(f"Loaded {len(games)} games from games.json")
+    print(f"Loaded {len(games)} published games from games.json")
+
+    # v3.6.0: 下架遊戲 → 移除舊 HTML（GitHub Pages 會跟住消失）
+    for g in load_all_games():
+        if g.get('published', True):
+            continue
+        stale = ROOT / f"{g['id']}.html"
+        if stale.exists():
+            stale.unlink()
+            print(f"  🗑  {g['id']}.html 已移除（下架）")
 
     for g in games:
         gid = g['id']
@@ -1113,11 +1288,21 @@ def main():
             'id': 'qcn', 'icon': '🇭🇰', 'title': '中文版',
             'slug': 'chinese-edition',
             'games': ['bohnanza', 'catan', 'take-time', 'project-l'],
-            'intro': '新手最常問「有冇中文版?」呢個就係答案。收錄嘅 9 個桌遊入面, 4 個有繁體中文版 (台灣繁中 / 香港繁中), 1 個有簡體中文, 4 個暫時只有英文版。中文版嘅好處係新手唔使睇英文規則, 旺角店亦大路貨。',
+            'intro': '新手最常問「有冇中文版?」呢個就係答案。收錄嘅 9 個桌遊入面, 4 個有繁體中文版 (台灣繁中 / 香港繁中), 1 個有簡體中文, 4 個暫時只有英文版。中文版嘅好處係新手唔使睇英文規則, 香港店亦大路貨。',
             'best_for': '新手 / 唔想睇英文規則 / 送禮',
         },
     ]
+    _pub_ids = {g['id'] for g in games}
+    # v3.6.0: 少過 2 條可用速查 → 全部唔生成（避免出現孤兒頁）
+    _eligible = [q for q in QUICK_QUERY if all(x in _pub_ids for x in q['games'])]
+    _skip_queries = len(_eligible) < 2
     for q in QUICK_QUERY:
+        if _skip_queries or any(x not in _pub_ids for x in q['games']):
+            stale = ROOT / f"{q['slug']}.html"
+            if stale.exists():
+                stale.unlink()
+                print(f"  🗑  {q['slug']}.html 已移除（相關遊戲已下架）")
+            continue
         html = render_blog_article(q)
         out_path = ROOT / f'{q["slug"]}.html'
         with open(out_path, 'w') as f:

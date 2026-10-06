@@ -264,8 +264,9 @@ tr:hover td { background: #fafafa; }
 /* Game meta (5 columns) */
 .game-meta {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 12px;
+    /* v3.5.2: 語言欄 auto（按內容定寬、唔換行），其餘 5 格平分剩餘空間 */
+    grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+    gap: 8px;
     background: #fafafa;
     border: 1px solid #eee;
     border-radius: 8px;
@@ -281,12 +282,19 @@ tr:hover td { background: #fafafa; }
     margin-bottom: 2px;
 }
 .game-meta-item .value {
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: #222;
 }
+/* 語言欄唔准換行（只限夠闊嘅畫面，窄畫面照樣自動換行） */
+@media (min-width: 901px) {
+    .game-meta-item:last-child .value { white-space: nowrap; }
+}
+@media (max-width: 900px) {
+    .game-meta { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 600px) {
-    .game-meta { grid-template-columns: repeat(2, 1fr); }
+    .game-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 /* Game card grid (index page 8 cards) */
@@ -598,30 +606,32 @@ tr:hover td { background: #fafafa; }
 .game-hero figure img {
     width: auto;
     max-width: 100%;
-    max-height: 60px;
+    max-height: 200px;
     object-fit: contain;
     border-radius: 8px;
     display: inline-block;
 }
 
 /* v3.4.0.l: step-block 2-column (圖左, 字右) per user comment 5 */
+/* v3.5.3: 原本 grid 120px+1fr 留咗個左欄放步驟圖, 但 8 個 block 都冇圖
+   → 左欄永遠空白 + 例子框被壓入 120px 窄欄。改為單欄順序排版。 */
 .step-block {
-    display: grid;
-    grid-template-columns: 120px 1fr;
-    gap: 16px;
-    align-items: start;
-    margin: 16px 0;
+    display: block;
+    margin: 18px 0;
 }
 .step-block h3 {
-    grid-column: 1 / -1;
     margin: 0 0 8px;
+    padding-left: 10px;
+    border-left: 3px solid #FF6B35;
     font-size: 1.05rem;
 }
+.step-block p { margin-bottom: 10px; }
+.step-block > *:last-child { margin-bottom: 0; }
 .step-block .step-img-row {
-    grid-column: 1;
-    margin: 0;
+    margin: 10px 0;
     text-align: left;
 }
+.step-block .example-box { margin: 12px 0 0; }
 .step-block .step-img-row img {
     width: auto;
     max-width: 120px;
@@ -733,7 +743,7 @@ tr:hover td { background: #fafafa; }
     margin: 12px 0 24px;
 }
 
-/* === Comparison Matrix (揾 game 速查) === */
+/* === Comparison Matrix (搵 game 速查) === */
 .matrix-wrap {
     overflow-x: auto;
     margin: 16px 0 8px;
@@ -841,7 +851,7 @@ tr:hover td { background: #fafafa; }
     justify-content: center;
     align-items: center;
 }
-/* === Accordion (揾 game 速查) === */
+/* === Accordion (搵 game 速查) === */
 .accordion {
     display: flex;
     flex-direction: column;

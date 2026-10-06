@@ -14,7 +14,7 @@
     "related": {
       "parent_brand": "UNITARY (3D 打印桌遊配件 STL 開放)",
       "parent_url": "https://unitaryhk.com",
-      "shop_affiliate": "新手桌遊 (旺角)"
+      "shop_affiliate": "新手桌遊 (香港)"
     }
   },
   "games": [
@@ -75,7 +75,7 @@
         "6+人": "✅✅"
       },
       "shop_availability": {
-        "繁中版": "旺角多間店有售"
+        "繁中版": "香港多間店有售"
       },
       "tiebreaker_note": "官方 (Amigo rulebook p.16): 1) 金幣多者勝 2) 未種牌+未收豆總張數多者勝 3) 上述金幣等值高者勝 4) 最後 turn 種豆者勝",
       "longform_completed": true,
@@ -85,7 +85,8 @@
         "dnup",
         "catan"
       ],
-      "hero_image": "assets/images/bohnanza-hero.jpg"
+      "hero_image": "assets/images/bohnanza-hero.jpg",
+      "published": false
     },
     {
       "id": "camel-up",
@@ -143,7 +144,8 @@
         "dnup",
         "manila"
       ],
-      "hero_image": "assets/images/camel-up-hero.jpg"
+      "hero_image": "assets/images/camel-up-hero.jpg",
+      "published": false
     },
     {
       "id": "take-time",
@@ -201,7 +203,8 @@
         "spots",
         "dnup"
       ],
-      "hero_image": "assets/images/take-time-hero.jpg"
+      "hero_image": "assets/images/take-time-hero.jpg",
+      "published": true
     },
     {
       "id": "spots",
@@ -252,7 +255,8 @@
         "take-time",
         "dnup"
       ],
-      "hero_image": "assets/images/spots-hero.jpg"
+      "hero_image": "assets/images/spots-hero.jpg",
+      "published": false
     },
     {
       "id": "catan",
@@ -285,7 +289,7 @@
         "assets/images/catan-step3.jpg",
         "assets/images/catan-step4.jpg"
       ],
-      "summary": "經典德式策略, 島上建設道路 / 村莊 / 城市。擲骰產資源、交易、發展卡、盜賊。最先 10 分贏。中文版普及, 旺角大路貨。",
+      "summary": "經典德式策略, 島上建設道路 / 村莊 / 城市。擲骰產資源、交易、發展卡、盜賊。最先 10 分贏。中文版普及, 香港大路貨。",
       "tagline": "經典德式策略始祖",
       "is_complete": true,
       "tactical_notes_count": 14,
@@ -311,7 +315,8 @@
         "manila",
         "project-l"
       ],
-      "hero_image": "assets/images/catan-hero.jpg"
+      "hero_image": "assets/images/catan-hero.jpg",
+      "published": false
     },
     {
       "id": "project-l",
@@ -365,7 +370,8 @@
         "catan",
         "seti"
       ],
-      "hero_image": "assets/images/project-l-hero.jpg"
+      "hero_image": "assets/images/project-l-hero.jpg",
+      "published": false
     },
     {
       "id": "dnup",
@@ -417,7 +423,8 @@
         "camel-up",
         "spots"
       ],
-      "hero_image": "assets/images/dnup-hero.jpg"
+      "hero_image": "assets/images/dnup-hero.jpg",
+      "published": false
     },
     {
       "id": "manila",
@@ -470,7 +477,8 @@
         "camel-up",
         "bohnanza"
       ],
-      "hero_image": "assets/images/manila-hero.jpg"
+      "hero_image": "assets/images/manila-hero.jpg",
+      "published": false
     },
     {
       "id": "seti",
@@ -524,7 +532,8 @@
         "project-l",
         "manila"
       ],
-      "hero_image": "assets/images/seti-hero.jpg"
+      "hero_image": "assets/images/seti-hero.jpg",
+      "published": false
     }
   ],
   "metadata": {
