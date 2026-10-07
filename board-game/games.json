@@ -595,8 +595,8 @@
       "summary": "音樂派對遊戲。播歌估年份, 插入自己時間線。唔需要音樂知識, 2-10 人都玩得, 規則 3 分鐘教完。",
       "publisher": "Jumbo (Marcus Carleson 設計)",
       "year": 2022,
-      "hero_image": "",
-      "box_image": "",
+      "hero_image": "assets/images/hitster-box.jpg",
+      "box_image": "assets/images/hitster-box.jpg",
       "step_images": [],
       "related_games": [
         "take-time"
