@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148mm" height="210mm" viewBox="0 0 148 210">
+<style>
+/* ============================================================
+   主題色：【每隻遊戲改呢 5 個值就全份跟住變】
+   Take Time 用：深藍 + 金（跟盒面配色）
+   ============================================================ */
+:root {}                      /* 唔用變數，改下面 5 行就夠 */
+.headb  { fill:#1B3A6B; }     /* ① 主色：標題條（原 #FF6B35） */
+.accent { fill:#B08A1E; }     /* ② 強調色：表頭文字 */
+.thead  { fill:#F3EDDC; }     /* ③ 表頭底色 */
+.exbox  { fill:#EAF0F8; }     /* ④ 例子框底色 */
+.ex     { fill:#2E5C9A; }     /* ⑤ 例子文字 */
+
+/* ==== 以下一般唔需要改 ==== */
+.panel  { fill:#FFFFFF; stroke:#E3E3E3; stroke-width:0.4; }
+.title  { font:bold 3.0px sans-serif; fill:#FFFFFF; }
+.h1     { font:bold 6.2px sans-serif; fill:#FFFFFF; }
+.sub    { font:normal 2.6px sans-serif; fill:#6B6B6B; }
+.subw   { font:normal 2.6px sans-serif; fill:#FFFFFF; }
+.body   { font:normal 2.8px sans-serif; fill:#212121; }
+.th     { font:bold 2.8px sans-serif; }
+.td     { font:normal 2.8px sans-serif; fill:#212121; }
+.foot   { font:normal 2.2px sans-serif; fill:#9A9A9A; }
+</style>
+<g id="header"><rect class="headb" x="0" y="0" width="148" height="13"/><text class="h1" x="8" y="8.6">掌握時刻  Take Time</text><text class="subw" x="140" y="8.2" text-anchor="end">玩家速查表 ｜ unitaryhk.com</text><text class="sub" x="8" y="16.6">2–4 人　·　10+　·　30 分鐘　·　合作解謎　·　資料來源：官方規則書 (Libellud)</text></g>
+<g id="p1">
+<rect class="panel" x="8" y="19.50" width="63.5" height="39.60" rx="1.6"/>
+<rect class="headb" x="8" y="19.50" width="63.5" height="5.4"/>
+<text class="title" x="10.4" y="23.40">①  組件</text>
+<text class="body" x="10.8" y="28.90">• 24 張牌：12 Lunar（月）+ 12 Solar（</text>
+<text class="body" x="10.8" y="32.80">日）</text>
+<text class="body" x="10.8" y="36.70">• 3 個 Reminder 標記（按人數用 1 個）</text>
+<text class="body" x="10.8" y="40.60">• 3 個 Bonus 標記（面朝下備用）</text>
+<text class="body" x="10.8" y="44.50">• 10 個 Chapter sleeve，每章 4 個</text>
+<text class="body" x="10.8" y="48.40">Clock</text>
+<text class="body" x="10.8" y="52.30">• 1 個時針（第 3 章起用）</text>
+<text class="body" x="10.8" y="56.20">• 悔恨套 + Rebirth sleeve</text>
+</g>
+<g id="p2">
+<rect class="panel" x="8" y="63.60" width="63.5" height="39.60" rx="1.6"/>
+<rect class="headb" x="8" y="63.60" width="63.5" height="5.4"/>
+<text class="title" x="10.4" y="67.50">②  設置</text>
+<text class="body" x="10.8" y="73.00">1. 取出 Chapter 1 嘅 4 個 Clock，面朝</text>
+<text class="body" x="10.8" y="76.90">下疊好，翻開最上面嗰個放枱中央</text>
+<text class="body" x="10.8" y="80.80">2. 放對應人數嘅 Reminder 標記；3 個</text>
+<text class="body" x="10.8" y="84.70">Bonus 標記面朝下放旁邊</text>
+<text class="body" x="10.8" y="88.60">3. 洗混 24 張牌，派 12 張（見下表），剩</text>
+<text class="body" x="10.8" y="92.50">餘放一邊</text>
+<text class="body" x="10.8" y="96.40">4. 所有人唔可以睇牌面</text>
+<text class="body" x="10.8" y="100.30">5. 第 3 章起：將時針放喺旁邊</text>
+</g>
+<g id="p3">
+<rect class="panel" x="8" y="107.70" width="63.5" height="28.60" rx="1.6"/>
+<rect class="headb" x="8" y="107.70" width="63.5" height="5.4"/>
+<text class="title" x="10.4" y="111.60">③  派牌（每次 12 張）</text>
+<rect x="10" y="114.90" width="63.5" height="4.7" class="thead"/>
+<text class="th accent" x="11.2" y="118.30">人數</text>
+<text class="th accent" x="28.98" y="118.30">每人</text>
+<text class="th accent" x="50.57000000000001" y="118.30">組合</text>
+<text class="td" x="11.2" y="123.00">4 人</text>
+<text class="td" x="28.98" y="123.00">3 張</text>
+<text class="td" x="50.57000000000001" y="123.00">—</text>
+<text class="td" x="11.2" y="127.70">3 人</text>
+<text class="td" x="28.98" y="127.70">4 張</text>
+<text class="td" x="50.57000000000001" y="127.70">—</text>
+<text class="td" x="11.2" y="132.40">2 人</text>
+<text class="td" x="28.98" y="132.40">6 張</text>
+<text class="td" x="50.57000000000001" y="132.40">4 張 + 2 張</text>
+</g>
+<g id="p4">
+<rect class="panel" x="8" y="140.80" width="63.5" height="31.80" rx="1.6"/>
+<rect class="headb" x="8" y="140.80" width="63.5" height="5.4"/>
+<text class="title" x="10.4" y="144.70">④  2 人場特別規則</text>
+<text class="body" x="10.8" y="150.20">• 每人 6 張，要分成「4 張一組 + 2 張一</text>
+<text class="body" x="10.8" y="154.10">組」</text>
+<text class="body" x="10.8" y="158.00">• 討論階段：只可以拎起 4 張嗰組；另外 2</text>
+<text class="body" x="10.8" y="161.90">張留喺枱面唔睇</text>
+<text class="body" x="10.8" y="165.80">• 出牌階段：先睇晒 6 張，再輪流面朝下出</text>
+<text class="body" x="10.8" y="169.70">牌</text>
+</g>
+<g id="p5">
+<rect class="panel" x="76.5" y="19.50" width="63.5" height="27.90" rx="1.6"/>
+<rect class="headb" x="76.5" y="19.50" width="63.5" height="5.4"/>
+<text class="title" x="78.9" y="23.40">⑤  3 個階段</text>
+<text class="body" x="79.3" y="28.90">• 討論：唔可以睇牌面，只知牌背顏色（月／</text>
+<text class="body" x="79.3" y="32.80">日），只可以講策略</text>
+<text class="body" x="79.3" y="36.70">• 出牌：睇自己手牌，輪流將 1 張面朝下放</text>
+<text class="body" x="79.3" y="40.60">喺任何一個 segment 旁邊，全程唔可以溝通</text>
+<text class="body" x="79.3" y="44.50">• 結算：由起始 segment 起順時針逐個揭開</text>
+</g>
+<g id="p6">
+<rect class="panel" x="76.5" y="51.90" width="63.5" height="31.30" rx="1.6"/>
+<rect class="headb" x="76.5" y="51.90" width="63.5" height="5.4"/>
+<text class="title" x="78.9" y="55.80">⑥  一般過關規則</text>
+<text class="body" x="79.3" y="61.30">① 6 個 segment 每個最少 1 張牌</text>
+<text class="body" x="79.3" y="65.20">② 順時針計，每段總和要遞增（或相同）</text>
+<text class="body" x="79.3" y="69.10">③ 每段總和 ≤ 24</text>
+<rect x="78.5" y="71.30" width="59.5" height="10.60" class="exbox"/>
+<text class="ex" x="80.1" y="73.00">例：某段 4 張牌係 5、6、2、1 → 該段總</text>
+<text class="ex" x="80.1" y="76.90">和 14，符合 ≤24</text>
+</g>
+<g id="p7">
+<rect class="panel" x="76.5" y="87.70" width="63.5" height="27.90" rx="1.6"/>
+<rect class="headb" x="76.5" y="87.70" width="63.5" height="5.4"/>
+<text class="title" x="78.9" y="91.60">⑦  面朝上牌數</text>
+<text class="body" x="79.3" y="97.10">• 可面朝上放嘅牌數 ＝ Reminder 標記符號</text>
+<text class="body" x="79.3" y="101.00">數 ＋ 正面嘅 Bonus 標記數</text>
+<text class="body" x="79.3" y="104.90">• 失敗：翻開 1 個 Bonus 標記 → 下次可以</text>
+<text class="body" x="79.3" y="108.80">多放 1 張面朝上</text>
+<text class="body" x="79.3" y="112.70">• 過關後：所有 Bonus 標記翻返面朝下</text>
+</g>
+<g id="p8">
+<rect class="panel" x="76.5" y="120.10" width="63.5" height="35.70" rx="1.6"/>
+<rect class="headb" x="76.5" y="120.10" width="63.5" height="5.4"/>
+<text class="title" x="78.9" y="124.00">⑧  失敗同推進</text>
+<text class="body" x="79.3" y="129.50">• 過唔到：即刻重試，或放入「悔恨套」之後</text>
+<text class="body" x="79.3" y="133.40">再試</text>
+<text class="body" x="79.3" y="137.30">• 跳過：先將所有正面 Bonus 標記翻返面朝</text>
+<text class="body" x="79.3" y="141.20">下，再放入悔恨套</text>
+<text class="body" x="79.3" y="145.10">• 冇分數、冇扣分、冇重試上限</text>
+<text class="body" x="79.3" y="149.00">• 第 3 章起加入時針；第 10 章（Rebirth</text>
+<text class="body" x="79.3" y="152.90">）有 Second Hand</text>
+</g>
+<g id="p9">
+<rect class="panel" x="8" y="177.10" width="132" height="24.00" rx="1.6"/>
+<rect class="headb" x="8" y="177.10" width="132" height="5.4"/>
+<text class="title" x="10.4" y="181.00">⑨  一局流程（每個 Clock 重複）</text>
+<text class="body" x="10.8" y="186.90">1. 睇該 Clock 印住嘅規則（6 個 segment 各有要求，中央可能另有全體規則）</text>
+<text class="body" x="10.8" y="190.80">2. 討論策略（唔可以睇牌面） → 3. 睇牌，輪流面朝下放牌到 segment 旁邊</text>
+<text class="body" x="10.8" y="194.70">4. 揭牌、逐段計總和 → 達標就下一個 Clock；唔達標就重試或者放入悔恨套</text>
+</g>
+<text class="foot" x="8" y="205">免費下載 unitaryhk.com ｜ 可自由打印分享，請勿修改內容或移除出處 ｜ 規則以官方規則書為準</text>
+</svg>

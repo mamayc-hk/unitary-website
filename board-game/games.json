@@ -229,6 +229,12 @@
           "meta": "A5 · 71 KB · 一頁睇晒 40 關",
           "alt_label": "PNG 版",
           "alt_url": "../downloads/take-time-progress-tracker-a5.png"
+        },
+        {
+          "label": "速查表（可編輯 SVG 向量原檔）",
+          "url": "../downloads/take-time-player-aid-a5.svg",
+          "desc": "想自己改色／改字？SVG 向量原檔，Illustrator / Figma / Inkscape 都開到。主題色集中喺頂部 5 行 CSS。",
+          "meta": "SVG · 8.9 KB · 文字同顏色全部可改"
         }
       ]
     },
