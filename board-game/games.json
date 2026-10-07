@@ -207,10 +207,18 @@
       "published": true,
       "downloads": [
         {
+          "label": "玩家速查表（一頁睇晒）",
+          "url": "../downloads/take-time-player-aid-a5.pdf",
+          "desc": "說明書風格：組件、設置、3 階段、一般過關規則、派牌表、面朝上牌數、失敗處理、2 人場規則、一局流程 —— 9 格編號面板。",
+          "meta": "A5 一頁 · 120 KB · 建議每人一張",
+          "alt_label": "PNG 版",
+          "alt_url": "../downloads/take-time-player-aid-a5.png"
+        },
+        {
           "label": "速查卡（4 張 · 55 × 84 mm）",
           "url": "../downloads/take-time-cheatsheet-4cards-a5.pdf",
           "desc": "A5 一頁，含 4 張卡 + 裁切線。印一次剪開，自己一張、隊友三張。",
-          "meta": "A5 PDF · 65 KB · 可套 58×89 卡套",
+          "meta": "A5 · 65 KB · 可套 58×89 卡套",
           "alt_label": "PNG 版",
           "alt_url": "../downloads/take-time-cheatsheet-4cards-a5.png"
         },
@@ -218,7 +226,7 @@
           "label": "40 關進度追蹤表",
           "url": "../downloads/take-time-progress-tracker-a5.pdf",
           "desc": "10 章 × 4 關打勾格 + 悔恨套記錄欄 + 一般過關規則。",
-          "meta": "A5 PDF · 71 KB · 一頁睇晒 40 關",
+          "meta": "A5 · 71 KB · 一頁睇晒 40 關",
           "alt_label": "PNG 版",
           "alt_url": "../downloads/take-time-progress-tracker-a5.png"
         }
