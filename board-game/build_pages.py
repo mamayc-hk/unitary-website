@@ -1277,7 +1277,7 @@ def render_downloads_page():
                 <div class="dl-body">
                     <div class="dl-label">{escape_html(it['label'])}</div>
                     <div class="dl-desc">{escape_html(it.get('desc',''))}</div>
-                    <div class="dl-meta">{escape_html(it.get('meta',''))}</div>
+                    <div class="dl-meta">{escape_html(it.get('meta',''))}{(' ｜ <a href="' + it['alt_url'] + '">' + it.get('alt_label','') + '</a>') if it.get('alt_url') else ''}</div>
                 </div>
                 <div class="dl-cta">下載 →</div>
             </a>''')
