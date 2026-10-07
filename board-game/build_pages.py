@@ -511,8 +511,8 @@ def render_game_page(game, content_md):
     # 設定 Telegram 群組/頻道連結後，留言區會自動多一個按鈕；留空 = 唔顯示
     TELEGRAM_URL = ''
     # === 收入線開關（填 URL 就自動出卡；留空 = 完全唔顯示）===
-    FREEBIE_URL = '../downloads/take-time-cheatsheet-4cards-a4.pdf'
-    FREEBIE_URL2 = '../downloads/take-time-progress-tracker-a4.pdf'
+    FREEBIE_URL = '../downloads/take-time-cheatsheet-4cards-a5.pdf'
+    FREEBIE_URL2 = '../downloads/take-time-progress-tracker-a5.pdf'
     AFFILIATE_URL = ''      # 例：'https://www.amazon.com/dp/XXXX?tag=yourtag-20'
     AFFILIATE_LABEL = ''    # 例：'Amazon 買正版 Take Time（運香港/台灣）'
     telegram_html = (
@@ -664,7 +664,7 @@ def render_game_page(game, content_md):
     ]
     if FREEBIE_URL:
         _shop_cards.append(('\U0001f4e5', '\u514d\u8cbb\u4e0b\u8f09\uff08PDF\uff09',
-                            '\u901f\u67e5\u5361 4 \u5f35\uff0855\u00d784mm\uff09\uff0b 40 \u95dc\u9032\u5ea6\u8ffd\u8e64\u8868\uff08A4\uff09',
+                            '\u901f\u67e5\u5361 4 \u5f35\uff0855\u00d784mm\uff09\uff0b 40 \u95dc\u9032\u5ea6\u8ffd\u8e64\u8868\uff08A5\uff09',
                             FREEBIE_URL, '\u4e0b\u8f09 \u2192', False))
     if AFFILIATE_URL:
         _shop_cards.append(('\U0001f6d2', '\u60f3\u8cb7\u6b63\u7248\u5be6\u9ad4 game\uff1f',
@@ -1097,6 +1097,12 @@ def render_index_page():
     </div>
 
     <div class="side">
+
+        <div style="background:#FFF8F3;border-left:4px solid #FF6B35;border-radius:0 8px 8px 0;padding:16px 20px;margin:0 0 24px">
+            <h3 style="margin:0 0 6px;font-size:1.05rem;color:#1F2937">📥 免費下載</h3>
+            <p style="margin:0 0 8px;font-size:.88rem;color:#6B7280">速查卡、進度追蹤表 —— 直接打印就得，完全免費。</p>
+            <a href="../downloads/" style="display:inline-block;background:#FF6B35;color:#fff;padding:8px 16px;border-radius:6px;font-size:.88rem;font-weight:600;text-decoration:none">去下載 →</a>
+        </div>
         <!-- 關於 UNITARY (置頂) -->
         <div class="side-box">
             <h3>📌 關於 UNITARY</h3>
