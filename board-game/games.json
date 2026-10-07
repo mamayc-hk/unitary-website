@@ -231,10 +231,12 @@
           "alt_url": "../downloads/take-time-progress-tracker-a5.png"
         },
         {
-          "label": "速查表（可編輯 SVG 向量原檔）",
-          "url": "../downloads/take-time-player-aid-a5.svg",
-          "desc": "想自己改色／改字？SVG 向量原檔，Illustrator / Figma / Inkscape 都開到。主題色集中喺頂部 5 行 CSS。",
-          "meta": "SVG · 8.9 KB · 文字同顏色全部可改"
+          "label": "速查卡（雙面 · 可編輯 SVG）",
+          "url": "../downloads/take-time-aid-front.svg",
+          "desc": "正面＋背面，每頁 2 張 63×88mm。Illustrator / Figma / Inkscape 開到，全部用元素屬性（唔用 CSS，唔會爆版）。",
+          "meta": "SVG · 正面 9.6 KB · 改色改字",
+          "alt_label": "背面 SVG",
+          "alt_url": "../downloads/take-time-aid-back.svg"
         }
       ]
     },

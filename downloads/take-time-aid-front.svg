@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148.0mm" height="210.0mm" viewBox="0 0 148.0 210.0">
+<!-- 主題色（改呢 5 個 hex 就全份換色）：主色 #1B3A6B / 強調 #B08A1E / 表頭底 #F3EDDC / 例子底 #EAF0F8 / 例子字 #2E5C9A -->
+<rect x="0" y="0" width="148.0" height="210.0" fill="#FFFFFF"/>
+<text x="8.00" y="40.00" font-family="sans-serif" font-size="4.2" font-weight="bold" fill="#1B3A6B">掌握時刻 Take Time — 玩家速查卡（正面）</text>
+<text x="8.00" y="45.00" font-family="sans-serif" font-size="2.2" font-weight="normal" fill="#8A8A8A">2–4 人 · 10+ · 30 分鐘 · 合作解謎 · 資料來源：官方規則書 (Libellud) · 免費下載 unitaryhk.com</text>
+<text x="8.00" y="50.00" font-family="sans-serif" font-size="2.2" font-weight="normal" fill="#8A8A8A">雙面打印（長邊翻頁）→ 沿裁切線剪開 = 2 張雙面卡（每張 63 × 88 mm，可套 66×91 卡套）</text>
+<g id="card">
+<rect x="8.0" y="61.0" width="63.0" height="88.0" rx="1.5" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.35"/>
+<path d="M8.0 63.0 A1.5 1.5 0 0 1 9.5 61.0 H69.5 A1.5 1.5 0 0 1 71.0 63.0 V68.6 H8.0 Z" fill="#1B3A6B"/>
+<text x="10.40" y="66.40" font-family="sans-serif" font-size="3.1" font-weight="bold" fill="#FFFFFF">掌握時刻 速查</text>
+<text x="68.60" y="66.40" font-family="sans-serif" font-size="1.8" font-weight="normal" fill="#FFFFFF" text-anchor="end">unitaryhk.com</text>
+<rect x="8.0" y="68.60" width="63.0" height="22.10" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="68.60" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="71.50" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">①  3 個階段</text>
+<text x="10.20" y="75.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 討論：唔可以睇牌面（只知牌背顏色），只講</text>
+<text x="10.20" y="78.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">策略</text>
+<text x="10.20" y="81.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 出牌：睇手牌，輪流面朝下放喺 segment 旁，</text>
+<text x="10.20" y="85.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">禁止溝通</text>
+<text x="10.20" y="88.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 結算：由起始 segment 起順時針逐個揭開</text>
+<rect x="8.0" y="90.70" width="63.0" height="21.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="90.70" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="93.60" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">②  一般過關規則</text>
+<text x="10.20" y="97.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">① 6 段每段最少 1 張牌</text>
+<text x="10.20" y="100.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">② 順時針每段總和遞增（或相同）</text>
+<text x="10.20" y="103.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">③ 每段總和 ≤ 24</text>
+<rect x="9.6" y="104.80" width="59.80" height="5.50" fill="#EAF0F8"/>
+<text x="10.80" y="107.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#2E5C9A">例：某段 5＋6＋2＋1 → 總和 14，符合 ≤24</text>
+<rect x="8.0" y="111.90" width="63.0" height="12.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="111.90" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="114.80" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">③  派牌（每次 12 張）</text>
+<text x="10.20" y="118.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">4 人 3 張 ｜ 3 人 4 張 ｜ 2 人 6 張（4＋2</text>
+<text x="10.20" y="121.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">）</text>
+<rect x="8.0" y="124.10" width="63.0" height="15.50" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="124.10" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="127.00" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">④  面朝上牌數</text>
+<text x="10.20" y="130.70" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• ＝ Reminder 符號數 ＋ 正面 Bonus 標記數</text>
+<text x="10.20" y="134.00" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 失敗翻開 1 個 Bonus → 下次多放 1 張</text>
+<text x="10.20" y="137.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 過關後所有 Bonus 翻返面朝下</text>
+</g>
+<g id="card">
+<rect x="77.0" y="61.0" width="63.0" height="88.0" rx="1.5" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.35"/>
+<path d="M77.0 63.0 A1.5 1.5 0 0 1 78.5 61.0 H138.5 A1.5 1.5 0 0 1 140.0 63.0 V68.6 H77.0 Z" fill="#1B3A6B"/>
+<text x="79.40" y="66.40" font-family="sans-serif" font-size="3.1" font-weight="bold" fill="#FFFFFF">掌握時刻 速查</text>
+<text x="137.60" y="66.40" font-family="sans-serif" font-size="1.8" font-weight="normal" fill="#FFFFFF" text-anchor="end">unitaryhk.com</text>
+<rect x="77.0" y="68.60" width="63.0" height="22.10" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="68.60" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="71.50" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">①  3 個階段</text>
+<text x="79.20" y="75.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 討論：唔可以睇牌面（只知牌背顏色），只講</text>
+<text x="79.20" y="78.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">策略</text>
+<text x="79.20" y="81.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 出牌：睇手牌，輪流面朝下放喺 segment 旁，</text>
+<text x="79.20" y="85.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">禁止溝通</text>
+<text x="79.20" y="88.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 結算：由起始 segment 起順時針逐個揭開</text>
+<rect x="77.0" y="90.70" width="63.0" height="21.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="90.70" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="93.60" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">②  一般過關規則</text>
+<text x="79.20" y="97.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">① 6 段每段最少 1 張牌</text>
+<text x="79.20" y="100.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">② 順時針每段總和遞增（或相同）</text>
+<text x="79.20" y="103.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">③ 每段總和 ≤ 24</text>
+<rect x="78.6" y="104.80" width="59.80" height="5.50" fill="#EAF0F8"/>
+<text x="79.80" y="107.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#2E5C9A">例：某段 5＋6＋2＋1 → 總和 14，符合 ≤24</text>
+<rect x="77.0" y="111.90" width="63.0" height="12.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="111.90" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="114.80" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">③  派牌（每次 12 張）</text>
+<text x="79.20" y="118.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">4 人 3 張 ｜ 3 人 4 張 ｜ 2 人 6 張（4＋2</text>
+<text x="79.20" y="121.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">）</text>
+<rect x="77.0" y="124.10" width="63.0" height="15.50" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="124.10" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="127.00" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">④  面朝上牌數</text>
+<text x="79.20" y="130.70" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• ＝ Reminder 符號數 ＋ 正面 Bonus 標記數</text>
+<text x="79.20" y="134.00" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 失敗翻開 1 個 Bonus → 下次多放 1 張</text>
+<text x="79.20" y="137.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 過關後所有 Bonus 翻返面朝下</text>
+</g>
+<g stroke="#BBBBBB" stroke-width="0.2">
+<line x1="6.0" y1="61.0" x2="8.0" y2="61.0"/>
+<line x1="71.0" y1="61.0" x2="73.0" y2="61.0"/>
+<line x1="6.0" y1="149.0" x2="8.0" y2="149.0"/>
+<line x1="71.0" y1="149.0" x2="73.0" y2="149.0"/>
+<line x1="8.0" y1="59.0" x2="8.0" y2="61.0"/>
+<line x1="8.0" y1="149.0" x2="8.0" y2="151.0"/>
+<line x1="71.0" y1="59.0" x2="71.0" y2="61.0"/>
+<line x1="71.0" y1="149.0" x2="71.0" y2="151.0"/>
+<line x1="75.0" y1="61.0" x2="77.0" y2="61.0"/>
+<line x1="140.0" y1="61.0" x2="142.0" y2="61.0"/>
+<line x1="75.0" y1="149.0" x2="77.0" y2="149.0"/>
+<line x1="140.0" y1="149.0" x2="142.0" y2="149.0"/>
+<line x1="77.0" y1="59.0" x2="77.0" y2="61.0"/>
+<line x1="77.0" y1="149.0" x2="77.0" y2="151.0"/>
+<line x1="140.0" y1="59.0" x2="140.0" y2="61.0"/>
+<line x1="140.0" y1="149.0" x2="140.0" y2="151.0"/>
+</g></svg>

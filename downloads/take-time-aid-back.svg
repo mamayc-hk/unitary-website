@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="148.0mm" height="210.0mm" viewBox="0 0 148.0 210.0">
+<!-- 主題色（改呢 5 個 hex 就全份換色）：主色 #1B3A6B / 強調 #B08A1E / 表頭底 #F3EDDC / 例子底 #EAF0F8 / 例子字 #2E5C9A -->
+<rect x="0" y="0" width="148.0" height="210.0" fill="#FFFFFF"/>
+<text x="8.00" y="40.00" font-family="sans-serif" font-size="4.2" font-weight="bold" fill="#1B3A6B">掌握時刻 Take Time — 玩家速查卡（背面）</text>
+<text x="8.00" y="45.00" font-family="sans-serif" font-size="2.2" font-weight="normal" fill="#8A8A8A">2–4 人 · 10+ · 30 分鐘 · 合作解謎 · 資料來源：官方規則書 (Libellud) · 免費下載 unitaryhk.com</text>
+<text x="8.00" y="50.00" font-family="sans-serif" font-size="2.2" font-weight="normal" fill="#8A8A8A">雙面打印（長邊翻頁）→ 沿裁切線剪開 = 2 張雙面卡（每張 63 × 88 mm，可套 66×91 卡套）</text>
+<g id="card">
+<rect x="8.0" y="61.0" width="63.0" height="88.0" rx="1.5" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.35"/>
+<path d="M8.0 63.0 A1.5 1.5 0 0 1 9.5 61.0 H69.5 A1.5 1.5 0 0 1 71.0 63.0 V68.6 H8.0 Z" fill="#1B3A6B"/>
+<text x="10.40" y="66.40" font-family="sans-serif" font-size="3.1" font-weight="bold" fill="#FFFFFF">掌握時刻 速查</text>
+<text x="68.60" y="66.40" font-family="sans-serif" font-size="1.8" font-weight="normal" fill="#FFFFFF" text-anchor="end">unitaryhk.com</text>
+<rect x="8.0" y="68.60" width="63.0" height="25.40" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="68.60" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="71.50" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑤  設置</text>
+<text x="10.20" y="75.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">1. Chapter 1 嘅 4 個 Clock 面朝下疊好，翻</text>
+<text x="10.20" y="78.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">開最上面嗰個放枱中央</text>
+<text x="10.20" y="81.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">2. 放對應人數 Reminder；3 個 Bonus 面朝下</text>
+<text x="10.20" y="85.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">放旁邊</text>
+<text x="10.20" y="88.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">3. 洗混 24 張牌派 12 張，剩餘放一邊</text>
+<text x="10.20" y="91.70" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">4. 全人唔可以睇牌面；第 3 章起將時針放旁邊</text>
+<rect x="8.0" y="94.00" width="63.0" height="15.50" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="94.00" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="96.90" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑥  失敗同推進</text>
+<text x="10.20" y="100.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 失敗：即刻重試 或 放入悔恨套</text>
+<text x="10.20" y="103.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 跳過：先翻返所有正面 Bonus，再入悔恨套</text>
+<text x="10.20" y="107.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 冇分數、冇扣分、冇重試上限</text>
+<rect x="8.0" y="109.50" width="63.0" height="12.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="109.50" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="112.40" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑦  2 人場特別規則</text>
+<text x="10.20" y="116.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 每人 6 張（4 張一組 ＋ 2 張一組）</text>
+<text x="10.20" y="119.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 討論階段只可以拎起 4 張嗰組</text>
+<rect x="8.0" y="121.70" width="63.0" height="18.80" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="8.0" y="121.70" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="10.00" y="124.60" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑧  組件</text>
+<text x="10.20" y="128.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 24 張牌（12 Lunar ＋ 12 Solar）｜3</text>
+<text x="10.20" y="131.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">Reminder｜3 Bonus</text>
+<text x="10.20" y="134.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 10 Chapter sleeve（每個 4 Clock）｜1 時</text>
+<text x="10.20" y="138.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">針｜悔恨套｜Rebirth</text>
+</g>
+<g id="card">
+<rect x="77.0" y="61.0" width="63.0" height="88.0" rx="1.5" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.35"/>
+<path d="M77.0 63.0 A1.5 1.5 0 0 1 78.5 61.0 H138.5 A1.5 1.5 0 0 1 140.0 63.0 V68.6 H77.0 Z" fill="#1B3A6B"/>
+<text x="79.40" y="66.40" font-family="sans-serif" font-size="3.1" font-weight="bold" fill="#FFFFFF">掌握時刻 速查</text>
+<text x="137.60" y="66.40" font-family="sans-serif" font-size="1.8" font-weight="normal" fill="#FFFFFF" text-anchor="end">unitaryhk.com</text>
+<rect x="77.0" y="68.60" width="63.0" height="25.40" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="68.60" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="71.50" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑤  設置</text>
+<text x="79.20" y="75.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">1. Chapter 1 嘅 4 個 Clock 面朝下疊好，翻</text>
+<text x="79.20" y="78.50" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">開最上面嗰個放枱中央</text>
+<text x="79.20" y="81.80" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">2. 放對應人數 Reminder；3 個 Bonus 面朝下</text>
+<text x="79.20" y="85.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">放旁邊</text>
+<text x="79.20" y="88.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">3. 洗混 24 張牌派 12 張，剩餘放一邊</text>
+<text x="79.20" y="91.70" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">4. 全人唔可以睇牌面；第 3 章起將時針放旁邊</text>
+<rect x="77.0" y="94.00" width="63.0" height="15.50" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="94.00" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="96.90" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑥  失敗同推進</text>
+<text x="79.20" y="100.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 失敗：即刻重試 或 放入悔恨套</text>
+<text x="79.20" y="103.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 跳過：先翻返所有正面 Bonus，再入悔恨套</text>
+<text x="79.20" y="107.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 冇分數、冇扣分、冇重試上限</text>
+<rect x="77.0" y="109.50" width="63.0" height="12.20" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="109.50" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="112.40" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑦  2 人場特別規則</text>
+<text x="79.20" y="116.10" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 每人 6 張（4 張一組 ＋ 2 張一組）</text>
+<text x="79.20" y="119.40" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 討論階段只可以拎起 4 張嗰組</text>
+<rect x="77.0" y="121.70" width="63.0" height="18.80" fill="#FFFFFF" stroke="#D8D8D8" stroke-width="0.3"/>
+<rect x="77.0" y="121.70" width="63.0" height="4.0" fill="#1B3A6B"/>
+<text x="79.00" y="124.60" font-family="sans-serif" font-size="2.5" font-weight="bold" fill="#FFFFFF">⑧  組件</text>
+<text x="79.20" y="128.30" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 24 張牌（12 Lunar ＋ 12 Solar）｜3</text>
+<text x="79.20" y="131.60" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">Reminder｜3 Bonus</text>
+<text x="79.20" y="134.90" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">• 10 Chapter sleeve（每個 4 Clock）｜1 時</text>
+<text x="79.20" y="138.20" font-family="sans-serif" font-size="2.6" font-weight="normal" fill="#212121">針｜悔恨套｜Rebirth</text>
+</g>
+<g stroke="#BBBBBB" stroke-width="0.2">
+<line x1="6.0" y1="61.0" x2="8.0" y2="61.0"/>
+<line x1="71.0" y1="61.0" x2="73.0" y2="61.0"/>
+<line x1="6.0" y1="149.0" x2="8.0" y2="149.0"/>
+<line x1="71.0" y1="149.0" x2="73.0" y2="149.0"/>
+<line x1="8.0" y1="59.0" x2="8.0" y2="61.0"/>
+<line x1="8.0" y1="149.0" x2="8.0" y2="151.0"/>
+<line x1="71.0" y1="59.0" x2="71.0" y2="61.0"/>
+<line x1="71.0" y1="149.0" x2="71.0" y2="151.0"/>
+<line x1="75.0" y1="61.0" x2="77.0" y2="61.0"/>
+<line x1="140.0" y1="61.0" x2="142.0" y2="61.0"/>
+<line x1="75.0" y1="149.0" x2="77.0" y2="149.0"/>
+<line x1="140.0" y1="149.0" x2="142.0" y2="149.0"/>
+<line x1="77.0" y1="59.0" x2="77.0" y2="61.0"/>
+<line x1="77.0" y1="149.0" x2="77.0" y2="151.0"/>
+<line x1="140.0" y1="59.0" x2="140.0" y2="61.0"/>
+<line x1="140.0" y1="149.0" x2="140.0" y2="151.0"/>
+</g></svg>
