@@ -859,6 +859,7 @@ def render_game_page(game, content_md):
 <div class="blog-footer">
     <p>© 2026 UNITARY 開枱指南 &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
+    <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
@@ -1114,6 +1115,7 @@ def render_index_page():
 <div class="blog-footer">
     <p>© 2026 UNITARY &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
+    <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
@@ -1244,11 +1246,113 @@ def render_blog_article(query):
 <div class="blog-footer">
     <p>© 2026 UNITARY &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
+    <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
 </div>
 
+</body>
+</html>
+'''
+
+
+def render_downloads_page():
+    """v3.6.2: /downloads/ 免費資源庫 —— 每個遊戲一節，之後可集結成「一本書」。"""
+    games = [g for g in load_games() if g.get('downloads')]
+    sections = []
+    total = 0
+    for g in games:
+        cards = []
+        for it in g['downloads']:
+            total += 1
+            cards.append(f'''            <a class="dl-card" href="{it['url']}">
+                <div class="dl-icon">📄</div>
+                <div class="dl-body">
+                    <div class="dl-label">{escape_html(it['label'])}</div>
+                    <div class="dl-desc">{escape_html(it.get('desc',''))}</div>
+                    <div class="dl-meta">{escape_html(it.get('meta',''))}</div>
+                </div>
+                <div class="dl-cta">下載 →</div>
+            </a>''')
+        sections.append(f'''        <section class="dl-game">
+            <h2>{escape_html(g['name'])} <span class="dl-en">{escape_html(g.get('name_en',''))}</span></h2>
+            <p class="dl-game-desc">{escape_html(g.get('summary',''))}</p>
+            <div class="dl-list">
+{chr(10).join(cards)}
+            </div>
+            <p class="dl-back">← <a href="../board-game/{g['id']}.html">{escape_html(g['name'])} 完整教學</a></p>
+        </section>''')
+
+    body = chr(10).join(sections) if sections else '<section class="dl-game"><h2>陸續加入</h2><p class="dl-game-desc">其他桌遊嘅免費資源正在製作同審核中。</p></section>'
+
+    return f'''<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免費下載 — 桌遊教學資源庫 | UNITARY</title>
+    <meta name="description" content="免費打印嘅桌遊資源：速查卡、進度追蹤表。可自由打印分享，A4 直接印就得。">
+    <link rel="canonical" href="https://unitaryhk.com/downloads/">
+    <link rel="stylesheet" href="../blog.css">
+    <style>
+    .dl-wrap {{ max-width: 760px; margin: 0 auto; padding: 32px 20px 60px; }}
+    .dl-hero {{ border-left: 4px solid #FF6B35; background: #FFF8F3; padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; }}
+    .dl-hero h1 {{ margin: 0 0 6px; font-size: 1.5rem; color: #1F2937; }}
+    .dl-hero p {{ margin: 0; color: #6B7280; font-size: .9rem; }}
+    .dl-game {{ margin-bottom: 34px; }}
+    .dl-game h2 {{ font-size: 1.15rem; margin: 0 0 6px; border-bottom: 2px solid #FF6B35; padding-bottom: 6px; }}
+    .dl-en {{ font-size: .8rem; color: #9CA3AF; font-weight: 400; }}
+    .dl-game-desc {{ color: #6B7280; font-size: .87rem; margin: 8px 0 14px; }}
+    .dl-list {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }}
+    .dl-card {{ display: flex; align-items: flex-start; gap: 12px; background: #fff; border: 1px solid #E5E7EB;
+                border-radius: 12px; padding: 14px 16px; text-decoration: none; color: inherit;
+                box-shadow: 0 1px 3px rgba(0,0,0,.05); transition: border-color .15s, box-shadow .15s; }}
+    .dl-card:hover {{ border-color: #FF6B35; box-shadow: 0 2px 8px rgba(255,107,53,.15); }}
+    .dl-icon {{ font-size: 1.3rem; }}
+    .dl-body {{ flex: 1; min-width: 0; }}
+    .dl-label {{ font-weight: 700; font-size: .95rem; color: #1F2937; }}
+    .dl-desc {{ font-size: .82rem; color: #6B7280; margin: 4px 0; line-height: 1.5; }}
+    .dl-meta {{ font-size: .76rem; color: #9CA3AF; }}
+    .dl-cta {{ color: #FF6B35; font-weight: 600; font-size: .82rem; white-space: nowrap; }}
+    .dl-back {{ font-size: .85rem; margin-top: 12px; }}
+    .dl-tips {{ background: #FAFAFA; border: 1px solid #EEE; border-radius: 8px; padding: 14px 18px; font-size: .85rem; color: #4B5563; }}
+    .dl-tips strong {{ color: #1F2937; }}
+    .dl-tips li {{ margin-bottom: 4px; }}
+    </style>
+</head>
+<body>
+<div class="nav"><div class="nav-inner">
+    <a href="../index.html"><img src="../logo.png" alt="UNITARY"></a>
+</div></div>
+
+<div class="dl-wrap">
+    <div class="dl-hero">
+        <h1>📥 免費下載 — 桌遊教學資源庫</h1>
+        <p>全部可自由打印、分享（請勿修改內容或移除出處）。每隻遊戲一節，會陸續增加。</p>
+    </div>
+
+{body}
+
+    <div class="dl-tips">
+        <strong>🖨️ 打印建議</strong>
+        <ul>
+            <li>用 <strong>A4</strong>、紙張設定揀「<strong>實際大小 / 100%</strong>」（唔好揀「fit to page」，否則尺寸唔準）</li>
+            <li>速查卡印完沿裁切線剪開，可套 58×89mm 卡套</li>
+            <li>黑白打印都睇得清（彩色更易分辨）</li>
+            <li>想耐用啲：用 200g 卡紙，或者印完過膠</li>
+        </ul>
+    </div>
+
+    <p style="font-size:.8rem;color:#9CA3AF;margin-top:22px">
+        資源庫持續更新 ｜ <a href="../board-game/">回教學首頁</a> ｜
+        規則內容以官方規則書為準，並附官方來源連結。
+    </p>
+</div>
+
+<div class="blog-footer">
+    <p>© 2026 UNITARY &nbsp;·&nbsp; Design once. Print &amp; play forever.</p>
+</div>
 </body>
 </html>
 '''
@@ -1285,6 +1389,15 @@ def main():
     with open(ROOT / 'index.html', 'w') as f:
         f.write(index_html)
     print(f"  ✓ index.html ({len(index_html)} chars)")
+
+    # v3.6.2: /downloads/ 免費資源庫
+    dl_html = render_downloads_page()
+    dl_dir = ROOT.parent / 'downloads'
+    dl_dir.mkdir(exist_ok=True)
+    with open(dl_dir / 'index.html', 'w') as f:
+        f.write(dl_html)
+    n_dl = sum(len(g.get('downloads', [])) for g in games)
+    print(f"  ✓ downloads/index.html ({len(dl_html)} chars, {n_dl} 個下載項)")
 
     # === 5 個 blog 文章 (sidebar 5 query 嘅 link 目標) ===
     QUICK_QUERY = [

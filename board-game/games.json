@@ -204,7 +204,21 @@
         "dnup"
       ],
       "hero_image": "assets/images/take-time-hero.jpg",
-      "published": true
+      "published": true,
+      "downloads": [
+        {
+          "label": "速查卡（4 張 · 55 × 84 mm）",
+          "url": "../downloads/take-time-cheatsheet-4cards-a4.pdf",
+          "desc": "一頁 A4，含 4 張卡 + 裁切線。印一次剪開，自己一張、隊友三張。放枱面唔阻位。",
+          "meta": "A4 · 70 KB · 可套卡套（建議 58×89）"
+        },
+        {
+          "label": "40 關進度追蹤表",
+          "url": "../downloads/take-time-progress-tracker-a4.pdf",
+          "desc": "10 章 × 4 關打勾格 + 悔恨套記錄欄 + 一般過關規則。跨多次 session 都追到進度。",
+          "meta": "A4 · 74 KB · 一頁睇晒 40 關"
+        }
+      ]
     },
     {
       "id": "spots",
