@@ -511,7 +511,8 @@ def render_game_page(game, content_md):
     # 設定 Telegram 群組/頻道連結後，留言區會自動多一個按鈕；留空 = 唔顯示
     TELEGRAM_URL = ''
     # === 收入線開關（填 URL 就自動出卡；留空 = 完全唔顯示）===
-    FREEBIE_URL = ''        # 例：'../downloads/take-time-progress-tracker.pdf'
+    FREEBIE_URL = '../downloads/take-time-cheatsheet-4cards-a4.pdf'
+    FREEBIE_URL2 = '../downloads/take-time-progress-tracker-a4.pdf'
     AFFILIATE_URL = ''      # 例：'https://www.amazon.com/dp/XXXX?tag=yourtag-20'
     AFFILIATE_LABEL = ''    # 例：'Amazon 買正版 Take Time（運香港/台灣）'
     telegram_html = (
@@ -662,8 +663,8 @@ def render_game_page(game, content_md):
          'https://instagram.com/unitary.hk', 'Instagram \u2192', True),
     ]
     if FREEBIE_URL:
-        _shop_cards.append(('\U0001f4e5', '\u514d\u8cbb\u4e0b\u8f09\uff1a\u9032\u5ea6\u8ffd\u8e64\u8868',
-                            '40 \u95dc\u6253\u52fe + \u6094\u6068\u5957\u8a18\u9304\uff08PDF\uff09',
+        _shop_cards.append(('\U0001f4e5', '\u514d\u8cbb\u4e0b\u8f09\uff08PDF\uff09',
+                            '\u901f\u67e5\u5361 4 \u5f35\uff0855\u00d784mm\uff09\uff0b 40 \u95dc\u9032\u5ea6\u8ffd\u8e64\u8868\uff08A4\uff09',
                             FREEBIE_URL, '\u4e0b\u8f09 \u2192', False))
     if AFFILIATE_URL:
         _shop_cards.append(('\U0001f6d2', '\u60f3\u8cb7\u6b63\u7248\u5be6\u9ad4 game\uff1f',
@@ -686,6 +687,11 @@ def render_game_page(game, content_md):
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">'
         + _shop_html + '</div>'
     )
+    if FREEBIE_URL and FREEBIE_URL2:
+        unitary_html += (
+            '<p style="font-size:.85rem;color:#888;margin-top:12px">\U0001f4c4 \u53e6\u4e00\u4efd\uff1a'
+            f'<a href="{FREEBIE_URL2}">40 \u95dc\u9032\u5ea6\u8ffd\u8e64\u8868\uff08A4\uff09</a></p>'
+        )
     if AFFILIATE_URL:
         unitary_html += (
             '<p style="font-size:.78rem;color:#999;margin-top:12px">'
