@@ -207,6 +207,12 @@
       "published": true,
       "downloads": [
         {
+          "label": "速查卡（網頁打印版 · 雙面）",
+          "url": "../downloads/take-time-aid-print.html",
+          "desc": "開網頁 → Cmd+P → 出 PDF。A5、每頁 2 張 63×88mm，雙面打印剪開 = 2 張雙面卡。文字同顏色可以直接改 HTML。",
+          "meta": "網頁 · 可打印 · 唔會有 PDF viewer 兼容問題"
+        },
+        {
           "label": "玩家速查表（一頁睇晒）",
           "url": "../downloads/take-time-player-aid-a5.pdf",
           "desc": "說明書風格：組件、設置、3 階段、一般過關規則、派牌表、面朝上牌數、失敗處理、2 人場規則、一局流程 —— 9 格編號面板。",

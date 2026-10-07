@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>掌握時刻 Take Time — 速查卡（可打印 A5）| UNITARY</title>
+<meta name="description" content="掌握時刻 Take Time 玩家速查卡，A5 雙面可打印，每頁 2 張 63×88mm。免費下載。">
+<link rel="canonical" href="https://unitaryhk.com/downloads/take-time-aid-print.html">
+<style>
+/* ═══ 主題色：改呢 5 個值就換色（同 SVG 一致）═══ */
+:root {
+  --main:  #1B3A6B;   /* 主色：卡頭、分格標題 */
+  --accent:#B08A1E;   /* 強調色 */
+  --head:  #F3EDDC;   /* 表頭底 */
+  --exbg:  #EAF0F8;   /* 例子底 */
+  --ex:    #2E5C9A;   /* 例子文字 */
+  --line:  #D8D8D8;
+}
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin:0; background:#EFEFEF; color:#212121;
+  font-family: -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+
+/* ── 紙張：A5 ── */
+.sheet { position:relative; width:148mm; height:210mm; background:#fff; margin:10mm auto;
+  box-shadow:0 2px 12px rgba(0,0,0,.18); overflow:hidden; }
+.sheet-head { position:absolute; left:8mm; top:6mm; width:132mm; }
+.sheet-head h1 { font-size:4.2mm; margin:0 0 1.6mm; color:var(--main); }
+.sheet-head p { font-size:2.2mm; color:#8A8A8A; margin:0 0 1mm; line-height:1.35; }
+.sheet-head .tip { color:#6B7280; }
+button.noprint { margin-top:2mm; padding:2mm 4mm; font-size:2.6mm; background:var(--main);
+  color:#fff; border:0; border-radius:1.5mm; cursor:pointer; }
+
+/* ── 卡（63 × 88 mm），每頁 2 張 ── */
+.card { position:absolute; top:61mm; width:63mm; height:88mm;
+  border:0.35mm solid var(--line); border-radius:1.5mm; overflow:hidden; padding:0; }
+.card.a { left:8mm; }
+.card.b { left:77mm; }
+/* 裁切線（卡外 2mm 虛線） */
+.cut { position:absolute; top:59mm; width:67mm; height:92mm;
+  border:0.2mm dashed #BBBBBB; pointer-events:none; }
+.cut-a { left:6mm; }
+.cut-b { left:75mm; }
+.card-head { display:flex; justify-content:space-between; align-items:center;
+  background:var(--main); color:#fff; font-size:3.1mm; font-weight:700; padding:1.6mm 2.4mm; }
+.card-head .site { font-size:1.8mm; font-weight:400; }
+
+.panel { border:0.3mm solid var(--line); margin:1.4mm 1.4mm 0; border-radius:0.8mm; overflow:hidden; }
+.panel h3 { margin:0; background:var(--main); color:#fff; font-size:2.5mm; font-weight:700;
+  padding:0.9mm 2mm; display:flex; gap:1.4mm; align-items:baseline; }
+.panel .num { color:#fff; }
+.panel ul { margin:0; padding:1.2mm 2mm 1.2mm 4.4mm; list-style:none; }
+.panel li { font-size:2.6mm; line-height:1.32; position:relative; }
+.panel li::before { content:"•"; position:absolute; left:-2.4mm; color:var(--accent); }
+.panel .ex { margin:0 1.6mm 1.4mm; padding:1mm 1.4mm; background:var(--exbg); color:var(--ex);
+  font-size:2.6mm; line-height:1.32; border-radius:0.6mm; }
+
+/* ── 裁切線 ── */
+.crop { position:absolute; background:#BBB; }
+
+/* ── 打印 ── */
+@page { size: A5; margin: 0; }
+@media print {
+  body { background:#fff; }
+  .sheet { margin:0; box-shadow:none; page-break-after:always; }
+  .sheet:last-child { page-break-after:auto; }
+  .noprint { display:none !important; }
+}
+</style>
+</head>
+<body>
+  <div class="sheet">
+    <div class="sheet-head">
+      <h1>掌握時刻 Take Time — 玩家速查卡（正面）</h1>
+      <p>2–4 人 · 10+ · 30 分鐘 · 合作解謎 · 資料來源：官方規則書 (Libellud) · 免費下載 unitaryhk.com</p>
+      <p class="tip">雙面打印（長邊翻頁）→ 沿裁切線剪開 = 2 張雙面卡（每張 63 × 88 mm，可套 66×91 卡套）</p>
+      <button class="noprint" onclick="window.print()">🖨️ 打印 / 儲存 PDF</button>
+    </div>
+    <div class="cut cut-a"></div>
+    <div class="cut cut-b"></div>
+    <div class="card a">
+      <div class="card-head"><span>掌握時刻 速查</span><span class="site">unitaryhk.com</span></div>
+      <section class="panel">
+        <h3><span class="num">①</span>3 個階段</h3>
+        <ul>
+          <li>討論：唔可以睇牌面（只知牌背顏色），只講策略</li>
+          <li>出牌：睇手牌，輪流面朝下放喺 segment 旁，禁止溝通</li>
+          <li>結算：由起始 segment 起順時針逐個揭開</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">②</span>一般過關規則</h3>
+        <ul>
+          <li>① 6 段每段最少 1 張牌</li>
+          <li>② 順時針每段總和遞增（或相同）</li>
+          <li>③ 每段總和 ≤ 24</li>
+        </ul>
+        <p class="ex">例：某段 5＋6＋2＋1 → 總和 14，符合 ≤24</p>
+      </section>
+      <section class="panel">
+        <h3><span class="num">③</span>派牌（每次 12 張）</h3>
+        <ul>
+          <li>4 人 3 張　｜　3 人 4 張　｜　2 人 6 張（4＋2）</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">④</span>面朝上牌數</h3>
+        <ul>
+          <li>＝ Reminder 符號數 ＋ 正面 Bonus 標記數</li>
+          <li>失敗翻開 1 個 Bonus → 下次多放 1 張</li>
+          <li>過關後所有 Bonus 翻返面朝下</li>
+        </ul>
+      </section>
+    </div>
+    <div class="card b">
+      <div class="card-head"><span>掌握時刻 速查</span><span class="site">unitaryhk.com</span></div>
+      <section class="panel">
+        <h3><span class="num">①</span>3 個階段</h3>
+        <ul>
+          <li>討論：唔可以睇牌面（只知牌背顏色），只講策略</li>
+          <li>出牌：睇手牌，輪流面朝下放喺 segment 旁，禁止溝通</li>
+          <li>結算：由起始 segment 起順時針逐個揭開</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">②</span>一般過關規則</h3>
+        <ul>
+          <li>① 6 段每段最少 1 張牌</li>
+          <li>② 順時針每段總和遞增（或相同）</li>
+          <li>③ 每段總和 ≤ 24</li>
+        </ul>
+        <p class="ex">例：某段 5＋6＋2＋1 → 總和 14，符合 ≤24</p>
+      </section>
+      <section class="panel">
+        <h3><span class="num">③</span>派牌（每次 12 張）</h3>
+        <ul>
+          <li>4 人 3 張　｜　3 人 4 張　｜　2 人 6 張（4＋2）</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">④</span>面朝上牌數</h3>
+        <ul>
+          <li>＝ Reminder 符號數 ＋ 正面 Bonus 標記數</li>
+          <li>失敗翻開 1 個 Bonus → 下次多放 1 張</li>
+          <li>過關後所有 Bonus 翻返面朝下</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  <div class="sheet">
+    <div class="sheet-head">
+      <h1>掌握時刻 Take Time — 玩家速查卡（背面）</h1>
+      <p>2–4 人 · 10+ · 30 分鐘 · 合作解謎 · 資料來源：官方規則書 (Libellud) · 免費下載 unitaryhk.com</p>
+      <p class="tip">雙面打印（長邊翻頁）→ 沿裁切線剪開 = 2 張雙面卡（每張 63 × 88 mm，可套 66×91 卡套）</p>
+      <button class="noprint" onclick="window.print()">🖨️ 打印 / 儲存 PDF</button>
+    </div>
+    <div class="cut cut-a"></div>
+    <div class="cut cut-b"></div>
+    <div class="card a">
+      <div class="card-head"><span>掌握時刻 速查</span><span class="site">unitaryhk.com</span></div>
+      <section class="panel">
+        <h3><span class="num">⑤</span>設置</h3>
+        <ul>
+          <li>1. Chapter 1 嘅 4 個 Clock 面朝下疊好，翻開最上面嗰個放枱中央</li>
+          <li>2. 放對應人數 Reminder；3 個 Bonus 面朝下放旁邊</li>
+          <li>3. 洗混 24 張牌派 12 張，剩餘放一邊</li>
+          <li>4. 全人唔可以睇牌面；第 3 章起將時針放旁邊</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑥</span>失敗同推進</h3>
+        <ul>
+          <li>失敗：即刻重試 或 放入悔恨套</li>
+          <li>跳過：先翻返所有正面 Bonus，再入悔恨套</li>
+          <li>冇分數、冇扣分、冇重試上限</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑦</span>2 人場特別規則</h3>
+        <ul>
+          <li>每人 6 張（4 張一組 ＋ 2 張一組）</li>
+          <li>討論階段只可以拎起 4 張嗰組</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑧</span>組件</h3>
+        <ul>
+          <li>24 張牌（12 Lunar ＋ 12 Solar）｜3 Reminder｜3 Bonus</li>
+          <li>10 Chapter sleeve（每個 4 Clock）｜1 時針｜悔恨套｜Rebirth</li>
+        </ul>
+      </section>
+    </div>
+    <div class="card b">
+      <div class="card-head"><span>掌握時刻 速查</span><span class="site">unitaryhk.com</span></div>
+      <section class="panel">
+        <h3><span class="num">⑤</span>設置</h3>
+        <ul>
+          <li>1. Chapter 1 嘅 4 個 Clock 面朝下疊好，翻開最上面嗰個放枱中央</li>
+          <li>2. 放對應人數 Reminder；3 個 Bonus 面朝下放旁邊</li>
+          <li>3. 洗混 24 張牌派 12 張，剩餘放一邊</li>
+          <li>4. 全人唔可以睇牌面；第 3 章起將時針放旁邊</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑥</span>失敗同推進</h3>
+        <ul>
+          <li>失敗：即刻重試 或 放入悔恨套</li>
+          <li>跳過：先翻返所有正面 Bonus，再入悔恨套</li>
+          <li>冇分數、冇扣分、冇重試上限</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑦</span>2 人場特別規則</h3>
+        <ul>
+          <li>每人 6 張（4 張一組 ＋ 2 張一組）</li>
+          <li>討論階段只可以拎起 4 張嗰組</li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h3><span class="num">⑧</span>組件</h3>
+        <ul>
+          <li>24 張牌（12 Lunar ＋ 12 Solar）｜3 Reminder｜3 Bonus</li>
+          <li>10 Chapter sleeve（每個 4 Clock）｜1 時針｜悔恨套｜Rebirth</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+<p class="noprint" style="text-align:center;font-size:11px;color:#888;margin:0 0 20mm">
+  打印設定：紙張 <strong>A5</strong>、邊界「<strong>無</strong>」、縮放 <strong>100%</strong>、開啟「<strong>背景圖形</strong>」
+</p>
+</body>
+</html>
