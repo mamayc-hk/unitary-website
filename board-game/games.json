@@ -568,6 +568,55 @@
       ],
       "hero_image": "assets/images/seti-hero.jpg",
       "published": false
+    },
+    {
+      "id": "hitster",
+      "name": "歌迷序會",
+      "name_en": "Hitster",
+      "published": true,
+      "category": [
+        "派對",
+        "音樂",
+        "問答"
+      ],
+      "min_players": 2,
+      "max_players": 10,
+      "play_time": "30 min",
+      "difficulty": 1.0,
+      "difficulty_label": "極簡單",
+      "teach_time": 3,
+      "tagline": "聽歌估年代，砌出你嘅音樂時間線",
+      "summary": "音樂派對遊戲。播歌估年份, 插入自己時間線。唔需要音樂知識, 2-10 人都玩得, 規則 3 分鐘教完。",
+      "publisher": "Jumbo (Marcus Carleson 設計)",
+      "year": 2022,
+      "hero_image": "",
+      "box_image": "",
+      "step_images": [],
+      "related_games": [
+        "take-time"
+      ],
+      "customer_fit": {
+        "新手": "✅✅✅",
+        "進階": "✅✅",
+        "專家": "✅✅",
+        "家庭": "✅✅",
+        "朋友群": "✅✅✅",
+        "情侶": "✅",
+        "2人": "✅",
+        "6+人": "✅✅"
+      },
+      "has_customer_fit": true,
+      "has_tiebreaker": true,
+      "tiebreaker_note": "同年卡可任意順序；爭議用 HITSTER 標記挑戰",
+      "tactical_notes_count": 6,
+      "longform_path": "content/hitster.md",
+      "longform_completed": true,
+      "is_complete": true,
+      "language_versions": [
+        "繁中",
+        "ENG",
+        "荷蘭文"
+      ]
     }
   ],
   "metadata": {
