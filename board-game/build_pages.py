@@ -510,6 +510,10 @@ def render_game_page(game, content_md):
     lang_str = '/'.join(game.get('language_versions') or []) or '—'
     # 設定 Telegram 群組/頻道連結後，留言區會自動多一個按鈕；留空 = 唔顯示
     TELEGRAM_URL = ''
+    # === 收入線開關（填 URL 就自動出卡；留空 = 完全唔顯示）===
+    FREEBIE_URL = ''        # 例：'../downloads/take-time-progress-tracker.pdf'
+    AFFILIATE_URL = ''      # 例：'https://www.amazon.com/dp/XXXX?tag=yourtag-20'
+    AFFILIATE_LABEL = ''    # 例：'Amazon 買正版 Take Time（運香港/台灣）'
     telegram_html = (
         f' <a href="{TELEGRAM_URL}" target="_blank" rel="noopener" class="btn-cta btn-secondary"'
         ' style="margin-left:10px">✈️ Telegram 群組 →</a>' if TELEGRAM_URL else ''
@@ -657,6 +661,14 @@ def render_game_page(game, content_md):
          'IG DM \u8a71\u6211\u77e5\uff0c\u591a\u4eba\u554f\u5605\u6211\u5c31\u958b\u767c',
          'https://instagram.com/unitary.hk', 'Instagram \u2192', True),
     ]
+    if FREEBIE_URL:
+        _shop_cards.append(('\U0001f4e5', '\u514d\u8cbb\u4e0b\u8f09\uff1a\u9032\u5ea6\u8ffd\u8e64\u8868',
+                            '40 \u95dc\u6253\u52fe + \u6094\u6068\u5957\u8a18\u9304\uff08PDF\uff09',
+                            FREEBIE_URL, '\u4e0b\u8f09 \u2192', False))
+    if AFFILIATE_URL:
+        _shop_cards.append(('\U0001f6d2', '\u60f3\u8cb7\u6b63\u7248\u5be6\u9ad4 game\uff1f',
+                            AFFILIATE_LABEL or '\u900f\u904e\u9023\u7d50\u8cfc\u8cb7\uff0c\u50f9\u683c\u4e0d\u8b8a',
+                            AFFILIATE_URL, '\u53bb\u8cb7 \u2192', True))
     _shop_html = ''
     for _ic, _ti, _de, _ur, _ct, _ex in _shop_cards:
         _tg = ' target="_blank" rel="noopener"' if _ex else ''
@@ -674,6 +686,12 @@ def render_game_page(game, content_md):
         '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px">'
         + _shop_html + '</div>'
     )
+    if AFFILIATE_URL:
+        unitary_html += (
+            '<p style="font-size:.78rem;color:#999;margin-top:12px">'
+            '\u6b64\u9801\u53ef\u80fd\u5305\u542b\u806f\u76df\u9023\u7d50\u3002\u4f60\u900f\u904e\u9023\u7d50\u8cfc\u8cb7\u6642\uff0c'
+            'UNITARY \u53ef\u80fd\u53d6\u5f97\u5206\u6f64\uff0c\u50f9\u683c\u4e0d\u8b8a\u3002</p>'
+        )
     if bgg:
         unitary_html += (
             f'<p style="font-size:.85rem;color:#888;margin-top:14px">\U0001f4da \u5b8c\u6574\u8cc7\u6599\uff1a'
