@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隱私政策 — Google 資料存取 | UNITARY</title>
+<meta name="description" content="UNITARY 個人助理（Google OAuth 用戶端 copaw）存取 Google API 資料的隱私政策：存取範圍、用途、儲存位置、分享對象與撤銷授權方式。">
+<link rel="canonical" href="https://unitaryhk.com/privacy.html">
+<meta name="robots" content="index, follow">
+<style>
+    :root { --brand:#FF6B35; --brand-dark:#E85A26; --ink:#1F2937; --muted:#6B7280; --line:#FFE0CC; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#FFF8F3; color:var(--ink);
+        font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+        line-height:1.75; font-size:16px; }
+    .nav { background:#fff; border-bottom:1px solid var(--line); }
+    .nav-inner { max-width:820px; margin:0 auto; padding:14px 20px; }
+    .nav img { height:34px; display:block; }
+    main { max-width:820px; margin:0 auto; padding:36px 20px 64px; }
+    h1 { font-size:1.75rem; line-height:1.35; margin:0 0 6px; color:var(--brand-dark); }
+    .updated { color:var(--muted); font-size:.9rem; margin:0 0 28px; }
+    h2 { font-size:1.15rem; margin:34px 0 10px; padding-left:12px; border-left:4px solid var(--brand); }
+    p { margin:10px 0; }
+    ul { margin:10px 0; padding-left:22px; }
+    li { margin:6px 0; }
+    table { width:100%; border-collapse:collapse; margin:14px 0; background:#fff;
+        border:1px solid var(--line); border-radius:8px; overflow:hidden; font-size:.94rem; }
+    th, td { text-align:left; padding:10px 12px; border-bottom:1px solid #FFEFE4; vertical-align:top; }
+    th { background:#FFF1E6; font-weight:600; white-space:nowrap; }
+    tr:last-child td { border-bottom:none; }
+    code { background:#FFF1E6; padding:2px 6px; border-radius:4px; font-size:.88em; }
+    a { color:var(--brand-dark); }
+    .note { background:#fff; border:1px solid var(--line); border-radius:10px;
+        padding:14px 18px; margin:20px 0; font-size:.94rem; color:#4B5563; }
+    footer { border-top:1px solid var(--line); background:#fff; color:var(--muted); font-size:.88rem; }
+    footer div { max-width:820px; margin:0 auto; padding:20px; }
+</style>
+</head>
+<body>
+
+<div class="nav"><div class="nav-inner">
+    <a href="/"><img src="/logo.png" alt="UNITARY"></a>
+</div></div>
+
+<main>
+    <h1>隱私政策 — Google 資料存取</h1>
+    <p class="updated">最後更新：2026 年 10 月 9 日</p>
+
+    <p>本頁說明 UNITARY 的個人助理工具（下稱「本應用程式」；Google OAuth 用戶端名稱 <code>copaw</code>）如何透過 Google API 存取、使用及儲存你的 Google 資料。</p>
+
+    <div class="note">
+        <strong>一句話總結：</strong>本應用程式只在你本人主動發出指令時，於你自己的裝置上直接讀取或修改你的 Google 資料。資料不會傳送到我們或任何第三方的伺服器，亦不會被出售或分享。
+    </div>
+
+    <h2>1. 適用範圍</h2>
+    <p>本應用程式為<strong>個人自用工具</strong>，只供帳戶擁有人本人的 Google 帳戶使用，並非對外提供服務的產品。此政策涵蓋本應用程式經 Google OAuth 授權後所存取的所有資料。</p>
+
+    <h2>2. 我們存取的 Google 資料</h2>
+    <p>經你同意後，本應用程式可能存取以下 Google 服務，實際範圍以你在同意畫面勾選的權限為準：</p>
+    <table>
+        <tr><th>服務</th><th>權限</th><th>用途</th></tr>
+        <tr><td>Gmail</td><td><code>gmail.modify</code></td><td>搜尋及讀取郵件、撰寫草稿、寄送與回覆、管理標籤（不含永久刪除）</td></tr>
+        <tr><td>Google 日曆</td><td><code>calendar</code></td><td>讀取、建立及修改日曆與活動、查詢空閒時間、建立 Google Meet 連結</td></tr>
+        <tr><td>Google Drive</td><td><code>drive</code></td><td>列出、讀取、上載、更新及整理你的檔案</td></tr>
+        <tr><td>Google Tasks</td><td><code>tasks</code></td><td>讀取、新增、更新及完成任務</td></tr>
+        <tr><td>聯絡人（People API）</td><td><code>contacts</code></td><td>讀取、搜尋及新增聯絡人</td></tr>
+        <tr><td>Sheets / Docs / Slides</td><td><code>spreadsheets</code>、<code>documents</code>、<code>presentations</code></td><td>建立及編輯試算表、文件與簡報</td></tr>
+        <tr><td>Google Forms</td><td><code>forms</code></td><td>建立表單、讀取回覆</td></tr>
+        <tr><td>YouTube</td><td><code>youtube</code>、<code>youtube.force-ssl</code></td><td>管理播放清單、影片資料及留言</td></tr>
+        <tr><td>帳戶基本資料</td><td><code>userinfo.email</code></td><td>顯示已連接的帳戶電郵，用於多帳戶辨識</td></tr>
+    </table>
+
+    <h2>3. 資料用途</h2>
+    <p>所存取的資料<strong>僅用於執行你當下要求的操作</strong>，例如：</p>
+    <ul>
+        <li>你問「我今個星期有咩會議」→ 讀取日曆活動並回覆你；</li>
+        <li>你叫「幫我加一個任務」→ 在 Google Tasks 建立該任務；</li>
+        <li>你要求「搵返嗰封講報價嘅 email」→ 搜尋並讀取相關郵件內容。</li>
+    </ul>
+    <p>我們不會將你的資料用於廣告、個人檔案建立、行為分析、機器學習模型訓練，或任何與上述目的無關的用途。</p>
+
+    <h2>4. 資料儲存位置與保留</h2>
+    <ul>
+        <li><strong>OAuth 權杖</strong>（access token / refresh token）以檔案形式儲存在<strong>你本人的裝置</strong>上，檔案權限設為僅本人可讀。</li>
+        <li>除權杖外，Google 資料只會在該次操作期間即時讀取，<strong>不會建立額外副本</strong>，亦不會上載到我們或第三方的伺服器。</li>
+        <li>對話與操作紀錄可能保存在你本機的助理工作目錄內，用於你的個人記錄；你可隨時自行刪除。</li>
+    </ul>
+
+    <h2>5. 資料分享</h2>
+    <p>我們<strong>不會</strong>出售、出租、交易或以任何形式將你的 Google 使用者資料提供給第三方。資料只在你本人的裝置與 Google API 之間直接傳輸。</p>
+
+    <h2>6. 你的控制權與撤銷授權</h2>
+    <p>你可隨時撤回授權，無需通知我們：</p>
+    <ul>
+        <li>前往 <a href="https://myaccount.google.com/permissions" rel="noopener">Google 帳戶 → 安全性 → 第三方應用程式與服務</a>，移除本應用程式的存取權；</li>
+        <li>或直接刪除本機上的權杖檔案，本應用程式即無法再存取你的資料。</li>
+    </ul>
+    <p>撤銷後，本應用程式將無法再讀取或修改你的 Google 資料；已存在於 Google 服務內的內容則不受影響。</p>
+
+    <h2>7. 對 Google API 服務使用者資料政策的承諾</h2>
+    <p>本應用程式對 Google API 所取得資訊的使用，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API 服務使用者資料政策</a>，包括其中的<strong>有限使用（Limited Use）</strong>要求。</p>
+
+    <h2>8. 聯絡我們</h2>
+    <p>如對本政策或你的資料有任何疑問，請電郵 <a href="mailto:mamayc@gmail.com">mamayc@gmail.com</a>。</p>
+
+    <h2>9. 政策更新</h2>
+    <p>本政策如有修改，將更新本頁頂部的「最後更新」日期。</p>
+</main>
+
+<footer><div>UNITARY — Design once. Play forever. · <a href="/board-game/">桌遊教學</a></div></footer>
+
+</body>
+</html>
