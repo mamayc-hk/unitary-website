@@ -869,6 +869,7 @@ def render_game_page(game, content_md):
     <p>© 2026 UNITARY 開枱指南 &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
+    <a href="../products/">🛒 產品</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
@@ -1158,6 +1159,7 @@ def render_index_page():
     <p>© 2026 UNITARY &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
+    <a href="../products/">🛒 產品</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
@@ -1289,6 +1291,7 @@ def render_blog_article(query):
     <p>© 2026 UNITARY &nbsp;·&nbsp;
     <a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp;
     <a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp;
+    <a href="../products/">🛒 產品</a> &nbsp;·&nbsp;
     <a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp;
     <a href="../sitemap.xml">Sitemap</a> &nbsp;·&nbsp;
     CC BY 4.0</p>
@@ -1423,6 +1426,151 @@ def render_downloads_page():
 '''
 
 
+# ═══════════════════════════════════════════════════════════════
+# v3.7.0: 產品層（/products/）—— 三層階梯 + 訂製流程
+# ═══════════════════════════════════════════════════════════════
+PRODUCTS_CSS = """
+.p-wrap { max-width: 900px; margin: 0 auto; padding: 30px 20px 60px; }
+.p-hero { border-left: 4px solid #FF6B35; background: linear-gradient(135deg,#FFF8F3 0%,#FFF1E6 100%);
+  padding: 20px 22px; border-radius: 0 10px 10px 0; margin-bottom: 30px; }
+.p-hero h1 { margin: 0 0 8px; font-size: 1.55rem; color: #1F2937; }
+.p-hero .quote { margin: 10px 0 0; font-size: .9rem; color: #B45309; font-style: italic; }
+.p-hero p { margin: 6px 0 0; color: #6B7280; font-size: .92rem; line-height: 1.6; }
+.p-h2 { font-size: 1.15rem; margin: 34px 0 14px; border-bottom: 2px solid #FF6B35; padding-bottom: 6px; }
+.tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; }
+.tier { background:#fff; border:1px solid #E5E7EB; border-radius:12px; padding:18px;
+  display:flex; flex-direction:column; box-shadow:0 1px 3px rgba(0,0,0,.05); }
+.tier.hi { border-color:#FF6B35; box-shadow:0 2px 10px rgba(255,107,53,.15); }
+.tier .ic { font-size:1.6rem; }
+.tier h3 { margin:6px 0 2px; font-size:1.05rem; color:#1F2937; }
+.tier .tag { font-size:.78rem; color:#9CA3AF; margin-bottom:8px; }
+.tier .price { font-size:1.1rem; font-weight:700; color:#FF6B35; margin:8px 0; }
+.tier .desc { font-size:.85rem; color:#6B7280; line-height:1.55; flex:1; }
+.tier ul { margin:10px 0 14px; padding-left:18px; font-size:.83rem; color:#4B5563; }
+.tier li { margin-bottom:3px; }
+.p-btn { display:block; text-align:center; background:#FF6B35; color:#fff; padding:10px 16px;
+  border-radius:8px; font-size:.88rem; font-weight:600; text-decoration:none; }
+.p-btn:hover { background:#E85A26; }
+.items { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:14px; }
+.item { background:#fff; border:1px solid #E5E7EB; border-radius:12px; padding:16px; }
+.item h3 { margin:0 0 6px; font-size:1rem; color:#1F2937; }
+.item .meta { font-size:.78rem; color:#9CA3AF; margin-bottom:8px; }
+.item .badge { display:inline-block; padding:2px 8px; border-radius:10px; font-size:.72rem;
+  background:#DCFCE7; color:#166534; margin-right:6px; }
+.item .badge.dev { background:#FEF3C7; color:#92400E; }
+.item p { font-size:.85rem; color:#6B7280; line-height:1.55; margin:8px 0; }
+.item a { font-size:.85rem; color:#FF6B35; font-weight:600; text-decoration:none; }
+.band { background:linear-gradient(135deg,#FFF8F3 0%,#FFF1E6 100%); border:1px solid #FFE0CC;
+  border-radius:12px; padding:20px; margin:30px 0; text-align:center; }
+.band h3 { margin:0 0 8px; font-size:1.05rem; color:#1F2937; }
+.band p { margin:0 0 14px; font-size:.9rem; color:#6B7280; }
+.band .row { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+.band .row a { display:inline-block; padding:10px 20px; border-radius:8px; font-size:.9rem;
+  font-weight:600; text-decoration:none; background:#FF6B35; color:#fff; }
+.band .row a.alt { background:#1F2937; }
+.story { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:14px; }
+.story div { background:#FAFAFA; border:1px solid #EEE; border-radius:10px; padding:16px; }
+.story h4 { margin:0 0 6px; font-size:.95rem; color:#1F2937; }
+.story p { margin:0; font-size:.83rem; color:#6B7280; line-height:1.55; }
+.step { display:flex; gap:14px; padding:14px 0; border-bottom:1px solid #F0F0F0; }
+.step .n { flex:0 0 34px; height:34px; border-radius:50%; background:#FF6B35; color:#fff;
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.9rem; }
+.step h4 { margin:0 0 4px; font-size:.95rem; color:#1F2937; }
+.step p { margin:0; font-size:.85rem; color:#6B7280; line-height:1.55; }
+.faq { border:1px solid #EEE; border-radius:10px; padding:14px 18px; margin-bottom:10px; background:#fff; }
+.faq h4 { margin:0 0 6px; font-size:.92rem; color:#1F2937; }
+.faq p { margin:0; font-size:.85rem; color:#6B7280; line-height:1.55; }
+.need { background:#FAFAFA; border:1px solid #EEE; border-radius:10px; padding:16px 20px; }
+.need li { font-size:.86rem; color:#4B5563; margin-bottom:5px; }
+"""
+
+P_NAV = ('<div class="nav"><div class="nav-inner">'
+         '<a href="../board-game/"><img src="../logo.png" alt="UNITARY"></a>'
+         '</div></div>')
+P_FOOT = ('<div class="blog-footer"><p>© 2026 UNITARY &nbsp;·&nbsp; '
+          '<a href="../board-game/">← 開枱指南</a> &nbsp;·&nbsp; '
+          '<a href="../downloads/">📥 免費資源</a> &nbsp;·&nbsp; '
+          '<a href="../products/">🛒 產品</a> &nbsp;·&nbsp; '
+          '<a href="https://instagram.com/unitary.hk">Instagram</a> &nbsp;·&nbsp; '
+          '<a href="../sitemap.xml">Sitemap</a></p></div></body></html>')
+P_EXT = ' target="_blank" rel="noopener"'
+
+def _p_head(title, desc, canonical):
+    return ('<!DOCTYPE html>\n<html lang="zh-Hant">\n<head>\n<meta charset="UTF-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+            '<title>' + title + '</title>\n<meta name="description" content="' + desc + '">\n'
+            '<link rel="canonical" href="' + canonical + '">\n'
+            '<link rel="stylesheet" href="../blog.css">\n'
+            '<style>' + PRODUCTS_CSS + '</style>\n</head>\n<body>\n' + P_NAV)
+
+def render_products_page():
+    d = json.loads((ROOT / 'products.json').read_text(encoding='utf-8'))
+    tiers = ''
+    for i, t in enumerate(d['tiers']):
+        pts = ''.join('<li>' + escape_html(x) + '</li>' for x in t['points'])
+        tgt = P_EXT if t['cta_url'].startswith('http') else ''
+        tiers += ('<div class="tier' + (' hi' if i == 2 else '') + '">'
+                  + '<div class="ic">' + t['icon'] + '</div>'
+                  + '<h3>' + escape_html(t['name']) + '</h3>'
+                  + '<div class="tag">' + escape_html(t['tag']) + '</div>'
+                  + '<div class="price">' + escape_html(t['price']) + '</div>'
+                  + '<div class="desc">' + escape_html(t['desc']) + '</div>'
+                  + '<ul>' + pts + '</ul>'
+                  + '<a class="p-btn" href="' + t['cta_url'] + '"' + tgt + '>'
+                  + escape_html(t['cta_label']) + '</a></div>')
+    items = ''
+    for it in d['items']:
+        badge = 'badge' if it['status'] == '已上架' else 'badge dev'
+        items += ('<div class="item"><h3>' + escape_html(it['name']) + '</h3>'
+                  + '<div class="meta"><span class="' + badge + '">' + escape_html(it['status'])
+                  + '</span>' + escape_html(it['tier']) + ' ｜ ' + escape_html(it['price']) + '</div>'
+                  + '<p>' + escape_html(it['desc']) + '</p>'
+                  + '<a href="' + it['url'] + '">' + escape_html(it['url_label']) + '</a></div>')
+    demand = ('<a class="alt" href="' + DEMAND_FORM_URL + '"' + P_EXT + '>📝 填表查詢</a>'
+              if DEMAND_FORM_URL else '')
+    body = ('<div class="p-wrap">\n'
+            '<div class="p-hero"><h1>🛒 UNITARY 產品</h1>\n'
+            '<p>' + escape_html(d['intro']) + '</p>\n'
+            '<p class="quote">「' + escape_html(d['tagline']) + '」</p></div>\n\n'
+            '<h2 class="p-h2">三種選擇</h2>\n<div class="tiers">' + tiers + '</div>\n\n'
+            '<h2 class="p-h2">產品</h2>\n<div class="items">' + items + '</div>\n\n'
+            '<div class="band"><h3>🪵 想訂製一個屬於你嘅收納盒？</h3>\n'
+            '<p>話我知係邊隻遊戲，我幫你設計 —— 雷射切割夾板外殼 + 3D 打印內膽，可以刻字。</p>\n'
+            '<div class="row"><a href="custom.html">睇訂製流程 →</a>'
+            '<a class="alt" href="' + IG_DM + '"' + P_EXT + '>📷 IG DM</a>' + demand + '</div></div>\n\n'
+            '<h2 class="p-h2">為咩用 UNITARY</h2>\n<div class="story">\n'
+            '<div><h4>🪵 回收夾板</h4><p>雷射切割夾板外殼，比原本嘅紙盒耐用。香港本地製作。</p></div>\n'
+            '<div><h4>🖨️ 3D 打印內膽</h4><p>內膽按你嘅組件訂製，卡套都裝得落（預留 10–20mm）。</p></div>\n'
+            '<div><h4>✏️ 可刻字</h4><p>雷射可以刻你嘅名或者遊戲名（只刻文字，唔用遊戲 logo／美術）。</p></div>\n'
+            '<div><h4>🇭🇰 香港製造</h4><p>本地設計同生產，唔需要等海外寄運。</p></div>\n'
+            '</div>\n</div>')
+    return _p_head('產品 — 桌遊收納系統 | UNITARY',
+                   'UNITARY 桌遊收納系統：STL 檔案、香港本地 3D 打印、回收木 × 3D 打印訂製盒。',
+                   'https://unitaryhk.com/products/') + body + P_FOOT
+
+def render_custom_page():
+    d = json.loads((ROOT / 'products.json').read_text(encoding='utf-8'))
+    steps = ''.join('<div class="step"><div class="n">' + n + '</div><div><h4>' + escape_html(t)
+                    + '</h4><p>' + escape_html(x) + '</p></div></div>' for n, t, x in d['custom_steps'])
+    need = ''.join('<li>' + escape_html(x) + '</li>' for x in d['custom_need'])
+    faq = ''.join('<div class="faq"><h4>' + escape_html(q) + '</h4><p>' + escape_html(a) + '</p></div>'
+                  for q, a in d['custom_faq'])
+    demand = ('<a href="' + DEMAND_FORM_URL + '"' + P_EXT + '>📝 填表查詢 →</a>'
+              if DEMAND_FORM_URL else '')
+    body = ('<div class="p-wrap">\n'
+            '<div class="p-hero"><h1>🪵 訂製你嘅桌遊收納盒</h1>\n'
+            '<p>雷射切割夾板外殼 + 3D 打印內膽，按你嘅遊戲組件訂製。可以刻字。</p>\n'
+            '<p class="quote">價格範圍：HKD 300–600（視乎尺寸同格數）</p></div>\n\n'
+            '<h2 class="p-h2">訂製流程</h2>\n<div class="steps">' + steps + '</div>\n\n'
+            '<h2 class="p-h2">要準備咩</h2>\n<div class="need"><ul>' + need + '</ul></div>\n\n'
+            '<div class="band"><h3>準備好未？</h3>\n'
+            '<p>有齊資料就 DM 我，或者填表。我通常 1–2 日內回覆報價。</p>\n'
+            '<div class="row"><a href="' + IG_DM + '"' + P_EXT + '>📷 IG DM</a>' + demand + '</div></div>\n\n'
+            '<h2 class="p-h2">常見問題</h2>\n' + faq + '\n</div>')
+    return _p_head('訂製桌遊收納盒 — 流程同報價 | UNITARY',
+                   'UNITARY 訂製桌遊收納盒：雷射切割夾板外殼 + 3D 打印內膽，可刻字，香港製造。',
+                   'https://unitaryhk.com/products/custom.html') + body + P_FOOT
+
 def main():
     games = load_games()
     print(f"Loaded {len(games)} published games from games.json")
@@ -1454,6 +1602,16 @@ def main():
     with open(ROOT / 'index.html', 'w') as f:
         f.write(index_html)
     print(f"  ✓ index.html ({len(index_html)} chars)")
+
+    # v3.7.0: /products/ 產品層
+    prod_dir = ROOT.parent / 'products'
+    prod_dir.mkdir(exist_ok=True)
+    pidx = render_products_page()
+    (prod_dir / 'index.html').write_text(pidx, encoding='utf-8')
+    pcus = render_custom_page()
+    (prod_dir / 'custom.html').write_text(pcus, encoding='utf-8')
+    print(f"  ✓ products/index.html ({len(pidx)} chars)")
+    print(f"  ✓ products/custom.html ({len(pcus)} chars)")
 
     # v3.6.2: /downloads/ 免費資源庫
     dl_html = render_downloads_page()
