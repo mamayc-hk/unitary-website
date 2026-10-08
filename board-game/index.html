@@ -12,6 +12,19 @@
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
+    <style>
+    /* v3.6.3 inline: 收集需求 CTA */
+    .collect-band { display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+        background:linear-gradient(135deg,#FFF8F3 0%,#FFF1E6 100%); border:1px solid #FFE0CC;
+        border-radius:12px; padding:16px 20px; margin:22px 0 8px; }
+    .collect-band .cb-text { flex:1 1 320px; font-size:.9rem; color:#4B5563; line-height:1.55; }
+    .collect-band .cb-text strong { color:#1F2937; display:block; margin-bottom:4px; font-size:1rem; }
+    .collect-band .cb-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .cb-btn { display:inline-block; background:#FF6B35; color:#fff; padding:9px 18px; border-radius:8px;
+        font-size:.88rem; font-weight:600; text-decoration:none; white-space:nowrap; }
+    .cb-btn:hover { background:#E85A26; }
+    .cb-btn.alt { background:#1F2937; }
+    </style>
 </head>
 <body>
 
@@ -74,7 +87,7 @@
 
         <div class="game-grid" id="game-grid">
         <a class="game-card" href="hitster.html" data-players="2-4 5+ 6+" data-time="30" data-diff="easy" data-type="party" data-cn="繁中">
-            <div class="game-card-box"><img src="images/hitster-box.png?v=76bb6ed" alt="歌迷序會 盒面" loading="lazy"></div>
+            <div class="game-card-box"><img src="images/hitster-box.png?v=fc195f2" alt="歌迷序會 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3 class="game-card-name-zh">歌迷序會</h3>
                 <p class="game-card-name-en">Hitster</p>
@@ -87,7 +100,7 @@
             </div>
         </a>
         <a class="game-card" href="take-time.html" data-players="2-4" data-time="30" data-diff="easy" data-type="coop" data-cn="繁中 簡中">
-            <div class="game-card-box"><img src="images/take-time-box.jpg?v=76bb6ed" alt="掌握時刻 盒面" loading="lazy"></div>
+            <div class="game-card-box"><img src="images/take-time-box.jpg?v=fc195f2" alt="掌握時刻 盒面" loading="lazy"></div>
             <div class="game-card-body">
                 <h3 class="game-card-name-zh">掌握時刻</h3>
                 <p class="game-card-name-en">Take Time</p>
@@ -99,6 +112,18 @@
                 </div>
             </div>
         </a>
+        </div>
+
+        <!-- v3.6.3: 收集需求 CTA -->
+        <div class="collect-band">
+            <div class="cb-text">
+                <strong>🎯 想我整邊隻遊戲？</strong>
+                <span>想要某隻遊戲嘅速查表、或者覺得邊個位唔順？話我知 —— <strong>多人問嘅我就優先做</strong>。</span>
+            </div>
+            <div class="cb-actions">
+                <a class="cb-btn" href="https://instagram.com/unitary.hk" target="_blank" rel="noopener">📷 IG DM →</a>
+                
+            </div>
         </div>
 
     </div>

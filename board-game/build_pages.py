@@ -22,6 +22,10 @@ try:
 except Exception:
     BUILD_HASH = 'v1'
 
+# === 收集需求（module 級：教學頁同 downloads 頁共用）===
+IG_DM = 'https://instagram.com/unitary.hk'
+DEMAND_FORM_URL = ''   # 填 Google Form URL 就會自動出「📝 填表話我知」按鈕
+
 # === 1. Markdown → HTML parser (with example box detection) ===
 def escape_html(s):
     return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;')
@@ -963,6 +967,8 @@ def render_index_page():
             </div>
         </a>''')
 
+    demand_btn = (f'<a class="cb-btn alt" href="{DEMAND_FORM_URL}" target="_blank" rel="noopener">📝 填表 →</a>'
+                  if DEMAND_FORM_URL else '')
     cards_html = '\n'.join(cards)
 
     # === Sidebar: 5 個 quick query (blog-style, 每個都係 blog 文章 link) ===
@@ -1072,6 +1078,19 @@ def render_index_page():
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="stylesheet" href="../blog.css">
+    <style>
+    /* v3.6.3 inline: 收集需求 CTA */
+    .collect-band {{ display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+        background:linear-gradient(135deg,#FFF8F3 0%,#FFF1E6 100%); border:1px solid #FFE0CC;
+        border-radius:12px; padding:16px 20px; margin:22px 0 8px; }}
+    .collect-band .cb-text {{ flex:1 1 320px; font-size:.9rem; color:#4B5563; line-height:1.55; }}
+    .collect-band .cb-text strong {{ color:#1F2937; display:block; margin-bottom:4px; font-size:1rem; }}
+    .collect-band .cb-actions {{ display:flex; gap:10px; flex-wrap:wrap; }}
+    .cb-btn {{ display:inline-block; background:#FF6B35; color:#fff; padding:9px 18px; border-radius:8px;
+        font-size:.88rem; font-weight:600; text-decoration:none; white-space:nowrap; }}
+    .cb-btn:hover {{ background:#E85A26; }}
+    .cb-btn.alt {{ background:#1F2937; }}
+    </style>
 </head>
 <body>
 
@@ -1097,6 +1116,18 @@ def render_index_page():
 
         <div class="game-grid" id="game-grid">
 {cards_html}
+        </div>
+
+        <!-- v3.6.3: 收集需求 CTA -->
+        <div class="collect-band">
+            <div class="cb-text">
+                <strong>🎯 想我整邊隻遊戲？</strong>
+                <span>想要某隻遊戲嘅速查表、或者覺得邊個位唔順？話我知 —— <strong>多人問嘅我就優先做</strong>。</span>
+            </div>
+            <div class="cb-actions">
+                <a class="cb-btn" href="{IG_DM}" target="_blank" rel="noopener">📷 IG DM →</a>
+                {demand_btn}
+            </div>
         </div>
 
     </div>
@@ -1295,6 +1326,8 @@ def render_downloads_page():
             <p class="dl-back">← <a href="../board-game/{g['id']}.html">{escape_html(g['name'])} 完整教學</a></p>
         </section>''')
 
+    form_btn = (f'<a class="dl-btn alt" href="{DEMAND_FORM_URL}" target="_blank" rel="noopener">📝 填表話我知 →</a>'
+                if DEMAND_FORM_URL else '')
     body = chr(10).join(sections) if sections else '<section class="dl-game"><h2>陸續加入</h2><p class="dl-game-desc">其他桌遊嘅免費資源正在製作同審核中。</p></section>'
 
     return f'''<!DOCTYPE html>
@@ -1327,6 +1360,16 @@ def render_downloads_page():
     .dl-meta {{ font-size: .76rem; color: #9CA3AF; }}
     .dl-cta {{ color: #FF6B35; font-weight: 600; font-size: .82rem; white-space: nowrap; }}
     .dl-back {{ font-size: .85rem; margin-top: 12px; }}
+    .dl-collect {{ background: linear-gradient(135deg,#FFF8F3 0%,#FFF1E6 100%); border: 1px solid #FFE0CC;
+                   border-radius: 12px; padding: 18px 20px; margin: 30px 0 18px; }}
+    .dl-collect h3 {{ margin: 0 0 8px; font-size: 1.05rem; color: #1F2937; }}
+    .dl-collect p {{ margin: 0 0 12px; font-size: .9rem; color: #4B5563; line-height: 1.6; }}
+    .dl-actions {{ display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }}
+    .dl-btn {{ display: inline-block; background: #FF6B35; color: #fff; padding: 9px 18px;
+               border-radius: 8px; font-size: .9rem; font-weight: 600; text-decoration: none; }}
+    .dl-btn:hover {{ background: #E85A26; }}
+    .dl-btn.alt {{ background: #1F2937; }}
+    .dl-note {{ font-size: .8rem; color: #9CA3AF; margin: 12px 0 0 !important; }}
     .dl-tips {{ background: #FAFAFA; border: 1px solid #EEE; border-radius: 8px; padding: 14px 18px; font-size: .85rem; color: #4B5563; }}
     .dl-tips strong {{ color: #1F2937; }}
     .dl-tips li {{ margin-bottom: 4px; }}
@@ -1345,11 +1388,22 @@ def render_downloads_page():
 
 {body}
 
+    <div class="dl-collect">
+        <h3>🎯 想要咩？話我知</h3>
+        <p>邊隻遊戲想要<strong>速查表</strong>／<strong>配件</strong>？或者玩嘅時候覺得邊度唔順？
+        <strong>DM 我 —— 多人問嘅我就優先做。</strong></p>
+        <div class="dl-actions">
+            <a class="dl-btn" href="{IG_DM}" target="_blank" rel="noopener">📷 Instagram DM →</a>
+            {form_btn}
+        </div>
+        <p class="dl-note">📌 新遊戲、新速查表、新配件 —— 會優先通知 DM 過我嘅人。</p>
+    </div>
+
     <div class="dl-tips">
         <strong>🖨️ 打印建議</strong>
         <ul>
             <li>用 <strong>A4</strong>、紙張設定揀「<strong>實際大小 / 100%</strong>」（唔好揀「fit to page」，否則尺寸唔準）</li>
-            <li>速查卡印完沿裁切線剪開，可套 58×89mm 卡套</li>
+            <li>速查卡印完沿裁切線剪開，可套 66×91mm 卡套（標準撲克尺寸）</li>
             <li>黑白打印都睇得清（彩色更易分辨）</li>
             <li>想耐用啲：用 200g 卡紙，或者印完過膠</li>
         </ul>
